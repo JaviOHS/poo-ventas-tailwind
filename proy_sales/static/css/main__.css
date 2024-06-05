@@ -1,0 +1,2086 @@
+/* Estilos para la barra de navegación */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --title: gold;
+    --subtitle: gray;
+    --content: #111010;
+
+    --save: rgb(223, 189, 0);
+    --save-hover: rgb(59, 59, 57);
+    --cancel: rgb(255, 0, 0);
+    --cancel-hover: rgb(128, 0, 0);
+    --update: rgb(0, 204, 255);
+    --update-hover: rgb(0, 102, 128);
+    --color-1: rgb(59, 59, 57);
+
+    --card-header-footer: rgb(94, 91, 91);
+    --card-body: rgb(24, 22, 22);
+
+    --labels: wheat;
+}
+
+body {
+    visibility: hidden;
+    opacity: 0;
+    transition: black 3s ease;
+    /* Agrega una transición suave para el cambio de color de fondo */
+    background-color: black;
+    color: #000000;
+    font-family: "Ubuntu Sans", sans-serif;
+    font-optical-sizing: auto;
+    /* <weight>: Use a value from 100 to 800 */
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    font-size: 18px;
+}
+
+::selection {
+    background-color: gold;
+    color: black;
+    /* Color de texto para la selección */
+}
+
+/* Barra de navegacion */
+.navbar {
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.navbar-brand {
+    color: var(--title);
+    font-size: 24px;
+    font-weight: 800;
+    margin-right: 20px;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: var(--subtitle);
+    transition: color 0.3s;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--title);
+}
+
+
+
+/* Home - Bienvenida */
+#home-content {
+    /* Estilos para el contenido de la página de inicio */
+    padding: 60px 0;
+    /* Añadir espacio interno */
+}
+
+.welcome-message {
+    /* Estilos para el mensaje de bienvenida */
+    background-color: var(--content);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 0 10px 0 10px;
+    transition: transform 0.3s;
+}
+
+h2 {
+    text-transform: uppercase;
+    /* Convertir el texto del h2 en mayúsculas */
+    color: var(--title);
+    font-weight: 800;
+    font-size: 40px;
+}
+
+p {
+    color: var(--subtitle);
+    font-weight: 500;
+    font-size: 24px;
+}
+
+span {
+    color: var(--subtitle);
+}
+
+.username {
+    color: var(--title);
+    font-weight: 800;
+}
+
+/* Estilos para las imágenes del carrusel */
+#image-carousel {
+    transition: transform 0.3s;
+}
+
+.carousel-item img {
+    border-radius: 50px;
+    /* Bordes redondeados */
+    max-width: 90%;
+    /* Ancho máximo */
+    height: auto;
+    /* Altura automática */
+}
+
+#image-carousel:hover,
+.welcome-message:hover {
+    transform: scale(1.05);
+    /* Aumenta el tamaño al pasar el cursor */
+}
+
+/* Home - Informacion */
+.info-container {
+    margin-top: 100px;
+}
+
+.info-card {
+    background-color: var(--content);
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    overflow: hidden;
+}
+
+.info-card i,
+.info-card h2,
+.info-card p {
+    transition: color 0.3s;
+    /* Añade transición de color */
+}
+
+.info-card i {
+    font-size: 40px;
+    color: whitesmoke;
+    margin: 20px;
+}
+
+.info-card h2 {
+    font-size: 24px;
+}
+
+.info-card p {
+    font-size: 20px;
+}
+
+.info-img {
+    width: 80%;
+    border-radius: 50px;
+    transition: transform 0.3s;
+    margin: 0 auto;
+    /* Esto centrará horizontalmente el contenedor */
+}
+
+.info-card:hover,
+.info-card:hover h2,
+.info-card:hover p,
+.info-card:hover i {
+    transform: scale(1.05);
+    /* Aumenta el tamaño al pasar el cursor */
+}
+
+/* Home - Equipo de Trabajo */
+.team-container {
+    margin-top: 100px;
+}
+
+.team-card {
+    background-color: var(--card-body);
+    border-radius: 25px;
+    width: 100%;
+    max-width: 1200px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    overflow: hidden;
+}
+
+.team-card i,
+.team-card h2,
+.team-card p {
+    padding: 10px;
+    transition: color 0.3s;
+    /* Añade transición de color */
+}
+
+.team-card i {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.team-card h2 {
+    font-size: 24px;
+}
+
+.team-card p {
+    font-size: 20px;
+}
+
+.team-img {
+    width: 50%;
+    border-radius: 25px;
+    transition: transform 0.3s;
+    margin: 0 auto;
+    /* Esto centrará horizontalmente el contenedor */
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+    /* Aumenta el tamaño al pasar el cursor */
+    border: 4px solid var(--title);
+}
+
+/* Estilos para los botones */
+.btn-details,
+.btn-cancel,
+.btn-update,
+.btn-add {
+    margin: 10px;
+    border-radius: 10px;
+    /* Bordes redondeados */
+    padding: 10px 20px;
+    /* Añadir espacio interno */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    font-weight: 600;
+    /* Peso de la fuente */
+    text-transform: uppercase;
+    /* Convertir el texto en mayúsculas */
+    transition: transform 0.3s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    color: black;
+    border: none;
+}
+
+.btn-details {
+    background-color: var(--save);
+    /* Color de fondo */
+}
+
+.btn-cancel {
+    background-color: var(--cancel);
+    /* Color de fondo */
+}
+
+.btn-update {
+    background-color: var(--update);
+    /* Color de fondo */
+}
+
+.btn-add {
+    background-color: greenyellow;
+    /* Color de fondo */
+}
+
+.btn-details:hover,
+.btn-cancel:hover,
+.btn-update:hover,
+.btn-add:hover {
+    color: #fff;
+    transform: scale(1.05);
+    /* Aumenta el tamaño al pasar el cursor */
+}
+
+.btn-details:hover {
+    background-color: var(--save-hover);
+    /* Cambiar a un color más claro */
+}
+
+.btn-cancel:hover {
+    background-color: var(--cancel-hover);
+    /* Cambiar a un color más claro */
+}
+
+.btn-update:hover {
+    background-color: var(--update-hover);
+    /* Cambiar a un color más claro */
+}
+
+.btn-add:hover {
+    background-color: #32CD32;
+    /* Cambiar a un color más claro */
+}
+
+/* Estilos para modulos */
+#home-modulos {
+    padding: 60px 0 100px 0;
+    /* Añadir espacio interno */
+}
+
+#home-signup,
+#home-signin {
+    width: 60%;
+    padding: 10px 0 20px;
+    /* Añadir espacio interno */
+    margin-bottom: 100px;
+}
+
+#home-signup {
+    width: 100%;
+}
+
+.module-head {
+    padding: 30px;
+}
+
+.module-head h2 {
+    color: var(--title);
+    font-weight: 800;
+    font-size: 32px;
+}
+
+.module-head p {
+    color: var(--subtitle);
+    font-weight: 600;
+    font-size: 22px;
+}
+
+/* Cards de Modulos */
+.module-cards {
+    background-color: var(--content);
+    border-radius: 25px;
+    padding: 30px;
+    width: auto;
+    margin: 0 auto;
+    /* Esto centrará horizontalmente el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Agrega una sombra para darle profundidad */
+    max-width: 1200px;
+    /* Establece un ancho máximo para evitar que se extienda demasiado */
+}
+
+.card {
+    margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Añade una transición para la sombra */
+    border: none;
+    /* Elimina cualquier borde no deseado */
+    border-radius: 15px;
+    /* Añade bordes redondeados a las tarjetas */
+    overflow: hidden;
+    /* Asegura que los contenidos no sobresalgan del borde redondeado */
+    background-color: #333;
+    /* Fondo oscuro para mayor contraste */
+}
+
+.card:hover {
+    border: none;
+    /* Elimina cualquier borde no deseado */
+    transform: scale(1.05);
+    /* Aumenta el tamaño al pasar el cursor */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* Aumenta la sombra al pasar el cursor */
+}
+
+.card-header,
+.card-footer {
+    border: none;
+    /* Elimina cualquier borde no deseado */
+    background-color: black;
+    padding: 10px 15px;
+    /* Ajusta el espaciado interno */
+    width: 100%;
+    text-align: center;
+    /* Centra el texto */
+    font-weight: bold;
+    /* Resalta el texto */
+
+}
+
+.card-body {
+    background-color: var(--card-body);
+    padding: 15px;
+    /* Ajusta el espaciado interno */
+    width: 100%;
+}
+
+.module-cards {
+    width: 100%;
+    line-height: 1.6;
+    /* Mejora la legibilidad con un mayor interlineado */
+}
+
+.module-cards h2 {
+    color: var(--title);
+    /* Color amarillo para destacarlo */
+    text-transform: uppercase;
+    /* Convertir el texto en mayúsculas */
+    font-weight: 800;
+    /* Peso de la fuente */
+    font-size: 20px;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    /* Ajusta el margen para separarlo del contenido siguiente */
+}
+
+.module-cards h3 {
+    color: var(--labels);
+    /* Color amarillo para destacarlo */
+    text-transform: uppercase;
+    /* Convertir el texto en mayúsculas */
+    font-weight: 800;
+    /* Peso de la fuente */
+    font-size: 20px;
+}
+
+h3 .info {
+    color: var(--subtitle);
+    /* Cambia esto al color que desees */
+    margin-left: 5px;
+    /* Añade un pequeño espacio entre el texto y los datos */
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.module-cards p {
+    color: var(--subtitle);
+    /* Color más claro para mejor contraste */
+    font-weight: 700;
+    /* Peso de la fuente */
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    /* Ajusta el margen para separar los párrafos */
+}
+
+.module-cards .description {
+    color: var(--subtitle);
+    /* Color más claro para mejor contraste */
+    font-weight: 700;
+    /* Peso de la fuente */
+    font-size: 20px;
+    line-height: 1.6;
+    /* Mejora la legibilidad con un mayor interlineado */
+    margin: 0 0 10px 0;
+    /* Ajusta el margen para separar los párrafos */
+}
+
+.module-cards img {
+    width: 50%;
+    border-radius: 15px;
+    margin: 0 auto 10px;
+    /* Esto centrará horizontalmente el contenedor */
+}
+
+/* Estilos para los formularios */
+.form-container {
+    background-color: #111010;
+    border-radius: 25px;
+    margin: 0 auto;
+    /* Esto centrará horizontalmente el contenedor */
+    width: 70%;
+    padding: 20px;
+}
+
+.form-container-login {
+    background-color: var(--content);
+    border-radius: 25px;
+    margin: 0 auto;
+    /* Esto centrará horizontalmente el contenedor */
+    width: 100%;
+    padding: 20px;
+}
+
+#form-brand,
+#form-category {
+    width: 40%;
+}
+
+#form-product {
+    width: 100%;
+}
+
+.error-messages p {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+label {
+    color: var(--labels);
+    /* Color del texto */
+    font-size: 20px;
+    /* Tamaño de fuente */
+    font-weight: 800;
+    /* Peso de la fuente */
+    text-transform: uppercase;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form select,
+form input[type="date"],
+form input [type="checkbox"],
+form input[type="file"],
+.custom-select {
+    margin: 10px 0 25px;
+    /* Añadir espacio superior e inferior */
+    background-color: gray;
+    border: var(--card-body);
+    /* Color del borde */
+    color: black;
+    border-radius: 10px;
+    font-size: 16px;
+    /* Tamaño de fuente */
+    font-weight: 600;
+    /* Peso de la fuente */
+    box-sizing: border-box;
+    /* Asegurar que el padding y el borde se incluyan en el tamaño total */
+    width: 100%;
+    /* Hacer que todos los elementos tengan el mismo ancho */
+    padding: 10px;
+    /* Espaciado interno para consistencia */
+}
+
+form input[type="file"] {
+    background-color: lightgray;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="date"]:focus,
+form input[type="file"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+.custom-select:focus {
+    outline: none;
+    background-color: gray;
+}
+
+.custom-select option {
+    color: black;
+    /* Color del texto */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    font-weight: 600;
+    /* Peso de la fuente */
+    border-radius: 25px;
+}
+
+.input-btn,
+.input-group-text {
+    margin: 10px 0 25px;
+    padding: 10px;
+    height: auto;
+    background-color: var(--subtitle);
+    border: none;
+    color: var(--content);
+}
+
+.input-group-text {
+    background-color: var(--color-1);
+    padding-left: 15px;
+    padding-right: 15px;
+    color: whitesmoke;
+}
+
+/* Estilos para Sweet Alert */
+.dark-popup {
+    background: var(--content) !important;
+    /* Fondo oscuro */
+    color: #fff !important;
+    /* Texto blanco */
+
+}
+
+.dark-title {
+    color: var(--title);
+    font-size: 30px;
+}
+
+.dark-confirm-button {
+    background-color: #3085d6;
+    /* Color del botón de confirmación */
+    color: #fff;
+    /* Texto del botón de confirmación */
+}
+
+.dark-cancel-button {
+    background-color: #d33;
+    /* Color del botón de cancelación */
+    color: #fff;
+    /* Texto del botón de cancelación */
+}
+
+.error-title {
+    color: #ff4d4d;
+    /* Rojo para errores */
+}
+
+.success-title {
+    color: #4CAF50;
+    /* Verde para éxitos */
+}
+
+/* Estilo para el botón de ir arriba */
+#goTopBtn {
+    position: fixed;
+    /* Mantiene el botón en una posición fija */
+    bottom: -80px;
+    /* Sube el botón más arriba para evitar superposiciones */
+    right: 25px;
+    /* Distancia desde la parte derecha */
+    z-index: 99;
+    /* Asegura que el botón esté encima de otros elementos */
+    border: none;
+    /* Sin borde */
+    outline: none;
+    /* Sin contorno */
+    background-color: gold;
+    /* Color de fondo */
+    color: rgb(0, 0, 0);
+    /* Color del texto */
+    cursor: pointer;
+    /* Cursor interactivo */
+    padding: 0;
+    /* Elimina el espacio alrededor del texto */
+    border-radius: 50%;
+    /* Bordes redondeados */
+    width: 50px;
+    /* Ajusta el ancho según tus necesidades */
+    height: 50px;
+    /* Ajusta la altura según tus necesidades */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: bottom 0.5s ease-in-out;
+    /* Agrega una transición en la propiedad bottom */
+}
+
+#goTopBtn i {
+    font-size: 24px;
+    /* Ajusta el tamaño del icono según tus necesidades */
+}
+
+#goTopBtn.active {
+    bottom: 180px;
+    /* Posición final del botón, aparecerá desde el borde inferior */
+}
+
+@media (max-width: 700px) {
+    #goTopBtn {
+        right: 13px;
+        /* Distancia desde la parte derecha */
+    }
+}
+
+#right-nav-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.modal-body {
+    border-radius: 20px;
+    background-color: var(--content);
+    padding: 20px;
+    z-index: 99999;
+    margin: 100px;
+}
+
+.model-card {
+    background-color: var(--card-body);
+    border-radius: 25px;
+    padding: 20px;
+    width: auto;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+.model-card:hover {
+    transform: scale(1.05);
+}
+
+.model-logo {
+    border-radius: 25px;
+    transition: transform 0.3s;
+    margin: 0 auto;
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.model-logo:hover {
+    transform: scale(1.05);
+}
+
+.model-card i {
+    font-size: 40px;
+    color: whitesmoke;
+    margin: 20px;
+}
+
+.model-title {
+    color: var(--title);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.model-text {
+    color: var(--subtitle);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #ffca2c;
+    border-color: #ffca2c;
+}
+
+/* Estilos para la seccion de contactos */
+.contact .contact-about h3 {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #222222;
+}
+
+a {
+    color: var(--subtitle);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.contact .contact-about p {
+    font-size: 16px;
+    color: var(--subtitle);
+    font-weight: 500;
+    font-style: italic;
+}
+
+.contact .contact-about .autor {
+    color: var(--color-1);
+}
+
+.contact .social-links {
+    padding: 20px;
+}
+
+.contact .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: var(--title);
+    color: #000000;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+    border: 1px solid #000000;
+    text-decoration: none;
+}
+
+.contact .social-links a:hover {
+    background: var(--subtitle);
+    color: #000000;
+    text-decoration: none;
+}
+
+.contact .info {
+    color: #444444;
+}
+
+.contact .info i {
+    font-size: 32px;
+    color: gold;
+    float: left;
+    line-height: 1;
+}
+
+.contact .info p {
+    padding: 0 0 10px 42px;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.contact .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+    margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+.contact .php-email-form .loading {
+    display: none;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #18d26e;
+    border-top-color: #eee;
+    animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+    border-radius: 20px;
+    box-shadow: none;
+    font-size: 14px;
+    padding: 10px 15px;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+    border-color: #3498db;
+}
+
+.contact .php-email-form button[type=submit] {
+    background: gold;
+    border: 0;
+    padding: 10px 24px;
+    color: #000000;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+    background: rgba(255, 217, 0, 0.729);
+}
+
+@keyframes animate-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos para el footer */
+#footer {
+    /* position: fixed; */
+    /* Agregado para mantenerlo pegado al final */
+    bottom: 0;
+    /* Lo posiciona en la parte inferior de la ventana */
+    left: 0;
+    /* Alinea el pie de página a la izquierda */
+    width: 100%;
+    /* Ocupa todo el ancho de la ventana */
+    background: #000000;
+    box-shadow: 0px 0px 50px 0px rgba(207, 200, 160, 0.487);
+    padding: 20px 0;
+    color: #ffffff;
+    height: 11%;
+    /* Ajusta la altura según tus necesidades */
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+
+}
+
+.footer p {
+    color: var(--subtitle);
+    font-size: 18px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--title);
+}
+
+.passwords {
+    margin: 0 auto;
+}
+
+/* Esto es para el enlace de 'No tienes cuenta? Registrate' o 'Ya tienes cuenta? Inicia sesion', no sabia que nombre ponerle  */
+.lol a {
+    text-decoration: none;
+    color: var(--labels);
+}
+
+.lol a:hover {
+    color: var(--title);
+}
+
+.toggle-custom {
+    background: #eee;
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 50px;
+    margin: 10px;
+    position: relative;
+}
+
+.toggle-custom label {
+    width: 40px;
+    height: 40px;
+    background: #1d1b76;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.25s ease 0s;
+    position: relative;
+}
+
+.toggle-custom input {
+    display: none;
+}
+
+.toggle-custom input:checked+label {
+    margin-left: 50px;
+    background: gold;
+}
+
+.toggle-custom label .moon {
+    position: absolute;
+    left: 10px;
+    transition: opacity 0.3s ease;
+    color: rgb(255, 255, 255);
+    transition: color 0.5s ease, opacity 0.5s ease;
+}
+
+.toggle-custom label .sun {
+    position: absolute;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transition: color 0.5s ease, opacity 0.5s ease;
+    color: white;
+}
+
+.toggle-custom input:checked+label .moon {
+    opacity: 0;
+}
+
+.toggle-custom input:checked+label .sun {
+    opacity: 1;
+}
+
+/* Estilos para la seccion de caracteristicas */
+.features .icon-box {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #000000;
+    transition: ease-in-out 0.3s;
+    border-radius: 25px;
+    box-shadow: 0 0 29px 0 rgba(255, 255, 255, 0.12);
+}
+
+.features .icon-box i {
+    font-size: 32px;
+    padding-right: 10px;
+    line-height: 1;
+}
+
+.icon-box h3 {
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.icon-box h3 a {
+    color: #ffffff;
+    transition: ease-in-out 0.3s;
+    text-decoration: none;
+}le-
+
+.icon-box h3 a:hover {
+    color: #3498db;
+}
+
+.icon-box:hover {
+    background: #161616;
+}
+
+/* Perfil */
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--title);
+    border: var(--subtitle) 4px solid;
+    margin: 6px;
+}
+
+.profile-picture img {
+    width: 100%;
+    object-fit: cover;
+    background-color: #ff0000;
+}
+
+.profile-menu {
+    position: relative;
+}
+
+#profile-menu-items {
+    display: none;
+    position: absolute;
+    background-color: var(--content);
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    border-radius: 15px;
+    left: -200px;
+    width: 290px;
+}
+
+#profile-menu-items a {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--subtitle);
+    text-decoration: none;
+    margin: 20px;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#profile-menu-items a:hover {
+    transform: scale(1.05);
+    color: var(--title);
+}
+
+.show {
+    display: block !important;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-custom {
+    margin-right: 10px;
+    /* Ajusta el espacio entre el toggle y el texto según tus necesidades */
+}
+
+.fa-whatsapp {
+    color: white;
+}
+
+/* Notificaciones en error */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.card.notification-card {
+    padding: 0;
+    /* Elimina el padding extra, ya que la card tiene su propio padding */
+    border-radius: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.card-header.bg-danger {
+    background-color: #b80000;
+    /* Rojo */
+    color: white;
+}
+
+.card-header i {
+    font-size: 20px;
+    margin-right: 0.5rem;
+}
+
+.card-body {
+    font-size: 18px;
+    padding: 1rem;
+    font-weight: 400;
+}
+
+.card-body.text-danger {
+    color: #b80000;
+    /* Rojo para el texto */
+}
+
+.notification-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    /* Posición final */
+}
+
+.notification-card {
+    transform: translateY(-20px);
+    /* Posición inicial para animación */
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.notification-card {
+    animation: fadeout 5s forwards;
+}
+
+#menu {
+    z-index: 9;
+    transition-duration: 1s;
+    border-radius: 25px;
+    position: fixed;
+    background-color: var(--content);
+    top: 0;
+    left: -250px;
+    /* Para que inicialmente esté oculto */
+    width: 250px;
+    height: 100vh;
+    /* Ocupa toda la altura de la página */
+    transition: left 0.3s;
+    /* Para animar el despliegue */
+}
+
+#menu.open {
+    left: 0;
+    /* Cuando está abierto, se desplaza a la posición 0 */
+}
+
+#temas {
+    margin-top: 10vh;
+}
+
+.opcion-color {
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.opcion-color:hover {
+    transform: scale(1.05);
+    /* Agranda un poco al pasar el mouse */
+    border-radius: 15px;
+}
+
+.color {
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+}
+
+#content {
+    transition: margin-left 0.3s;
+    /* Transición para el desplazamiento del contenido */
+    margin-left: 0;
+    /* Ajusta el margen izquierdo inicial del contenido */
+}
+
+#menu.open~#content {
+    margin-left: 250px;
+    /* Desplaza el contenido hacia la derecha cuando el menú está abierto */
+}
+
+/* Estilo para mover la página cuando el menú está abierto */
+body.menu-open {
+    position: fixed;
+    left: 250px;
+    /* Mueve la página hacia la derecha */
+}
+
+#menu-toggle {
+    position: absolute;
+    top: 50vh;
+    right: -50px;
+    /* Posicionamos el ícono ligeramente fuera del menú */
+    transform: translateY(-50%);
+    /* Centramos verticalmente el ícono */
+    transition: right 0.3s ease-in-out;
+    /* Animación para la transición */
+}
+
+#menu.open #menu-toggle {
+    right: 10px;
+    /* Cuando el menú está abierto, el ícono se mueve hacia adentro */
+}
+
+#menu-icon {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--title);
+    color: #000000;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    /* Animación para la rotación */
+}
+
+#menu.open #menu-icon {
+    transform: rotate(180deg);
+    /* Rotamos el ícono 180 grados cuando el menú está abierto */
+}
+
+/* Estilos para el modo claro */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #000000;
+    font-family: "Ubuntu Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    font-size: 18px;
+
+
+    .team-card i {
+        color: rgb(0, 0, 0);
+    }
+
+    #menu-toggle {
+        color: #000000;
+    }
+
+    ::selection {
+        background-color: #333333;
+        color: #ffffff;
+    }
+
+    /* Barra de navegacion */
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .navbar-brand {
+        color: rgb(66, 194, 255);
+    }
+
+    .nav-item {
+        margin: 0 15px;
+    }
+
+    .nav-link {
+        color: rgb(95, 95, 95);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: rgb(66, 194, 255);
+    }
+
+    /* Estilos para el mensaje de bienvenida */
+    .welcome-message {
+        background-color: white;
+    }
+
+    h2 {
+        color: #0a3d62;
+    }
+
+    p {
+        color: black;
+    }
+
+    span {
+        color: black;
+    }
+
+    .username {
+        color: #14dc99;
+    }
+
+    /* Estilos para la informacion */
+    .info-card {
+        background-color: whitesmoke;
+        transition: transform 0.3s, background-color 0.3s, color 0.3s;
+        box-shadow: 0px 0px 50px 0px rgba(128, 128, 128, 0.487);
+    }
+
+    .info-card i {
+        color: gray;
+    }
+
+    .btn-details {
+        background-color: #14dc99;
+        /* Color de fondo */
+    }
+
+    .btn-details:hover,
+    .btn-cancel:hover,
+    .btn-update:hover,
+    .btn-add:hover {
+        color: #fff;
+        transform: scale(1.05);
+        /* Aumenta el tamaño al pasar el cursor */
+    }
+
+    .btn-details:hover {
+        background-color: var(--save-hover);
+        /* Cambiar a un color más claro */
+    }
+
+    .card-body {
+        background-color: whitesmoke;
+    }
+
+    /* Cards de Modulos */
+    .module-cards {
+        background-color: white;
+        box-shadow: 0 4px 8px rgb(255, 255, 255);
+    }
+
+    .module-cards h2 {
+        color: black;
+    }
+
+    .module-cards h3 {
+        color: black;
+    }
+
+    h3 .info {
+        color: #10b27c;
+    }
+
+    .module-cards p {
+        color: rgb(255, 255, 255);
+    }
+
+    .module-cards .description {
+        color: black
+    }
+
+    .card-header,
+    .card-footer {
+        background-color: rgb(224, 224, 224);
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 12px rgb(255, 255, 255);
+        /* Aumenta la sombra al pasar el cursor */
+    }
+
+    .module-cards h2 {
+        color: black;
+    }
+
+    .module-cards p {
+        color: #10b27c;
+    }
+
+    .form-container-login {
+        background-color: white;
+    }
+
+    label {
+        color: black;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="number"],
+    form select,
+    form input[type="date"],
+    form input [type="checkbox"],
+    form input[type="file"],
+    .custom-select {
+        background-color: rgb(205, 205, 205);
+    }
+
+    form input[type="text"]:focus,
+    form input[type="number"]:focus,
+    form input[type="date"]:focus,
+    form input[type="file"]:focus,
+    form input[type="email"]:focus,
+    form input[type="password"]:focus,
+    .custom-select:focus {
+        outline: none;
+        background-color: rgb(205, 205, 205);
+    }
+
+    /* Estilos para Sweet Alert */
+    .dark-popup {
+        background: white !important;
+        /* Fondo oscuro */
+        color: #000000 !important;
+        /* Texto blanco */
+        border-radius: 20px;
+    }
+
+    /* Estilo para el botón de ir arriba */
+    #goTopBtn {
+        background-color: #14dc99;
+    }
+
+    .modal-body {
+        background-color: white;
+    }
+
+    .model-card {
+        background-color: whitesmoke;
+    }
+
+    .model-card i {
+        color: gray;
+    }
+
+    .contact .contact-about h3 {
+        color: #000000;
+    }
+
+    .contact .contact-about p {
+        color: #888;
+    }
+
+    .contact .social-links a {
+        font-size: 18px;
+        display: inline-block;
+        background: #18d26e;
+        color: #000000;
+        line-height: 1;
+        padding: 8px 0;
+        margin-right: 4px;
+        border-radius: 50%;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        transition: 0.3s;
+        text-decoration: none;
+        border: none;
+    }
+
+    .contact .social-links a:hover {
+        background: #0A3D62;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .contact .info i {
+        color: #14dc99;
+    }
+
+    .contact .php-email-form button[type=submit] {
+        background: #14dc99;
+    }
+
+    @keyframes animate-loading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+
+    .lol a {
+        color: #0A3D62;
+    }
+
+    a:hover {
+        color: #14dc99;
+    }
+
+    #footer {
+        background: #ffffff;
+        color: #000000;
+        box-shadow: 0px 0px 50px 0px rgba(128, 128, 128, 0.487);
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .footer p {
+        color: var(--subtitle);
+        font-size: 18px;
+    }
+
+    .footer a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        color: rgb(66, 194, 255);
+    }
+
+    card-body {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .form-container {
+        background-color: #ffffff;
+    }
+
+    .features .icon-box {
+        background: #ffffff;
+        box-shadow: 0 0 29px 0 rgba(255, 237, 237, 0.12);
+    }
+
+    .icon-box h3 a {
+        color: #222222;
+    }
+
+    .icon-box:hover {
+        background: #eef7fc;
+    }
+
+    .team-card {
+        border: none;
+    }
+
+    .team-card:hover {
+        transform: scale(1.05);
+        /* Aumenta el tamaño al pasar el cursor */
+        border: 4px solid #14dc99;
+    }
+
+    .input-btn,
+    .input-group-text {
+        margin: 10px 0 25px;
+        padding: 10px;
+        height: auto;
+        background-color: rgb(205, 205, 205);
+        border: none;
+        color: var(--content);
+    }
+
+    .input-group-text {
+        background-color: #0A3D62;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: whitesmoke;
+    }
+
+    #profile-menu-items {
+        background-color: #ffffff;
+    }
+
+    .navbar-toggler-icon {
+        color: black;
+    }
+
+    .fa-whatsapp {
+        color: white;
+    }
+
+    #menu {
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-picture {
+        background-color: #14dc99;
+        border: #14dc99 4px solid;
+    }
+
+    #menu-icon {
+        background-color: #14dc99;
+    }
+
+    #profile-menu-items a {
+        color: #0A3D62;
+    }
+
+    #profile-menu-items a:hover {
+        color: #14dc99;
+    }
+}
+
+/* Estilos para el modo rosado */
+body.pink-mode {
+    background-color: #d66fa042;
+    color: #000000;
+    font-family: "Ubuntu Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    font-size: 18px;
+
+    .team-card i {
+        color: rgb(0, 0, 0);
+    }
+
+    ::selection {
+        background-color: #333333;
+        color: #ffffff;
+    }
+
+    /* Barra de navegacion */
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .navbar-brand {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .nav-item {
+        margin: 0 15px;
+    }
+
+    .nav-link {
+        color: rgb(95, 95, 95);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    /* Estilos para el mensaje de bienvenida */
+    .welcome-message {
+        background-color: white;
+    }
+
+    h2 {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    p {
+        color: black;
+    }
+
+    span {
+        color: black;
+    }
+
+    .username {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    /* Estilos para la informacion */
+    .info-card {
+        background-color: whitesmoke;
+        transition: transform 0.3s, background-color 0.3s, color 0.3s;
+        box-shadow: 0px 0px 50px 0px rgba(128, 128, 128, 0.487);
+    }
+
+    .info-card i {
+        color: gray;
+    }
+
+    .btn-details {
+        background-color: #ff6eb4;
+        /* Cambiar a color rosado */
+        /* Color de fondo */
+    }
+
+    .btn-details:hover,
+    .btn-cancel:hover,
+    .btn-update:hover,
+    .btn-add:hover {
+        color: #fff;
+        transform: scale(1.05);
+        /* Aumenta el tamaño al pasar el cursor */
+    }
+
+    .btn-details:hover {
+        background-color: #ff9ed6;
+        /* Cambiar a un tono más claro de rosado */
+        /* Cambiar a un color más claro */
+    }
+
+    .card-body {
+        background-color: whitesmoke;
+    }
+
+    /* Cards de Modulos */
+    .module-cards {
+        background-color: white;
+        box-shadow: 0 4px 8px rgb(255, 255, 255);
+    }
+
+    .module-cards h2 {
+        color: black;
+    }
+
+    .module-cards h3 {
+        color: black;
+    }
+
+    h3 .info {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .module-cards p {
+        color: rgb(255, 255, 255);
+    }
+
+    .module-cards .description {
+        color: black
+    }
+
+    .card-header,
+    .card-footer {
+        background-color: rgb(224, 224, 224);
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 12px rgb(255, 255, 255);
+        /* Aumenta la sombra al pasar el cursor */
+    }
+
+    .module-cards h2 {
+        color: black;
+    }
+
+    .module-cards p {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .form-container-login {
+        background-color: white;
+    }
+
+    label {
+        color: black;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="number"],
+    form select,
+    form input[type="date"],
+    form input [type="checkbox"],
+    form input[type="file"],
+    .custom-select {
+        background-color: #ffeef6;
+    }
+
+    form input[type="text"]:focus,
+    form input[type="number"]:focus,
+    form input[type="date"]:focus,
+    form input[type="file"]:focus,
+    form input[type="email"]:focus,
+    form input[type="password"]:focus,
+    .custom-select:focus {
+        outline: none;
+        background-color: rgb(255, 255, 255);
+    }
+
+    element.style {
+        background-color: rgb(255, 255, 255);
+    }
+
+    /* Estilos para Sweet Alert */
+    .dark-popup {
+        background: white !important;
+        /* Fondo oscuro */
+        color: #000000 !important;
+        /* Texto blanco */
+        border-radius: 20px;
+    }
+
+    /* Estilo para el botón de ir arriba */
+    #goTopBtn {
+        background-color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .modal-body {
+        background-color: white;
+    }
+
+    .model-card {
+        background-color: whitesmoke;
+    }
+
+    .model-card i {
+        color: gray;
+    }
+
+    .contact .contact-about h3 {
+        color: #000000;
+    }
+
+    .contact .contact-about p {
+        color: #888;
+    }
+
+    .contact .social-links a {
+        font-size: 18px;
+        display: inline-block;
+        background: #ff6eb4;
+        /* Cambiar a color rosado */
+        color: #000000;
+        line-height: 1;
+        padding: 8px 0;
+        margin-right: 4px;
+        border-radius: 50%;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        transition: 0.3s;
+        text-decoration: none;
+        border: none;
+    }
+
+    .contact .social-links a:hover {
+        background: #0A3D62;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .contact .info i {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .contact .php-email-form button[type=submit] {
+        background: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    @keyframes animate-loading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+
+    .lol a {
+        color: #0A3D62;
+    }
+
+    a:hover {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    #footer {
+        background: #ffffff;
+        color: #000000;
+        box-shadow: 0px 0px 50px 0px rgba(128, 128, 128, 0.487);
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .footer p {
+        color: var(--subtitle);
+        font-size: 18px;
+    }
+
+    .footer a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    card-body {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .form-container {
+        background-color: #ffffff;
+    }
+
+    .features .icon-box {
+        background: #ffffff;
+        box-shadow: 0 0 29px 0 rgba(255, 237, 237, 0.12);
+    }
+
+    .icon-box h3 a {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .icon-box:hover {
+        background: #ffedf7;
+        /* Cambiar a un tono más claro de rosado */
+    }
+
+    .team-card {
+        border: none;
+    }
+
+    .team-card:hover {
+        transform: scale(1.05);
+        /* Aumenta el tamaño al pasar el cursor */
+        border: 4px solid #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .input-btn,
+    .input-group-text {
+        margin: 10px 0 25px;
+        padding: 10px;
+        height: auto;
+        background-color: rgb(205, 205, 205);
+        border: none;
+        color: var(--content);
+    }
+
+    .input-group-text {
+        background-color: #ff6eb4;
+        /* Cambiar a color rosado */
+        padding-left: 15px;
+        padding-right: 15px;
+        color: whitesmoke;
+    }
+
+    #profile-menu-items {
+        background-color: #ffffff;
+    }
+
+    .navbar-toggler-icon {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+
+    .fa-whatsapp {
+        color: white;
+    }
+
+    #menu {
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-picture {
+        background-color: #ff6eb4;
+        border: #ff6eb4 4px solid;
+    }
+
+    #menu-icon {
+        background-color: #ff6eb4;
+    }
+
+    #profile-menu-items a {
+        color: #0A3D62;
+    }
+
+    #profile-menu-items a:hover {
+        color: #ff6eb4;
+        /* Cambiar a color rosado */
+    }
+}

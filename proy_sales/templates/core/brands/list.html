@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+<title>{% block title %} SGV - Marcas {% endblock title %}</title>
+
+<section id="home-modulos" class="mt-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+    <div class="container text-center">
+        <div class="row">
+            <!-- Mensaje de bienvenida a la izquierda -->
+            <div class="col-lg-12">
+                <div class="module-head">
+                    <h2 class="title text-center">{{ title2 }}</h2>
+                    <p>Gestione con los clientes de la empresa con facilidad. </p>
+                </div>
+            </div>
+            <div class="module-cards">
+                <div class="row">
+                    {% for item in brands %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-custom">
+                            <div class="card-header">
+                                <h2 class="card-title">{{ item.description }}</h2>
+                            </div>
+                            <div class="card-body">
+                                <h3>Creación: </h3><p>{{ item.created }}</p><br>
+                                <h3>Última edición: </h3><p>{{ item.updated }}</p><br>
+                                <h3>
+                                    Estado: 
+                                    {% if item.state %}
+                                    <i class="fa-solid fa-check" style="color: green;"></i>
+                                    {% else %}
+                                    <i class="fa-solid fa-square-minus" style="color: red;"></i>
+                                    {% endif %}
+                                </h3>
+                            </div> 
+                            <div class="card-footer">
+                                <a href="{% url 'core:brand_update' item.id %}" class="btn btn-update"><i class="fa-solid fa-gear"></i> Editar</a>
+                                <a class="btn btn-cancel" onclick="confirmDelete({{ item.id }})"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="form-group text-center mt-4">
+                    <a class="btn btn-details" href="{% url 'core:brand_create' %}"><i class="fa-solid fa-plus"></i> Nueva marca </a>
+                    <a class="btn btn-details" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function confirmDelete(itemId) {
+        DarkSwal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = `{% url 'core:brand_delete' id=0 %}`.replace('0', itemId);
+                const csrfToken = document.createElement('input');
+                csrfToken.type = 'hidden';
+                csrfToken.name = 'csrfmiddlewaretoken';
+                csrfToken.value = '{{ csrf_token }}';
+                form.appendChild(csrfToken);
+                document.body.appendChild(form);
+                
+                // Mostrar mensaje de éxito
+                DarkSwal.fire({
+                    title: '<span class="success-title">¡Éxito!</span>',
+                    text: 'Se eliminó la marca correctamente.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                }).then(() => {
+                    // Envía el formulario después de confirmar el mensaje de éxito
+                    form.submit();
+                });
+            }
+        });
+    }
+</script>
+{% endblock content %}

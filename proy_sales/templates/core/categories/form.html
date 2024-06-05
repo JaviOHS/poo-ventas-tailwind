@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<title>{% block title %} SGV - Crear Categorías {% endblock title %}</title>
+
+<section id="home-modulos" class="mt-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="module-head">
+                    <h2 class="title text-center">{{ title2 }}</h2>
+                    <p>Complete el formulario para registrar una nueva categoría en el sistema.</p>
+                </div>
+            </div>
+            <div id="form-category" class="form-container">
+                <form method="post" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-details">
+                            <i class="fa-solid fa-save"></i>
+                            Guardar
+                        </button>
+                        <a href="{% url 'core:category_list' %}" class="btn btn-cancel"><i class="fa-solid fa-xmark"></i> Cancelar </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content  %}

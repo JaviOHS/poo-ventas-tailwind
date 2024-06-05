@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<title>{% block title %} SGV - Registrarse {% endblock title %}</title>
+
+<section id="home-signup" class="mt-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+        <div class="row home-container" data-aos="fade">
+            <!-- Mensaje de bienvenida a la izquierda -->
+            <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="200">
+                <div class="welcome-message text-center">
+                    <h2 class="title">{{ title2 }}</h2>
+                    <p>¡Únete a nuestra comunidad!<br>Regístrate para acceder a nuestros servicios. </p>
+                    <img src="{% static 'img/register/signup.jfif' %}" class="img-fluid mx-auto d-block" alt="Signup"
+                        style="width: 70%; border-radius: 25px;">
+                </div>
+            </div>
+            <!-- Columna del formulario de registro -->
+            <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="200">
+                <div id="form-signup" class="form-container-login">
+                    <form id="register-form" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- Datos de Usuario -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                        <input type="text" class="form-control" id="id_username" name="username">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-user-pen"></i></span>
+                                        <input type="text" class="form-control" id="id_first_name" name="first_name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.dni.id_for_label }}">{{ form.dni.label }}</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
+                                        <input type="text" class="form-control" id="id_dni" name="dni">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-user-gear"></i></span>
+                                        <input type="text" class="form-control" id="id_last_name" name="last_name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Información Adicional -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.celular.id_for_label }}">{{ form.celular.label }}</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-phone fa-shake"></i></span>
+                                        <input type="text" class="form-control" id="id_celular" name="celular">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.correo.id_for_label }}">{{ form.correo.label }}</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                        <input type="text" class="form-control" id="id_correo" name="correo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Contraseña -->
+                        <div class="row">
+                            <div class="col-md-6 passwords">
+                                <div class="row d-flex justify-content-center">
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                                <input type="password" class="form-control" id="id_password1"
+                                                    name="password1">
+                                                <button class="btn btn-outline-secondary input-btn toggle-password"
+                                                    type="button" data-target="id_password1">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                                <input type="password" class="form-control" id="id_password2"
+                                                    name="password2">
+                                                <button class="btn btn-outline-secondary input-btn toggle-password"
+                                                    type="button" data-target="id_password2">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-details btn-block mt-3" type="submit"><i
+                                    class="fa-solid fa-user-plus"></i> Registrarse</button><br>
+                            <a class="btn btn-details btn-block" href="{% url 'home' %}"><i
+                                    class="fas fa-arrow-left"></i> Volver</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="lol text-center mt-3">¿Ya tienes una cuenta? <a href="{% url 'signin' %}">Inicia Sesión</a></p>
+        </div>
+    </div>
+</section>
+<script>
+    document.querySelectorAll(".toggle-password").forEach(function(btn) {
+        btn.addEventListener("click", function () {
+            var targetId = this.getAttribute("data-target");
+            var passwordInput = document.getElementById(targetId);
+            var icon = this.querySelector("i");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        });
+    });
+</script>
+{% endblock content %}
+
+{% block navbar %}
+{% endblock navbar %}

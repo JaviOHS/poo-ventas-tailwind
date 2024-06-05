@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Actualizar Perfil{% endblock %}</title>
+{% block content %}
+<section id="home-content" class="mt-4 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <section id="update-profile" class="mt-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="container">
+            <div class="row home-container d-flex justify-content-center align-items-center" data-aos="fade">
+                <h2 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Actualizar Perfil</h2>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center" data-aos="fade-right" data-aos-delay="200">
+                    <div id="form-update-profile" class="form-container-login">
+                        <form id="update-profile-form" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                        {{ form.first_name }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                        {{ form.last_name }}
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.dni.id_for_label }}">{{ form.dni.label }}</label>
+                                        {{ form.dni }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.celular.id_for_label }}">{{ form.celular.label }}</label>
+                                        {{ form.celular }}
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.correo.id_for_label }}">{{ form.correo.label }}</label>
+                                        {{ form.correo }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.imagen.id_for_label }}">{{ form.imagen.label }}</label>
+                                        {{ form.imagen }}
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-details btn-block mt-3"><i class="fas fa-save"></i> Guardar Cambios</button>
+                            </div>
+                        </form>
+                                             
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a class="btn btn-details" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+        </div>
+    </section>
+</section>
+{% endblock content %}
