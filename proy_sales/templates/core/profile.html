@@ -3,26 +3,20 @@
 <title>{% block title %} SGV - Home {% endblock title %}</title>
 {% block content %}
 
-<section id="home-content" class="mt-4 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+<section id="home-content" class="mt-4 flex justify-center items-center min-h-screen">
     <section id="home-signup" class="mt-4" data-aos="fade-up" data-aos-delay="200">
         <div class="container">
-            <div class="row home-container d-flex justify-content-center align-items-center" data-aos="fade">
-                <h2 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">perfil de usuario</h2>
-                <p class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Consulta la información de tu
-                    perfil.</p>
-                <!-- Mensaje de bienvenida a la izquierda -->
-                <div class="col-lg-6 d-flex justify-content-center align-items-center" data-aos="fade-right"
-                    data-aos-delay="200">
+            <h2 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Perfil de Usuario</h2>
+            <p class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Consulta la información de tu perfil.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade">
+                <!-- Columna de la izquierda -->
+                <div class="flex justify-center items-center" data-aos="fade-right" data-aos-delay="200">
                     <div class="welcome-message text-center">
-                        <h2>foto de perfil</h2>
+                        <h2>Foto de Perfil</h2>
                         {% if user.get_profile_picture_url %}
-                        <img id="profile-picture" src="{{ user.get_profile_picture_url }}"
-                            class="img-fluid mx-auto d-block" alt="Foto de perfil"
-                            style="width: 70%; border-radius: 25px;">
+                        <img id="profile-picture" src="{{ user.get_profile_picture_url }}" class="mx-auto d-block rounded-lg" alt="Foto de perfil" style="width: 70%;">
                         {% else %}
-                        <img id="profile-picture" src="{% static 'img/default_person.png' %}"
-                            class="img-fluid mx-auto d-block" alt="Foto de perfil por defecto"
-                            style="width: 70%; border-radius: 25px;">
+                        <img id="profile-picture" src="{% static 'img/default_person.png' %}" class="mx-auto d-block rounded-lg" alt="Foto de perfil por defecto" style="width: 70%;">
                         {% endif %}
                         <form id="user-form" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
@@ -30,66 +24,68 @@
                                 <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
                                 {{ form.image }}
                             </div>
-                            <a class="btn btn-details btn-large mt-2 rounded-pill px-6" href="{% url 'update_profile' %}"><i class="fa-solid fa-file-pen"></i> Actualizar datos</a>
+                            <div class="text-center">
+                                <br>
+                                <a href="{% url 'update_profile' %}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full">
+                                    <i class="fa-solid fa-file-pen mr-2"></i> Actualizar Datos
+                                </a>
+                            </div>
+                            
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-center align-items-center" data-aos="fade-right"
-                    data-aos-delay="200">
+                <!-- Columna de la derecha -->
+                <div class="bg-white flex justify-center items-center rounded-lg" data-aos="fade-right" data-aos-delay="200">
                     <div id="form-signup" class="form-container-login">
-                        <form id="register-form" method="POST" enctype="multipart/form-data"
-                            onsubmit="validarRegistro(event)">
+                        <form id="register-form" method="POST" enctype="multipart/form-data" onsubmit="validarRegistro(event)">
                             {% csrf_token %}
                             {{error}}
                             <!-- Datos de Usuario -->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group text-center" data-aos="fade-up" data-aos-delay="300">
-                                        <h2 class="mb-6">DATOS PERSONALES</h2>
-                                    </div>
-                                    <div class="form-group">
-                                        <p><span class="username">USUARIO:</span><br> @{{ user.username }}
-                                            {% if user.is_superuser %}
-                                            <span class="username" style="color: greenyellow;"> | ADMINISTRADOR</span>
-                                            {% endif %}
-                                        </p>
-                                    </div>
-                                    <div class="form-group">
-                                        <p><span class="username">NOMBRES:</span><br> {{ user.first_name }} {{user.last_name }}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <p><span class="username">CEDULA:</span><br> {{ user.dni }}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        {% if user.celular %}
-                                        <p><span class="username">CELULAR:</span><br> {{ user.celular }}</p>
-                                        {% else %}
-                                        <p><span class="username">CELULAR:</span><br> No registrado</p>
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group">
-                                        {% if user.correo %}
-                                        <p><span class="username">CORREO:</span><br> <a
-                                                href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
-                                        {% else %}
-                                        <p><span class="username">CORREO:</span><br> No registrado</p>
-                                        {% endif %}
-                                    </div>
-                                    <!-- <div class="form-group">
-                                        <p>USUARIO ACTIVO: <br> {{ user.is_active }}</p>
-                                    </div> -->
-                                </div>
-                                <div class="text-center">
-                                    <a class="btn btn-details btn-block" href="{% url 'home' %}"><i
-                                            class="fas fa-arrow-left"></i> Volver</a>
-                                </div>
-                            </div> <!-- Cierre del div.row -->
+                            <div class="text-center">
+                                <h2 class="mb-6">Datos Personales</h2>
+                            </div>
+                            <div class="form-group">
+                                <p><span class="username">Usuario:</span><br> @{{ user.username }}
+                                    {% if user.is_superuser %}
+                                    <span class="username" style="color: greenyellow;"> | Administrador</span>
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <p><span class="username">Nombres:</span><br> {{ user.first_name }} {{user.last_name }}</p>
+                            </div>
+                            <div class="form-group">
+                                <p><span class="username">Cédula:</span><br> {{ user.dni }}</p>
+                            </div>
+                            <div class="form-group">
+                                {% if user.celular %}
+                                <p><span class="username">Celular:</span><br> {{ user.celular }}</p>
+                                {% else %}
+                                <p><span class="username">Celular:</span><br> No Registrado</p>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {% if user.correo %}
+                                <p><span class="username">Correo:</span><br> <a href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
+                                {% else %}
+                                <p><span class="username">Correo:</span><br> No Registrado</p>
+                                {% endif %}
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <a href="{% url 'home' %}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                    <i class="fas fa-arrow-left mr-2"></i> Volver
+                                </a>
+                            </div>
+                            <br>
                         </form>
                     </div>
                 </div>
             </div>
+            <br><br><hr>
         </div>
     </section>
 </section>
+
 
 {% endblock content %}

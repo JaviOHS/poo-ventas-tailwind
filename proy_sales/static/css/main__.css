@@ -1,6 +1,8 @@
 /* Estilos para la barra de navegación */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
-
+py manage.py livereload
+py manage.py tailwind start
+py manage.py runserver
 :root {
     --title: gold;
     --subtitle: gray;
@@ -939,7 +941,7 @@ a {
 
 /* Estilos para el footer */
 #footer {
-    /* position: fixed; */
+    position: fixed;
     /* Agregado para mantenerlo pegado al final */
     bottom: 0;
     /* Lo posiciona en la parte inferior de la ventana */

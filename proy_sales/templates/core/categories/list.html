@@ -3,7 +3,7 @@
 <title>{% block title %} SGV - Categorías {% endblock title %}</title>
 
 <section id="home-modulos" class="mt-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-    <div class="container text-center">
+    <div class="text-center">
         <div class="row">
             <!-- Mensaje de bienvenida -->
             <div class="col-lg-12">
@@ -12,11 +12,11 @@
                     <p>Agregue y edite categorías para los múltiples productos.</p>
                 </div>
             </div>
-            <div class="module-cards">
-                <div class="row">
-                    {% for item in categories %}
-                    <div class="col-md-4 mb-4">
-                        <div class="card card-custom">
+            <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl"> <!-- Aplicando las mismas clases de estilo para las cards -->
+                {% for item in categories %}
+                <div class="col-md-4 mb-4 flex justify-center"> <!-- Aplicando las mismas clases de estilo para las columnas -->
+                    <div class="relative w-full max-w-xs overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"> <!-- Aplicando las mismas clases de estilo para las cards -->
+                        <div class="text-center card card-custom"> <!-- Aplicando las mismas clases de estilo para las cards -->
                             <div class="card-header">
                                 <h2 class="card-title">{{ item.description }}</h2>
                             </div>
@@ -32,22 +32,24 @@
                                     {% endif %}
                                 </h3>
                             </div> 
-                            <div class="card-footer">
-                                <a href="{% url 'core:category_update' item.id %}" class="btn btn-update"><i class="fa-solid fa-gear"></i> Editar</a>
-                                <a class="btn btn-cancel" onclick="confirmDelete({{ item.id }})"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                            <div class="card-footer flex justify-center">
+                                <a href="{% url 'core:category_update' item.id %}" class="btn btn-update bg-blue-700 rounded-full px-4 py-2 text-white mr-2"><i class="fa-solid fa-gear"></i> Editar</a>
+                                <a class="btn btn-cancel bg-red-700 rounded-full px-4 py-2 text-white" onclick="confirmDelete({{ item.id }})"><i class="fa-solid fa-trash"></i> Eliminar</a>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
-                <div class="form-group text-center mt-4">
-                    <a class="btn btn-details" href="{% url 'core:category_create' %}"><i class="fa-solid fa-plus"></i> Nueva categoría </a>
-                    <a class="btn btn-details" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
-                </div>
+                {% endfor %}
+            </div>
+            <div class="form-group text-center mt-4">
+                <a class="btn btn-details bg-blue-700 rounded-full px-4 py-2 text-white mr-2" href="{% url 'core:category_create' %}"><i class="fa-solid fa-plus"></i> Nueva categoría </a>
+                <a class="btn btn-details bg-blue-700 rounded-full px-4 py-2 text-white" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a><br><br>
             </div>
         </div>
     </div>
+    <hr>
 </section>
+
 <script>
     function confirmDelete(itemId) {
         DarkSwal.fire({

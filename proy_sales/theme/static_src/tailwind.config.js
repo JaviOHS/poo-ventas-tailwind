@@ -1,14 +1,30 @@
 module.exports = {
+    darkMode: 'class',
     content: [
         '../../templates/**/*.html',
-        // Incluye también otros directorios si es necesario
-        '../../static/**/*.js', // si tienes archivos JavaScript que usan clases de Tailwind
+        '../../static/**/*.js',
         '../**/*.py',
     ],
     theme: {
         extend: {
+            maxWidth: {
+                '3xl': '48rem',
+                '4xl': '56rem',
+        },
             colors: {
-                primary: '#FAFAFA',
+                primary: {
+                    "50": "#eff6ff",
+                    "100": "#dbeafe",
+                    "200": "#bfdbfe",
+                    "300": "#93c5fd",
+                    "400": "#60a5fa",
+                    "500": "#3b82f6",
+                    "600": "#2563eb",
+                    "700": "#1d4ed8",
+                    "800": "#1e40af",
+                    "900": "#1e3a8a",
+                    "950": "#172554"
+                },
                 secondary: '#F5F5F5',
                 title: '#42C2FF',
                 titleHover: '#14DC99',
@@ -18,6 +34,40 @@ module.exports = {
             fontFamily: {
                 'UbuntuMono-Regular': ['UbuntuMono-Regular', 'monospace'],
                 Mukta: ['Mukta', 'sans-serif'],
+                body: [
+                    'Inter', 
+                    'ui-sans-serif', 
+                    'system-ui', 
+                    '-apple-system', 
+                    'system-ui', 
+                    'Segoe UI', 
+                    'Roboto', 
+                    'Helvetica Neue', 
+                    'Arial', 
+                    'Noto Sans', 
+                    'sans-serif', 
+                    'Apple Color Emoji', 
+                    'Segoe UI Emoji', 
+                    'Segoe UI Symbol', 
+                    'Noto Color Emoji'
+                ],
+                sans: [
+                    'Inter', 
+                    'ui-sans-serif', 
+                    'system-ui', 
+                    '-apple-system', 
+                    'system-ui', 
+                    'Segoe UI', 
+                    'Roboto', 
+                    'Helvetica Neue', 
+                    'Arial', 
+                    'Noto Sans', 
+                    'sans-serif', 
+                    'Apple Color Emoji', 
+                    'Segoe UI Emoji', 
+                    'Segoe UI Symbol', 
+                    'Noto Color Emoji'
+                ]
             },
             fontStyle: {
                 normal: 'normal',
@@ -84,17 +134,17 @@ module.exports = {
                     flexDirection: 'column',
                     alignItems: 'center',
                     textAlign: 'center',
-                    backgroundColor: 'rgb(255 255 255)', // bg-secondary
-                    padding: '1.5rem', // p-6
-                    borderWidth: '1px', // border
+                    backgroundColor: 'rgb(255 255 255)',
+                    padding: '1.5rem',
+                    borderWidth: '1px',
                     borderStyle: 'solid',
-                    borderColor: '#e5e7eb', // default border color (gray-200)
-                    borderRadius: '1.5rem', // rounded-3xl
-                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)', // shadow-lg
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease', // transition for hover effects
+                    borderColor: '#e5e7eb',
+                    borderRadius: '1.5rem',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                     '&:hover': {
                         transform: 'scale(1.05)',
-                        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)', // hover:shadow-2xl
+                        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
                     },
                 },
                 '.information-card-title': {

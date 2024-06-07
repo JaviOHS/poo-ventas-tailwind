@@ -8,171 +8,192 @@
     {% load static tailwind_tags %}
     <!-- Tailwind css -->
     {% tailwind_css %}
+
+    <!-- Tailwind JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <!-- AOS Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
         integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Iconos -->
+    
+        <!-- Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    
     <!-- Whatsapp -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'plugin/whatsapp-chat-support.css' %}">
     <link rel="stylesheet" href="{% static 'plugin/components/Font Awesome/css/font-awesome.min.css' %}">
+    
     <!-- Titulo -->
     <title>{% block title %} SGV {% endblock title %}</title>
+
 </head>
 
-<body class="bg-slate-100 text-items font-Mukta text-lg font-light">
-    {% block navbar %}
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-padding">
-        <nav id="nav-bar" class="flex items-center justify-between py-2 px-6">
-            <div class="flex items-center flex-shrink-0 mr-6">
-                <a href="{% url 'home' %}" class="text-title font-extrabold text-2xl hover:text-titleHover">TeacherCode
-                    <i class="fa-solid fa-ghost"></i></a>
-            </div>
-            <div class="hidden lg:flex lg:items-center lg:w-auto flex-grow">
-                <ul id="menu" class="flex justify-center flex-1 items-center space-x-8 ">
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'home' %}" class="hover:text-titleHover"><i class="fa-solid fa-house"></i></a>
-                    </li>
-                    {% if user.is_superuser %}
-                    <li class="relative group">
-                        <a href="#" class="group-hover:text-titleHover">Administrar <i
-                                class="fa-solid fa-user-gear"></i></a>
-                        <div
-                            class="absolute hidden group-hover:block bg-white border rounded-lg m-2 p-4 shadow-md z-50">
-                            <a href="{% url 'core:product_list' %}"
-                                class="rounded-3xl hover:text-titleHover block px-4 py-2 hover:bg-gray-100">Productos</a>
-                            <a href="{% url 'core:category_list' %}"
-                                class="rounded-3xl hover:text-titleHover block px-4 py-2 hover:bg-gray-100">Categorías</a>
-                            <a href="{% url 'core:brand_list' %}"
-                                class="rounded-3xl hover:text-titleHover block px-4 py-2 hover:bg-gray-100">Marcas</a>
-                            <a href="{% url 'core:supplier_list' %}"
-                                class="rounded-3xl hover:text-titleHover block px-4 py-2 hover:bg-gray-100">Proveedores</a>
-                        </div>
-                    </li>
-                    {% endif %}
-                </ul>
-                <ul class="flex justify-center flex-1 space-x-8">
-                    <li>
-                        <a href="{% url 'core:logout' %}" class="btn-red">Cerrar Sesión</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'signup' %}" class="btn-dark-blue"><i class="fa-solid fa-user-plus"></i>
-                            Registrarse</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'signin' %}" class="btn-dark-blue">Iniciar Sesión</a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <div id="menu" class="relative w-16">
-                    {% if user.is_authenticated %}
-                    {% if user.get_profile_picture_url %}
-                    <div>
-                        <img id="profile-picture" class="rounded-full cursor-pointer"
-                            src="{{ user.get_profile_picture_url }}" alt="Profile Picture">
-                    </div>
-                    {% else %}
-                    <div>
-                        <img id="profile-picture" class="rounded-full cursor-pointer"
-                            src="{% static 'img/default_person.png' %}" alt="Default Profile Picture">
-                    </div>
-                    {% endif %}
-                    {% else %}
-                    <div>
-                        <img id="profile-picture" class="rounded-full cursor-pointer"
-                            src="{% static 'img/usuario_anonimo.png' %}" alt="Anonymous Profile Picture">
-                    </div>
-                    {% endif %}
-                    <div id="profile-menu-items"
-                        class=" text-center justify-center group-hover:block m-2 p-4 absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-md hidden z-50">
-                        {% if user.is_authenticated %}
-                        <p class="text-center text-title py-2">@{{ user.username }}</p>
-                        <a href="{% url 'profile' %}"
-                            class="rounded-3xl hover:text-titleHover block px-4 py-2 hover:bg-gray-100">Perfil</a>
-                        {% endif %}
-                        <a href="#menu-button"
-                            class="rounded-3xl hover:text-titleHover block px-4 py-2 hover:bg-gray-100">Temas</a>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:hidden">
-                <button id="menu-button" class="text-2xl">
-                    <i class="fa-solid fa-bars"></i>
+<body class=" bg-slate-100 text-items font-Mukta text-lg font-light">    
+{% block navbar %}
+    <header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
+        <nav class="border-gray-200 dark:bg-gray-900">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AppMarket</span>
+                </a>
+                
+                <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 </button>
-            </div>
+                <div class="relative hidden md:block">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                        <span class="sr-only">Search icon</span>
+                    </div>
+                    <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
+                </div>
+                
+                <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 dropdown-toggle" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <span class="sr-only">Open user menu</span>
+                    
+                    {% if user.is_authenticated %}
+                        {% if user.get_profile_picture_url %}
+                            <img class="w-12 h-12 rounded-full" src="{{ user.get_profile_picture_url }}" alt="Profile Picture">
+                        {% else %}
+                            <img class="w-12 h-12 rounded-full" src="{% static 'img/default_person.png' %}" alt="Default Profile Picture">
+                        {% endif %}
+                    {% else %}
+                        <img class="w-12 h-12 rounded-full" src="{% static 'img/usuario_anonimo.png' %}" alt="Anonymous Profile Picture">
+                    {% endif %}
+                </button>
+    
+                    <!-- Dropdown menu -->
+                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                        {% if user.is_authenticated %}
+                            <div class="px-4 py-3">
+                                <span class="block text-sm text-gray-900 dark:text-white">{{ user.username }}</span>
+                                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ user.correo }}</span>
+                            </div>
+                            
+                            <ul class="py-2" aria-labelledby="user-menu-button">
+                                <li>
+                                    <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Perfil</a>
+                                </li>
+                                <li>
+                                    <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                                        Temas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'core:logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        {% else %}
+                            <ul class="py-2" aria-labelledby="user-menu-button">
+                                <li>
+                                    <a href="{% url 'signup' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Registrarse</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'signin' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Iniciar Sesión</a>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                    <ul class="navbar-menu flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <li>
+                            <a href="/" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Inicio</a>
+                        </li>
+                        {% if user.is_superuser %}
+                            <li>
+                                <a href="{% url 'core:product_list' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'core:category_list' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categorías</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'core:brand_list' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Marcas</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'core:supplier_list' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Proveedores</a>
+                            </li>
+                        {% endif %}
+                        {% if user.is_authenticated and not user.is_superuser %}
+                            <li>
+                                <a href="{% url 'purchase:shop' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tienda</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>   
         </nav>
+        <hr>
     </header>
-    <!-- Modal para navbar en pantallas pequenas -->
-    <div id="modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center z-50">
-        <div class="bg-white rounded-2xl p-8 shadow-lg max-w-xs w-full text-center relative custom-transform">
-            {% if user.is_authenticated %}
-            {% if user.get_profile_picture_url %}
-            <div class="flex justify-center mb-4">
-                <img class="rounded-full w-20 h-20" src="{{ user.get_profile_picture_url }}" alt="Profile Picture">
-            </div>
-            {% else %}
-            <div class="flex justify-center mb-4">
-                <img class="rounded-full w-20 h-20" src="{% static 'img/default_person.png' %}"
-                    alt="Default Profile Picture">
-            </div>
-            {% endif %}
-            {% else %}
-            <div class="flex justify-center mb-4">
-                <img class="rounded-full w-20 h-20" src="{% static 'img/usuario_anonimo.png' %}"
-                    alt="Anonymous Profile Picture">
-            </div>
-            {% endif %}
-            <ul class="space-y-4">
-                {% if user.is_authenticated %}
-                <li>
-                    <a class="text-title text-2xl hover:text-titleHover" href="{% url 'profile' %}">@{{ user.username }}
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'home' %}" class="hover:text-titleHover"><i class="fa-solid fa-house"></i></a>
-                </li>
-                {% if user.is_superuser %}
-                <li>
-                    <a href="{% url 'core:product_list' %}" class="hover:text-titleHover">Productos</a>
-                </li>
-                <li>
-                    <a href="{% url 'core:category_list' %}" class="hover:text-titleHover">Categorías</a>
-                </li>
-                <li>
-                    <a href="{% url 'core:brand_list' %}" class="hover:text-titleHover">Marcas</a>
-                </li>
-                <li>
-                    <a href="{% url 'core:supplier_list' %}" class="hover:text-titleHover">Proveedores</a>
-                </li>
-                {% endif %}
-                <li>
-                    <a href="{% url 'core:logout' %}" class="btn-red">Cerrar Sesión</a>
-                </li>
-                {% else %}
-                <li>
-                    <a href="{% url 'signup' %}" class="btn-dark-blue"><i class="fa-solid fa-user-plus"></i>
-                        Registrarse</a>
-                </li><br>
-                <li>
-                    <a href="{% url 'signin' %}" class="btn-dark-blue">Iniciar Sesión</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-    <!-- Cierre del modal -->
-    {% endblock navbar %}
+    <br><br><br><br>
+    
+{% endblock navbar %}
 
+
+    
+
+    
+    
+
+<!-- drawer init and show -->
+
+ 
+ <!-- drawer component -->
+ <div id="drawer-navigation" class="bg-white fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
+    <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">MENU DE TEMAS</h5>
+    <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+        </svg>
+        <span class="sr-only">Close menu</span>
+     </button>   
+   <div class="py-4 overflow-y-auto">
+       <ul class="space-y-2 font-medium">
+          <li>
+             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <span class="ms-3">Rosado</span>
+             </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <span class="ms-3">Celeste</span>
+            </a>
+         </li>
+         <li>
+            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <span class="ms-3">Naranja</span>
+            </a>
+         </li>
+       </ul>
+    </div>
+ </div>
+ 
+
+
+
+
+
+        
     <!-- Contenido -->
     <section class="">
         {% block content %}
@@ -185,7 +206,7 @@
         <!-- Botón para volver al principio de la página -->
         <div>
             <button id="goTopBtn" title="Ir arriba"
-                class="bg-title2 text-white px-4 py-2 rounded-full shadow-md transform translate-y-20 opacity-0 transition-all duration-500 ease-in-out">
+                class="bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transform translate-y-20 opacity-0 transition-all duration-500 ease-in-out">
                 <i class="fas fa-caret-up"></i>
             </button>
         </div>
@@ -223,17 +244,80 @@
     <!-- Cierre del contenedor para botones -->
 
     <!-- Footer -->
-    <footer class="bg-white flex justify-center text-center p-4 bottom-0 left-0 w-full">
-        <div class=" text-lg">
-            &copy; Copyright Sistema de Gestion de Ventas. Todos los derechos reservados.
-            <br>
-            Diseñado por <a class="text-title font-extrabold hover:text-titleHover uppercase"
-                href="https://github.com/Alexis2024" target="_blank">Alex Duran</a> y <a
-                class="text-title font-extrabold hover:text-titleHover uppercase" href="https://github.com/JaviOHS"
-                target="_blank"> Javier Haro</a>. <i class="fa-solid fa-ghost"></i>
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AppMarket</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Acerca de</a>
+                </li>
+                <li>
+                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="hover:underline me-4 md:me-6" type="button">
+                        Terminos de Servicio
+                    </button>                    
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Licencia</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contactos</a>
+                </li>
+            </ul>
         </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="" class="hover:underline">AppMarket™</a>. Todos los derechos reservados.<br>Diseñado por <a class="text-title" href="https://github.com/Alexis2024" target="_blank">Alex Duran</a> y <a class="text-title" href="https://github.com/JaviOHS" target="_blank">Javier Haro</a>
+        </span>
+    </div>
+    
+    <footer class="bg-white rounded-lg shadow dark:bg-white w-full">
+        <!-- Contenido del footer -->
     </footer>
+    
+    
+    
     <!-- Cierre del footer -->
+    
+
+<!-- Modal de Ternino de servicio -->
+  <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-2xl max-h-full">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                      Terminos de Servicios
+                  </h3>
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                  </button>
+              </div>
+              <!-- Modal body -->
+              <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    Faltando menos de un mes para que la Unión Europea promulgue nuevas leyes de privacidad del consumidor para sus ciudadanos, empresas de todo el mundo están actualizando sus acuerdos de términos de servicio para cumplir.
+                  </p>
+                  <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    El Reglamento General de Protección de Datos de la Unión Europea (G.D.P.R.) entra en vigor el 25 de mayo y tiene como objetivo garantizar un conjunto común de derechos de datos en la Unión Europea. Requiere que las organizaciones notifiquen a los usuarios lo antes posible sobre violaciones de datos de alto riesgo que podrían afectarlos personalmente.
+                  </p>
+              </div>
+              <!-- Modal footer -->
+              <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                  <button data-modal-hide="default-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Aceptar</button>
+                  <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Denegar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    
+    
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -364,7 +448,20 @@
                 }
             });
         });
+        
     </script>
+    <script>
+        window.addEventListener('scroll', function() {
+          var navbar = document.querySelector('header');
+          if (window.scrollY > 0) {
+            navbar.classList.remove('bg-transparent');
+            navbar.classList.add('bg-white', 'shadow-md');
+          } else {
+            navbar.classList.remove('bg-white', 'shadow-md');
+            navbar.classList.add('bg-transparent');
+          }
+        });
+        </script>
 
 </body>
 

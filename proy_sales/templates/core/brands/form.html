@@ -3,35 +3,37 @@
 {% block content %}
 <title>{% block title %} SGV - Crear Marca {% endblock title %}</title>
 
-<section id="home-modulos" class="mt-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="module-head">
-                    <h2 class="title text-center">{{ title2 }}</h2>
-                    <p>Complete el formulario para registrar una nueva marca en el sistema. </p>
+<section id="home-modulos" class="mt-16 flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+    <div class="text-center">
+        <div class="flex justify-center">
+            <div class="w-full lg:w-8/12">
+                <div class="module-head mb-8">
+                    <h2 class="text-3xl font-bold text-center">{{ title2 }}</h2>
+                    <p class="mt-2">Complete el formulario para registrar una nueva marca en el sistema.</p>
                 </div>
             </div>
-            <div id="form-brand" class="form-container">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form %}
-                    <div class="form-group">
-                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        {{ field }}
-                    </div>
-                    {% endfor %}
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-details">
-                            <i class="fa-solid fa-save"></i>
-                            Guardar
-                        </button>
-                        <a href="{% url 'core:brand_list' %}" class="btn btn-cancel"><i class="fa-solid fa-xmark"></i> Cancelar </a>
-                    </div>
-                </form>
-            </div>
+        </div>
+        <div id="form-brand" class="form-container">
+            <form method="post" enctype="multipart/form-data" class="space-y-6">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <div class="form-group text-center">
+                    <button type="submit" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i class="fa-solid fa-save mr-2"></i>Guardar
+                    </button>
+                    <a href="{% url 'core:brand_list' %}" class="inline-flex items-center justify-center px-4 py-2 ml-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        <i class="fa-solid fa-xmark mr-2"></i>Cancelar
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 </section>
+
 
 {% endblock content %}

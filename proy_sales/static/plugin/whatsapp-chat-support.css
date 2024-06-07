@@ -94,7 +94,7 @@
     }
 
     .wcs_fixed_right{
-        z-index: 9999;
+        z-index: 999999;
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -245,6 +245,7 @@
  * ====================================================================== */      
 
     .wcs_popup{
+        z-index: 9999;
         position: absolute;
         width: 300px;
         bottom: 100%;
