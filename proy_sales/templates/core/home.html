@@ -12,7 +12,7 @@
             <div class="text-center">
                 <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">PERFILES</h2>
                 <p class="text-sm md:text-base">Selecciona tu perfil para iniciar sesión:</p>
-                <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">TeacherCode</h2>
+                <h2 class="text-2xl md:text-3xl text-title2 font-black my-2">AppMarket</h2>
                 <p class="text-sm md:text-base">Accede a funcionalidades específicas.</p>
                 <div class="grid gap-6 sm:gap-8 md:gap-10 lg:grid-cols-3 rounded-3xl">
                     <div class="bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
@@ -50,45 +50,45 @@
         </div>
     </div>
     {% endif %}
-    <!-- CIERRE DEL MODAD DE L INICIO DEL LOS USUARIOS -->
-
-
+    <!-- CIERRE DEL MODAL DE INICIO DEL LOS USUARIOS -->
 
     <!-- SECCIÓN DEL HERO -->
-    <section class=" bg-slate-100 dark:bg-slate-900">
+    <section class="bg-slate-100 dark:bg-slate-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-
-            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                Sistema de Gestión de Ventas<br>
-                {% if user.is_authenticated %}
-                    {% if user.is_superuser %}
-                    <span class="text-blue-700 dark:text-primary-10 font-semibold">Bienvenido, {{ user.username }}.</span>
+            <div class="mr-auto place-self-center lg:col-span-7 p-4" data-aos="fade-right" data-aos-delay="200">
+                <h1 class="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                    AppMarket
+                </h1>
+                <p class="max-w-2xl mb-4 text-2xl tracking-tight leading-none md:text-4xl xl:text-5xl dark:text-white">
+                    {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                            <span class="text-blue-700 dark:text-primary-10">Bienvenido, @{{ user.username }}. </span> <i class="fa-solid fa-user-gear"></i>
+                        {% else %}
+                            <span class="text-blue-700">Bienvenido, @{{ user.username }}.</span> <i class="fa-solid fa-user"></i>
+                        {% endif %}
                     {% else %}
-                        <span class="text-blue-700  font-semibold">Bienvenido, {{ user.username }}.</span>
+                        <span class="text-blue-700">Bienvenido, usuario anónimo.</span>
                     {% endif %}
-                {% else %}
-                    <span class="text-blue-700 font-semibold">Bienvenido, usuario anónimo.</span>
-                {% endif %}
-            </h1>
-
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">¡Explora nuestro increíble sistema!.<br>Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
-            <a href="#herramientas" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                Explorar
-                <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </a>
-            <a href="#contacto" class="dark:bg-white inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                Contáctanos
-            </a> 
-
+                </p>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                    ¡Explora nuestro increíble sistema!<br>Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.
+                </p>
+                <a href="#herramientas" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" data-aos="fade-up" data-aos-delay="300">
+                    Explorar
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+                <a href="#contacto" class="dark:bg-white inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" data-aos="fade-up" data-aos-delay="400">
+                    Contáctanos
+                </a>
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex" data-aos="fade-left" data-aos-delay="200">
                 <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" class="transform transition-transform duration-10000 hover:scale-110">
-            </div>              
+            </div>
         </div>
     </section>
     <!-- CIERRE DE LA SECCIÓN DEL HERO -->
-
 
     <!-- SECCIÓN DEL BUSCADOR -->  
     <div class="dark:bg-slate-900 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -99,9 +99,9 @@
 
             <form action="/">
                 <label class="mx-auto mt-8 relative min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300" for="search-bar">
-                    <input id="search-bar" placeholder="tu palabra clave aquí" name="q" class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" required="">
+                    <input id="search-bar" placeholder="Tu palabra clave aquí." name="q" class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" required="">
                     <button type="submit" class="bg-blue-700 w-full md:w-auto px-6 py-3 text-white rounded-xl transition-all active:scale-95 duration-100">
-                        <span class="text-sm font-black whitespace-nowrap truncate mx-auto">
+                        <span class="text-sm whitespace-nowrap truncate mx-auto">
                             Buscar
                         </span>
                     </button>
@@ -125,71 +125,61 @@
         </div> 
     </div>
     <!-- CIERRE DE LA SECCIÓN DEL BUSCADOR -->  
-
-
-
-
-
-
       
     {% comment %} <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
-        <!-- Contenedor principal -->
-        <section class="flex flex-col lg:flex-row mx-8 my-20 sm:mx-8 sm:my-8 lg:mx-20 lg:my-28 items-center" data-aos="fade-up">
-            <!-- Mensaje de bienvenida a la izquierda -->
-            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-8 lg:mb-0 lg:mr-4 aos-init aos-animate lg:order-1" data-aos="fade-left" data-label-id="0">    
-                {% if user.is_authenticated %}
-                    {% if user.is_superuser %}
-                        <p>Bienvenido, <span class="text-titleHover font-semibold">@{{ user.username }}</span>.
-                            <i class="fa-solid fa-toolbox text-title"></i>
-                        </p>
-                    {% else %}
-                        <p>Bienvenido, <span class="text-titleHover font-semibold">@{{ user.username }}</span>.
-                            <i class="fa-solid fa-user text-title"></i>
-                        </p>
-                    {% endif %}
+    <!-- Contenedor principal -->
+    <section class="flex flex-col lg:flex-row mx-8 my-20 sm:mx-8 sm:my-8 lg:mx-20 lg:my-28 items-center" data-aos="fade-up">
+        <!-- Mensaje de bienvenida a la izquierda -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-8 lg:mb-0 lg:mr-4 aos-init aos-animate lg:order-1" data-aos="fade-left" data-label-id="0">    
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                    <p>Bienvenido, <span class="text-titleHover font-semibold">@{{ user.username }}</span>.
+                        <i class="fa-solid fa-toolbox text-title"></i>
+                    </p>
                 {% else %}
-                    <p>Bienvenido, <span class="text-titleHover font-semibold">usuario anónimo</span>.
-                        <i class="fa-solid fa-user-secret text-title"></i>
+                    <p>Bienvenido, <span class="text-titleHover font-semibold">@{{ user.username }}</span>.
+                        <i class="fa-solid fa-user text-title"></i>
                     </p>
                 {% endif %}
-                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">¡Explora nuestro increíble sistema!</h2>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
-                <a href="#contacto" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Explorar
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-        </section>   
-        <section>
-            <!-- Carrusel de imágenes a la derecha -->
-            <div class="w-full lg:w-1/2 flex justify-center items-center lg:order-2" data-aos="fade-right">
-                <div class="rounded-3xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 w-full max-w-lg">
-                    <div id="carousel" class="relative overflow-hidden">
-                        <div id="carousel-inner" class="flex">
-                            <!-- Las imágenes se agregarán aquí dinámicamente -->
-                        </div>
+            {% else %}
+                <p>Bienvenido, <span class="text-titleHover font-semibold">usuario anónimo</span>.
+                    <i class="fa-solid fa-user-secret text-title"></i>
+                </p>
+            {% endif %}
+            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">¡Explora nuestro increíble sistema!</h2>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
+            <a href="#contacto" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Explorar
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+        </div>
+    </section>   
+    <section>
+        <!-- Carrusel de imágenes a la derecha -->
+        <div class="w-full lg:w-1/2 flex justify-center items-center lg:order-2" data-aos="fade-right">
+            <div class="rounded-3xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 w-full max-w-lg">
+                <div id="carousel" class="relative overflow-hidden">
+                    <div id="carousel-inner" class="flex">
+                        <!-- Las imágenes se agregarán aquí dinámicamente -->
                     </div>
                 </div>
             </div>
-        </section>
-        
+        </div>
+    </section>
     </div> {% endcomment %}
-<!-- Cierre del contenedor principal -->
-
-
-
+    <!-- Cierre del contenedor principal -->
 
     <!-- SECCIÓN DE HERRAMIENTAS -->  
     <section class="dark:bg-slate-900">
-        <div id="herramientas" class=" p-8">
+        <div id="herramientas" class="p-8">
             <div class="dark:bg-slate-900 flex flex-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
                     HERRAMIENTAS
                 </span>
             </div>
-            <h1 class="dark:text-white text-4xl font-medium  text-center mt-6">
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-black uppercase">
                 Impulsa tu Negocio
             </h1>
             <p class="dark:text-white text-center mt-6 text-lg font-light">
@@ -199,7 +189,7 @@
             <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl justify-center" data-aos="fade-up" data-aos-delay="300">
                 <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-chart-line text-4xl text-title mb-4"></i>
-                <h2 class="uppercase mt-6 text-indigo-500 font-medium mb-3">
+                <h2 class="uppercase mt-6 text-indigo-500 font-extrabold mb-3">
                     Optimizar tus operaciones
                 </h2>
                 <p class="font-light text-sm text-gray-500 mb-3">
@@ -210,10 +200,9 @@
                 </a>
             </div>
 
-
             <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-cogs text-4xl text-title mb-4"></i>
-                <h2 class="uppercase mt-6 text-green-500 font-medium mb-3">
+                <h2 class="uppercase mt-6 text-green-500 font-extrabold mb-3">
                     Aumentar tus ventas
                 </h2>
                 <p class="font-light text-sm text-gray-500 mb-3">
@@ -226,7 +215,7 @@
 
             <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-balance-scale text-4xl text-title mb-4"></i>
-                <h2 class="uppercase mt-6 text-red-500 font-medium mb-3">
+                <h2 class="uppercase mt-6 text-red-500 font-extrabold mb-3">
                     Gestionar tus finanzas
                 </h2>
                 <p class="font-light text-sm text-gray-500 mb-3">
@@ -239,7 +228,7 @@
 
             <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-users text-4xl text-title mb-4"></i>
-                <h2 class="uppercase mt-6 text-orange-500 font-medium mb-3">
+                <h2 class="uppercase mt-6 text-orange-500 font-extrabold mb-3">
                     Satisfacción al cliente
                 </h2>
                 <p class="font-light text-sm text-gray-500 mb-3">
@@ -252,7 +241,7 @@
 
             <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-tools text-4xl text-title mb-4"></i>
-                <h2 class="uppercase mt-6 text-blue-500 font-medium mb-3">
+                <h2 class="uppercase mt-6 text-blue-500 font-extrabold mb-3">
                     Mantenimiento y reparaciones
                 </h2>
                 <p class="font-light text-sm text-gray-500 mb-3">
@@ -265,7 +254,7 @@
 
             <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-users text-4xl text-title mb-4"></i>
-                <h2 class="uppercase mt-6 text-yellow-500 font-medium mb-3">
+                <h2 class="uppercase mt-6 text-yellow-500 font-extrabold mb-3">
                     Capacitación de personal
                 </h2>
                 <p class="font-light text-sm text-gray-500 mb-3">
@@ -280,11 +269,8 @@
             </div>
         </div>
     </div>
-</section>
-<!-- CIERRE DE LA SECCIÓN DE HERRAMIENTAS -->  
-
-
-
+    </section>
+    <!-- CIERRE DE LA SECCIÓN DE HERRAMIENTAS -->  
 
     <!-- SECCION DE CARACTERISTICAS -->
      <section class="dark:bg-slate-900">
@@ -292,18 +278,16 @@
             <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
             <span
                 class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-                CARACTERISTICAS
+                Características
             </span>
             </div>
-            <h1 class="dark:text-white text-4xl font-medium0 text-center mt-6">
+            <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
                 Características del Software
             </h1>
             <p class="dark:text-white text-center mt-6 text-lg font-light">
                 Te ofrecemos múltiples beneficios.
             </p>
-            <br>
             <div class="dark:bg-slate-900 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-4 lg:mx-4 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
-
                 <!-- Card 1 -->
                 <div
                     class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-green-200  transition duration-500">
@@ -359,105 +343,104 @@
 
     <!-- SECCION DE PRECIOS -->
     <section class="dark:bg-slate-900">
-    <div class="dark:bg-slate-900 p-8 gap-20 ">
-        <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
-        <span
-            class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-            PRECIOS
-        </span>
-        </div>
-        <h1 class="dark:text-white text-4xl font-medium text-center mt-6">
-            Paga una vez, úsalo para siempre
-        </h1>
-        <p class="dark:text-white text-center mt-6 text-lg font-light">
-            Conoce nuestros planes
-        </p>
-        <div class="dark:bg-slate-900 p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" id="pricing">
+        <div class="dark:bg-slate-900 p-8 gap-20 ">
+            <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
+            <span
+                class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                PRECIOS
+            </span>
+            </div>
+            <h1 class="dark:text-white text-4xl text-center mt-6 uppercase font-black">
+                Paga una vez, úsalo para siempre
+            </h1>
+            <p class="dark:text-white text-center mt-6 text-lg font-light">
+                Conoce nuestros planes
+            </p>
+            <div class="dark:bg-slate-900 p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" id="pricing">
 
-            <div class="isolate mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                <div class="ring-1 ring-gray-200 rounded-3xl p-8 xl:p-10">
-                    <div class="flex items-center justify-between gap-x-4">
-                        <h3 id="tier-standard" class="dark:text-white text-gray-900 text-2xl font-semibold leading-8">Standard</h3>
+                <div class="isolate mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                    <div class="ring-1 ring-gray-200 rounded-3xl p-8 xl:p-10">
+                        <div class="flex items-center justify-between gap-x-4">
+                            <h3 id="tier-standard" class="dark:text-white text-gray-900 text-2xl font-semibold leading-8">Standard</h3>
+                        </div>
+                        <p class="mt-4 text-base leading-6 text-gray-600">1 license for only 1 activation</p>
+                        <p class="mt-6 flex items-baseline gap-x-1">
+                            <span class="line-through text-2xl font-sans text-gray-500/70">$39</span><span
+                                class="text-5xl font-bold tracking-tight text-gray-900">$29</span>
+                        </p>
+                        <a href=""
+                            aria-describedby="tier-standard"
+                            class="text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300 mt-6 block rounded-md py-2 px-3 text-center text-base font-extrabold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            target="_blank">Buy now</a>
+                        <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
+                            <li class="flex gap-x-3 text-base">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>Lifetime access
+                            </li>
+                            <li class="flex gap-x-3 text-base">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>All AI features
+                            </li>
+                            <li class="flex gap-x-3 text-base">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>Use your own OpenAI key
+                            </li>
+                        </ul>
                     </div>
-                    <p class="mt-4 text-base leading-6 text-gray-600">1 license for only 1 activation</p>
-                    <p class="mt-6 flex items-baseline gap-x-1">
-                        <span class="line-through text-2xl font-sans text-gray-500/70">$39</span><span
-                            class="text-5xl font-bold tracking-tight text-gray-900">$29</span>
-                    </p>
-                    <a href=""
-                        aria-describedby="tier-standard"
-                        class="text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300 mt-6 block rounded-md py-2 px-3 text-center text-base font-medium leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                        target="_blank">Buy now</a>
-                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
-                        <li class="flex gap-x-3 text-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>Lifetime access
-                        </li>
-                        <li class="flex gap-x-3 text-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>All AI features
-                        </li>
-                        <li class="flex gap-x-3 text-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>Use your own OpenAI key
-                        </li>
-                    </ul>
-                </div>
-                <div class="ring-2 ring-blue-600 rounded-3xl p-8 xl:p-10">
-                    <div class="flex items-center justify-between gap-x-4">
-                        <h3 id="tier-extended" class="text-blue-600 text-2xl font-semibold leading-8">Extended</h3>
-                        <p class="rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600">
-                            Most popular</p>
+                    <div class="ring-2 ring-blue-600 rounded-3xl p-8 xl:p-10">
+                        <div class="flex items-center justify-between gap-x-4">
+                            <h3 id="tier-extended" class="text-blue-600 text-2xl font-semibold leading-8">Extended</h3>
+                            <p class="rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600">
+                                Most popular</p>
+                        </div>
+                        <p class="mt-4 text-base leading-6 text-gray-600">1 license for up to 3 activations</p>
+                        <p class="mt-6 flex items-baseline gap-x-1">
+                            <span class="line-through text-2xl font-sans text-gray-500/70">$59</span><span
+                                class="text-5xl font-bold tracking-tight text-gray-900">$39</span>
+                        </p>
+                        <a href=""
+                            aria-describedby="tier-extended"
+                            class="bg-blue-600 text-white shadow-sm hover:bg-blue-500 mt-6 block rounded-md py-2 px-3 text-center text-base font-medium leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            target="_blank">Buy now</a>
+                        <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
+                            <li class="flex gap-x-3 text-base">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>Lifetime access
+                            </li>
+                            <li class="flex gap-x-3 text-base">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>All AI features
+                            </li>
+                            <li class="flex gap-x-3 text-base">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                    class="h-6 w-5 flex-none text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>Use your own OpenAI key
+                            </li>
+                        </ul>
                     </div>
-                    <p class="mt-4 text-base leading-6 text-gray-600">1 license for up to 3 activations</p>
-                    <p class="mt-6 flex items-baseline gap-x-1">
-                        <span class="line-through text-2xl font-sans text-gray-500/70">$59</span><span
-                            class="text-5xl font-bold tracking-tight text-gray-900">$39</span>
-                    </p>
-                    <a href=""
-                        aria-describedby="tier-extended"
-                        class="bg-blue-600 text-white shadow-sm hover:bg-blue-500 mt-6 block rounded-md py-2 px-3 text-center text-base font-medium leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                        target="_blank">Buy now</a>
-                    <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
-                        <li class="flex gap-x-3 text-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>Lifetime access
-                        </li>
-                        <li class="flex gap-x-3 text-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>All AI features
-                        </li>
-                        <li class="flex gap-x-3 text-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                class="h-6 w-5 flex-none text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>Use your own OpenAI key
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
     <!-- CIERRE DE LA SECCION DE PRECIOS -->
-
-
 
     <!-- SECCION DE EQUIPO DE DESARROLLO -->
     <div class=" p-8 gap-20">
@@ -465,7 +448,7 @@
             <div class="flex felx-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">EQUIPO</span>
             </div>
-            <h1 class="dark:text-white text-4xl font-medium text-center mt-6">Equipo de trabajo</h1>
+            <h1 class="dark:text-white text-4xl text-center mt-6 uppercase font-black">Equipo de trabajo</h1>
             <p class="dark:text-white text-center mt-6 text-lg font-light">Conozca nuestro equipo de desarrollo.</p>
         
             <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
@@ -475,10 +458,10 @@
                         <img src="{% static 'img/home-team/team-1.jfif' %}" alt="profile-picture" />
                     </div>
                     <div class="p-6 text-center">
-                        <h4 class="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                        <h4 class="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
                             STEVEN ALEXANDER NIETO DURAN
                         </h4>
-                        <p class="block font-sans text-base antialiased font-medium leading-relaxed text-black bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                        <p class="block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
                             Jefe de Proyecto / Programador
                         </p>
                     </div>
@@ -496,10 +479,10 @@
                             <img src="{% static 'img/home-team/team-2.jfif' %}" alt="profile-picture" />
                         </div>
                         <div class="p-6 text-center">
-                            <h4 class="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                            <h4 class="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
                                 JAVIER OMAR HARO SOLEDISPA
                             </h4>
-                            <p class="block font-sans text-base antialiased font-medium leading-relaxed text-black bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                            <p class="block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
                                 Jefe de Proyecto / Programador
                             </p>
                         </div>
@@ -512,141 +495,135 @@
                 </section>
             </div>
         </div>
-        
-    </section>    
+    </div>    
     <!-- CIERRE DE LA SECCION DE EQUIPO DE DESARROLLO -->
-
-
     
     <!-- SECCION DE CONTACTOS -->
-        <section id="contacto" class="dark:bg-slate-900 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-            <div class="dark:bg-slate-900 p-8 gap-20">
-                <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
-                    <span class="dark:bg-slate-900 rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
-                </div>
-                <h1 class="dark:text-white text-4xl font-medium text-center mt-6">Contácta a nuestro equipo</h1>
-                <p class="dark:text-white text-center mt-6 text-lg font-light">Envíanos tus sugerencias.</p>
+    <section id="contacto" class="dark:bg-slate-900 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+        <div class="dark:bg-slate-900 p-8 gap-20">
+            <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
+                <span class="dark:bg-slate-900 rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
             </div>
-            <div class="dark:bg-slate-900 flex items-stretch justify-center">
-                <div class="grid md:grid-cols-2">
-                    <div class="h-full pr-6">
-                        <p class="mt-3 mb-12 text-lg text-gray-600 text-justify dark:text-slate-400">
-                            "En nuestro corazón late el deseo ferviente de ser parte de tu éxito. Queremos ser el impulso que eleva tus sueños, la chispa que enciende tu visión.
-                            Confía en nosotros para ser tus aliados en esta travesía hacia el triunfo.
-                            Juntos, llevaremos tu negocio más allá de lo imaginable. Tu éxito es nuestro mayor logro."
-                            <div class="flex space-x-4 mt-4">
-                                <a href="#" class="fab fa-twitter"></a>
-                                <a href="#" class="fab fa-facebook"></a>
-                                <a href="#" class="fab fa-instagram"></a>
-                                <a href="#" class="fab fa-linkedin"></a>
-                            </div>
-                            <br><br>
-                        </p>
-                        
-                        <ul class="mb-6 md:mb-0">
-                            <li class="flex">
-                                <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                                        <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
-                                        <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
-                                    </svg>
-                                </div>
-                                <div class="ml-4 mb-4">
-                                    <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Dirección
-                                    </h3>
-                                    <a class="hover:text-title"
-                                        href="https://www.google.com/maps/place/UNEMI+-+Universidad+Estatal+de+Milagro/@-2.149223,-79.60552,17z/data=!3m1!4b1!4m6!3m5!1s0x902d465523c50e37:0x70a5136e6272715f!8m2!3d-2.149223!4d-79.6029451!16s%2Fg%2F1tt1j8j4?entry=ttu"
-                                        target="_blank">
-                                        Universidad Estatal de Milagro (UNEMI) <br>
-                                        Ecuador, Guayas, Milagro <br>
-                                        Av. 17 de Septiembre
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="flex">
-                                <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                                        <path d="M15 7a2 2 0 0 1 2 2"></path>
-                                        <path d="M15 3a6 6 0 0 1 6 6"></path>
-                                    </svg>
-                                    
-                                </div>
-                                <div class="ml-4 mb-4">
-                                    <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contactos
-                                    </h3>
-                                    <div class="flex items-start space-x-4 ">
-                                        <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
-                                        <div>
-                                            <a class="hover:text-title" href="mailto:snietod@unemi.edu.ec"
-                                                target="_blank">snietod@unemi.edu.ec</a>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
-                                        <div>
-                                            <a class="hover:text-title" href="mailto:jharos@unemi.edu.ec"
-                                                target="_blank">jharos@unemi.edu.ec</a>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
-                                        <div>
-                                            <a class="hover:text-title" href="https://wa.me/593997932650" target="_blank">+593
-                                                997 932 650</a>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
-                                        <div>
-                                            <a class="hover:text-title" href="https://wa.me/593963919421" target="_blank">+593
-                                                963 919 421</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+            <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">Contácta a nuestro equipo</h1>
+            <p class="dark:text-white text-center mt-6 text-lg font-light">Envíanos tus sugerencias.</p>
+        </div>
+        <div class="dark:bg-slate-900 flex items-stretch justify-center">
+            <div class="grid md:grid-cols-2">
+                <div class="h-full pr-6 m-10">
+                    <h1 class="text-blue-700 dark:text-white text-2xl font-black">AppMarket</h1>
+                    <p class="mt-3 mb-12 text-lg text-gray-600 text-justify dark:text-slate-400">
+                    "En nuestro corazón late el deseo ferviente de ser parte de tu éxito. Queremos ser el impulso que eleva tus sueños, la chispa que enciende tu visión.
+                    Confía en nosotros para ser tus aliados en esta travesía hacia el triunfo.
+                    Juntos, llevaremos tu negocio más allá de lo imaginable. Tu éxito es nuestro mayor logro."
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-facebook"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="#" class="fab fa-linkedin"></a>
                     </div>
-                    <div class="card h-fit max-w-6xl p-5 md:p-12" id="form">
-                        <form id="contact-form" action="https://formspree.io/f/myyrwqgz" method="post" role="form" class="space-y-8">
-                            <div>
-                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
-                                <input type="text" name="name" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring focus:border-blue-300" placeholder="Nombre" required>
+                    <br>
+                    
+                    <ul class="mb-6 md:mb-0">
+                        <li class="flex">
+                            <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                                    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                                </svg>
                             </div>
-                            <div>
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-                                <input type="email" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring focus:border-blue-300" placeholder="Email" required>
+                            <div class="ml-4 mb-4">
+                                <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Dirección
+                                </h3>
+                                <a class="hover:text-title"
+                                    href="https://www.google.com/maps/place/UNEMI+-+Universidad+Estatal+de+Milagro/@-2.149223,-79.60552,17z/data=!3m1!4b1!4m6!3m5!1s0x902d465523c50e37:0x70a5136e6272715f!8m2!3d-2.149223!4d-79.6029451!16s%2Fg%2F1tt1j8j4?entry=ttu"
+                                    target="_blank">
+                                    Universidad Estatal de Milagro (UNEMI) <br>
+                                    Ecuador, Guayas, Milagro <br>
+                                    Av. 17 de Septiembre
+                                </a>
                             </div>
-                            <div>
-                                <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Asunto</label>
-                                <input type="text" name="subject" id="subject" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring focus:border-blue-300" placeholder="Asunto" required>
+                        </li>
+                        <li class="flex">
+                            <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+                                    <path d="M15 7a2 2 0 0 1 2 2"></path>
+                                    <path d="M15 3a6 6 0 0 1 6 6"></path>
+                                </svg>
                             </div>
-                            <div>
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Mensaje</label>
-                                <textarea name="message" id="message" rows="5" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring focus:border-blue-300" placeholder="Mensaje" required></textarea>
-                            </div>
-                            <div id="success-message" class="hidden my-3 bg-green-300 p-4 rounded-3xl">
-                                <div class="text-center">
-                                    <i class="fa-solid fa-envelope-circle-check"></i><br>
-                                    Su mensaje ha sido enviado.<br>
-                                    <span class="font-semibold">¡Gracias!</span>
+                            <div class="ml-4 mb-4">
+                                <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contactos
+                                </h3>
+                                <div class="flex items-start space-x-4 ">
+                                    <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="mailto:snietod@unemi.edu.ec"
+                                            target="_blank">snietod@unemi.edu.ec</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="mailto:jharos@unemi.edu.ec"
+                                            target="_blank">jharos@unemi.edu.ec</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="https://wa.me/593997932650" target="_blank">+593
+                                            997 932 650</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="https://wa.me/593963919421" target="_blank">+593
+                                            963 919 421</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <button type="submit" class="py-3 px-5 text-sm font-medium text-white rounded-lg bg-blue-700 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                                    Enviar Mensaje
-                                </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card h-fit max-w-6xl p-5 md:p-12" id="form">
+                    <form id="contact-form" action="https://formspree.io/f/myyrwqgz" method="post" role="form" class="space-y-8">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
+                            <input type="text" name="name" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Nombre" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                            <input type="email" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Email" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Asunto</label>
+                            <input type="text" name="subject" id="subject" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Asunto" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Mensaje</label>
+                            <textarea name="message" id="message" rows="5" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <div id="success-message" class="hidden my-3 bg-green-300 p-4 rounded-3xl">
+                            <div class="text-center">
+                                <i class="fa-solid fa-envelope-circle-check"></i><br>
+                                Su mensaje ha sido enviado.<br>
+                                <span class="font-semibold">¡Gracias!</span>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="py-3 px-5 text-sm font-medium text-white rounded-lg bg-blue-700 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </section>
     <!--- CIERRE DE LA SECCION DE CONTACTOS -->
-
 </section>
-
-
 
 <hr>
 

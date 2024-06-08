@@ -3,88 +3,77 @@
 <title>{% block title %} SGV - Home {% endblock title %}</title>
 {% block content %}
 
-<section id="home-content" class="mt-4 flex justify-center items-center min-h-screen">
-    <section id="home-signup" class="mt-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="container">
-            <h2 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Perfil de Usuario</h2>
-            <p class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Consulta la información de tu perfil.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade">
+<section class="mt-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="text-center">
+        <div class="">
+            <!-- Mensaje de bienvenida -->
+            <div class="">
+                <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
+                    Perfil de Usuario
+                </h1>
+                <p class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Consulta la información de tu perfil.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-20" data-aos="fade">
                 <!-- Columna de la izquierda -->
-                <div class="flex justify-center items-center" data-aos="fade-right" data-aos-delay="200">
-                    <div class="welcome-message text-center">
-                        <h2>Foto de Perfil</h2>
+                <div class="bg-white rounded-3xl flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
+                    <div class="w-[45%] text-center">
+                        <h2 class="dark:text-white text-2xl text-center mt-6 font-black uppercase">Foto de Perfil</h2>
                         {% if user.get_profile_picture_url %}
-                        <img id="profile-picture" src="{{ user.get_profile_picture_url }}" class="mx-auto d-block rounded-lg" alt="Foto de perfil" style="width: 70%;">
+                        <img src="{{ user.get_profile_picture_url }}" class="mx-auto d-block rounded-lg" alt="Foto de perfil">
                         {% else %}
-                        <img id="profile-picture" src="{% static 'img/default_person.png' %}" class="mx-auto d-block rounded-lg" alt="Foto de perfil por defecto" style="width: 70%;">
+                        <img src="{% static 'img/default_person.png' %}" class="mx-auto d-block rounded-lg" alt="Foto de perfil por defecto">
                         {% endif %}
-                        <form id="user-form" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
-                                {{ form.image }}
-                            </div>
-                            <div class="text-center">
-                                <br>
-                                <a href="{% url 'update_profile' %}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full">
-                                    <i class="fa-solid fa-file-pen mr-2"></i> Actualizar Datos
-                                </a>
-                            </div>
-                            
-                        </form>
+                    </div>
+                    <div class="text-center w-auto m-4">
+                        <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center justify-center" href="{% url 'update_profile' %}">
+                            <i class="fa-solid fa-file-pen mr-2"></i> Actualizar Datos
+                        </a>
                     </div>
                 </div>
                 <!-- Columna de la derecha -->
-                <div class="bg-white flex justify-center items-center rounded-lg" data-aos="fade-right" data-aos-delay="200">
-                    <div id="form-signup" class="form-container-login">
-                        <form id="register-form" method="POST" enctype="multipart/form-data" onsubmit="validarRegistro(event)">
-                            {% csrf_token %}
-                            {{error}}
-                            <!-- Datos de Usuario -->
-                            <div class="text-center">
-                                <h2 class="mb-6">Datos Personales</h2>
-                            </div>
-                            <div class="form-group">
-                                <p><span class="username">Usuario:</span><br> @{{ user.username }}
+                <div class="p-4 rounded-3xl bg-white flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
+                    <form id="register-form" method="POST" enctype="multipart/form-data" onsubmit="validarRegistro(event)">
+                        {% csrf_token %}
+                        {{error}}
+                        <!-- Datos de Usuario -->
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Usuario:</span><br> @{{ user.username }}
                                     {% if user.is_superuser %}
-                                    <span class="username" style="color: greenyellow;"> | Administrador</span>
+                                    <span class="font-bold text-2xl uppercase text-green-500"> | Administrador</span>
                                     {% endif %}
                                 </p>
                             </div>
-                            <div class="form-group">
-                                <p><span class="username">Nombres:</span><br> {{ user.first_name }} {{user.last_name }}</p>
+                            <div>
+                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Nombres:</span><br> {{ user.first_name }} {{user.last_name }}</p>
                             </div>
-                            <div class="form-group">
-                                <p><span class="username">Cédula:</span><br> {{ user.dni }}</p>
+                            <div>
+                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Cédula:</span><br> {{ user.dni }}</p>
                             </div>
-                            <div class="form-group">
+                            <div>
                                 {% if user.celular %}
-                                <p><span class="username">Celular:</span><br> {{ user.celular }}</p>
+                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Celular:</span><br> {{ user.celular }}</p>
                                 {% else %}
-                                <p><span class="username">Celular:</span><br> No Registrado</p>
+                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Celular:</span><br> No Registrado</p>
                                 {% endif %}
                             </div>
-                            <div class="form-group">
+                            <div>
                                 {% if user.correo %}
-                                <p><span class="username">Correo:</span><br> <a href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
+                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Correo:</span><br> <a href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
                                 {% else %}
-                                <p><span class="username">Correo:</span><br> No Registrado</p>
+                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Correo:</span><br> No Registrado</p>
                                 {% endif %}
                             </div>
-                            <br>
-                            <div class="text-center">
-                                <a href="{% url 'home' %}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                                    <i class="fas fa-arrow-left mr-2"></i> Volver
-                                </a>
-                            </div>
-                            <br>
-                        </form>
+                        </div>
+                    </form>
+                    <div class="text-center mt-10 w-10">
+                        <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center" href="{% url 'home' %}">
+                            <i class="fa-solid fa-house"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <br><br><hr>
         </div>
-    </section>
 </section>
 
 

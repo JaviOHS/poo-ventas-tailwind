@@ -4,80 +4,80 @@
 {% load widget_tweaks %}
 <title>{% block title %} SGV - Crear Productos {% endblock title %}</title>
 
-<section id="home-modulos" class="mt-16 flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+<section class="mt-10 flex justify-center" data-aos="fade-up" data-aos-delay="200">
     <div class="text-center">
         <div class="flex justify-center">
             <div class="w-full lg:w-8/12">
-                <div class="module-head mb-8">
-                    <h2 class="text-3xl font-bold text-center">{{ title2 }}</h2>
-                    <p class="mt-2">Complete el formulario para registrar un nuevo proveedor en el sistema.</p>
+                <div class="mb-4">
+                    <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
+                        {{ title2 }}
+                    </h1>
+                    <p class="mt-2">Complete el formulario para registrar un nuevo producto en el sistema.</p>
                 </div>
             </div>
         </div>
-        <div id="form-product" class="form-container">
-            <form id="product-form" method="post" enctype="multipart/form-data" class="space-y-6">
+        <div class="m-4 bg-white p-8 rounded-3xl">
+            <form method="post" enctype="multipart/form-data" class="space-y-6">
                 {% csrf_token %}
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <div class="form-group">
-                            <label for="{{ form.description.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.description.label }}</label>
-                            {{ form.description|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
+                        <div class="mb-8">
+                            <label for="{{ form.description.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.description.label }}</label>
+                            {{ form.description }}
                         </div>
-                        <div class="form-group">
-                            <label for="{{ form.brand.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.brand.label }}</label>
-                            {{ form.brand|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
+                        <div class="mb-8">
+                            <label for="{{ form.brand.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.brand.label }}</label>
+                            {{ form.brand }}
                         </div>
-                        <div class="form-group">
-                            <label for="{{ form.supplier.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.supplier.label }}</label>
-                            {{ form.supplier|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
-                        </div>
-                    </div>
-                    <div>
-                        <div class="form-group">
-                            <label for="{{ form.price.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.price.label }}</label>
-                            {{ form.price|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
-                        </div>
-                        <div class="form-group">
-                            <label for="{{ form.expiration_date.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.expiration_date.label }}</label>
-                            {{ form.expiration_date|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
-                        </div>
-                        <div class="form-group">
-                            <label for="{{ form.line.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.line.label }}</label>
-                            {{ form.line|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
+                        <div class="mb-8">
+                            <label for="{{ form.supplier.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.supplier.label }}</label>
+                            {{ form.supplier }}
                         </div>
                     </div>
                     <div>
-                        <div class="form-group">
-                            <label for="{{ form.stock.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.stock.label }}</label>
-                            {{ form.stock|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
+                        <div class="mb-8">
+                            <label for="{{ form.price.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.price.label }}</label>
+                            {{ form.price }}
                         </div>
-                        <div class="form-group">
-                            <label for="{{ form.categories.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.categories.label }}</label>
-                            {{ form.categories|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
+                        <div class="mb-8">
+                            <label for="{{ form.expiration_date.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.expiration_date.label }}</label>
+                            {{ form.expiration_date }}
+                        </div>
+                        <div class="mb-8">
+                            <label for="{{ form.line.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.line.label }}</label>
+                            {{ form.line }}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-8">
+                            <label for="{{ form.stock.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.stock.label }}</label>
+                            {{ form.stock }}
+                        </div>
+                        <div class="mb-8">
+                            <label for="{{ form.categories.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.categories.label }}</label>
+                            {{ form.categories }}
                         </div>
                     </div>
                 </div>
-                <div class="form-group mx-auto w-1/2">
-                    <label for="{{ form.image.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.image.label }}</label>
-                    {{ form.image|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
+                <div class="mb-8 mx-auto w-1/2">
+                    <label for="{{ form.image.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.image.label }}</label>
+                    {{ form.image }}
                 </div>
-                <div class="form-group">
-                    <label for="{{ form.state.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.state.label }}</label>
-                    {{ form.state|add_class:"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" }}
+                <div class="mb-8 flex flex-col justify-center items-center">
+                    <label for="{{ form.state.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.state.label }}</label>
+                    {{ form.state }}
                 </div>
-                <div class="form-group text-center">
-                    <button type="submit" class="btn btn-details inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <i class="fa-solid fa-boxes-packing mr-2"></i>Guardar
+                <div class="flex justify-center">
+                    <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
+                        <i class="fa-solid fa-save mr-2"></i>Guardar
                     </button>
-                    <a href="{% url 'core:product_list' %}" class="btn btn-cancel inline-flex items-center justify-center px-4 py-2 ml-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" href="{% url 'core:product_list' %}">
                         <i class="fa-solid fa-xmark mr-2"></i>Cancelar
                     </a>
                 </div>
             </form>
         </div>
-        <br><br>
     </div>
-
 </section>
 <hr>
 <!-- <script src="{% static 'js/validaciones.js' %}"></script> -->

@@ -2,9 +2,7 @@ from django import forms
 from core.models import Product, Brand, Supplier, Category
 from django.utils import timezone
 import datetime
-from django.contrib.auth.forms import UserChangeForm
-
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from .models import CustomUser
 
 class CustomUserCreationForm(UserCreationForm):
@@ -36,12 +34,13 @@ class CustomUserUpdateForm(UserChangeForm):
             },
         }
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese nombres del usuario'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese apellidos del usuario'}),
-            'dni': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese DNI del usuario'}),
-            'celular': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese número celular del usuario'}),
-            'correo': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese correo electrónico del usuario'}),
-            'imagen': forms.FileInput(attrs={'class': 'form-control', 'type': 'file', 'id': 'id_imagen'}),
+            'first_name': forms.TextInput(attrs={'placeholder': 'Ingrese nombres del usuario', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Ingrese apellidos del usuario', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'dni': forms.TextInput(attrs={'placeholder': 'Ingrese DNI del usuario', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'celular': forms.TextInput(attrs={'placeholder': 'Ingrese número celular del usuario', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'correo': forms.EmailInput(attrs={'placeholder': 'Ingrese correo electrónico del usuario', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'image': forms.FileInput(attrs={'type': 'file', 'id': 'id_image', 'class': 'block w-full text-sm text-gray-700 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white hover:bg-gray-50'}),
+
         }
         labels = {
             'first_name': 'Nombres',
@@ -65,16 +64,16 @@ class ProductForm(forms.ModelForm):
             },
         }
         widgets = {
-            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese descripción del producto', 'id': 'id_description'}),
-            'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese precio del producto', 'id': 'id_price'}),
-            'stock': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese stock del producto', 'id': 'id_stock'}),
-            'brand': forms.Select(attrs={'class': 'form-select', 'id': 'id_brand'}),
-            'categories': forms.SelectMultiple(attrs={'class': 'form-select', 'id': 'id_categories'}),
-            'line': forms.Select(attrs={'class': 'form-select', 'id': 'id_line'}),
-            'supplier': forms.Select(attrs={'class': 'form-select', 'id': 'id_supplier'}),
-            'expiration_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'id': 'id_expiration_date'}),
-            'image': forms.FileInput(attrs={'class': 'form-control', 'type': 'file', 'id': 'id_image'}),
-            'state': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_state'}),
+            'description': forms.TextInput(attrs={'placeholder': 'Ingrese descripción del producto', 'id': 'id_description', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'price': forms.TextInput(attrs={'placeholder': 'Ingrese precio del producto', 'id': 'id_price', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'stock': forms.TextInput(attrs={'placeholder': 'Ingrese stock del producto', 'id': 'id_stock', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'brand': forms.Select(attrs={'id': 'id_brand', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'categories': forms.SelectMultiple(attrs={'id': 'id_categories', 'class': 'mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'}),
+            'line': forms.Select(attrs={'id': 'id_line', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'supplier': forms.Select(attrs={'id': 'id_supplier', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'expiration_date': forms.DateInput(attrs={'type': 'date', 'id': 'id_expiration_date', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'image': forms.FileInput(attrs={'type': 'file', 'id': 'id_image', 'class': 'block w-full text-sm text-gray-700 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white hover:bg-gray-50'}),
+            'state': forms.CheckboxInput(attrs={'id': 'id_state', 'class': 'mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
         }
         labels = {
             'description': 'Producto',
@@ -108,12 +107,12 @@ class BrandForm(forms.ModelForm):
             },
         }
         widgets = {
-            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese descripción de la marca'}),
-            'state': forms.CheckboxInput(attrs={'class': 'form-check-input'})
+            'description': forms.TextInput(attrs={'placeholder': 'Ingrese descripción de la marca', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'state': forms.CheckboxInput(attrs={'class': 'mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})
         }
         labels = {
-            'description': 'Nombre de la marca',
-            'state': 'Estado', # Agrega la etiqueta para el campo 'state'
+            'description': 'Descripción ',
+            'state': 'Estado',
         }
 
     def clean_description(self):
@@ -136,12 +135,13 @@ class SupplierForm(forms.ModelForm):
             },
         }
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese nombre del proveedor', 'id': 'id_name'}),
-            'ruc': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese RUC del proveedor', 'id': 'id_ruc'}),
-            'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese dirección del proveedor'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese número celular', 'id': 'id_phone'}),
-            'state': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'image': forms.FileInput(attrs={'class': 'form-control', 'type': 'file', 'id': 'id_image'}),
+            'name': forms.TextInput(attrs={'placeholder': 'Ingrese nombre del proveedor', 'id': 'id_name', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'ruc': forms.TextInput(attrs={'placeholder': 'Ingrese RUC del proveedor', 'id': 'id_ruc', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'address': forms.TextInput(attrs={'placeholder': 'Ingrese dirección del proveedor', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Ingrese número celular', 'id': 'id_phone', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'state': forms.CheckboxInput(attrs={'class': 'mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'image': forms.FileInput(attrs={'type': 'file', 'id': 'id_image', 'class': 'mb-4 block w-full text-sm text-gray-700 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white hover:bg-gray-50'}),
+
         }
         labels = {
             'name': 'Nombre',
@@ -166,11 +166,11 @@ class CategoryForm(forms.ModelForm):
             },
         }
         widgets = {
-            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese categoría'}),
-            'state': forms.CheckboxInput(attrs={'class': 'form-check-input'})
+            'description': forms.TextInput(attrs={'placeholder': 'Ingrese categoría', 'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}),
+            'state': forms.CheckboxInput(attrs={'class': 'mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})
         }
         labels = {
-            'description': 'Categoría',
+            'description': 'Descripción',
             'state': 'Estado', 
         }
 

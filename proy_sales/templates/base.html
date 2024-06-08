@@ -12,7 +12,6 @@
     <!-- Tailwind JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-    
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
@@ -81,7 +80,7 @@
                 </button>
     
                     <!-- Dropdown menu -->
-                    <div class="dark:bg-slate-900 z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                    <div class="dark:bg-slate-900 z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:divide-gray-600" id="user-dropdown">
                         {% if user.is_authenticated %}
                             <div class="px-4 py-3">
                                 <span class="block text-sm text-gray-900 dark:text-white">{{ user.username }}</span>
@@ -120,28 +119,28 @@
                     </button>
                 </div>
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                    <ul class="navbar-menu flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul id="menu" class="navbar-menu flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <a href="/" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white">Inicio</a>
+                            <a href="/" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white"><i class="fa-solid fa-house"></i></a>
                         </li>
                         {% if user.is_superuser %}
                             <li>
-                                <a href="{% url 'core:product_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
+                                <a href="{% url 'core:product_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
                             </li>
                         
                             <li>
-                                <a href="{% url 'core:category_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categorías</a>
+                                <a href="{% url 'core:category_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categorías</a>
                             </li>
                             <li>
-                                <a href="{% url 'core:brand_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Marcas</a>
+                                <a href="{% url 'core:brand_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Marcas</a>
                             </li>
                             <li>
-                                <a href="{% url 'core:supplier_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Proveedores</a>
+                                <a href="{% url 'core:supplier_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Proveedores</a>
                             </li>
                         {% endif %}
                         {% if user.is_authenticated and not user.is_superuser %}
                             <li>
-                                <a href="{% url 'purchase:shop' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tienda</a>
+                                <a href="{% url 'purchase:shop' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tienda</a>
                             </li>
                         {% endif %}
                     </ul>
@@ -151,20 +150,14 @@
         <hr>
     </header>
     <br><br><br><br>
-    
 {% endblock navbar %}
 
-
-    
-
-    
-    
 
 <!-- drawer init and show -->
 
  
  <!-- drawer component -->
- <div id="drawer-navigation" class="bg-white fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
+ <div id="drawer-navigation" class="fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
     <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">MENU DE TEMAS</h5>
     <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -192,12 +185,6 @@
        </ul>
     </div>
  </div>
- 
-
-
-
-
-
         
     <!-- Contenido -->
     <section class="">
@@ -276,15 +263,8 @@
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="" class="hover:underline">AppMarket™</a>. Todos los derechos reservados.<br>Diseñado por <a class="text-title" href="https://github.com/Alexis2024" target="_blank">Alex Duran</a> y <a class="text-title" href="https://github.com/JaviOHS" target="_blank">Javier Haro</a>
         </span>
     </div>
-    
-    <footer class="bg-white rounded-lg shadow dark:bg-white w-full">
-        <!-- Contenido del footer -->
-    </footer>
-    
-    
-    
     <!-- Cierre del footer -->
-    
+
 
 <!-- Modal de Ternino de servicio -->
   <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -447,7 +427,7 @@
             navLinks.forEach(link => {
                 if (link.getAttribute('href') === currentPath) {
                     link.classList.add('active');
-                    link.style.color = 'rgb(66 194 255)'; // Establece el color del enlace activo
+                    link.style.color = '#1A56DB'; // Establece el color del enlace activo
                 } else {
                     link.classList.remove('active');
                 }

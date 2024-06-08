@@ -2,48 +2,58 @@
 {% block content %}
 <title>{% block title %} SGV - Categorías {% endblock title %}</title>
 
-<section id="home-modulos" class="mt-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+<section class="mt-4" data-aos="fade-up" data-aos-delay="200">
     <div class="text-center">
         <div class="row">
             <!-- Mensaje de bienvenida -->
-            <div class="col-lg-12">
-                <div class="module-head">
-                    <h2 class="title text-center">{{ title2 }}</h2>
+            <div class="">
+                <div class="">
+                    <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
+                        {{ title2 }}
+                    </h1>
                     <p>Agregue y edite categorías para los múltiples productos.</p>
                 </div>
             </div>
             <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl"> <!-- Aplicando las mismas clases de estilo para las cards -->
                 {% for item in categories %}
-                <div class="col-md-4 mb-4 flex justify-center"> <!-- Aplicando las mismas clases de estilo para las columnas -->
+                <div class="mb-4 flex justify-center custom-transform"> <!-- Aplicando las mismas clases de estilo para las columnas -->
                     <div class="relative w-full max-w-xs overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"> <!-- Aplicando las mismas clases de estilo para las cards -->
                         <div class="text-center card card-custom"> <!-- Aplicando las mismas clases de estilo para las cards -->
-                            <div class="card-header">
-                                <h2 class="card-title">{{ item.description }}</h2>
-                            </div>
+                            <h1 class="dark:text-white text-2xl  text-center mt-6 font-black uppercase">
+                                {{ item.description }}
+                            </h1>
                             <div class="card-body">
-                                <h3>Creación: </h3><p>{{ item.created }}</p><br>
-                                <h3>Última edición: </h3><p>{{ item.updated }}</p><br>
-                                <h3>
+                                <h3 class="font-bold">Creación: </h3><p>{{ item.created }}</p><br>
+                                <h3 class="font-bold">Última edición: </h3><p>{{ item.updated }}</p><br>
+                                <h3 class="font-bold">
                                     Estado: 
                                     {% if item.state %}
-                                    <i class="fa-solid fa-check" style="color: green;"></i>
+                                    <i class="fa-solid fa-check text-green-500"></i>
                                     {% else %}
-                                    <i class="fa-solid fa-square-minus" style="color: red;"></i>
+                                    <i class="fa-solid fa-square-minus text-red-500"></i>
                                     {% endif %}
                                 </h3>
                             </div> 
                             <div class="card-footer flex justify-center">
-                                <a href="{% url 'core:category_update' item.id %}" class="btn btn-update bg-blue-700 rounded-full px-4 py-2 text-white mr-2"><i class="fa-solid fa-gear"></i> Editar</a>
-                                <a class="btn btn-cancel bg-red-700 rounded-full px-4 py-2 text-white" onclick="confirmDelete({{ item.id }})"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                                <a href="{% url 'core:category_update' item.id %}" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
+                                    <i class="fa-solid fa-gear mr-2"></i> Editar
+                                </a>
+                                <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" onclick="confirmDelete('{{ item.id }}')">
+                                    <i class="fa-solid fa-trash mr-2"></i> Eliminar
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-            <div class="form-group text-center mt-4">
-                <a class="btn btn-details bg-blue-700 rounded-full px-4 py-2 text-white mr-2" href="{% url 'core:category_create' %}"><i class="fa-solid fa-plus"></i> Nueva categoría </a>
-                <a class="btn btn-details bg-blue-700 rounded-full px-4 py-2 text-white" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a><br><br>
+            <div class=" flex justify-center form-group text-center m-4">
+                <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center justify-center" href="{% url 'core:category_create' %}">
+                    <i class="fa-solid fa-plus mr-2"></i> Nueva categoría
+                </a>
+                <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center" href="{% url 'home' %}">
+                    <i class="fa-solid fa-house"></i>
+                </a>
             </div>
         </div>
     </div>
