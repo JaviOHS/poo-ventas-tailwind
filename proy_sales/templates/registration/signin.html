@@ -2,39 +2,36 @@
 {% load static %}
 {% block content %}
 <title>{% block title %} SGV - Iniciar sesión {% endblock title %}</title>
-<div class="bg-gray-100 p-8 relative">
-    <!-- Fondo izquierdo -->
-    <div class="absolute inset-0 bg-cover blur-[106px]" style="background-image: url('{% static 'img/fondo.png' %}')"></div>
-    <!-- Contenido central -->
+<div class="bg-gray-100 p-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center blur-[106px]" style="background-image: url('{% static 'img/fondo.png' %}');"></div>
     <div class="relative z-10">
-        <section id="home-signin" class="mt-2" data-aos="fade-up" data-aos-delay="200">
-            <!-- Columna de la imagen centrada -->
-            <br>
-            <div class="col-lg-6 mx-auto text-center mb-4" data-aos="fade-right" data-aos-delay="200">
-                <img src="{% static 'img/register/signin.jfif' %}" class="block mx-auto rounded-full" alt="Signin" style="width: 330px;">
+        <section class="bg-white p-2 mx-96 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+            <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase my-2">
+                {{ title2 }}
+            </h1>
+            <div class="text-center" data-aos="fade-right" data-aos-delay="200">
+                <img src="{% static 'img/register/signin.jpg' %}" class="block w-20 md:w-64 lg:w-64  mx-auto rounded-full" alt="Signin">
             </div>
-            <br><br>
-            <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="200">
-                <div class="form-container-login max-w-sm mx-auto z-0">
+            <div class="my-4" data-aos="fade-right" data-aos-delay="200">
+                <div class="max-w-sm mx-auto">
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="mb-5 relative">
-                            <label for="{{ form.username.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.username.label }}</label>
+                            <label for="{{ form.username.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.username.label }}</label>
                             <div class="input-group">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 top-6">
                                     <i class="fa-solid fa-user"></i>
                                 </span>
-                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10 pr-12 pl-12 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_username" name="username">
+                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10 pr-12 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_username" name="username">
                             </div>
                         </div>
-                        
                         <div class="mb-5 relative">
-                            <label for="{{ form.password.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.password.label }}</label>
+                            <label for="{{ form.password.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.password.label }}</label>
                             <div class="input-group">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 top-6">
                                     <i class="fa-solid fa-lock"></i>
                                 </span>
-                                <input type="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10 pr-12 pl-12 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_password" name="password">
+                                <input type="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10 pr-12 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_password" name="password">
                                 <span class="absolute inset-y-0 right-0 flex items-center pl-3 top-6">
                                     <button class="btn btn-outline-secondary p-2" type="button" id="togglePassword">
                                         <i class="fas fa-eye"></i>
@@ -42,19 +39,19 @@
                                 </span>
                             </div>
                         </div>
-                        
-                        <div class="text-center mb-5">
-                            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="submit"><i
-                                    class="fas fa-sign-in-alt"></i> Iniciar sesión</button>
+                        <div class="flex flex-col items-center text-center mb-5">
+                            <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
+                                Iniciar Sesión
+                            </button>
                         </div>
                     </form>
                 </div>
-            
                 <p class="text-center mt-3 z-10">¿No tienes una cuenta? <a href="{% url 'signup' %}" class="text-blue-600 hover:underline dark:text-blue-500">Regístrate</a></p>
             </div>
         </section>
     </div>
 </div>
+
 <hr>
 <script>
     document.getElementById("togglePassword").addEventListener("click", function () {
