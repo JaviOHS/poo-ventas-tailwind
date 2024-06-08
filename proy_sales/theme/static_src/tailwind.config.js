@@ -30,6 +30,7 @@ module.exports = {
                 titleHover: '#14DC99',
                 title2: '#0A3D62',
                 items: 'rgb(95, 95, 95)',
+                
             },
             fontFamily: {
                 'UbuntuMono-Regular': ['UbuntuMono-Regular', 'monospace'],

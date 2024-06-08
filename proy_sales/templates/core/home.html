@@ -55,7 +55,7 @@
 
 
     <!-- SECCIÓN DEL HERO -->
-    <section class=" dark:bg-gray-900">
+    <section class=" bg-slate-100 dark:bg-slate-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
 
@@ -63,12 +63,12 @@
                 Sistema de Gestión de Ventas<br>
                 {% if user.is_authenticated %}
                     {% if user.is_superuser %}
-                        <span class="text-blue-700 font-semibold">Bienvenido, {{ user.username }}.</span>
+                    <span class="text-blue-700 dark:text-primary-10 font-semibold">Bienvenido, {{ user.username }}.</span>
                     {% else %}
                         <span class="text-blue-700  font-semibold">Bienvenido, {{ user.username }}.</span>
                     {% endif %}
                 {% else %}
-                    <span class="text-blue-700  font-semibold">Bienvenido, usuario anónimo.</span>
+                    <span class="text-blue-700 font-semibold">Bienvenido, usuario anónimo.</span>
                 {% endif %}
             </h1>
 
@@ -77,7 +77,7 @@
                 Explorar
                 <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a>
-            <a href="#contacto" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+            <a href="#contacto" class="dark:bg-white inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                 Contáctanos
             </a> 
 
@@ -91,7 +91,7 @@
 
 
     <!-- SECCIÓN DEL BUSCADOR -->  
-    <div class=" mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="dark:bg-slate-900 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16">
             <p class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 ¿No encontró el componente que estaba buscando?
@@ -182,197 +182,202 @@
 
 
     <!-- SECCIÓN DE HERRAMIENTAS -->  
-<div id="herramientas" class="bg-white p-8 " style="background-image: url('static/img/.png');">
-    <div class="flex flex-col items-center justify-center">
-        <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-            HERRAMIENTAS
-        </span>
+    <section class="dark:bg-slate-900">
+        <div id="herramientas" class=" p-8">
+            <div class="dark:bg-slate-900 flex flex-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                    HERRAMIENTAS
+                </span>
+            </div>
+            <h1 class="dark:text-white text-4xl font-medium  text-center mt-6">
+                Impulsa tu Negocio
+            </h1>
+            <p class="dark:text-white text-center mt-6 text-lg font-light">
+                Nuestro sistema ofrece las herramientas necesarias para maximizar el potencial de tu negocio.
+            </p>
+    
+            <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl justify-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-chart-line text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-indigo-500 font-medium mb-3">
+                    Optimizar tus operaciones
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Aumenta la eficiencia de tu equipo con herramientas automatizadas y análisis detallados.
+                </p>
+                <a class="text-indigo-500 flex items-center hover:text-indigo-600" href="/">
+                    More about us icon
+                </a>
+            </div>
+
+
+            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-cogs text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-green-500 font-medium mb-3">
+                    Aumentar tus ventas
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Realiza ventas identificando nuevas oportunidades de negocio y cerrando más acuerdos.
+                </p>
+                <a class="text-green-500 flex items-center hover:text-green-600" href="/">
+                    More about us icon
+                </a>
+            </div>
+
+            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-balance-scale text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-red-500 font-medium mb-3">
+                    Gestionar tus finanzas
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Administra tus finanzas de manera eficiente y toma decisiones informadas con análisis financieros detallados sobre los productos.
+                </p>
+                <a class="text-red-500 flex items-center hover:text-red-600" href="/">
+                    More about us icon
+                </a>
+            </div>
+
+            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-users text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-orange-500 font-medium mb-3">
+                    Satisfacción al cliente
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    El cliente recibe un servicio personalizado y una atención excepcional.
+                </p>
+                <a class="text-orange-500 flex items-center hover:text-orange-700" href="/">
+                    More about us icon
+                </a>
+            </div>
+
+            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-tools text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-blue-500 font-medium mb-3">
+                    Mantenimiento y reparaciones
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Ofrecemos servicios de mantenimiento y reparación del Software.
+                </p>
+                <a class="text-blue-500 flex items-center hover:text-blue-600" href="/">
+                    Más información
+                </a>
+            </div>        
+
+            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-users text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-yellow-500 font-medium mb-3">
+                    Capacitación de personal
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Brindamos programas de capacitación personalizados para mejorar las habilidades y el rendimiento del personal.
+                </p>
+                <a class="text-yellow-500 flex items-center hover:text-yellow-600" href="/">
+                    Más información
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
-    <h1 class="text-4xl font-medium text-gray-700 text-center mt-6">
-        Impulsa tu Negocio
-    </h1>
-    <p class="text-center mt-6 text-lg font-light text-gray-500">
-        Nuestro sistema ofrece las herramientas necesarias para maximizar el potencial de tu negocio.
-    </p>
-
-    <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl justify-center" data-aos="fade-up" data-aos-delay="300">
-        <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
-            <i class="fas fa-chart-line text-4xl text-title mb-4"></i>
-            <h2 class="uppercase mt-6 text-indigo-500 font-medium mb-3">
-                Optimizar tus operaciones
-            </h2>
-            <p class="font-light text-sm text-gray-500 mb-3">
-                Aumenta la eficiencia de tu equipo con herramientas automatizadas y análisis detallados.
-            </p>
-            <a class="text-indigo-500 flex items-center hover:text-indigo-600" href="/">
-                More about us icon
-            </a>
-        </div>
-
-        <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
-            <i class="fas fa-cogs text-4xl text-title mb-4"></i>
-            <h2 class="uppercase mt-6 text-green-500 font-medium mb-3">
-                Aumentar tus ventas
-            </h2>
-            <p class="font-light text-sm text-gray-500 mb-3">
-                Realiza ventas identificando nuevas oportunidades de negocio y cerrando más acuerdos.
-            </p>
-            <a class="text-green-500 flex items-center hover:text-green-600" href="/">
-                More about us icon
-            </a>
-        </div>
-
-        <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
-            <i class="fas fa-balance-scale text-4xl text-title mb-4"></i>
-            <h2 class="uppercase mt-6 text-red-500 font-medium mb-3">
-                Gestionar tus finanzas
-            </h2>
-            <p class="font-light text-sm text-gray-500 mb-3">
-                Administra tus finanzas de manera eficiente y toma decisiones informadas con análisis financieros detallados sobre los productos.
-            </p>
-            <a class="text-red-500 flex items-center hover:text-red-600" href="/">
-                More about us icon
-            </a>
-        </div>
-
-        <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
-            <i class="fas fa-users text-4xl text-title mb-4"></i>
-            <h2 class="uppercase mt-6 text-orange-500 font-medium mb-3">
-                Satisfacción al cliente
-            </h2>
-            <p class="font-light text-sm text-gray-500 mb-3">
-                El cliente recibe un servicio personalizado y una atención excepcional.
-            </p>
-            <a class="text-orange-500 flex items-center hover:text-orange-700" href="/">
-                More about us icon
-            </a>
-        </div>
-
-        <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
-            <i class="fas fa-tools text-4xl text-title mb-4"></i>
-            <h2 class="uppercase mt-6 text-blue-500 font-medium mb-3">
-                Mantenimiento y reparaciones
-            </h2>
-            <p class="font-light text-sm text-gray-500 mb-3">
-                Ofrecemos servicios de mantenimiento y reparación del Software.
-            </p>
-            <a class="text-blue-500 flex items-center hover:text-blue-600" href="/">
-                Más información
-            </a>
-        </div>        
-
-        <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
-            <i class="fas fa-users text-4xl text-title mb-4"></i>
-            <h2 class="uppercase mt-6 text-yellow-500 font-medium mb-3">
-                Capacitación de personal
-            </h2>
-            <p class="font-light text-sm text-gray-500 mb-3">
-                Brindamos programas de capacitación personalizados para mejorar las habilidades y el rendimiento del personal.
-            </p>
-            <a class="text-yellow-500 flex items-center hover:text-yellow-600" href="/">
-                Más información
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
+</section>
 <!-- CIERRE DE LA SECCIÓN DE HERRAMIENTAS -->  
 
 
 
 
     <!-- SECCION DE CARACTERISTICAS -->
-    <div class="p-8 bg-white">
-        <div class="flex felx-col items-center justify-center">
-        <span
-            class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-            CARACTERISTICAS
-        </span>
-        </div>
-        <h1 class="text-4xl font-medium text-gray-700 text-center mt-6">
-            Características del Software
-        </h1>
-        <p class="text-center mt-6 text-lg font-light text-gray-500">
-            Te ofrecemos múltiples beneficios.
-        </p>
-        <br>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-4 lg:mx-4 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+     <section class="dark:bg-slate-900">
+        <div class="p-8 dark:bg-slate-900">
+            <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
+            <span
+                class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                CARACTERISTICAS
+            </span>
+            </div>
+            <h1 class="dark:text-white text-4xl font-medium0 text-center mt-6">
+                Características del Software
+            </h1>
+            <p class="dark:text-white text-center mt-6 text-lg font-light">
+                Te ofrecemos múltiples beneficios.
+            </p>
+            <br>
+            <div class="dark:bg-slate-900 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-4 lg:mx-4 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
 
-            <!-- Card 1 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-green-200  transition duration-500">
-                <i class="fas fa-users text-3xl text-green-500"></i>
-                <h3 class="characteristics-card-title"><a href="">Dar seguimiento de sus proveedores</a></h3>
-            </div>
-            <!-- Card 2 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-purple-200 transition duration-500">
-                <i class="fas fa-tv text-3xl text-purple-500 "></i>
-                <h3 class="characteristics-card-title"><a href="">Interfaz Minimalista</a></h3>
-            </div>
-            <!-- Card 3 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-yellow-200 transition duration-500">
-                <i class="fas fa-clock text-3xl text-yellow-500 "></i>
-                <h3 class="characteristics-card-title"><a href="">Disponibilidad 24/7</a></h3>
-            </div>
-            <!-- Card 4 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-blue-200  transition duration-500">
-                <i class="fas fa-shopping-cart text-3xl text-blue-500 "></i>
-                <h3 class="characteristics-card-title"><a href="">Gestiona tus Ventas y Compras</a></h3>
-            </div>
-            <!-- Card 5 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-red-200  transition duration-500">
-                <i class="fas fa-check-circle text-3xl text-red-500 "></i>
-                <h3 class="characteristics-card-title"><a href="">Servicios Garantizados</a></h3>
-            </div>
-            <!-- Card 6 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-teal-200 transition duration-500">
-                <i class="fas fa-shield-alt text-3xl text-teal-500 "></i>
-                <h3 class="characteristics-card-title"><a href="">Aplicación Segura</a></h3>
-            </div>
-            <!-- Card 7 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-pink-200 transition duration-500">
-                <i class="fas fa-users text-3xl text-pink-500 "></i>
-                <h3 class="characteristics-card-title"><a href="">Contacto con los administradores</a></h3>
-            </div>
-            <!-- Card 8 -->
-            <div
-                class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-indigo-200 transition duration-500">
-                <i class="fas fa-moon text-3xl text-indigo-500 "></i>
-                <h3 class="characteristics-card-title"><a href="">Implementación del modo oscuro</a></h3>
+                <!-- Card 1 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-green-200  transition duration-500">
+                    <i class="fas fa-users text-3xl text-green-500"></i>
+                    <h3 class="characteristics-card-title"><a href="">Dar seguimiento de sus proveedores</a></h3>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-purple-200 transition duration-500">
+                    <i class="fas fa-tv text-3xl text-purple-500 "></i>
+                    <h3 class="characteristics-card-title"><a href="">Interfaz Minimalista</a></h3>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-yellow-200 transition duration-500">
+                    <i class="fas fa-clock text-3xl text-yellow-500 "></i>
+                    <h3 class="characteristics-card-title"><a href="">Disponibilidad 24/7</a></h3>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-blue-200  transition duration-500">
+                    <i class="fas fa-shopping-cart text-3xl text-blue-500 "></i>
+                    <h3 class="characteristics-card-title"><a href="">Gestiona tus Ventas y Compras</a></h3>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-red-200  transition duration-500">
+                    <i class="fas fa-check-circle text-3xl text-red-500 "></i>
+                    <h3 class="characteristics-card-title"><a href="">Servicios Garantizados</a></h3>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-teal-200 transition duration-500">
+                    <i class="fas fa-shield-alt text-3xl text-teal-500 "></i>
+                    <h3 class="characteristics-card-title"><a href="">Aplicación Segura</a></h3>
+                </div>
+                <!-- Card 7 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-pink-200 transition duration-500">
+                    <i class="fas fa-users text-3xl text-pink-500 "></i>
+                    <h3 class="characteristics-card-title"><a href="">Contacto con los administradores</a></h3>
+                </div>
+                <!-- Card 8 -->
+                <div
+                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-indigo-200 transition duration-500">
+                    <i class="fas fa-moon text-3xl text-indigo-500 "></i>
+                    <h3 class="characteristics-card-title"><a href="">Implementación del modo oscuro</a></h3>
+                </div>
             </div>
         </div>
-    </div>
     </section>
     <!-- CIERRE DE LA SECCION DE CARACTERISTICAS -->
 
     <!-- SECCION DE PRECIOS -->
-    <div class="p-8 gap-20 bg-white">
-        <div class="flex felx-col items-center justify-center">
+    <section class="dark:bg-slate-900">
+    <div class="dark:bg-slate-900 p-8 gap-20 ">
+        <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
         <span
             class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
             PRECIOS
         </span>
         </div>
-        <h1 class="text-4xl font-medium text-gray-700 text-center mt-6">
+        <h1 class="dark:text-white text-4xl font-medium text-center mt-6">
             Paga una vez, úsalo para siempre
         </h1>
-        <p class="text-center mt-6 text-lg font-light text-gray-500">
+        <p class="dark:text-white text-center mt-6 text-lg font-light">
             Conoce nuestros planes
         </p>
-        <div class="p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" id="pricing">
+        <div class="dark:bg-slate-900 p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" id="pricing">
 
             <div class="isolate mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                 <div class="ring-1 ring-gray-200 rounded-3xl p-8 xl:p-10">
                     <div class="flex items-center justify-between gap-x-4">
-                        <h3 id="tier-standard" class="text-gray-900 text-2xl font-semibold leading-8">Standard</h3>
+                        <h3 id="tier-standard" class="dark:text-white text-gray-900 text-2xl font-semibold leading-8">Standard</h3>
                     </div>
                     <p class="mt-4 text-base leading-6 text-gray-600">1 license for only 1 activation</p>
                     <p class="mt-6 flex items-baseline gap-x-1">
@@ -455,37 +460,37 @@
 
 
     <!-- SECCION DE EQUIPO DE DESARROLLO -->
-    <div class="p-8 gap-20 bg-white">
-        <div class="p-8 gap-20 bg-white">
+    <div class=" p-8 gap-20">
+        <div class="p-8 gap-20 ">
             <div class="flex felx-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">EQUIPO</span>
             </div>
-            <h1 class="text-4xl font-medium text-gray-700 text-center mt-6">Equipo de trabajo</h1>
-            <p class="text-center mt-6 text-lg font-light text-gray-500">Conozca nuestro equipo de desarrollo.</p>
+            <h1 class="dark:text-white text-4xl font-medium text-center mt-6">Equipo de trabajo</h1>
+            <p class="dark:text-white text-center mt-6 text-lg font-light">Conozca nuestro equipo de desarrollo.</p>
         
             <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
-                <section class="py-12 lg:my-10 lg:mx-full lg:py-20 bg-white" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-                        <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
-                            <img src="{% static 'img/home-team/team-1.jfif' %}" alt="profile-picture" />
-                        </div>
-                        <div class="p-6 text-center">
-                            <h4 class="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                                STEVEN ALEXANDER NIETO DURAN
-                            </h4>
-                            <p class="block font-sans text-base antialiased font-medium leading-relaxed text-black bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
-                                Jefe de Proyecto / Programador
-                            </p>
-                        </div>
-                        <div class="flex justify-center p-6 pt-2 gap-7">
-                            <a href="https://github.com/Alexis2024" class="block font-sans text-xl antialiased font-normal leading-relaxed text-white bg-blue-500 hover:bg-blue-600 rounded-full px-4 py-2">
-                                <i class="fab fa-github" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
+                <div class="dark:bg-black relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                    <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
+                        <img src="{% static 'img/home-team/team-1.jfif' %}" alt="profile-picture" />
                     </div>
+                    <div class="p-6 text-center">
+                        <h4 class="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                            STEVEN ALEXANDER NIETO DURAN
+                        </h4>
+                        <p class="block font-sans text-base antialiased font-medium leading-relaxed text-black bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                            Jefe de Proyecto / Programador
+                        </p>
+                    </div>
+                    <div class="flex justify-center p-6 pt-2 gap-7">
+                        <a href="https://github.com/Alexis2024" class="block font-sans text-xl antialiased font-normal leading-relaxed text-white bg-blue-500 hover:bg-blue-600 rounded-full px-4 py-2">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
                 </section>
         
-                <section class="py-12 lg:my-10 lg:mx-full lg:py-20 bg-white" data-aos="fade-up" data-aos-delay="300">
+                <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
                         <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
                             <img src="{% static 'img/home-team/team-2.jfif' %}" alt="profile-picture" />
@@ -503,7 +508,6 @@
                                 <i class="fab fa-github" aria-hidden="true"></i>
                             </a>
                         </div>
-                        
                     </div>
                 </section>
             </div>
@@ -515,17 +519,15 @@
 
     
     <!-- SECCION DE CONTACTOS -->
-    <div class="max-h-screen overflow-y-auto px-2">
-        <!-- SECCION DE CONTACTOS -->
-        <section id="contacto" class="bg-white flex flex-col" data-aos="fade-up" data-aos-delay="300">
-            <div class="p-8 gap-20 bg-white">
-                <div class="flex felx-col items-center justify-center">
-                    <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
+        <section id="contacto" class="dark:bg-slate-900 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+            <div class="dark:bg-slate-900 p-8 gap-20">
+                <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
+                    <span class="dark:bg-slate-900 rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
                 </div>
-                <h1 class="text-4xl font-medium text-gray-700 text-center mt-6">Contácta a nuestro equipo</h1>
-                <p class="text-center mt-6 text-lg font-light text-gray-500">Envíanos tus sugerencias.</p>
+                <h1 class="dark:text-white text-4xl font-medium text-center mt-6">Contácta a nuestro equipo</h1>
+                <p class="dark:text-white text-center mt-6 text-lg font-light">Envíanos tus sugerencias.</p>
             </div>
-            <div class="flex items-stretch justify-center">
+            <div class="dark:bg-slate-900 flex items-stretch justify-center">
                 <div class="grid md:grid-cols-2">
                     <div class="h-full pr-6">
                         <p class="mt-3 mb-12 text-lg text-gray-600 text-justify dark:text-slate-400">
@@ -640,8 +642,6 @@
                 </div>
             </div>
         </div>
-    </section>
-</div>
     <!--- CIERRE DE LA SECCION DE CONTACTOS -->
 
 </section>
