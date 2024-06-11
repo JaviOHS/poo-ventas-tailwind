@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head class="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,9 +12,11 @@
     <!-- Tailwind JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="https://flowbite.com/docs/images/logo.svg" type="image/x-icon">
+    
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -29,6 +31,7 @@
         <!-- Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     
+    
     <!-- Whatsapp -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'plugin/whatsapp-chat-support.css' %}">
@@ -39,7 +42,7 @@
 
 </head>
 
-<body class="dark:bg-slate-900 bg-slate-100 text-items font-Mukta text-lg font-light">    
+<body class="dark:bg-slate-900  bg-slate-100 text-items font-Mukta text-lg font-light">    
 {% block navbar %}
     <header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
         <nav class="border-gray-200 dark:bg-gray-900">
@@ -51,19 +54,25 @@
                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 </button>
                 
-                <span id="themeIconContainer" class="inline-block p-2 rounded border border-gray-300 dark:border-gray-300 cursor-pointer">
-                    <i id="themeIcon" class="fas fa-moon"></i>
+                <span id="themeIconContainer" class="dark:bg-gray inline-block p-2 rounded border border-gray-400 dark:border-gray-700 cursor-pointer">
+                    <i id="themeIcon" class="fas fa-moon text-gray-300 dark:text-gray-500"></i>
                 </span>
+                
 
-                <div class="relative hidden md:block">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <div class="dark:border-gray-400 relative hidden md:block">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer text-gray-500">
+                        <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                         <span class="sr-only">Search icon</span>
                     </div>
-                    <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
+                    <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-400 border rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-700 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Search...">
                 </div>
+                
+                
+                
+                
+                
                 
                 <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 dropdown-toggle" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
@@ -80,37 +89,38 @@
                 </button>
     
                     <!-- Dropdown menu -->
-                    <div class="dark:bg-slate-900 z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:divide-gray-600" id="user-dropdown">
+                    <div class="bg-white z-50 hidden my-4 text-base list-none divide-y divide-gray-200 rounded-lg shadow" id="user-dropdown">
                         {% if user.is_authenticated %}
-                            <div class="px-4 py-3">
-                                <span class="block text-sm text-gray-900 dark:text-white">{{ user.username }}</span>
+                            <div class=" px-4 py-3">
+                                <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ user.username }}</span>
                                 <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ user.correo }}</span>
                             </div>
                             
-                            <ul class="py-2" aria-labelledby="user-menu-button">
+                            <ul class=" py-2" aria-labelledby="user-menu-button">
                                 <li>
-                                    <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Perfil</a>
+                                    <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Perfil</a>
                                 </li>
                                 <li>
-                                    <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                                    <a class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
                                         Temas
                                     </a>
-                                </li>
+                                </li>                                
                                 <li>
-                                    <a href="{% url 'core:logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cerrar Sesión</a>
+                                    <a href="{% url 'core:logout' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Cerrar Sesión</a>
                                 </li>
                             </ul>
                         {% else %}
                             <ul class="py-2" aria-labelledby="user-menu-button">
                                 <li>
-                                    <a href="{% url 'signup' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Registrarse</a>
+                                    <a href="{% url 'signup' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Registrarse</a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'signin' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Iniciar Sesión</a>
+                                    <a href="{% url 'signin' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Iniciar Sesión</a>
                                 </li>
                             </ul>
                         {% endif %}
                     </div>
+
                     <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -119,37 +129,38 @@
                     </button>
                 </div>
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                    <ul id="menu" class="navbar-menu flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul class="navbar-menu flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <a href="/" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white"><i class="fa-solid fa-house"></i></a>
+                            <a href="/" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Inicio</a>
                         </li>
                         {% if user.is_superuser %}
                             <li>
-                                <a href="{% url 'core:product_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
+                                <a href="{% url 'core:product_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
                             </li>
                         
                             <li>
-                                <a href="{% url 'core:category_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categorías</a>
+                                <a href="{% url 'core:category_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categorías</a>
                             </li>
                             <li>
-                                <a href="{% url 'core:brand_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Marcas</a>
+                                <a href="{% url 'core:brand_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Marcas</a>
                             </li>
                             <li>
-                                <a href="{% url 'core:supplier_list' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Proveedores</a>
+                                <a href="{% url 'core:supplier_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Proveedores</a>
                             </li>
                         {% endif %}
                         {% if user.is_authenticated and not user.is_superuser %}
                             <li>
-                                <a href="{% url 'purchase:shop' %}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tienda</a>
+                                <a href="{% url 'purchase:shop' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tienda</a>
                             </li>
                         {% endif %}
                     </ul>
                 </div>
             </div>   
         </nav>
-        <hr>
+        <hr class="border-gray-400 dark:border-gray-700">
     </header>
     <br><br><br><br>
+    
 {% endblock navbar %}
 
 
@@ -292,8 +303,11 @@
     </div>
     <!-- Cierre del contenedor para botones -->
 
+
+
     <!-- Footer -->
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />

@@ -17,7 +17,7 @@
                 <!-- Columna de la izquierda -->
                 <div class="bg-white rounded-3xl flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
                     <div class="w-[45%] text-center">
-                        <h2 class="dark:text-white text-2xl text-center mt-6 font-black uppercase">Foto de Perfil</h2>
+                        <h2 class="dark:text-black text-2xl text-center mt-6 font-black uppercase">Foto de Perfil</h2>
                         {% if user.get_profile_picture_url %}
                         <img src="{{ user.get_profile_picture_url }}" class="mx-auto d-block rounded-lg" alt="Foto de perfil">
                         {% else %}
@@ -74,6 +74,8 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
 </section>
 
 

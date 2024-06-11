@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="m-4 bg-white p-8 rounded-3xl">
+        <div class="m-4 dark:bg-black  p-8 rounded-3xl border-spacing-1">
             <form method="post" enctype="multipart/form-data" class="space-y-6">
                 {% csrf_token %}
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -79,6 +79,6 @@
         </div>
     </div>
 </section>
-<hr>
+
 <!-- <script src="{% static 'js/validaciones.js' %}"></script> -->
 {% endblock content %}

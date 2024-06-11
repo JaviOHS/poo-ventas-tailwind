@@ -12,7 +12,7 @@
             <div class="text-center">
                 <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">PERFILES</h2>
                 <p class="text-sm md:text-base">Selecciona tu perfil para iniciar sesión:</p>
-                <h2 class="text-2xl md:text-3xl text-title2 font-black my-2">AppMarket</h2>
+                <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">TeacherCode</h2>
                 <p class="text-sm md:text-base">Accede a funcionalidades específicas.</p>
                 <div class="grid gap-6 sm:gap-8 md:gap-10 lg:grid-cols-3 rounded-3xl">
                     <div class="bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
@@ -50,61 +50,65 @@
         </div>
     </div>
     {% endif %}
-    <!-- CIERRE DEL MODAL DE INICIO DEL LOS USUARIOS -->
+    <!-- CIERRE DEL MODAD DE L INICIO DEL LOS USUARIOS -->
+
+
 
     <!-- SECCIÓN DEL HERO -->
-    <section class="bg-slate-100 dark:bg-slate-900">
+    <section class=" bg-slate-100 dark:bg-slate-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7 p-4" data-aos="fade-right" data-aos-delay="200">
-                <h1 class="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                    AppMarket
-                </h1>
-                <p class="max-w-2xl mb-4 text-2xl tracking-tight leading-none md:text-4xl xl:text-5xl dark:text-white">
-                    {% if user.is_authenticated %}
-                        {% if user.is_superuser %}
-                            <span class="text-blue-700 dark:text-primary-10">Bienvenido, @{{ user.username }}. </span> <i class="fa-solid fa-user-gear"></i>
-                        {% else %}
-                            <span class="text-blue-700">Bienvenido, @{{ user.username }}.</span> <i class="fa-solid fa-user"></i>
-                        {% endif %}
+            <div class="mr-auto place-self-center lg:col-span-7">
+
+            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                Sistema de Gestión de Ventas<br>
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <span class="text-blue-700 dark:text-primary-10 font-semibold">Bienvenido, {{ user.username }}.</span>
                     {% else %}
-                        <span class="text-blue-700">Bienvenido, usuario anónimo.</span>
+                        <span class="text-blue-700  font-semibold">Bienvenido, {{ user.username }}.</span>
                     {% endif %}
-                </p>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                    ¡Explora nuestro increíble sistema!<br>Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.
-                </p>
-                <a href="#herramientas" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" data-aos="fade-up" data-aos-delay="300">
-                    Explorar
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                <a href="#contacto" class="dark:bg-white inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" data-aos="fade-up" data-aos-delay="400">
-                    Contáctanos
-                </a>
+                {% else %}
+                    <span class="text-blue-700 font-semibold">Bienvenido, usuario anónimo.</span>
+                {% endif %}
+            </h1>
+
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">¡Explora nuestro increíble sistema!.<br>Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
+            <a href="#herramientas" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                Explorar
+                <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </a>
+            <a href="#contacto" class="dark:bg-black dark:border-gray-700 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-700 dark:text-white dark:focus:ring-black">
+                Contáctanos
+            </a>
+            
+     
+
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex" data-aos="fade-left" data-aos-delay="200">
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" class="transform transition-transform duration-10000 hover:scale-110">
-            </div>
+            </div>              
         </div>
     </section>
     <!-- CIERRE DE LA SECCIÓN DEL HERO -->
 
+
     <!-- SECCIÓN DEL BUSCADOR -->  
-    <div class="dark:bg-slate-900 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class=" dark:bg-slate-900 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16">
-            <p class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p class="mx-auto max-w-2xl text-4xl font-bold dark:text-white text-center">
                 ¿No encontró el componente que estaba buscando?
             </p>
-
             <form action="/">
-                <label class="mx-auto mt-8 relative min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300" for="search-bar">
-                    <input id="search-bar" placeholder="Tu palabra clave aquí." name="q" class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" required="">
+                <label class="mx-auto mt-8 relative min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border border-gray-300 py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300 dark:border-gray-300" for="search-bar">
+
+                    <input id="search-bar" placeholder="tu palabra clave aquí" name="q" class="px-6 py-2 w-full rounded-md flex-1 outline-none" required=" ">
+
                     <button type="submit" class="bg-blue-700 w-full md:w-auto px-6 py-3 text-white rounded-xl transition-all active:scale-95 duration-100">
-                        <span class="text-sm whitespace-nowrap truncate mx-auto">
+                        <span class="text-sm font-black whitespace-nowrap truncate mx-auto">
                             Buscar
                         </span>
                     </button>
+
                 </label>
             </form>
 
@@ -125,56 +129,13 @@
         </div> 
     </div>
     <!-- CIERRE DE LA SECCIÓN DEL BUSCADOR -->  
-      
-    {% comment %} <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
-    <!-- Contenedor principal -->
-    <section class="flex flex-col lg:flex-row mx-8 my-20 sm:mx-8 sm:my-8 lg:mx-20 lg:my-28 items-center" data-aos="fade-up">
-        <!-- Mensaje de bienvenida a la izquierda -->
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-8 lg:mb-0 lg:mr-4 aos-init aos-animate lg:order-1" data-aos="fade-left" data-label-id="0">    
-            {% if user.is_authenticated %}
-                {% if user.is_superuser %}
-                    <p>Bienvenido, <span class="text-titleHover font-semibold">@{{ user.username }}</span>.
-                        <i class="fa-solid fa-toolbox text-title"></i>
-                    </p>
-                {% else %}
-                    <p>Bienvenido, <span class="text-titleHover font-semibold">@{{ user.username }}</span>.
-                        <i class="fa-solid fa-user text-title"></i>
-                    </p>
-                {% endif %}
-            {% else %}
-                <p>Bienvenido, <span class="text-titleHover font-semibold">usuario anónimo</span>.
-                    <i class="fa-solid fa-user-secret text-title"></i>
-                </p>
-            {% endif %}
-            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">¡Explora nuestro increíble sistema!</h2>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
-            <a href="#contacto" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Explorar
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </a>
-        </div>
-    </section>   
-    <section>
-        <!-- Carrusel de imágenes a la derecha -->
-        <div class="w-full lg:w-1/2 flex justify-center items-center lg:order-2" data-aos="fade-right">
-            <div class="rounded-3xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 w-full max-w-lg">
-                <div id="carousel" class="relative overflow-hidden">
-                    <div id="carousel-inner" class="flex">
-                        <!-- Las imágenes se agregarán aquí dinámicamente -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    </div> {% endcomment %}
-    <!-- Cierre del contenedor principal -->
+
+    
 
     <!-- SECCIÓN DE HERRAMIENTAS -->  
-    <section class="dark:bg-slate-900">
+    <section>
         <div id="herramientas" class="p-8">
-            <div class="dark:bg-slate-900 flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
                     HERRAMIENTAS
                 </span>
@@ -187,7 +148,7 @@
             </p>
     
             <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl justify-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+                <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-chart-line text-4xl text-title mb-4"></i>
                 <h2 class="uppercase mt-6 text-indigo-500 font-extrabold mb-3">
                     Optimizar tus operaciones
@@ -624,8 +585,6 @@
     </section>
     <!--- CIERRE DE LA SECCION DE CONTACTOS -->
 </section>
-
-<hr>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
