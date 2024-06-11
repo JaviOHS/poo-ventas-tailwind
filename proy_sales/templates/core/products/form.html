@@ -4,19 +4,19 @@
 {% load widget_tweaks %}
 <title>{% block title %} SGV - Crear Productos {% endblock title %}</title>
 
-<section class="mt-10 flex justify-center" data-aos="fade-up" data-aos-delay="200">
-    <div class="text-center">
+<section class="dark:bg-slate-900 mt-10 flex justify-center">
+    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
         <div class="flex justify-center">
             <div class="w-full lg:w-8/12">
                 <div class="mb-4">
-                    <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
+                    <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase"><br>
                         {{ title2 }}
                     </h1>
                     <p class="mt-2">Complete el formulario para registrar un nuevo producto en el sistema.</p>
                 </div>
             </div>
         </div>
-        <div class="m-4 dark:bg-black  p-8 rounded-3xl border-spacing-1">
+        <div class="m-4 dark:bg-black bg-white  p-8 rounded-3xl border-spacing-1">
             <form method="post" enctype="multipart/form-data" class="space-y-6">
                 {% csrf_token %}
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

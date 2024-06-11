@@ -2,27 +2,27 @@
 {% block content %}
 <title>{% block title %} SGV - Marcas {% endblock title %}</title>
 
-<section class="mt-4" data-aos="fade-up" data-aos-delay="200">
+<section class="mt-4">
     <div class="text-center">
-        <div class="">
+        <div class="dark:bg-slate-900">
             <!-- Mensaje de bienvenida -->
-            <div class="">
-                <div class="">
+            <div class=""  data-aos="fade-up" data-aos-delay="200">
+                <div class=""><br><br>
                     <h1 class="dark:text-white text-4xl  text-center mt-6 font-black uppercase">
                         {{ title2 }}
                     </h1>
                     <p>Gestione las marcas de sus productos con facilidad. </p>
                 </div>
             </div>
-            <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl"> <!-- Aplicando las mismas clases de estilo para las cards -->
+            <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="200"> <!-- Aplicando las mismas clases de estilo para las cards -->
                 {% for item in brands %}
                 <div class="mb-4 flex justify-center custom-transform"> <!-- Aplicando las mismas clases de estilo para las columnas -->
-                    <div class="relative w-full max-w-xs overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"> <!-- Aplicando las mismas clases de estilo para las cards -->
-                        <div class="text-center card card-custom"> <!-- Aplicando las mismas clases de estilo para las cards -->
-                            <h1 class="dark:text-black text-2xl  text-center mt-6 font-black uppercase">
+                    <div class="dark:bg-black relative w-full max-w-xs overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"> <!-- Aplicando las mismas clases de estilo para las cards -->
+                        <div class="dark:bg-black text-center card card-custom"> <!-- Aplicando las mismas clases de estilo para las cards -->
+                            <h1 class="dark:text-white text-2xl  text-center mt-6 font-black uppercase">
                                 {{ item.description }}
                             </h1>
-                            <div class="card-body">
+                            <div class="dark:bg-black card-body">
                                 <h3 class="font-bold">Creación: </h3><p>{{ item.created }}</p><br>
                                 <h3 class="font-bold">Última edición: </h3><p>{{ item.updated }}</p><br>
                                 <h3 class="font-bold">
@@ -34,7 +34,7 @@
                                     {% endif %}
                                 </h3>
                             </div> 
-                            <div class="card-footer flex justify-center">
+                            <div class="dark:bg-gray-500 card-footer flex justify-center">
                                 <a href="{% url 'core:brand_update' item.id %}" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
                                     <i class="fa-solid fa-gear mr-2"></i> Editar
                                 </a>
@@ -55,6 +55,7 @@
                     <i class="fa-solid fa-house"></i>
                 </a>
             </div>
+            <br>
         </div>
     </div>
 </section>

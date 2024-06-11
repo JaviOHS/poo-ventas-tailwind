@@ -8,14 +8,14 @@
     {% if not user.is_authenticated %}
     <div id="modal-home" class="fixed inset-0 flex items-center justify-center z-50 bg-cover bg-center bg-no-repeat">
         <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-        <div class="bg-white mx-4 my-4 p-4 sm:mx-8 sm:my-8 sm:p-6 md:mx-10 md:my-10 md:p-8 lg:mx-12 lg:my-12 lg:p-10 xl:mx-16 xl:my-16 xl:p-12 rounded-2xl z-10 max-w-7xl w-full">
-            <div class="text-center">
+        <div class="dark:bg-slate-900 bg-white mx-4 my-4 p-4 sm:mx-8 sm:my-8 sm:p-6 md:mx-10 md:my-10 md:p-8 lg:mx-12 lg:my-12 lg:p-10 xl:mx-16 xl:my-16 xl:p-12 rounded-2xl z-10 max-w-7xl w-full">
+            <div class="dark:bg-slate-900 text-center">
                 <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">PERFILES</h2>
                 <p class="text-sm md:text-base">Selecciona tu perfil para iniciar sesión:</p>
                 <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">TeacherCode</h2>
-                <p class="text-sm md:text-base">Accede a funcionalidades específicas.</p>
+                <p class="text-sm md:text-base">Accede a funcionalidades específicas.</p><br>
                 <div class="grid gap-6 sm:gap-8 md:gap-10 lg:grid-cols-3 rounded-3xl">
-                    <div class="bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
+                    <div class="dark:bg-black bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
                         <div class="flex-grow">
                             <i class="fas fa-user text-3xl md:text-4xl text-title mb-4"></i>
                             <h2 class="text-xl md:text-2xl text-title2 uppercase font-black my-2">Cliente</h2>
@@ -25,7 +25,7 @@
                             <a class="btn-dark-blue" href="{% url 'signin' %}" id="btnCliente">Ingresar</a>
                         </div>
                     </div>
-                    <div class="bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
+                    <div class="dark:bg-black bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
                         <div class="flex-grow">
                             <i class="fas fa-user-tie text-3xl md:text-4xl text-title mb-4"></i>
                             <h2 class="text-xl md:text-2xl text-title2 uppercase font-black my-2">Administrador</h2>
@@ -35,7 +35,7 @@
                             <a class="btn-dark-blue" href="{% url 'signin' %}" id="btnAdministrador">Ingresar</a>
                         </div>
                     </div>
-                    <div class="bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
+                    <div class="dark:bg-black bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
                         <div class="flex-grow">
                             <i class="fas fa-user-secret text-3xl md:text-4xl text-title mb-4"></i>
                             <h2 class="text-xl md:text-2xl text-title2 uppercase font-black my-2">Invitado</h2>
@@ -54,86 +54,78 @@
 
 
 
-    <!-- SECCIÓN DEL HERO -->
-    <section class=" bg-slate-100 dark:bg-slate-900">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
+<!-- SECCIÓN DEL HERO -->
+<section class="bg-slate-100 dark:bg-slate-900"><br><br><br>
+    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12" data-aos="fade-right" data-aos-delay="200">
+        <div class="mr-auto place-self-center lg:col-span-7">
 
-            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                Sistema de Gestión de Ventas<br>
-                {% if user.is_authenticated %}
-                    {% if user.is_superuser %}
-                    <span class="text-blue-700 dark:text-primary-10 font-semibold">Bienvenido, {{ user.username }}.</span>
-                    {% else %}
-                        <span class="text-blue-700  font-semibold">Bienvenido, {{ user.username }}.</span>
-                    {% endif %}
+        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+            Sistema de Gestión de Ventas
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                <span class="text-blue-700 dark:text-primary-10 font-semibold">Bienvenido, {{ user.username }}.</span>
                 {% else %}
-                    <span class="text-blue-700 font-semibold">Bienvenido, usuario anónimo.</span>
+                    <span class="text-blue-700  font-semibold">Bienvenido, {{ user.username }}.</span>
                 {% endif %}
-            </h1>
+            {% else %}
+                <span class="text-blue-700 font-semibold">Bienvenido, usuario anónimo.</span>
+            {% endif %}
+        </h1>
 
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">¡Explora nuestro increíble sistema!.<br>Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
-            <a href="#herramientas" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                Explorar
-                <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </a>
-            <a href="#contacto" class="dark:bg-black dark:border-gray-700 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-700 dark:text-white dark:focus:ring-black">
-                Contáctanos
-            </a>
-            
-     
+        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">¡Explora nuestro increíble sistema!.<br>Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
+        <a href="#herramientas" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+            Explorar
+            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+        <a href="#contacto" class="dark:bg-black dark:border-gray-700 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-700 dark:text-white dark:focus:ring-black">
+            Contáctanos
+        </a>
 
-            </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" class="transform transition-transform duration-10000 hover:scale-110">
-            </div>              
         </div>
-    </section>
-    <!-- CIERRE DE LA SECCIÓN DEL HERO -->
-
-
-    <!-- SECCIÓN DEL BUSCADOR -->  
-    <div class=" dark:bg-slate-900 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16">
-            <p class="mx-auto max-w-2xl text-4xl font-bold dark:text-white text-center">
-                ¿No encontró el componente que estaba buscando?
-            </p>
-            <form action="/">
-                <label class="mx-auto mt-8 relative min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border border-gray-300 py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300 dark:border-gray-300" for="search-bar">
-
-                    <input id="search-bar" placeholder="tu palabra clave aquí" name="q" class="px-6 py-2 w-full rounded-md flex-1 outline-none" required=" ">
-
-                    <button type="submit" class="bg-blue-700 w-full md:w-auto px-6 py-3 text-white rounded-xl transition-all active:scale-95 duration-100">
-                        <span class="text-sm font-black whitespace-nowrap truncate mx-auto">
-                            Buscar
-                        </span>
-                    </button>
-
-                </label>
-            </form>
-
-            <svg viewBox="0 0 1024 1024"
-                class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
-                aria-hidden="true"
-                style="pointer-events: none; /* Esto deshabilita los eventos de puntero en el SVG */
-                    z-index: -1; /* Esto mueve el SVG detrás de otros elementos */">
-                <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="0.7">
-                </circle>
-                <defs>
-                    <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-                        <stop stop-color="#3b82f6"></stop>
-                        <stop offset="1" stop-color="#1d4ed8"></stop>
-                    </radialGradient>
-                </defs>
-            </svg>
-        </div> 
+        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" class="transform transition-transform duration-10000 hover:scale-110">
+        </div>              
     </div>
-    <!-- CIERRE DE LA SECCIÓN DEL BUSCADOR -->  
+    <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16" data-aos="fade-up" data-aos-delay="200">
+        <p class="mx-auto max-w-2xl text-4xl font-bold dark:text-white text-center">
+            ¿No encontró el componente que estaba buscando?
+        </p>
+        <form action="/">
+            <label class="mx-auto mt-8 relative min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border border-gray-300 py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300 dark:border-gray-700" for="search-bar">
 
-    
+                <input id="search-bar" placeholder="tu palabra clave aquí" name="q" class="dark:bg-black px-6 py-2 w-full rounded-md flex-1 outline-none" required=" ">
+
+                <button type="submit" class="bg-blue-700 w-full md:w-auto px-6 py-3 text-white rounded-xl transition-all active:scale-95 duration-100">
+                    <span class="text-sm font-black whitespace-nowrap truncate mx-auto">
+                        Buscar
+                    </span>
+                </button>
+
+            </label>
+        </form>
+
+        <svg viewBox="0 0 1024 1024"
+            class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+            aria-hidden="true"
+            style="pointer-events: none; /* Esto deshabilita los eventos de puntero en el SVG */
+                z-index: -1; /* Esto mueve el SVG detrás de otros elementos */">
+            <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="0.7">
+            </circle>
+            <defs>
+                <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
+                    <stop stop-color="#3b82f6"></stop>
+                    <stop offset="1" stop-color="#1d4ed8"></stop>
+                </radialGradient>
+            </defs>
+        </svg>
+    </div> 
+</section>
+<!-- CIERRE DE LA SECCIÓN DEL HERO -->
+
+
 
     <!-- SECCIÓN DE HERRAMIENTAS -->  
-    <section>
+    <section class="dark:bg-slate-900">
         <div id="herramientas" class="p-8">
             <div class="flex flex-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
@@ -161,7 +153,7 @@
                 </a>
             </div>
 
-            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-cogs text-4xl text-title mb-4"></i>
                 <h2 class="uppercase mt-6 text-green-500 font-extrabold mb-3">
                     Aumentar tus ventas
@@ -174,7 +166,7 @@
                 </a>
             </div>
 
-            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-balance-scale text-4xl text-title mb-4"></i>
                 <h2 class="uppercase mt-6 text-red-500 font-extrabold mb-3">
                     Gestionar tus finanzas
@@ -187,7 +179,7 @@
                 </a>
             </div>
 
-            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-users text-4xl text-title mb-4"></i>
                 <h2 class="uppercase mt-6 text-orange-500 font-extrabold mb-3">
                     Satisfacción al cliente
@@ -200,7 +192,7 @@
                 </a>
             </div>
 
-            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-tools text-4xl text-title mb-4"></i>
                 <h2 class="uppercase mt-6 text-blue-500 font-extrabold mb-3">
                     Mantenimiento y reparaciones
@@ -213,7 +205,7 @@
                 </a>
             </div>        
 
-            <div class="information-card mb-4 p-4 bg-white rounded-lg shadow-md transition duration-300 ease-in-out">
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
                 <i class="fas fa-users text-4xl text-title mb-4"></i>
                 <h2 class="uppercase mt-6 text-yellow-500 font-extrabold mb-3">
                     Capacitación de personal
@@ -248,54 +240,55 @@
             <p class="dark:text-white text-center mt-6 text-lg font-light">
                 Te ofrecemos múltiples beneficios.
             </p>
+            <br>
             <div class="dark:bg-slate-900 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-4 lg:mx-4 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
                 <!-- Card 1 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-green-200  transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-green-200  transition duration-500">
                     <i class="fas fa-users text-3xl text-green-500"></i>
-                    <h3 class="characteristics-card-title"><a href="">Dar seguimiento de sus proveedores</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Dar seguimiento de sus proveedores</a></h3>
                 </div>
                 <!-- Card 2 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-purple-200 transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-purple-200 transition duration-500">
                     <i class="fas fa-tv text-3xl text-purple-500 "></i>
-                    <h3 class="characteristics-card-title"><a href="">Interfaz Minimalista</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Interfaz Minimalista</a></h3>
                 </div>
                 <!-- Card 3 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-yellow-200 transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-yellow-200 transition duration-500">
                     <i class="fas fa-clock text-3xl text-yellow-500 "></i>
-                    <h3 class="characteristics-card-title"><a href="">Disponibilidad 24/7</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Disponibilidad 24/7</a></h3>
                 </div>
                 <!-- Card 4 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-blue-200  transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-blue-200  transition duration-500">
                     <i class="fas fa-shopping-cart text-3xl text-blue-500 "></i>
-                    <h3 class="characteristics-card-title"><a href="">Gestiona tus Ventas y Compras</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Gestiona tus Ventas y Compras</a></h3>
                 </div>
                 <!-- Card 5 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-red-200  transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-red-200  transition duration-500">
                     <i class="fas fa-check-circle text-3xl text-red-500 "></i>
-                    <h3 class="characteristics-card-title"><a href="">Servicios Garantizados</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Servicios Garantizados</a></h3>
                 </div>
                 <!-- Card 6 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-teal-200 transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-teal-200 transition duration-500">
                     <i class="fas fa-shield-alt text-3xl text-teal-500 "></i>
-                    <h3 class="characteristics-card-title"><a href="">Aplicación Segura</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Aplicación Segura</a></h3>
                 </div>
                 <!-- Card 7 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-pink-200 transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-pink-200 transition duration-500">
                     <i class="fas fa-users text-3xl text-pink-500 "></i>
-                    <h3 class="characteristics-card-title"><a href="">Contacto con los administradores</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Contacto con los administradores</a></h3>
                 </div>
                 <!-- Card 8 -->
                 <div
-                    class="characteristics-card bg-white hover:bg-gradient-to-r hover:from-indigo-200 transition duration-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-indigo-200 transition duration-500">
                     <i class="fas fa-moon text-3xl text-indigo-500 "></i>
-                    <h3 class="characteristics-card-title"><a href="">Implementación del modo oscuro</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Implementación del modo oscuro</a></h3>
                 </div>
             </div>
         </div>
@@ -305,7 +298,7 @@
     <!-- SECCION DE PRECIOS -->
     <section class="dark:bg-slate-900">
         <div class="dark:bg-slate-900 p-8 gap-20 ">
-            <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
+            <div class="dark:bg-slate-900 flex felx-col items-center justify-center" >
             <span
                 class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
                 PRECIOS
@@ -317,17 +310,17 @@
             <p class="dark:text-white text-center mt-6 text-lg font-light">
                 Conoce nuestros planes
             </p>
-            <div class="dark:bg-slate-900 p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" id="pricing">
+            <div class="dark:bg-slate-900 p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" data-aos="fade-right" data-aos-delay="200" id="pricing">
 
                 <div class="isolate mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     <div class="ring-1 ring-gray-200 rounded-3xl p-8 xl:p-10">
                         <div class="flex items-center justify-between gap-x-4">
-                            <h3 id="tier-standard" class="dark:text-white text-gray-900 text-2xl font-semibold leading-8">Standard</h3>
+                            <h3 id="tier-standard" class="text-gray-500/70  text-2xl font-semibold leading-8">Standard</h3>
                         </div>
                         <p class="mt-4 text-base leading-6 text-gray-600">1 license for only 1 activation</p>
                         <p class="mt-6 flex items-baseline gap-x-1">
                             <span class="line-through text-2xl font-sans text-gray-500/70">$39</span><span
-                                class="text-5xl font-bold tracking-tight text-gray-900">$29</span>
+                                class="text-5xl font-bold tracking-tight dark:text-gray-300 text-black">$29</span>
                         </p>
                         <a href=""
                             aria-describedby="tier-standard"
@@ -366,7 +359,7 @@
                         <p class="mt-4 text-base leading-6 text-gray-600">1 license for up to 3 activations</p>
                         <p class="mt-6 flex items-baseline gap-x-1">
                             <span class="line-through text-2xl font-sans text-gray-500/70">$59</span><span
-                                class="text-5xl font-bold tracking-tight text-gray-900">$39</span>
+                                class="text-5xl font-bold tracking-tight dark:text-gray-300 text-black">$39</span>
                         </p>
                         <a href=""
                             aria-describedby="tier-extended"
@@ -404,7 +397,7 @@
     <!-- CIERRE DE LA SECCION DE PRECIOS -->
 
     <!-- SECCION DE EQUIPO DE DESARROLLO -->
-    <div class=" p-8 gap-20">
+    <div class="dark:bg-slate-900 p-8 gap-20">
         <div class="p-8 gap-20 ">
             <div class="flex felx-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">EQUIPO</span>
@@ -419,10 +412,10 @@
                         <img src="{% static 'img/home-team/team-1.jfif' %}" alt="profile-picture" />
                     </div>
                     <div class="p-6 text-center">
-                        <h4 class="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
+                        <h4 class="dark:text-gray-300 block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
                             STEVEN ALEXANDER NIETO DURAN
                         </h4>
-                        <p class="block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                        <p class="dark:text-gray-300 block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
                             Jefe de Proyecto / Programador
                         </p>
                     </div>
@@ -435,15 +428,15 @@
                 </section>
         
                 <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                    <div class="dark:bg-black relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
                         <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
                             <img src="{% static 'img/home-team/team-2.jfif' %}" alt="profile-picture" />
                         </div>
                         <div class="p-6 text-center">
-                            <h4 class="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
+                            <h4 class="dark:text-gray-300 block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
                                 JAVIER OMAR HARO SOLEDISPA
                             </h4>
-                            <p class="block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                            <p class="dark:text-gray-300 block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
                                 Jefe de Proyecto / Programador
                             </p>
                         </div>
@@ -453,22 +446,25 @@
                             </a>
                         </div>
                     </div>
-                </section>
+                    </section>
             </div>
         </div>
     </div>    
     <!-- CIERRE DE LA SECCION DE EQUIPO DE DESARROLLO -->
-    
+
+ 
+
     <!-- SECCION DE CONTACTOS -->
-    <section id="contacto" class="dark:bg-slate-900 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-        <div class="dark:bg-slate-900 p-8 gap-20">
-            <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
-                <span class="dark:bg-slate-900 rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
+    <div class="dark:bg-slate-900 p-8 gap-20">
+        <div class="p-8 gap-20 ">
+            <div class="flex felx-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
             </div>
-            <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">Contácta a nuestro equipo</h1>
+            <h1 class="dark:text-white text-4xl text-center mt-6 uppercase font-black">Contácta a nuestro equipo</h1>
             <p class="dark:text-white text-center mt-6 text-lg font-light">Envíanos tus sugerencias.</p>
         </div>
-        <div class="dark:bg-slate-900 flex items-stretch justify-center">
+        <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
+            <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
             <div class="grid md:grid-cols-2">
                 <div class="h-full pr-6 m-10">
                     <h1 class="text-blue-700 dark:text-white text-2xl font-black">AppMarket</h1>
@@ -551,20 +547,20 @@
                 <div class="card h-fit max-w-6xl p-5 md:p-12" id="form">
                     <form id="contact-form" action="https://formspree.io/f/myyrwqgz" method="post" role="form" class="space-y-8">
                         <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
-                            <input type="text" name="name" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Nombre" required>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-500">Nombre</label>
+                            <input type="text" name="name" id="name" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Nombre" required>
                         </div>
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-                            <input type="email" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Email" required>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-500">Email</label>
+                            <input type="email" name="email" id="email" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Email" required>
                         </div>
                         <div>
-                            <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Asunto</label>
-                            <input type="text" name="subject" id="subject" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Asunto" required>
+                            <label for="subject" class="block mb-2 text-sm font-medium text-gray-500">Asunto</label>
+                            <input type="text" name="subject" id="subject" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Asunto" required>
                         </div>
                         <div>
-                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Mensaje</label>
-                            <textarea name="message" id="message" rows="5" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Mensaje" required></textarea>
+                            <label for="message" class="block mb-2 text-sm font-medium text-gray-500">Mensaje</label>
+                            <textarea name="message" id="message" rows="5" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Mensaje" required></textarea>
                         </div>
                         <div id="success-message" class="hidden my-3 bg-green-300 p-4 rounded-3xl">
                             <div class="text-center">
@@ -581,10 +577,12 @@
                     </form>
                 </div>
             </div>
+        </section>
         </div>
     </section>
     <!--- CIERRE DE LA SECCION DE CONTACTOS -->
 </section>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

@@ -2,8 +2,9 @@
 {% load static %}
 <title>{% block title %}Actualizar Perfil{% endblock %}</title>
 {% block content %}
-<section class="mt-10" data-aos="fade-up" data-aos-delay="200">
-    <div class="text-center">
+<br>
+<section class="dark:bg-slate-900 mt-10 px-4 lg:px-0">
+    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
         <div class="flex justify-center">
             <div class="w-full lg:w-8/12">
                 <div class="mb-4">
@@ -11,60 +12,64 @@
                         Actualizar Perfil
                     </h1>
                 </div>
-            <div class="mx-40 my-4 bg-white p-8 rounded-3xl">
-                <form method="post" enctype="multipart/form-data" class="space-y-6">
-                    {% csrf_token %}
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="col-span-1">
-                            <div class="form-group">
-                                <label for="{{ form.first_name.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.first_name.label }}</label>
-                                {{ form.first_name }}
+                <div class="mx-4 lg:mx-40 my-4 dark:bg-black bg-white p-8 rounded-3xl">
+                    <form method="post" enctype="multipart/form-data" class="space-y-6">
+                        {% csrf_token %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <label for="{{ form.first_name.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.first_name.label }}</label>
+                                    {{ form.first_name }}
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <label for="{{ form.last_name.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.last_name.label }}</label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <label for="{{ form.dni.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.dni.label }}</label>
+                                    {{ form.dni }}
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <label for="{{ form.celular.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.celular.label }}</label>
+                                    {{ form.celular }}
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <label for="{{ form.correo.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.correo.label }}</label>
+                                    {{ form.correo }}
+                                </div>
+                            </div>
+                            <div class="col-span-1 flex justify-center">
+                                <div class="form-group mb-8 mx-auto w-full md:w-1/2 max-w-xs">
+                                    <label for="{{ form.imagen.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.imagen.label }}</label>
+                                    {{ form.imagen }}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-span-1">
-                        <div class="form-group">
-                            <label for="{{ form.last_name.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.last_name.label }}</label>
-                            {{ form.last_name }}
+                        <div class="flex justify-center">
+                            <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
+                                <i class="fa-solid fa-save mr-2"></i>Guardar
+                            </button>
+                            <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" href="{% url 'profile' %}">
+                                <i class="fa-solid fa-xmark mr-2"></i>Cancelar
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-span-1">
-                        <div class="form-group">
-                            <label for="{{ form.dni.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.dni.label }}</label>
-                            {{ form.dni }}
-                        </div>
-                    </div>
-                    <div class="col-span-1">
-                        <div class="form-group">
-                            <label for="{{ form.celular.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.celular.label }}</label>
-                            {{ form.celular }}
-                        </div>
-                    </div>
-                    <div class="col-span-1">
-                        <div class="form-group">
-                            <label for="{{ form.correo.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.correo.label }}</label>
-                            {{ form.correo }}
-                        </div>
-                    </div>
-                    <div class="col-span-1">
-                        <div class="form-group">
-                            <label for="{{ form.imagen.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.imagen.label }}</label>
-                            {{ form.imagen }}
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
-                        <i class="fa-solid fa-save mr-2"></i>Guardar
-                    </button>
-                    <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" href="{% url 'profile' %}">
-                        <i class="fa-solid fa-xmark mr-2"></i>Cancelar
-                    </a>
+                    </form>
                 </div>
             </div>
         </div>
-        <hr>
-    </section>
+    </div>
+
 </section>
+
+
 
 
 {% endblock content %}

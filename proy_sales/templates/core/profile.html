@@ -3,21 +3,21 @@
 <title>{% block title %} SGV - Home {% endblock title %}</title>
 {% block content %}
 
-<section class="mt-4" data-aos="fade-up" data-aos-delay="200">
-    <div class="text-center">
+<section class="dark:bg-slate-900 mt-4">
+    <div class="text-center" data-aos="fade" data-aos-delay="200">
         <div class="">
             <!-- Mensaje de bienvenida -->
             <div class="">
                 <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
-                    Perfil de Usuario
+                    <br><br>Perfil de Usuario
                 </h1>
                 <p class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Consulta la información de tu perfil.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-20" data-aos="fade">
                 <!-- Columna de la izquierda -->
-                <div class="bg-white rounded-3xl flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
+                <div class="bg-white dark:bg-black rounded-3xl flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
                     <div class="w-[45%] text-center">
-                        <h2 class="dark:text-black text-2xl text-center mt-6 font-black uppercase">Foto de Perfil</h2>
+                        <h2 class="dark:text-white text-2xl text-center mt-6 font-black uppercase">Foto de Perfil</h2><br>
                         {% if user.get_profile_picture_url %}
                         <img src="{{ user.get_profile_picture_url }}" class="mx-auto d-block rounded-lg" alt="Foto de perfil">
                         {% else %}
@@ -31,37 +31,37 @@
                     </div>
                 </div>
                 <!-- Columna de la derecha -->
-                <div class="p-4 rounded-3xl bg-white flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
+                <div class="p-4 rounded-3xl dark:bg-black bg-white flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
                     <form id="register-form" method="POST" enctype="multipart/form-data" onsubmit="validarRegistro(event)">
                         {% csrf_token %}
                         {{error}}
                         <!-- Datos de Usuario -->
                         <div class="grid grid-cols-1 gap-4">
                             <div>
-                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Usuario:</span><br> @{{ user.username }}
+                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Usuario:</span><br> @{{ user.username }}
                                     {% if user.is_superuser %}
                                     <span class="font-bold text-2xl uppercase text-green-500"> | Administrador</span>
                                     {% endif %}
                                 </p>
                             </div>
                             <div>
-                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Nombres:</span><br> {{ user.first_name }} {{user.last_name }}</p>
+                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Nombres:</span><br> {{ user.first_name }} {{user.last_name }}</p>
                             </div>
                             <div>
-                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Cédula:</span><br> {{ user.dni }}</p>
+                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Cédula:</span><br> {{ user.dni }}</p>
                             </div>
                             <div>
                                 {% if user.celular %}
-                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Celular:</span><br> {{ user.celular }}</p>
+                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Celular:</span><br> {{ user.celular }}</p>
                                 {% else %}
-                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Celular:</span><br> No Registrado</p>
+                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Celular:</span><br> No Registrado</p>
                                 {% endif %}
                             </div>
                             <div>
                                 {% if user.correo %}
-                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Correo:</span><br> <a href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
+                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Correo:</span><br> <a href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
                                 {% else %}
-                                <p class="text-gray-700"><span class="font-bold text-2xl uppercase">Correo:</span><br> No Registrado</p>
+                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Correo:</span><br> No Registrado</p>
                                 {% endif %}
                             </div>
                         </div>

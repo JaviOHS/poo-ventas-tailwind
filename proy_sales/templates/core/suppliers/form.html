@@ -3,11 +3,11 @@
 {% block content %}
 <title>{% block title %} SGV - Crear Proveedores {% endblock title %}</title>
 
-<section class="mt-10 flex justify-center" data-aos="fade-up" data-aos-delay="200">
-    <div class="text-center">
+<section class="dark:bg-slate-900 mt-10 flex justify-center px-4 lg:px-0">
+    <div class="text-center w-full lg:w-8/12" data-aos="fade-up" data-aos-delay="200">
         <div class="flex justify-center">
-            <div class="w-full lg:w-8/12">
-                <div class="mb-4">
+            <div class="w-full">
+                <div class="mb-4"><br>
                     <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
                         {{ title2 }}
                     </h1>
@@ -15,31 +15,31 @@
                 </div>
             </div>
         </div>
-        <div class="mx-40 my-4 dark:bg-black p-8 rounded-3xl">
+        <div class="mx-4 lg:mx-40 my-4 bg-white dark:bg-black p-8 rounded-3xl">
             <form method="post" enctype="multipart/form-data" class="space-y-6">
                 {% csrf_token %}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="mb-4">
-                        <label for="{{ form.name.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.name.label }}</label>
+                        <label for="{{ form.name.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.name.label }}</label>
                         {{ form.name }}
                     </div>
                     <div class="mb-4">
-                        <label for="{{ form.address.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.address.label }}</label>
+                        <label for="{{ form.address.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.address.label }}</label>
                         {{ form.address }}
                     </div>
                     <div class="mb-4">
-                        <label for="{{ form.ruc.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.ruc.label }}</label>
+                        <label for="{{ form.ruc.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.ruc.label }}</label>
                         {{ form.ruc }}
                     </div>
                     <div class="mb-4">
-                        <label for="{{ form.phone.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.phone.label }}</label>
+                        <label for="{{ form.phone.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.phone.label }}</label>
                         {{ form.phone }}
                     </div>
                 </div>
                 <div class="mb-4 flex flex-col justify-center items-center">
-                    <label for="{{ form.image.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.image.label }}</label>
+                    <label for="{{ form.image.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.image.label }}</label>
                     {{ form.image }}
-                    <label for="{{ form.state.id_for_label }}" class="dark:text-white  font-black uppercase text-lg">{{ form.state.label }}</label>
+                    <label for="{{ form.state.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.state.label }}</label>
                     {{ form.state }}
                 </div>
                 <div class="flex justify-center">
@@ -54,5 +54,6 @@
         </div>
     </div>
 </section>
+
 
 {% endblock content %}
