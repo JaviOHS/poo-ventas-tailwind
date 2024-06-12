@@ -25,16 +25,15 @@ module.exports = {
                     "900": "#1e3a8a",
                     "950": "#172554"
                 },
-                secondary: '#F5F5F5',
-                title: '#42C2FF',
-                titleHover: '#14DC99',
-                title2: '#0A3D62',
-                items: 'rgb(95, 95, 95)',
+                principal: '#050812',
+                secundario: '#070B15'
                 
             },
             fontFamily: {
-                'UbuntuMono-Regular': ['UbuntuMono-Regular', 'monospace'],
+                Quicksand: ['Quicksand', 'sans-serif'],
                 Mukta: ['Mukta', 'sans-serif'],
+                Pacifico: ['Pacifico', 'cursive'],
+                Tiny5: ['Tiny5', 'cursive'],
                 body: [
                     'Inter', 
                     'ui-sans-serif', 
@@ -50,7 +49,7 @@ module.exports = {
                     'Apple Color Emoji', 
                     'Segoe UI Emoji', 
                     'Segoe UI Symbol', 
-                    'Noto Color Emoji'
+                    'Noto Color Emoji',
                 ],
                 sans: [
                     'Inter', 
@@ -78,6 +77,7 @@ module.exports = {
                 colors: 'background-color, border-color, color, fill, stroke',
                 transform: 'transform',
             },
+
         },
     },
     plugins: [
@@ -174,7 +174,6 @@ module.exports = {
                 '.characteristics-card-title': {
                     fontSize: '16px',
                     textTransform: 'capitalize',
-                    fontWeight: '600',
                     color: '#0A3D62',
                     marginLeft: '20px',
                     textAlign: 'center',

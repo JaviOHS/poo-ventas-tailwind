@@ -1,581 +1,630 @@
 <!DOCTYPE html>
-<html lang="en dark:bg-gray-900" >
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {% load static tailwind_tags %}
-    <!-- Tailwind css -->
-    {% tailwind_css %}
-
-    <!-- Tailwind JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-    
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="https://flowbite.com/docs/images/logo.svg" type="image/x-icon">
-    
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- AOS Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-        <!-- Iconos -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    
-    
-    <!-- Whatsapp -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'plugin/whatsapp-chat-support.css' %}">
-    <link rel="stylesheet" href="{% static 'plugin/components/Font Awesome/css/font-awesome.min.css' %}">
-    
-    <!-- Titulo -->
-    <title>{% block title %} SGV {% endblock title %}</title>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static tailwind_tags %}
+	<!-- Tailwind css -->
+	{% tailwind_css %}
+	<!-- Tailwind JS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- AOS Library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+		integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- Iconos -->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+	<!-- Whatsapp -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'plugin/whatsapp-chat-support.css' %}">
+	<link rel="stylesheet" href="{% static 'plugin/components/Font Awesome/css/font-awesome.min.css' %}">
+	<!-- Titulo -->
+	<title>{% block title %} SGV {% endblock title %}</title>
 </head>
 
-<body class="transition-theme dark:bg-slate-900  bg-slate-100 text-items font-Mukta text-lg font-light">    
-{% block navbar %}
-    <header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
-        <nav class="border-gray-200 dark:bg-gray-900">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AppMarket</span>
-                </a>
-                <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                </button>
-                
-                <span id="themeIconContainer" class="dark:bg-gray inline-block p-2 rounded border border-gray-200 dark:border-gray-700 cursor-pointer">
-                    <i id="themeIcon" class="fas fa-moon text-gray-300 dark:text-gray-500"></i>
-                </span>
-                
+<body class="transition-theme dark:bg-principal bg-slate-100 text-items font-Quicksand text-lg font-light">
+	<!-- Navbar -->
+	{% block navbar %}
+	<header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
+		<nav class="border-gray-200 dark:bg-principal">
+			<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+				<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+					<img src="{% static 'img/iguana_corporation.png' %}" class="w-12 h-12" alt="Iguanas Corp" />
+					<span class="self-center whitespace-nowrap dark:text-blue-300 font-extrabold">Iguanas Corp.</span>
+				</a>
+				<div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
-                <div class="dark:border-gray-400 relative hidden md:block">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer text-gray-500">
-                        <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                        <span class="sr-only">Search icon</span>
-                    </div>
-                    <input type="text" id="search-navbar" class="border-gray-200 dark:border-gray-700 block w-full p-2 pl-10 text-sm text-gray-400 border rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-700 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Search...">
-                </div>
-                
-                
+					<span id="themeIconContainer"
+						class="dark:bg-gray inline-block p-2 rounded border border-gray-200 dark:border-gray-700 cursor-pointer">
+						<i id="themeIcon" class="fas fa-moon text-gray-300 dark:text-gray-500"></i>
+					</span>
 
-                <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 dropdown-toggle" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                    <span class="sr-only">Open user menu</span>
-                    
-                    {% if user.is_authenticated %}
-                        {% if user.get_profile_picture_url %}
-                            <img class="w-12 h-12 rounded-full" src="{{ user.get_profile_picture_url }}" alt="Profile Picture">
-                        {% else %}
-                            <img class="w-12 h-12 rounded-full" src="{% static 'img/default_person.png' %}" alt="Default Profile Picture">
-                        {% endif %}
-                    {% else %}
-                        <img class="w-12 h-12 rounded-full" src="{% static 'img/usuario_anonimo.png' %}" alt="Anonymous Profile Picture">
-                    {% endif %}
-                </button>
-    
-                    <!-- Dropdown menu -->
-                    <div class="dark:bg-black bg-white z-50 hidden my-4 text-base list-none divide-y divide-gray-200 dark:rounded-lg rounded-lg shadow" id="user-dropdown">
-                        {% if user.is_authenticated %}
-                            <div class=" px-4 py-3">
-                                <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ user.username }}</span>
-                                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ user.correo }}</span>
-                            </div>
-                            
-                            <ul class="dark:bg-black py-2" aria-labelledby="user-menu-button">
-                                <li>
-                                    <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Perfil</a>
-                                </li>
-                                <li>
-                                    <a class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-                                        Temas
-                                    </a>
-                                </li>                                
-                                <li>
-                                    <a href="{% url 'core:logout' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Cerrar Sesión</a>
-                                </li>
-                            </ul>
-                        {% else %}
-                            <ul class="py-2" aria-labelledby="user-menu-button">
-                                <li>
-                                    <a href="{% url 'signup' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Registrarse</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'signin' %}" class="block px-4 py-2 text-sm text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Iniciar Sesión</a>
-                                </li>
-                            </ul>
-                        {% endif %}
-                    </div>
+					<div class="dark:border-gray-800 relative hidden md:block">
+						<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer text-gray-500">
+							<svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+								fill="none" viewBox="0 0 20 20">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+							</svg>
+							<span class="sr-only">Search icon</span>
+						</div>
+						<input type="text" id="search-navbar"
+							class="border-gray-200 dark:border-gray-700 block w-full p-2 pl-10 text-sm text-gray-400 border rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-700 placeholder-gray-400 dark:placeholder-gray-500">
+					</div>
 
-                    <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                        </svg>
-                    </button>
-                </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                    <ul class="navbar-menu flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="/" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Inicio</a>
-                        </li>
-                        {% if user.is_superuser %}
-                            <li>
-                                <a href="{% url 'core:product_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
-                            </li>
-                        
-                            <li>
-                                <a href="{% url 'core:category_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categorías</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'core:brand_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Marcas</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'core:supplier_list' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Proveedores</a>
-                            </li>
-                        {% endif %}
-                        {% if user.is_authenticated and not user.is_superuser %}
-                            <li>
-                                <a href="{% url 'purchase:shop' %}" class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tienda</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>   
-        </nav>
-        <hr class="border-gray-200 dark:border-gray-700">
-    </header>
-    
-{% endblock navbar %}
+					<button type="button"
+						class="flex text-sm rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 dropdown-toggle"
+						id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+						data-dropdown-placement="bottom">
+						<span class="sr-only">Open user menu</span>
+						{% if user.is_authenticated %}
+						{% if user.get_profile_picture_url %}
+						<img class="w-12 h-12 rounded-full" src="{{ user.get_profile_picture_url }}"
+							alt="Profile Picture">
+						{% else %}
+						<img class="w-12 h-12 rounded-full" src="{% static 'img/default_person.png' %}"
+							alt="Default Profile Picture">
+						{% endif %}
+						{% else %}
+						<img class="w-12 h-12 rounded-full" src="{% static 'img/usuario_anonimo.png' %}"
+							alt="Anonymous Profile Picture">
+						{% endif %}
+					</button>
 
+					<!-- Dropdown menu -->
+					<div class="dark:dark:bg-secundario rounded-2xl dark:rounded-2xl bg-white z-50 hidden my-4 list-none divide-y divide-gray-200 shadow"
+						id="user-dropdown">
+						{% if user.is_authenticated %}
+						<div class="px-4 py-3">
+							<span class="block font-extrabold text-gray-500 truncate dark:text-gray-400">{{ user.username }}</span>
+							<span class="block font-extrabold  text-gray-500 truncate dark:text-gray-400">{{ user.correo }}</span>
+						</div>
+						<ul class="dark:dark:bg-secundario py-2" aria-labelledby="user-menu-button">
+							<li>
+								<a href="{% url 'profile' %}"
+									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all">Perfil</a>
+							</li>
+							<li>
+								<a class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all"
+									data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+									aria-controls="drawer-navigation">
+									Temas
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'core:logout' %}"
+									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all">Cerrar
+									Sesión</a>
+							</li>
+						</ul>
+						{% else %}
+						<ul class="py-2" aria-labelledby="user-menu-button">
+							<li>
+								<a href="{% url 'signup' %}"
+									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Registrarse</a>
+							</li>
+							<li>
+								<a href="{% url 'signin' %}"
+									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Iniciar
+									Sesión</a>
+							</li>
+						</ul>
+						{% endif %}
+					</div>
 
-<!-- drawer init and show -->
+					<!-- Boton para pantallas pequenas -->
+					<button data-collapse-toggle="navbar-user" type="button"
+						class="inline-flex items-center p-2 w-10 h-10 justify-center font-bold text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-red-100 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+						aria-controls="navbar-user" aria-expanded="false">
+						<span class="sr-only">Open main menu</span>
+						<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+							viewBox="0 0 17 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M1 1h15M1 7h15M1 13h15" />
+						</svg>
+					</button>
+				</div>
 
- 
- <!-- drawer component -->
- <div id="drawer-navigation" class="fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
-    <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">MENU DE TEMAS</h5>
-    <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-        </svg>
-        <span class="sr-only">Close menu</span>
-     </button>   
-   <div class="py-4 overflow-y-auto">
-       <ul class="space-y-2 font-medium">
-          <li>
-             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <span class="ms-3">Rosado</span>
-             </a>
-          </li>
-          <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="ms-3">Celeste</span>
-            </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="ms-3">Naranja</span>
-            </a>
-         </li>
-       </ul>
-    </div>
- </div>
+				<!-- Elementos en pantallas pequenas  -->
+				<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+					<ul id="menu"
+						class="navbar-menu flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
+						<li>
+							<a href="/"
+								class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><i
+									class="fa-solid fa-house"></i></a>
+						</li>
+						{% if user.is_superuser %}
+						<li>
+							<a href="{% url 'core:product_list' %}"
+								class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
+						</li>
+						<li>
+							<a href="{% url 'core:category_list' %}"
+								class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categorías</a>
+						</li>
+						<li>
+							<a href="{% url 'core:brand_list' %}"
+								class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Marcas</a>
+						</li>
+						<li>
+							<a href="{% url 'core:supplier_list' %}"
+								class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Proveedores</a>
+						</li>
+						{% endif %}
+						{% if user.is_authenticated and not user.is_superuser %}
+						<li>
+							<a href="{% url 'purchase:shop' %}"
+								class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-900 md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tienda</a>
+						</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<hr class="border-gray-200 dark:border-gray-700">
+	</header>
+	{% endblock navbar %}
+	<!-- Cierre de la navbar -->
 
-<!-- Alertas de éxito -->
-{% block success %}
-{% if messages %}
-<div id="notification-container" class="fixed top-0 right-0 m-8 z-50">
-    <div id="alert-border-3" class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800 notification" role="alert">
-        <!-- <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+	<!-- Columna a la izquierda con temas -->
+	<div id="drawer-navigation"
+		class="fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-secundario"
+		tabindex="-1" aria-labelledby="drawer-navigation-label">
+		<h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">MENU
+			DE TEMAS</h5>
+		<button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
+			class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+			<svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+					d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+			</svg>
+			<span class="sr-only">Close menu</span>
+		</button>
+		<div class="py-4 overflow-y-auto">
+			<ul class="space-y-2">
+				<li>
+					<a href="#"
+						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+						<div class="bg-pink-500 p-4 rounded-3xl"></div>
+					</a>
+				</li>
+				<li>
+					<a href="#"
+						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+						<div class="bg-green-500 p-4 rounded-3xl"></div>
+					</a>
+				</li>
+				<li>
+					<a href="#"
+						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+						<div class="bg-orange-500 p-4 rounded-3xl"></div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Cierre de la columna a la izquierda con temas -->
+
+	<!-- Alertas de éxito -->
+	{% block success %}
+	{% if messages %}
+	<div id="notification-container" class="fixed top-0 right-0 m-8 z-50">
+		<div id="alert-border-3"
+			class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800 notification"
+			role="alert">
+			<!-- <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
         </svg> -->
-        <i class="fa-solid fa-check"></i>
-        <div class="ms-3">
-            {% for message in messages %}
-                {{ message }}<br>
-            {% endfor %}
-        </div>
-        <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700"  data-dismiss-target="#alert-border-3" aria-label="Close">
-            <span class="sr-only">Dismiss</span>
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-            </svg>
-        </button>
-    </div>
-</div>
-{% endif %}
-{% endblock success %}
-<!-- Cierre de alertas de exito -->
+			<i class="fa-solid fa-check"></i>
+			<div class="ms-3">
+				{% for message in messages %}
+				{{ message }}<br>
+				{% endfor %}
+			</div>
+			<button type="button"
+				class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700"
+				data-dismiss-target="#alert-border-3" aria-label="Close">
+				<span class="sr-only">Dismiss</span>
+				<svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+					viewBox="0 0 14 14">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+				</svg>
+			</button>
+		</div>
+	</div>
+	{% endif %}
+	{% endblock success %}
+	<!-- Cierre de alertas de exito -->
 
-<!-- Alertas de error -->
-{% block error %}
-{% if form.errors %}
-<div id="notification-container" class="fixed top-0 right-0 m-8 z-50">
-    <div id="alert-border-2" class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800 notification" role="alert">
-        <!-- <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+	<!-- Alertas de error -->
+	{% block error %}
+	{% if form.errors %}
+	<div id="notification-container" class="fixed top-0 right-0 m-8 z-50">
+		<div id="alert-border-2"
+			class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800 notification"
+			role="alert">
+			<!-- <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
             </svg> -->
-        <i class="fa-solid fa-bug"></i>
-        <div class="ms-3">
-            {% for field in form %}
-                {% for error in field.errors %}
-                    {{ field.label }}: {{ error }}<br>
-                {% endfor %}
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-                {{ error }}<br>
-            {% endfor %}
-        </div>
-        <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"  data-dismiss-target="#alert-border-2" aria-label="Close">
-            <span class="sr-only">Dismiss</span>
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-            </svg>
-        </button>
-    </div>
-</div>
-{% endif %}
-{% endblock error %}
-<!-- Cierre de alertas de error -->
-    
-    <!-- Contenido -->
-    <section class="">
-        {% block content %}
-        {% endblock content %}
-    </section>
-    <!-- Cierre del contenido -->
+			<i class="fa-solid fa-bug"></i>
+			<div class="ms-3">
+				{% for field in form %}
+				{% for error in field.errors %}
+				{{ field.label }}: {{ error }}<br>
+				{% endfor %}
+				{% endfor %}
+				{% for error in form.non_field_errors %}
+				{{ error }}<br>
+				{% endfor %}
+			</div>
+			<button type="button"
+				class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+				data-dismiss-target="#alert-border-2" aria-label="Close">
+				<span class="sr-only">Dismiss</span>
+				<svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+					viewBox="0 0 14 14">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+				</svg>
+			</button>
+		</div>
+	</div>
+	{% endif %}
+	{% endblock error %}
+	<!-- Cierre de alertas de error -->
 
-    <!-- Contenedor para botones-->
-    <div class="fixed bottom-36 right-4 flex flex-col space-y-6 items-center">
-        <!-- Botón para volver al principio de la página -->
-        <div>
-            <button id="goTopBtn" title="Ir arriba"
-                class="bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transform translate-y-20 opacity-0 transition-all duration-500 ease-in-out">
-                <i class="fas fa-caret-up"></i>
-            </button>
-        </div>
-        <!-- Cierre del Botón -->
+	<!-- Contenido -->
+	<section class="">
+		{% block content %}
+		{% endblock content %}
+	</section>
+	<!-- Cierre del contenido -->
 
-        <!-- Botón de soporte de WhatsApp -->
-        <div class="whatsapp_chat_support" id="button-w">
-            <div class="wcs_button wcs_button_circle">
-                <span class="fa fa-whatsapp"></span>
-            </div>
+	<!-- Contenedor para botones-->
+	<div class="fixed bottom-36 right-4 flex flex-col space-y-6 items-center">
+		<!-- Botón para volver al principio de la página -->
+		<div>
+			<button id="goTopBtn" title="Ir arriba"
+				class="bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transform translate-y-20 opacity-0 transition-all duration-500 ease-in-out">
+				<i class="fas fa-caret-up"></i>
+			</button>
+		</div>
 
-            <div class="wcs_popup">
-                <div class="wcs_popup_close">
-                    <span class="fa fa-close"></span>
-                </div>
-                <div class="wcs_popup_header">
-                    <span class="fa fa-whatsapp"></span>
-                    <strong>Servicio al cliente</strong>
+		<!-- Botón de soporte de WhatsApp -->
+		<div class="whatsapp_chat_support" id="button-w">
+			<div class="wcs_button wcs_button_circle">
+				<span class="fa fa-whatsapp"></span>
+			</div>
 
-                    <div class="wcs_popup_header_description">¿Necesidad de ayuda? Chatea con nosotros en Whatsapp</div>
+			<div class="wcs_popup">
+				<div class="wcs_popup_close">
+					<span class="fa fa-close"></span>
+				</div>
+				<div class="wcs_popup_header">
+					<span class="fa fa-whatsapp"></span>
+					<strong>Servicio al cliente</strong>
 
-                </div>
-                <div class="wcs_popup_input" data-number="593997932650"
-                    data-availability='{ "monday":"06:00-19:00", "tuesday":"06:00-19:00", "wednesday":"06:00-19:00", "thursday":"06:00-19:00", "friday":"06:00-19:00", "saturday":"06:00-19:00", "sunday":"06:00-19:00" }'>
-                    <input type="text" placeholder="Escribir pregunta!" />
-                    <i class="fa fa-play"></i>
-                </div>
-                <div class="wcs_popup_avatar">
-                    <img src="{% static 'img/default_person.png' %}" alt="">
-                </div>
-            </div>
-        </div>
-        <!-- End Button Whatsapp Structure -->
-    </div>
-    <!-- Cierre del contenedor para botones -->
+					<div class="wcs_popup_header_description">¿Necesidad de ayuda? Chatea con nosotros en Whatsapp</div>
+
+				</div>
+				<div class="wcs_popup_input" data-number="593997932650"
+					data-availability='{ "monday":"06:00-19:00", "tuesday":"06:00-19:00", "wednesday":"06:00-19:00", "thursday":"06:00-19:00", "friday":"06:00-19:00", "saturday":"06:00-19:00", "sunday":"06:00-19:00" }'>
+					<input type="text" placeholder="Escribir pregunta!" />
+					<i class="fa fa-play"></i>
+				</div>
+				<div class="wcs_popup_avatar">
+					{% if user.get_profile_picture_url %}
+					<img class="w-12 h-12 rounded-full" src="{{ user.get_profile_picture_url }}" alt="Profile Picture">
+					{% else %}
+					<img class="w-12 h-12 rounded-full" src="{% static 'img/default_person.png' %}"
+						alt="Default Profile Picture">
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Cierre del contenedor para botones -->
+
+	<!-- Footer -->
+	<footer class="dark:bg-principal w-full mx-auto p-5">
+		<div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+			<div class="sm:flex sm:items-center sm:justify-between">
+				<a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+					<img src="{% static 'img/iguana_corporation.png' %}" class="w-12 h-12" alt="Flowbite Logo" />
+					<span class="self-center whitespace-nowrap dark:text-blue-300 font-extrabold">Iguanas Corp.</span>
+				</a>
+				<ul
+					class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">Acerca de</a>
+					</li>
+					<li>
+						<button data-modal-target="default-modal" data-modal-toggle="default-modal"
+							class="hover:underline me-4 md:me-6" type="button">
+							Términos de Servicio
+						</button>
+					</li>
+					<li>
+						<a href="#" class="hover:underline me-4 md:me-6">Licencia</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline">Contactos</a>
+					</li>
+				</ul>
+			</div>
+			<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+			<span class="block text-gray-500 sm:text-center dark:text-gray-400 font-bold">© 2023 <a href=""
+				class="hover:underline">Iguanas Corporation™</a>. Todos los derechos reservados.<br>Diseñado por <a
+				class="text-title text-blue-700 hover:underline" href="https://github.com/Alexis2024" target="_blank">Alex Duran</a> y <a
+				class="text-title text-blue-700 hover:underline" href="https://github.com/JaviOHS" target="_blank">Javier Haro</a>
+			</span>
+		</div>
+	</footer>
+	<!-- Cierre del footer -->
+
+	<!-- Modal de Ternino de servicio -->
+	<div id="default-modal" tabindex="-1" aria-hidden="true"
+		class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+		<div class="relative p-4 w-full max-w-2xl max-h-full">
+			<!-- Modal content -->
+			<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+				<!-- Modal header -->
+				<div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+					<h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+						Terminos de Servicios
+					</h3>
+					<button type="button"
+						class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+						data-modal-hide="default-modal">
+						<svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+							viewBox="0 0 14 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+						</svg>
+						<span class="sr-only">Close modal</span>
+					</button>
+				</div>
+				<!-- Modal body -->
+				<div class="p-4 md:p-5 space-y-4">
+					<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+						Faltando menos de un mes para que la Unión Europea promulgue nuevas leyes de privacidad del
+						consumidor para sus ciudadanos, empresas de todo el mundo están actualizando sus acuerdos de
+						términos de servicio para cumplir.
+					</p>
+					<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+						El Reglamento General de Protección de Datos de la Unión Europea (G.D.P.R.) entra en vigor el 25
+						de mayo y tiene como objetivo garantizar un conjunto común de derechos de datos en la Unión
+						Europea. Requiere que las organizaciones notifiquen a los usuarios lo antes posible sobre
+						violaciones de datos de alto riesgo que podrían afectarlos personalmente.
+					</p>
+				</div>
+				<!-- Modal footer -->
+				<div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+					<button data-modal-hide="default-modal" type="button"
+						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Aceptar</button>
+					<button data-modal-hide="default-modal" type="button"
+						class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Denegar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="{% static 'js/sweet_alert.js' %}"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+		integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer">
+		</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- jQuery 1.8+ -->
+	<script src="{% static 'plugin/components/jQuery/jquery-1.11.3.min.js' %}"></script>
+	<!-- Plugin JS file -->
+	<script src="{% static 'plugin/components/moment/moment.min.js' %}"></script>
+	<script src="{% static 'plugin/components/moment/moment-timezone-with-data.min.js' %}"></script>
+	<script src="{% static 'plugin/whatsapp-chat-support.js' %}"></script>
+
+	<!-- Script para hacer que las notificaciones desaparezcan después de 5 segundos -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var notifications = document.querySelectorAll('.notification');
+			notifications.forEach(function (notification) {
+				setTimeout(function () {
+					notification.remove();
+				}, 5000);
+			});
+		});
+	</script>
+
+	<!-- Para mostrar y ocultar el modal de navbar en pantallas pequenas -->
+	<script>
+		const menuButton = document.getElementById('menu-button');
+		const modal = document.getElementById('modal');
+
+		menuButton.addEventListener('click', () => {
+			modal.classList.add('flex');
+			modal.classList.remove('hidden');
+		});
+		window.addEventListener('click', (e) => {
+			if (e.target === modal) {
+				modal.classList.add('hidden');
+				modal.classList.remove('flex');
+			}
+		});
+	</script>
+
+	<!-- Para que el boton de volver al principio aparezca -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			window.addEventListener('scroll', function () {
+				var goTopBtn = document.getElementById('goTopBtn');
+				if (window.scrollY > 100) {
+					goTopBtn.classList.remove('translate-y-20');
+					goTopBtn.classList.remove('opacity-0');
+					goTopBtn.classList.add('translate-y-0');
+					goTopBtn.classList.add('opacity-100');
+				} else {
+					goTopBtn.classList.add('translate-y-20');
+					goTopBtn.classList.add('opacity-0');
+					goTopBtn.classList.remove('translate-y-0');
+					goTopBtn.classList.remove('opacity-100');
+				}
+			});
+
+			document.getElementById('goTopBtn').addEventListener('click', function () {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
+		});
+	</script>
+
+	<!-- Para mostrar y ocultar dropdowns -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var menuItems = document.querySelectorAll('.group');
+			menuItems.forEach(function (item) {
+				item.addEventListener('mouseenter', function () {
+					var dropdown = this.querySelector('.absolute');
+					dropdown.classList.remove('hidden');
+				});
+				item.addEventListener('mouseleave', function () {
+					var dropdown = this.querySelector('.absolute');
+					setTimeout(function () {
+						dropdown.classList.add('hidden');
+					}, 500); // 500 milisegundos de retraso
+				});
+			});
+		});
+	</script>
+
+	<!-- Dropdowns de perfil -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const profilePicture = document.getElementById('profile-picture');
+			const profileMenu = document.getElementById('profile-menu-items');
+
+			if (profilePicture && profileMenu) {
+				profilePicture.addEventListener('mouseover', () => {
+					profileMenu.classList.remove('hidden');
+				});
+
+				profileMenu.addEventListener('mouseleave', () => {
+					profileMenu.classList.add('hidden');
+				});
+
+				// Opcional: para ocultar el menú si el cursor sale de la imagen y no entra en el menú
+				profilePicture.addEventListener('mouseleave', () => {
+					setTimeout(() => {
+						if (!profileMenu.matches(':hover')) {
+							profileMenu.classList.add('hidden');
+						}
+					}, 200); // Puedes ajustar el tiempo según sea necesario
+				});
+			}
+		});
+	</script>
+
+	<!-- Iniciar chat de Whatsapp -->
+	<script>
+		$('#button-w').whatsappChatSupport({
+			defaultMsg: '',
+		});
+	</script>
+
+	<!-- Inicializar AOS -->
+	<script>
+		AOS.init();
+	</script>
+
+	<!-- Color de pagina actual en la navbar -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const navLinks = document.querySelectorAll('#menu a, #modal a'); // Selecciona todos los enlaces dentro de tu barra de navegación
+			const currentPath = window.location.pathname;
+			const darkModeEnabled = document.documentElement.classList.contains('dark');
+
+			navLinks.forEach(link => {
+				if (link.getAttribute('href') === currentPath) {
+					link.classList.add('active');
+					link.style.color = darkModeEnabled ? '#9FD4FF' : '#A4CAFE'; // Color para modo oscuro y claro
+				} else {
+					link.classList.remove('active');
+				}
+			});
+		});
+	</script>
 
 
+	<script>
+		window.addEventListener('scroll', function () {
+			var navbar = document.querySelector('header');
+			if (window.scrollY > 0) {
+				navbar.classList.remove('bg-transparent');
+				navbar.classList.add('bg-white', 'shadow-md');
+			} else {
+				navbar.classList.remove('bg-white', 'shadow-md');
+				navbar.classList.add('bg-transparent');
+			}
+		});
+	</script>
 
-  <!-- Footer -->
-  <footer class="dark:bg-slate-900 w-full mx-auto p-5">
-    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+	<!---DARK MODE-->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const themeToggleBtn = document.getElementById('themeIconContainer');
+			const body = document.body;
+			const themeIcon = document.getElementById('themeIcon');
 
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-            </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Acerca de</a>
-                </li>
-                <li>
-                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="hover:underline me-4 md:me-6" type="button">
-                        Términos de Servicio
-                    </button>                    
-                </li>
-                <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Licencia</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline">Contactos</a>
-                </li>
-            </ul>
-        </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="" class="hover:underline">AppMarket™</a>. Todos los derechos reservados.<br>Diseñado por <a class="text-title" href="https://github.com/Alexis2024" target="_blank">Alex Duran</a> y <a class="text-title" href="https://github.com/JaviOHS" target="_blank">Javier Haro</a>
-        </span>
-    </div>
-</footer>
-<!-- Cierre del footer -->
+			// Verifica si el modo oscuro está activado en el almacenamiento local
+			const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
 
+			// Función para cambiar el ícono del tema
+			function toggleThemeIcon() {
+				if (body.classList.contains('dark')) {
+					themeIcon.classList.remove('fa-moon');
+					themeIcon.classList.add('fa-sun');
+				} else {
+					themeIcon.classList.remove('fa-sun');
+					themeIcon.classList.add('fa-moon');
+				}
+			}
 
+			// Si el modo oscuro está activado en el almacenamiento local, se lo aplica al cuerpo del documento
+			if (isDarkModeEnabled) {
+				body.classList.add('dark');
+			}
 
-<!-- Modal de Ternino de servicio -->
-  <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <div class="relative p-4 w-full max-w-2xl max-h-full">
-          <!-- Modal content -->
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <!-- Modal header -->
-              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                      Terminos de Servicios
-                  </h3>
-                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
-                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                      </svg>
-                      <span class="sr-only">Close modal</span>
-                  </button>
-              </div>
-              <!-- Modal body -->
-              <div class="p-4 md:p-5 space-y-4">
-                  <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    Faltando menos de un mes para que la Unión Europea promulgue nuevas leyes de privacidad del consumidor para sus ciudadanos, empresas de todo el mundo están actualizando sus acuerdos de términos de servicio para cumplir.
-                  </p>
-                  <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    El Reglamento General de Protección de Datos de la Unión Europea (G.D.P.R.) entra en vigor el 25 de mayo y tiene como objetivo garantizar un conjunto común de derechos de datos en la Unión Europea. Requiere que las organizaciones notifiquen a los usuarios lo antes posible sobre violaciones de datos de alto riesgo que podrían afectarlos personalmente.
-                  </p>
-              </div>
-              <!-- Modal footer -->
-              <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                  <button data-modal-hide="default-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Aceptar</button>
-                  <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Denegar</button>
-              </div>
-          </div>
-      </div>
-  </div>
+			// Cambiar el ícono del tema al cargar la página
+			toggleThemeIcon();
 
-    
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{% static 'js/sweet_alert.js' %}"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- jQuery 1.8+ -->
-    <script src="{% static 'plugin/components/jQuery/jquery-1.11.3.min.js' %}"></script>
-    <!-- Plugin JS file -->
-    <script src="{% static 'plugin/components/moment/moment.min.js' %}"></script>
-    <script src="{% static 'plugin/components/moment/moment-timezone-with-data.min.js' %}"></script>
-    <script src="{% static 'plugin/whatsapp-chat-support.js' %}"></script>
+			// Remueve la clase que oculta el contenido una vez que todo está listo
+			body.classList.remove('invisible-until-load');
 
-    <!-- Script para hacer que las notificaciones desaparezcan después de 5 segundos -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var notifications = document.querySelectorAll('.notification');
-            notifications.forEach(function (notification) {
-                setTimeout(function () {
-                    notification.remove();
-                }, 5000);
-            });
-        });
-    </script>
+			// Agrega un listener para el evento 'click' en el botón
+			themeToggleBtn.addEventListener('click', function (event) {
+				event.preventDefault(); // Previene el comportamiento predeterminado del ícono
+				// Cambia el tema de claro a oscuro y viceversa
+				body.classList.toggle('dark');
 
-    <!-- Para mostrar y ocultar el modal de navbar en pantallas pequenas -->
-    <script>
-        const menuButton = document.getElementById('menu-button');
-        const modal = document.getElementById('modal');
+				// Cambia el ícono del tema
+				toggleThemeIcon();
 
-        menuButton.addEventListener('click', () => {
-            modal.classList.add('flex');
-            modal.classList.remove('hidden');
-        });
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
-        });
-    </script>
-
-    <!-- Para que el boton de volver al principio aparezca -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            window.addEventListener('scroll', function () {
-                var goTopBtn = document.getElementById('goTopBtn');
-                if (window.scrollY > 100) {
-                    goTopBtn.classList.remove('translate-y-20');
-                    goTopBtn.classList.remove('opacity-0');
-                    goTopBtn.classList.add('translate-y-0');
-                    goTopBtn.classList.add('opacity-100');
-                } else {
-                    goTopBtn.classList.add('translate-y-20');
-                    goTopBtn.classList.add('opacity-0');
-                    goTopBtn.classList.remove('translate-y-0');
-                    goTopBtn.classList.remove('opacity-100');
-                }
-            });
-
-            document.getElementById('goTopBtn').addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
-
-    <!-- Para mostrar y ocultar dropdowns -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var menuItems = document.querySelectorAll('.group');
-            menuItems.forEach(function (item) {
-                item.addEventListener('mouseenter', function () {
-                    var dropdown = this.querySelector('.absolute');
-                    dropdown.classList.remove('hidden');
-                });
-                item.addEventListener('mouseleave', function () {
-                    var dropdown = this.querySelector('.absolute');
-                    setTimeout(function () {
-                        dropdown.classList.add('hidden');
-                    }, 500); // 500 milisegundos de retraso
-                });
-            });
-        });
-    </script>
-
-    <!-- Dropdowns de perfil -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const profilePicture = document.getElementById('profile-picture');
-            const profileMenu = document.getElementById('profile-menu-items');
-
-            if (profilePicture && profileMenu) {
-                profilePicture.addEventListener('mouseover', () => {
-                    profileMenu.classList.remove('hidden');
-                });
-
-                profileMenu.addEventListener('mouseleave', () => {
-                    profileMenu.classList.add('hidden');
-                });
-
-                // Opcional: para ocultar el menú si el cursor sale de la imagen y no entra en el menú
-                profilePicture.addEventListener('mouseleave', () => {
-                    setTimeout(() => {
-                        if (!profileMenu.matches(':hover')) {
-                            profileMenu.classList.add('hidden');
-                        }
-                    }, 200); // Puedes ajustar el tiempo según sea necesario
-                });
-            }
-        });
-    </script>
-
-    <!-- Iniciar chat de Whatsapp -->
-    <script>
-        $('#button-w').whatsappChatSupport({
-            defaultMsg: '',
-        });
-    </script>
-
-    <!-- Inicializar AOS -->
-    <script>
-        AOS.init();
-    </script>
-
-    <!-- Color de pagina actual en la navbar -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('#menu a, #modal a'); // Selecciona todos los enlaces dentro de tu barra de navegación
-            const currentPath = window.location.pathname;
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
-                    link.classList.add('active');
-                    link.style.color = '#1A56DB'; // Establece el color del enlace activo
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-        });
-        
-    </script>
-    <script>
-        window.addEventListener('scroll', function() {
-          var navbar = document.querySelector('header');
-          if (window.scrollY > 0) {
-            navbar.classList.remove('bg-transparent');
-            navbar.classList.add('bg-white', 'shadow-md');
-          } else {
-            navbar.classList.remove('bg-white', 'shadow-md');
-            navbar.classList.add('bg-transparent');
-          }
-        });
-    </script>
-
-
-            <!---DARK MODE-->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggleBtn = document.getElementById('themeIconContainer');
-            const body = document.body;
-            const themeIcon = document.getElementById('themeIcon');
-
-            // Verifica si el modo oscuro está activado en el almacenamiento local
-            const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
-
-            // Función para cambiar el ícono del tema
-            function toggleThemeIcon() {
-                if (body.classList.contains('dark')) {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            }
-
-            // Si el modo oscuro está activado en el almacenamiento local, se lo aplica al cuerpo del documento
-            if (isDarkModeEnabled) {
-                body.classList.add('dark');
-            }
-
-            // Cambiar el ícono del tema al cargar la página
-            toggleThemeIcon();
-
-            // Remueve la clase que oculta el contenido una vez que todo está listo
-            body.classList.remove('invisible-until-load');
-
-            // Agrega un listener para el evento 'click' en el botón
-            themeToggleBtn.addEventListener('click', function(event) {
-                event.preventDefault(); // Previene el comportamiento predeterminado del ícono
-                // Cambia el tema de claro a oscuro y viceversa
-                body.classList.toggle('dark');
-
-                // Cambia el ícono del tema
-                toggleThemeIcon();
-
-                // Actualiza el estado del modo oscuro en el almacenamiento local
-                const isDarkModeNowEnabled = body.classList.contains('dark');
-                localStorage.setItem('darkModeEnabled', isDarkModeNowEnabled);
-            });
-        });
-    </script>
+				// Actualiza el estado del modo oscuro en el almacenamiento local
+				const isDarkModeNowEnabled = body.classList.contains('dark');
+				localStorage.setItem('darkModeEnabled', isDarkModeNowEnabled);
+			});
+		});
+	</script>
 </body>
 
 </html>
