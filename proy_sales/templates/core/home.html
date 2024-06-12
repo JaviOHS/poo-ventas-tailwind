@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-<title>{% block title %} {{ title1 }} {% endblock title %}</title>
+<title>{% block title %} SGV - Home {% endblock title %}</title>
 {% block content %}
 
 <section>
@@ -8,60 +8,41 @@
     {% if not user.is_authenticated %}
     <div id="modal-home" class="fixed inset-0 flex items-center justify-center z-50 bg-cover bg-center bg-no-repeat">
         <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-        <div
-            class="dark:bg-principal bg-white mx-4 my-4 p-4 sm:mx-8 sm:my-8 sm:p-6 md:mx-10 md:my-10 md:p-8 lg:mx-12 lg:my-12 lg:p-10 xl:mx-16 xl:my-16 xl:p-12 rounded-2xl z-10 max-w-7xl w-full">
-            <div class="dark:bg-principal text-center P-10">
-                <h2 class="text-4xl md:text-3xl text-blue-700 dark:text-blue-300 uppercase font-black my-2">PERFILES</h2>
-                <p class="text-gray500 dark:text-gray-400">Selecciona tu perfil para iniciar sesión:</p>
-                <a href="/" class="flex flex-col text-center items-center m-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <img src="{% static 'img/iguana_corporation.png' %}" class="w-14" alt="Iguanas Corp." />
-                    <h2 class="text-4xl md:text-3xl text-blue-700 dark:text-blue-300 my-2 font-black">Iguanas Corporation
-                    </h2>
-                </a>
-                <p class="text-gray500 dark:text-gray-400">Accede a funcionalidades específicas.</p><br>
+        <div class="dark:bg-slate-900 bg-white mx-4 my-4 p-4 sm:mx-8 sm:my-8 sm:p-6 md:mx-10 md:my-10 md:p-8 lg:mx-12 lg:my-12 lg:p-10 xl:mx-16 xl:my-16 xl:p-12 rounded-2xl z-10 max-w-7xl w-full">
+            <div class="dark:bg-slate-900 text-center">
+                <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">PERFILES</h2>
+                <p class="text-sm md:text-base">Selecciona tu perfil para iniciar sesión:</p>
+                <h2 class="text-2xl md:text-3xl text-title2 uppercase font-black my-2">TeacherCode</h2>
+                <p class="text-sm md:text-base">Accede a funcionalidades específicas.</p><br>
                 <div class="grid gap-6 sm:gap-8 md:gap-10 lg:grid-cols-3 rounded-3xl">
-                    <div
-                        class="bg-slate-100 dark:bg-secundario rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
+                    <div class="dark:bg-black bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
                         <div class="flex-grow">
-                            <i class="fas fa-user text-3xl md:text-4xl text-blue-700 dark:text-gray-300 mb-4"></i>
-                            <h2 class="text-xl md:text-xl text-blue-700 dark:text-white uppercase font-black my-2">
-                                Cliente</h2>
-                            <p class="text-gray500 dark:text-gray-400">Da gestión de seguimiento a tus compras y ventas.
-                            </p>
+                            <i class="fas fa-user text-3xl md:text-4xl text-title mb-4"></i>
+                            <h2 class="text-xl md:text-2xl text-title2 uppercase font-black my-2">Cliente</h2>
+                            <p class="text-sm md:text-base">Da gestión de seguimiento a tus compras y ventas.</p>
                         </div>
                         <div class="text-center mt-4">
-                            <a class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
-                                href="{% url 'signin' %}" id="btnCliente">Ingresar</a>
+                            <a class="btn-dark-blue" href="{% url 'signin' %}" id="btnCliente">Ingresar</a>
                         </div>
                     </div>
-                    <div
-                        class="bg-slate-100 dark:bg-secundario rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
+                    <div class="dark:bg-black bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
                         <div class="flex-grow">
-                            <i class="fas fa-user-tie text-3xl md:text-4xl text-blue-700 dark:text-gray-300 mb-4"></i>
-                            <h2 class="text-xl md:text-xl text-blue-700 dark:text-white uppercase font-black my-2">
-                                Administrador</h2>
-                            <p class="text-gray500 dark:text-gray-400">Gestiona las categorías, marcas y proveedores de
-                                tus
-                                productos.</p>
+                            <i class="fas fa-user-tie text-3xl md:text-4xl text-title mb-4"></i>
+                            <h2 class="text-xl md:text-2xl text-title2 uppercase font-black my-2">Administrador</h2>
+                            <p class="text-sm md:text-base">Gestiona las categorías, marcas y proveedores de tus productos.</p>
                         </div>
                         <div class="text-center mt-4">
-                            <a class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
-                                href="{% url 'signin' %}" id="btnAdministrador">Ingresar</a>
+                            <a class="btn-dark-blue" href="{% url 'signin' %}" id="btnAdministrador">Ingresar</a>
                         </div>
                     </div>
-                    <div
-                        class="bg-slate-100 dark:bg-secundario rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
+                    <div class="dark:bg-black bg-primary rounded-3xl p-6 md:p-8 custom-transform flex flex-col justify-between">
                         <div class="flex-grow">
-                            <i
-                                class="fas fa-user-secret text-3xl md:text-4xl text-blue-700 dark:text-gray-300 mb-4"></i>
-                            <h2 class="text-xl md:text-2xl text-blue-700 dark:text-white uppercase font-black my-2">
-                                Invitado</h2>
-                            <p class="text-gray500 dark:text-gray-400">Revisa las diversas funciones de nuestro sistema.
-                            </p>
+                            <i class="fas fa-user-secret text-3xl md:text-4xl text-title mb-4"></i>
+                            <h2 class="text-xl md:text-2xl text-title2 uppercase font-black my-2">Invitado</h2>
+                            <p class="text-sm md:text-base">Revisa las diversas funciones de nuestro sistema.</p>
                         </div>
                         <div class="text-center mt-4">
-                            <a class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
-                                href="{% url 'home' %}" id="btnModoInvitado">Ingresar</a>
+                            <a class="btn-dark-blue" href="{% url 'home' %}" id="btnModoInvitado">Ingresar</a>
                         </div>
                     </div>
                 </div>
@@ -71,255 +52,237 @@
     {% endif %}
     <!-- CIERRE DEL MODAD DE L INICIO DEL LOS USUARIOS -->
 
-    <!-- SECCIÓN DEL HERO -->
-    <section class="bg-slate-100 dark:bg-principal pt-16">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
-            data-aos="fade-right" data-aos-delay="200">
-            <div class="mr-auto place-self-center lg:col-span-7 p-2">
-                <h1
-                    class="max-w-2xl mb-4 text-4xl font-Pacifico tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                    Una solución para tu negocio.<br>
-                    {% if user.is_authenticated %}
+
+
+<!-- SECCIÓN DEL HERO -->
+<section class="bg-slate-100 dark:bg-slate-900">
+    <br><br><br>
+    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12" data-aos="fade-right" data-aos-delay="200">
+        <div class="mr-auto place-self-center lg:col-span-7">
+            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                Sistema de Gestión de Ventas
+                {% if user.is_authenticated %}
                     {% if user.is_superuser %}
-                    <span class="text-blue-700 dark:text-blue-300 text-3xl font-Tiny5 font-bold">Bienvenido, {{ user.username }}.</span>
+                        <span class="text-blue-700 dark:text-primary-10 font-semibold">Bienvenido, {{ user.username }}.</span>
                     {% else %}
-                    <span class="text-blue-700 dark:text-blue-300 text-3xl font-Tiny5 font-bold">Bienvenido, {{ user.username }}.</span>
+                        <span class="text-blue-700  font-semibold">Bienvenido, {{ user.username }}.</span>
                     {% endif %}
-                    {% else %}
-                    <span class="text-blue-700 dark:text-blue-300 text-3xl font-Tiny5 font-bold">Bienvenido, usuario anónimo.</span>
-                    {% endif %}
-                </h1>
-
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                    ¡Explora nuestro increíble sistema!<br>Te invitamos a descubrir un mundo de múltiples posibilidades
-                    y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
-                <a href="#herramientas"
-                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    Explorar
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                <a href="#contacto"
-                    class="dark:bg-principal dark:border-gray-700 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-700 dark:text-white dark:focus:ring-black">
-                    Contáctanos
-                </a>
-            </div>
-            <!-- Carrusel de imágenes a la derecha -->
-            <div class="hidden lg:flex lg:col-span-4 justify-center items-center lg:order-2" data-aos="fade-right">
-                <div class="rounded-3xl overflow-hidden shadow-lg custom-transform w-full max-w-2xl">
-                    <div id="carousel" class="relative overflow-hidden">
-                        <div id="carousel-inner" class="flex">
-                            <!-- Las imágenes se agregarán aquí dinámicamente -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {% else %}
+                    <span class="text-blue-700 font-semibold">Bienvenido, usuario anónimo.</span>
+                {% endif %}
+            </h1>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">¡Explora nuestro increíble sistema!.<br>Te invitamos a descubrir un mundo de múltiples posibilidades y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
+            <a href="#herramientas" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                Explorar
+                <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </a>
+            <a href="#contacto" class="dark:bg-black dark:border-gray-700 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-700 dark:text-white dark:focus:ring-black">
+                Contáctanos
+            </a>
         </div>
-
-        <!-- Busqueda -->
-        <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16" data-aos="fade-up"
-            data-aos-delay="200">
-            <p class="mx-auto max-w-2xl text-4xl dark:text-white text-center font-Pacifico">
-                ¿No encontró el componente que estaba buscando?
-            </p>
-            <form action="/">
-                <label
-                    class="mx-auto mt-8 relative min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border border-gray-300 py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300 dark:border-gray-700"
-                    for="search-bar">
-
-                    <input id="search-bar" placeholder="Tu palabra clave aquí" name="q"
-                        class="dark:bg-black px-6 py-2 w-full rounded-md flex-1 outline-none font-Tiny5" required=" ">
-
-                    <button type="submit"
-                        class="bg-blue-700 w-full md:w-auto px-6 py-3 text-white rounded-xl transition-all active:scale-95 duration-100">
-                        <span class="text-sm font-black whitespace-nowrap truncate mx-auto">
-                            Buscar
-                        </span>
-                    </button>
-                </label>
-            </form>
-
-            <svg viewBox="0 0 1024 1024"
-                class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
-                aria-hidden="true" style="pointer-events: none; /* Esto deshabilita los eventos de puntero en el SVG */
-                z-index: -1; /* Esto mueve el SVG detrás de otros elementos */">
-                <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="0.7">
-                </circle>
-                <defs>
-                    <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-                        <stop stop-color="#3b82f6"></stop>
-                        <stop offset="1" stop-color="#1d4ed8"></stop>
-                    </radialGradient>
-                </defs>
-            </svg>
+        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" class="transform transition-transform duration-10000 hover:scale-110">
         </div>
-    </section>
-    <!-- CIERRE DE LA SECCIÓN DEL HERO -->
+    </div>
+    <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16" data-aos="fade-up" data-aos-delay="200">
+        <p class="mx-auto max-w-2xl text-4xl font-bold dark:text-white text-center">
+            ¿No encontró el componente que estaba buscando?
+        </p>
+        <form action="/" id="search-form">
+            <label class="mx-auto mt-8 relative min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border border-gray-300 py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300 dark:border-gray-700" for="search-bar">
+                <input id="search-bar" placeholder="tu palabra clave aquí" name="q" class="dark:bg-black px-6 py-2 w-full rounded-md flex-1 outline-none" required>
+                <button type="submit" class="bg-blue-700 w-full md:w-auto px-6 py-3 text-white rounded-xl transition-all active:scale-95 duration-100">
+                    <span class="text-sm font-black whitespace-nowrap truncate mx-auto">
+                        Buscar
+                    </span>
+                </button>
+            </label>
+        </form>
 
-    <!-- SECCIÓN DE HERRAMIENTAS -->
-    <section class="dark:bg-principal bg-slate-100">
-        <div id="herramientas" class="p-8" data-aos="fade-up" data-aos-delay="300">
+        <div id="search-results" class="mt-4 flex flex-wrap justify-center">
+            <!-- Aquí se mostrarán los resultados de la búsqueda -->
+        </div>
+        
+        <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]" aria-hidden="true" style="pointer-events: none; z-index: -1;">
+            <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="0.7"></circle>
+            <defs>
+                <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
+                    <stop stop-color="#3b82f6"></stop>
+                    <stop offset="1" stop-color="#1d4ed8"></stop>
+                </radialGradient>
+            </defs>
+        </svg>
+    </div>
+</section>
+<!-- CIERRE DE LA SECCIÓN DEL HERO -->
+
+
+
+    <!-- SECCIÓN DE HERRAMIENTAS -->  
+    <section class="dark:bg-slate-900">
+        <div id="herramientas" class="p-8">
             <div class="flex flex-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
                     HERRAMIENTAS
                 </span>
             </div>
-            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-black uppercase">
                 Impulsa tu Negocio
             </h1>
-            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+            <p class="dark:text-white text-center mt-6 text-lg font-light">
                 Nuestro sistema ofrece las herramientas necesarias para maximizar el potencial de tu negocio.
             </p>
+    
+            <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl justify-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-chart-line text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-indigo-500 font-extrabold mb-3">
+                    Optimizar tus operaciones
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Aumenta la eficiencia de tu equipo con herramientas automatizadas y análisis detallados.
+                </p>
+                <a class="text-indigo-500 flex items-center hover:text-indigo-600" href="/">
+                    More about us icon
+                </a>
+            </div>
 
-            <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl justify-center"
-                data-aos="fade-up" data-aos-delay="300">
-                <div
-                    class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <i class="fas fa-chart-line text-4xl text-indigo-500 mb-4"></i>
-                    <h2 class="uppercase mt-6 text-indigo-500 font-extrabold mb-3 font-Tiny5 text-xl">
-                        Optimizar tus operaciones
-                    </h2>
-                    <p class="font-light text-gray-500 dark:text-gray-400 mb-3">
-                        Aumenta la eficiencia de tu equipo con herramientas automatizadas y análisis detallados.
-                    </p>
-                </div>
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-cogs text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-green-500 font-extrabold mb-3">
+                    Aumentar tus ventas
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Realiza ventas identificando nuevas oportunidades de negocio y cerrando más acuerdos.
+                </p>
+                <a class="text-green-500 flex items-center hover:text-green-600" href="/">
+                    More about us icon
+                </a>
+            </div>
 
-                <div
-                    class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <i class="fas fa-cogs text-4xl text-green-500 mb-4"></i>
-                    <h2 class="uppercase mt-6 text-green-500 font-extrabold mb-3 font-Tiny5 text-xl">
-                        Aumentar tus ventas
-                    </h2>
-                    <p class="font-light text-gray-500 dark:text-gray-400 mb-3">
-                        Realiza ventas identificando nuevas oportunidades de negocio y cerrando más acuerdos.
-                    </p>
-                </div>
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-balance-scale text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-red-500 font-extrabold mb-3">
+                    Gestionar tus finanzas
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Administra tus finanzas de manera eficiente y toma decisiones informadas con análisis financieros detallados sobre los productos.
+                </p>
+                <a class="text-red-500 flex items-center hover:text-red-600" href="/">
+                    More about us icon
+                </a>
+            </div>
 
-                <div
-                    class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <i class="fas fa-balance-scale text-4xl text-red-500 mb-4"></i>
-                    <h2 class="uppercase mt-6 text-red-500 font-extrabold mb-3 font-Tiny5 text-xl">
-                        Gestionar tus finanzas
-                    </h2>
-                    <p class="font-light text-gray-500 dark:text-gray-400 mb-3">
-                        Administra tus finanzas de manera eficiente y toma decisiones informadas con análisis
-                        financieros detallados sobre los productos.
-                    </p>
-                </div>
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-users text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-orange-500 font-extrabold mb-3">
+                    Satisfacción al cliente
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    El cliente recibe un servicio personalizado y una atención excepcional.
+                </p>
+                <a class="text-orange-500 flex items-center hover:text-orange-700" href="/">
+                    More about us icon
+                </a>
+            </div>
 
-                <div
-                    class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <i class="fas fa-users text-4xl text-orange-500 mb-4"></i>
-                    <h2 class="uppercase mt-6 text-orange-500 font-extrabold mb-3 font-Tiny5 text-xl">
-                        Satisfacción al cliente
-                    </h2>
-                    <p class="font-light text-gray-500 dark:text-gray-400 mb-3">
-                        El cliente recibe un servicio personalizado y una atención excepcional.
-                    </p>
-                </div>
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-tools text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-blue-500 font-extrabold mb-3">
+                    Mantenimiento y reparaciones
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Ofrecemos servicios de mantenimiento y reparación del Software.
+                </p>
+                <a class="text-blue-500 flex items-center hover:text-blue-600" href="/">
+                    Más información
+                </a>
+            </div>        
 
-                <div
-                    class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <i class="fas fa-tools text-4xl text-blue-500 mb-4"></i>
-                    <h2 class="uppercase mt-6 text-blue-500 font-extrabold mb-3 font-Tiny5 text-xl">
-                        Mantenimiento y reparaciones
-                    </h2>
-                    <p class="font-light text-gray-500 dark:text-gray-400 mb-3">
-                        Ofrecemos servicios de mantenimiento y reparación del Software.
-                    </p>
-                </div>
-
-                <div
-                    class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <i class="fas fa-users text-4xl text-yellow-500 mb-4"></i>
-                    <h2 class="uppercase mt-6 text-yellow-500 font-extrabold mb-3 font-Tiny5 text-xl">
-                        Capacitación de personal
-                    </h2>
-                    <p class="font-light text-gray-500 dark:text-gray-400 mb-3">
-                        Brindamos programas de capacitación personalizados para mejorar las habilidades y el rendimiento
-                        del personal.
-                    </p>
-                </div>
+            <div class="information-card mb-4 p-4 bg-white dark:bg-black rounded-lg shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-users text-4xl text-title mb-4"></i>
+                <h2 class="uppercase mt-6 text-yellow-500 font-extrabold mb-3">
+                    Capacitación de personal
+                </h2>
+                <p class="font-light text-sm text-gray-500 mb-3">
+                    Brindamos programas de capacitación personalizados para mejorar las habilidades y el rendimiento del personal.
+                </p>
+                <a class="text-yellow-500 flex items-center hover:text-yellow-600" href="/">
+                    Más información
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
             </div>
         </div>
+    </div>
     </section>
-    <!-- CIERRE DE LA SECCIÓN DE HERRAMIENTAS -->
+    <!-- CIERRE DE LA SECCIÓN DE HERRAMIENTAS -->  
 
     <!-- SECCION DE CARACTERISTICAS -->
-    <section class="dark:bg-principal">
-        <div class="p-8" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex flex-col items-center justify-center">
-                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-                    Características
-                </span>
+     <section class="dark:bg-slate-900">
+        <div class="p-8 dark:bg-slate-900">
+            <div class="dark:bg-slate-900 flex felx-col items-center justify-center">
+            <span
+                class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                Características
+            </span>
             </div>
-            <h1 class="dark:text-white text-4xl text-center mt-6 font-Pacifico">
+            <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
                 Características del Software
             </h1>
-            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+            <p class="dark:text-white text-center mt-6 text-lg font-light">
                 Te ofrecemos múltiples beneficios.
             </p>
-            <div class="dark:bg-principal grid sm:grid-cols-2 lg:grid-cols-4 gap-8 m-4 lg:mx-4 lg:p-4 rounded-3xl"
-                data-aos="fade-up" data-aos-delay="300">
+            <br>
+            <div class="dark:bg-slate-900 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-4 lg:mx-4 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
                 <!-- Card 1 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-green-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-green-500">
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-green-200  transition duration-500">
                     <i class="fas fa-users text-3xl text-green-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Dar seguimiento de
-                            sus proveedores</a></h3>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Dar seguimiento de sus proveedores</a></h3>
                 </div>
                 <!-- Card 2 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-purple-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-purple-500">
-                    <i class="fas fa-tv text-3xl text-purple-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Interfaz
-                            Minimalista</a></h3>
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-purple-200 transition duration-500">
+                    <i class="fas fa-tv text-3xl text-purple-500 "></i>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Interfaz Minimalista</a></h3>
                 </div>
                 <!-- Card 3 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-yellow-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-yellow-500">
-                    <i class="fas fa-clock text-3xl text-yellow-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Disponibilidad
-                            24/7</a></h3>
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-yellow-200 transition duration-500">
+                    <i class="fas fa-clock text-3xl text-yellow-500 "></i>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Disponibilidad 24/7</a></h3>
                 </div>
                 <!-- Card 4 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-blue-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-blue-500">
-                    <i class="fas fa-shopping-cart text-3xl text-blue-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Gestiona tus Ventas y
-                            Compras</a></h3>
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-blue-200  transition duration-500">
+                    <i class="fas fa-shopping-cart text-3xl text-blue-500 "></i>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Gestiona tus Ventas y Compras</a></h3>
                 </div>
                 <!-- Card 5 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-red-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-red-500">
-                    <i class="fas fa-check-circle text-3xl text-red-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Servicios
-                            Garantizados</a></h3>
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-red-200  transition duration-500">
+                    <i class="fas fa-check-circle text-3xl text-red-500 "></i>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Servicios Garantizados</a></h3>
                 </div>
                 <!-- Card 6 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-teal-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-teal-500">
-                    <i class="fas fa-shield-alt text-3xl text-teal-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Aplicación Segura</a>
-                    </h3>
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-teal-200 transition duration-500">
+                    <i class="fas fa-shield-alt text-3xl text-teal-500 "></i>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Aplicación Segura</a></h3>
                 </div>
                 <!-- Card 7 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-pink-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-pink-500">
-                    <i class="fas fa-users text-3xl text-pink-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Contacto con los
-                            administradores</a></h3>
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-pink-200 transition duration-500">
+                    <i class="fas fa-users text-3xl text-pink-500 "></i>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Contacto con los administradores</a></h3>
                 </div>
                 <!-- Card 8 -->
                 <div
-                    class="characteristics-card bg-white dark:bg-secundario dark:border-none transition duration-500 hover:bg-gradient-to-r hover:from-indigo-200 dark:hover:bg-gradient-to-r dark:hover:from-black dark:hover:to-indigo-500">
-                    <i class="fas fa-moon text-3xl text-indigo-500"></i>
-                    <h3 class="dark:text-gray-400 font-bold characteristics-card-title"><a href="">Implementación del
-                            modo oscuro</a></h3>
+                    class="characteristics-card bg-white dark:bg-black hover:bg-gradient-to-r hover:from-indigo-200 transition duration-500">
+                    <i class="fas fa-moon text-3xl text-indigo-500 "></i>
+                    <h3 class="dark:text-white characteristics-card-title"><a href="">Implementación del modo oscuro</a></h3>
                 </div>
             </div>
         </div>
@@ -327,57 +290,54 @@
     <!-- CIERRE DE LA SECCION DE CARACTERISTICAS -->
 
     <!-- SECCION DE PRECIOS -->
-    <section class="dark:bg-principal">
-        <div class=" p-8 gap-20" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex felx-col items-center justify-center">
-                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-                    PRECIOS
-                </span>
+    <section class="dark:bg-slate-900">
+        <div class="dark:bg-slate-900 p-8 gap-20 ">
+            <div class="dark:bg-slate-900 flex felx-col items-center justify-center" >
+            <span
+                class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                PRECIOS
+            </span>
             </div>
-            <h1 class="dark:text-white text-4xl text-center mt-6 font-Pacifico">
+            <h1 class="dark:text-white text-4xl text-center mt-6 uppercase font-black">
                 Paga una vez, úsalo para siempre
             </h1>
-            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
-                Conoce nuestros planes.
+            <p class="dark:text-white text-center mt-6 text-lg font-light">
+                Conoce nuestros planes
             </p>
-            <div class="p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto"
-                data-aos="fade-right" data-aos-delay="300" id="pricing">
+            <div class="dark:bg-slate-900 p-4 sm:px-10 flex flex-col justify-center items-center text-base h-100vh mx-auto" data-aos="fade-right" data-aos-delay="200" id="pricing">
 
                 <div class="isolate mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     <div class="ring-1 ring-gray-200 rounded-3xl p-8 xl:p-10">
                         <div class="flex items-center justify-between gap-x-4">
-                            <h3 id="tier-standard" class="text-gray-500/70  text-2xl font-semibold leading-8">Standard
-                            </h3>
+                            <h3 id="tier-standard" class="text-gray-500/70  text-2xl font-semibold leading-8">Standard</h3>
                         </div>
                         <p class="mt-4 text-base leading-6 text-gray-600">1 license for only 1 activation</p>
                         <p class="mt-6 flex items-baseline gap-x-1">
-                            <span class="line-through text-2xl text-gray-500/70">$39</span><span
+                            <span class="line-through text-2xl font-sans text-gray-500/70">$39</span><span
                                 class="text-5xl font-bold tracking-tight dark:text-gray-300 text-black">$29</span>
                         </p>
-                        <a href="" aria-describedby="tier-standard"
+                        <a href=""
+                            aria-describedby="tier-standard"
                             class="text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300 mt-6 block rounded-md py-2 px-3 text-center text-base font-extrabold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                             target="_blank">Buy now</a>
                         <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
                             <li class="flex gap-x-3 text-base">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                    class="h-6 w-5 flex-none text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>Lifetime access
                             </li>
                             <li class="flex gap-x-3 text-base">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                    class="h-6 w-5 flex-none text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>All AI features
                             </li>
                             <li class="flex gap-x-3 text-base">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                    class="h-6 w-5 flex-none text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>Use your own OpenAI key
@@ -387,31 +347,29 @@
                     <div class="ring-2 ring-blue-600 rounded-3xl p-8 xl:p-10">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-extended" class="text-blue-600 text-2xl font-semibold leading-8">Extended</h3>
-                            <p
-                                class="rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600">
+                            <p class="rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600">
                                 Most popular</p>
                         </div>
                         <p class="mt-4 text-base leading-6 text-gray-600">1 license for up to 3 activations</p>
                         <p class="mt-6 flex items-baseline gap-x-1">
-                            <span class="line-through text-2xl text-gray-500/70">$59</span><span
+                            <span class="line-through text-2xl font-sans text-gray-500/70">$59</span><span
                                 class="text-5xl font-bold tracking-tight dark:text-gray-300 text-black">$39</span>
                         </p>
-                        <a href="" aria-describedby="tier-extended"
+                        <a href=""
+                            aria-describedby="tier-extended"
                             class="bg-blue-600 text-white shadow-sm hover:bg-blue-500 mt-6 block rounded-md py-2 px-3 text-center text-base font-medium leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                             target="_blank">Buy now</a>
                         <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
                             <li class="flex gap-x-3 text-base">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                    class="h-6 w-5 flex-none text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>Lifetime access
                             </li>
                             <li class="flex gap-x-3 text-base">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                    class="h-6 w-5 flex-none text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-blue-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>All AI features
@@ -433,222 +391,187 @@
     <!-- CIERRE DE LA SECCION DE PRECIOS -->
 
     <!-- SECCION DE EQUIPO DE DESARROLLO -->
-    <div class="dark:bg-principal p-8 gap-20">
-        <div class="p-8 gap-20" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex flex-col items-center justify-center">
+    <div class="dark:bg-slate-900 p-8 gap-20">
+        <div class="p-8 gap-20 ">
+            <div class="flex felx-col items-center justify-center">
                 <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">EQUIPO</span>
             </div>
-            <h1 class="dark:text-white text-4xl text-center mt-6 font-Pacifico">
-                Equipo de trabajo
-            </h1>
-            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
-                Conozca nuestro equipo de desarrollo.
-            </p>
+            <h1 class="dark:text-white text-4xl text-center mt-6 uppercase font-black">Equipo de trabajo</h1>
+            <p class="dark:text-white text-center mt-6 text-lg font-light">Conozca nuestro equipo de desarrollo.</p>
+        
             <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
                 <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="dark:bg-secundario relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 items-center">
-                        <div
-                            class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl w-[40%]">
-                            <img src="{% static 'img/home-team/team-1.jfif' %}" alt="profile-picture" />
-                        </div>
-                        <div class="p-6 text-center">
-                            <h4
-                                class="dark:text-blue-300 block mb-2 text-2xl antialiased leading-snug tracking-normal text-blue-700 font-Pacifico">
-                                Steven Alexander Nieto Duran
-                            </h4>
-                            <p
-                                class="dark:text-gray-400 block text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
-                                Jefe de Proyecto - Programador
-                            </p>
-                        </div>
-                        <div class="flex justify-center p-6 pt-2 gap-7">
-                            <a href="https://github.com/Alexis2024"
-                                class="block text-xl antialiased font-normal leading-relaxed text-white bg-blue-500 hover:bg-blue-600 rounded-full px-4 py-2">
-                                <i class="fab fa-github" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                <div class="dark:bg-black relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                    <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
+                        <img src="{% static 'img/home-team/team-1.jfif' %}" alt="profile-picture" />
                     </div>
+                    <div class="p-6 text-center">
+                        <h4 class="dark:text-gray-300 block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
+                            STEVEN ALEXANDER NIETO DURAN
+                        </h4>
+                        <p class="dark:text-gray-300 block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                            Jefe de Proyecto / Programador
+                        </p>
+                    </div>
+                    <div class="flex justify-center p-6 pt-2 gap-7">
+                        <a href="https://github.com/Alexis2024" class="block font-sans text-xl antialiased font-normal leading-relaxed text-white bg-blue-500 hover:bg-blue-600 rounded-full px-4 py-2">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
                 </section>
-
+        
                 <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="dark:bg-secundario relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 items-center">
-                        <div
-                            class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl w-[40%]">
+                    <div class="dark:bg-black relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                        <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
                             <img src="{% static 'img/home-team/team-2.jfif' %}" alt="profile-picture" />
                         </div>
                         <div class="p-6 text-center">
-                            <h4
-                                class="dark:text-blue-300 block mb-2 text-2xl antialiased leading-snug tracking-normal text-blue-700 font-Pacifico">
-                                Javier Omar Haro Soledispa
+                            <h4 class="dark:text-gray-300 block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
+                                JAVIER OMAR HARO SOLEDISPA
                             </h4>
-                            <p
-                                class="dark:text-gray-400 block text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
-                                Jefe de Proyecto - Programador
+                            <p class="dark:text-gray-300 block font-sans text-base antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                                Jefe de Proyecto / Programador
                             </p>
                         </div>
                         <div class="flex justify-center p-6 pt-2 gap-7">
-                            <a href="https://github.com/JaviOHS"
-                                class="block text-xl antialiased font-normal leading-relaxed text-white bg-blue-500 hover:bg-blue-600 rounded-full px-4 py-2">
+                            <a href="https://github.com/JaviOHS" class="block font-sans text-xl antialiased font-normal leading-relaxed text-white bg-blue-500 hover:bg-blue-600 rounded-full px-4 py-2">
                                 <i class="fab fa-github" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
-                </section>
+                    </section>
             </div>
         </div>
-    </div>
+    </div>    
     <!-- CIERRE DE LA SECCION DE EQUIPO DE DESARROLLO -->
 
+ 
+
     <!-- SECCION DE CONTACTOS -->
-    <section class="dark:bg-principal ">
-        <div class="p-8" data-aos="fade-up" data-aos-delay="300">
-            <div class="gap-2">
-                <div class="flex felx-col items-center justify-center">
-                    <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
+    <div class="dark:bg-slate-900 p-8 gap-20">
+        <div class="p-8 gap-20 ">
+            <div class="flex felx-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
+            </div>
+            <h1 class="dark:text-white text-4xl text-center mt-6 uppercase font-black">Contácta a nuestro equipo</h1>
+            <p class="dark:text-white text-center mt-6 text-lg font-light">Envíanos tus sugerencias.</p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
+            <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
+            <div class="grid md:grid-cols-2">
+                <div class="h-full pr-6 m-10">
+                    <h1 class="text-blue-700 dark:text-white text-2xl font-black">AppMarket</h1>
+                    <p class="mt-3 mb-12 text-lg text-gray-600 text-justify dark:text-slate-400">
+                    "En nuestro corazón late el deseo ferviente de ser parte de tu éxito. Queremos ser el impulso que eleva tus sueños, la chispa que enciende tu visión.
+                    Confía en nosotros para ser tus aliados en esta travesía hacia el triunfo.
+                    Juntos, llevaremos tu negocio más allá de lo imaginable. Tu éxito es nuestro mayor logro."
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-facebook"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="#" class="fab fa-linkedin"></a>
+                    </div>
+                    <br>
+                    
+                    <ul class="mb-6 md:mb-0">
+                        <li class="flex">
+                            <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                                    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-4 mb-4">
+                                <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Dirección
+                                </h3>
+                                <a class="hover:text-title"
+                                    href="https://www.google.com/maps/place/UNEMI+-+Universidad+Estatal+de+Milagro/@-2.149223,-79.60552,17z/data=!3m1!4b1!4m6!3m5!1s0x902d465523c50e37:0x70a5136e6272715f!8m2!3d-2.149223!4d-79.6029451!16s%2Fg%2F1tt1j8j4?entry=ttu"
+                                    target="_blank">
+                                    Universidad Estatal de Milagro (UNEMI) <br>
+                                    Ecuador, Guayas, Milagro <br>
+                                    Av. 17 de Septiembre
+                                </a>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+                                    <path d="M15 7a2 2 0 0 1 2 2"></path>
+                                    <path d="M15 3a6 6 0 0 1 6 6"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-4 mb-4">
+                                <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contactos
+                                </h3>
+                                <div class="flex items-start space-x-4 ">
+                                    <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="mailto:snietod@unemi.edu.ec"
+                                            target="_blank">snietod@unemi.edu.ec</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="mailto:jharos@unemi.edu.ec"
+                                            target="_blank">jharos@unemi.edu.ec</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="https://wa.me/593997932650" target="_blank">+593
+                                            997 932 650</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
+                                    <div>
+                                        <a class="hover:text-title" href="https://wa.me/593963919421" target="_blank">+593
+                                            963 919 421</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <h1 class="dark:text-white text-4xl text-center mt-6 font-Pacifico">
-                    Contácta a nuestro equipo
-                </h1>
-                <p class="dark:text-gray-400 text-center text-lg font-light">
-                    Envíanos tus sugerencias.
-                </p>
-            </div>
-            <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
-                <section class="py-2 lg:my-6 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
-                    <div class="grid md:grid-cols-2 mb-4">
-                        <div class="h-full pr-6 m-10 dark:bg-secundario bg-white p-8 rounded-3xl">
-                            <h1 class="text-blue-700 dark:text-blue-300 text-2xl font-black">Un mensaje de quienes conformamos Iguanas Corporation:</h1>
-                            <p class="mt-3 mb-12 dark:text-gray-400 text-justify">
-                                "En nuestro corazón late el deseo ferviente de ser parte de tu éxito. Queremos ser el
-                                impulso que eleva tus sueños, la chispa que enciende tu visión.
-                                Confía en nosotros para ser tus aliados en esta travesía hacia el triunfo.
-                                Juntos, llevaremos tu negocio más allá de lo imaginable. Tu éxito es nuestro mayor
-                                logro."
-                            </p>
-                            <div class="flex space-x-4 mt-4 text-2xl">
-                                <a href="#" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 fab fa-twitter"></a>
-                                <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600 fab fa-facebook"></a>
-                                <a href="#" class="text-pink-500 hover:text-pink-700 dark:text-pink-300 dark:hover:text-pink-500 fab fa-instagram"></a>
-                                <a href="#" class="text-blue-700 hover:text-blue-900 dark:text-blue-500 dark:hover:text-blue-700 fab fa-linkedin"></a>
+                <div class="card h-fit max-w-6xl p-5 md:p-12" id="form">
+                    <form id="contact-form" action="https://formspree.io/f/myyrwqgz" method="post" role="form" class="space-y-8">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-500">Nombre</label>
+                            <input type="text" name="name" id="name" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Nombre" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-500">Email</label>
+                            <input type="email" name="email" id="email" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Email" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 text-sm font-medium text-gray-500">Asunto</label>
+                            <input type="text" name="subject" id="subject" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Asunto" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium text-gray-500">Mensaje</label>
+                            <textarea name="message" id="message" rows="5" class="shadow-sm dark:bg-gray-300 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none focus:ring" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <div id="success-message" class="hidden my-3 bg-green-300 p-4 rounded-3xl">
+                            <div class="text-center">
+                                <i class="fa-solid fa-envelope-circle-check"></i><br>
+                                Su mensaje ha sido enviado.<br>
+                                <span class="font-semibold">¡Gracias!</span>
                             </div>
                         </div>
-                        <div class="h-full pl-6 m-10 dark:bg-secundario bg-white p-8 shadow-lg rounded-lg">
-                            <ul class="mb-6 md:mb-0 space-y-6">
-                                <li class="flex">
-                                    <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
-                                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="ml-4 mb-4">
-                                        <h3 class="text-blue-700 dark:text-blue-300 text-2xl font-black mb-4">Dirección</h3>
-                                        <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="https://www.google.com/maps/place/UNEMI+-+Universidad+Estatal+de+Milagro/@-2.149223,-79.60552,17z/data=!3m1!4b1!4m6!3m5!1s0x902d465523c50e37:0x70a5136e6272715f!8m2!3d-2.149223!4d-79.6029451!16s%2Fg%2F1tt1j8j4?entry=ttu" target="_blank">
-                                            Universidad Estatal de Milagro (UNEMI) <br>
-                                            Ecuador, Guayas, Milagro <br>
-                                            Av. 17 de Septiembre
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="flex">
-                                    <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                                            <path d="M15 7a2 2 0 0 1 2 2"></path>
-                                            <path d="M15 3a6 6 0 0 1 6 6"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="ml-4 mb-4">
-                                        <h3 class="text-blue-700 dark:text-blue-300 text-2xl font-black mb-4">Contactos</h3>
-                                        <div class="flex items-start space-x-4">
-                                            <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
-                                            <div>
-                                                <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="mailto:snietod@unemi.edu.ec" target="_blank">snietod@unemi.edu.ec</a>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-start space-x-4">
-                                            <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
-                                            <div>
-                                                <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="mailto:jharos@unemi.edu.ec" target="_blank">jharos@unemi.edu.ec</a>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-start space-x-4">
-                                            <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
-                                            <div>
-                                                <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="https://wa.me/593997932650" target="_blank">+593 997 932 650</a>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-start space-x-4">
-                                            <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
-                                            <div>
-                                                <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="https://wa.me/593963919421" target="_blank">+593 963 919 421</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div>
+                            <button type="submit" class="py-3 px-5 text-sm font-medium text-white rounded-lg bg-blue-700 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                Enviar Mensaje
+                            </button>
                         </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 mb-4">
-                        <div class="h-full pr-6 m-10 dark:bg-secundario bg-white p-8 rounded-3xl">
-                            <form id="contact-form" action="https://formspree.io/f/myyrwqgz" method="post" role="form"
-                                class="space-y-8">
-                                <h1 class="text-blue-700 dark:text-blue-300 text-2xl font-black text-center">Envianos un mensaje</h1>
-                                <div>
-                                    <label for="name"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Nombre</label>
-                                    <input type="text" name="name" id="name"
-                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
-                                        placeholder="Ingresa tu nombre aquí" required>
-                                </div>
-                                <div>
-                                    <label for="email"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Correo</label>
-                                    <input type="email" name="email" id="email"
-                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
-                                        placeholder="Ingresa tu correo aquí" required>
-                                </div>
-                                <div>
-                                    <label for="subject"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Asunto</label>
-                                    <input type="text" name="subject" id="subject"
-                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
-                                        placeholder="Ingresa el asunto aquí" required>
-                                </div>
-                                <div>
-                                    <label for="message"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Mensaje</label>
-                                    <textarea name="message" id="message" rows="5"
-                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
-                                        placeholder="Ingresa el mensaje aquí" required></textarea>
-                                </div>
-                                <div id="success-message" class="hidden my-3 bg-green-300 p-4 rounded-3xl">
-                                    <div class="text-center">
-                                        <i class="fa-solid fa-envelope-circle-check"></i><br>
-                                        Su mensaje ha sido enviado.<br>
-                                        <span class="font-semibold">¡Gracias!</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <button type="submit"
-                                        class="py-3 px-5 text-blue-300 rounded-lg bg-blue-700 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                                        Enviar Mensaje
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="h-full pl-6 m-10 dark:bg-secundario bg-white p-8 shadow-lg rounded-lg">
-                            <div class="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto">
-                                <div class="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.0116737716644!2d-79.60552002596603!3d-2.1492176371761693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d465523c50e37%3A0x70a5136e6272715f!2sUNEMI%20-%20Universidad%20Estatal%20de%20Milagro!5e0!3m2!1sen!2sus!4v1718180036827!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    </form>
+                </div>
             </div>
+        </section>
         </div>
     </section>
     <!--- CIERRE DE LA SECCION DE CONTACTOS -->
@@ -695,14 +618,14 @@
 <!-- Script para el carrusel de imágenes -->
 <script>
     var imagePaths = [
-        "{% static 'img/home-carausel/carausel-1.jpg' %}",
-        "{% static 'img/home-carausel/carausel-2.jpg' %}",
-        "{% static 'img/home-carausel/carausel-3.jpg' %}",
-        "{% static 'img/home-carausel/carausel-4.jpg' %}",
-        "{% static 'img/home-carausel/carausel-5.jpg' %}",
-        "{% static 'img/home-carausel/carausel-6.jpg' %}",
-        "{% static 'img/home-carausel/carausel-7.jpg' %}",
-        "{% static 'img/home-carausel/carausel-8.jpg' %}",
+        "{% static 'img/home-carausel/carausel-1.jfif' %}",
+        "{% static 'img/home-carausel/carausel-2.jfif' %}",
+        "{% static 'img/home-carausel/carausel-3.jfif' %}",
+        "{% static 'img/home-carausel/carausel-4.jfif' %}",
+        "{% static 'img/home-carausel/carausel-5.jfif' %}",
+        "{% static 'img/home-carausel/carausel-6.jfif' %}",
+        "{% static 'img/home-carausel/carausel-7.jfif' %}",
+        "{% static 'img/home-carausel/carausel-8.jfif' %}",
     ];
 
     var carouselInner = document.getElementById('carousel-inner');
@@ -764,5 +687,61 @@
             });
         });
     });
+</script>
+
+
+<!-- Script para realizar busquedas -->
+<script>
+const form = document.getElementById('search-form');
+const searchBar = document.getElementById('search-bar');
+const searchResults = document.getElementById('search-results');
+
+const options = {
+    "perfil": ["Perfil de Usuario", "Consulta tus datos del Perfil", "Actualizar el Perfil", "Actualiza tus datos del Perfil"],
+    // Añade más opciones aquí si lo necesitas
+};
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const query = searchBar.value.trim().toLowerCase();
+    const matchingOptions = Object.keys(options).filter(option => option.includes(query));
+    if (matchingOptions.length === 0) {
+        searchResults.innerHTML = `<p>No se encontraron resultados para: <strong>${query}</strong></p>`;
+    } else {
+        const resultsHTML = matchingOptions.map(option => {
+            const subOptions = options[option].map((subOption, index) => {
+                if (index % 2 === 0) {
+                    return `
+                        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2">
+                            <a href="${getLink(subOption)}">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${subOption}</h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${options[option][index + 1]}</p>
+                            <a href="${getLink(subOption)}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Ver más
+                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+                }
+            }).join('');
+            return subOptions;
+        }).join('');
+        searchResults.innerHTML = resultsHTML;
+    }
+});
+
+function getLink(subOption) {
+    switch (subOption) {
+        case "Perfil de Usuario":
+            return "profile/";
+        case "Actualizar el Perfil":
+            return "profile/update/";
+        default:
+            return "#";
+    }
+}
 </script>
 {% endblock content %}
