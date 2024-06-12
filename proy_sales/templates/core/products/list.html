@@ -3,7 +3,7 @@
 {% load static %}
 <title>{% block title %} SGV - Productos {% endblock title %}</title>
 <section class="dark:bg-slate-900 mt-4">
-    <div class="text-center"  data-aos="fade-up" data-aos-delay="200">
+    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
         <div class="">
             <!-- Mensaje de bienvenida -->
             <div class="">
@@ -15,16 +15,16 @@
                 </div>
             </div>
         </div>
-        <div class="m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl data-aos="> <!-- Aplicando las mismas clases de estilo para las cards -->
+        <div class="m-4 lg:m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="200"> <!-- Aplicando las mismas clases de estilo para las cards -->
             {% for item in products %}
             <div class="mb-4 flex justify-center custom-transform"> <!-- Aplicando las mismas clases de estilo para las columnas -->
                 <div class="dark:bg-black relative w-full max-w-xs overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"> <!-- Aplicando las mismas clases de estilo para las cards -->
                     <div class="dark:bg-black text-center card card-custom"> <!-- Aplicando las mismas clases de estilo para las cards -->
-                        <h1 class="dark:text-white text-2xl  text-center mt-6 font-black uppercase">
+                        <h1 class="dark:text-white text-2xl text-center mt-6 font-black uppercase">
                             {{ item.description }}
                         </h1>
                         <div class="dark:bg-black card-body flex flex-col justify-center items-center">
-                            <img class="w-[35%] rounded-3xl" src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_product.png' %}{% endif %}" alt="Imagen del producto">
+                            <img class="w-[60%] rounded-3xl" src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_product.png' %}{% endif %}" alt="Imagen del producto">
                             <h3 class="font-bold">Creación: <span class="font-light">{{ item.created | date:"Y-m-d" }}</span></h3>
                             <h3 class="font-bold">Stock: <span class="font-light">{{ item.stock }}</span></h3>
                             <h3 class="font-bold">Marca: <span class="font-light">{{ item.brand }}</span></h3>
@@ -32,6 +32,8 @@
                             <h3 class="font-bold">Proveedor: <span class="font-light">{{ item.supplier }}</span></h3>
                             <h3 class="font-bold">Línea: <span class="font-light">{{ item.get_line_display }}</span></h3>
                             <h3 class="font-bold">Fecha de expiración: <span class="font-light"><br>{{ item.expiration_date | date:"Y-m-d" }}</span></h3>
+                            <h3 class="font-bold" >PRECIO: <span class="font-light"><br><span style="color:darkblue ; font-size:30px; font-weight: bold;">${{ item.price }}</span></span></h3>
+
                             <h3 class="font-bold">
                                 Estado: 
                                 {% if item.state %}
@@ -41,8 +43,8 @@
                                 {% endif %}
                             </h3>
                         </div> 
-                        <div class="dark:bg-gray-500 card-footer flex justify-center">
-                            <a href="{% url 'core:product_update' item.id %}" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
+                        <div class="dark:bg-gray-500 card-footer flex flex-col md:flex-row justify-center items-center">
+                            <a href="{% url 'core:product_update' item.id %}" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center">
                                 <i class="fa-solid fa-gear mr-2"></i> Editar
                             </a>
                             <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" onclick="confirmDelete('{{ item.id }}')">
@@ -54,8 +56,8 @@
             </div>
             {% endfor %}
         </div>
-        <div class=" flex justify-center form-group text-center m-4">
-            <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center justify-center" href="{% url 'core:product_create' %}">
+        <div class="flex flex-col md:flex-row justify-center form-group text-center m-4">
+            <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center justify-center" href="{% url 'core:product_create' %}">
                 <i class="fa-solid fa-plus mr-2"></i> Nuevo producto
             </a>
             <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center" href="{% url 'home' %}">
@@ -65,7 +67,6 @@
     </div>
     <br><br>
 </section>
-
 
 <script>
     function confirmDelete(itemId) {

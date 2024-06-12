@@ -4,6 +4,8 @@ from django.utils import timezone
 import datetime
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from .models import CustomUser
+from django.db import models
+
 
 class CustomUserCreationForm(UserCreationForm):
     dni = forms.CharField(max_length=10, label='DNI')
@@ -11,6 +13,8 @@ class CustomUserCreationForm(UserCreationForm):
     last_name = forms.CharField(max_length=150, label='Apellidos')
     celular = forms.CharField(max_length=10, required=False, label='Celular')
     correo = forms.EmailField(required=False, label='Correo electrónico')
+    imagen = models.ImageField(upload_to='profiles/', null=True, blank=True)
+
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
@@ -27,7 +31,7 @@ class CustomUserUpdateForm(UserChangeForm):
                 'unique': "Ya existe un usuario con este DNI.",
             },
             'celular': {
-                'unique': "Ya existe un usuario con este número de celular.",
+                'unique': "Ya existeZ un usuario con este número de celular.",
             },
             'correo': {
                 'unique': "Ya existe un usuario con este correo electrónico.",
