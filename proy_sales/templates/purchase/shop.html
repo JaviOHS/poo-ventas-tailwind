@@ -1,53 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<title>{% block title %} SGV - Tienda {% endblock title %}</title>
-<section id="home-modulos" class="mt-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="module-head">
-                    <h2 class="title text-center">{{ title2 }} <i class="fa-brands fa-shopify"></i></h2>
-                    <p>Encuentra y compra tus productos favoritos. </p>
-                </div>
+<title>{% block title %} {{ title1 }} {% endblock title %}</title>
+<section class="dark:bg-principal mt-4">
+    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="sm:pt-28 lg:pt-24">
+            <div class="flex flex-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                    {{ title1 }}
+                </span>
             </div>
-            <div class="module-cards">
-                <div class="row">
-                    {% for item in products %}
-                    <div class="col-md-4 mb-4">
-                        <div class="card card-custom">
-                            <div class="card-header">
-                                <h2 class="card-title">{{ item.description }}</h2>
-                                <p style="color: wheat">{{ item.get_line_display }}</p>
-                            </div>
-                            <div class="card-body">
-                                <img src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_product.png' %}{% endif %}" alt="Imagen del producto"></img>
-                                <h3>Precio: <span class="info" style="color: greenyellow">{{ item.price }}</span></h3>
-                                <h3>Stock: <span class="info" style="color: cyan">{{ item.stock }}</span></h3>
-                                <h3>Marca: <span class="info">{{ item.brand }}</span></h3>
-                                <h3>Categoría: <span class="info">{{ item.get_categories }}</span></h3>
-                                <h3>Fecha de expiración: <span class="info"><br>{{ item.expiration_date | date:"Y-m-d" }}</span></h3>
-                                <h3>
-                                    Estado: 
-                                    {% if item.state %}
-                                    <i class="fa-solid fa-check" style="color: green;"></i>
-                                    {% else %}
-                                    <i class="fa-solid fa-square-minus" style="color: red;"></i>
-                                    {% endif %}
-                                </h3>
-                            </div> 
-                            <div class="card-footer">
-                                <a class="btn btn-add" href=""><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</a>
-                            </div>
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
+                {{ title2 }}
+            </h1>
+            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+                Gestione con facilidad cada uno de sus productos.
+            </p>
+        </div>
+        <div class="m-4 lg:m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+            {% for item in products %}
+            <div class="mb-4 flex justify-center custom-transform">
+                <div class="dark:bg-secundario relative w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-none"> 
+                    <div class="dark:bg-secundario text-center card card-custom"> 
+                        <h1 class="dark:text-blue-400 text-2xl text-center mt-6 font-black font-Tiny5">
+                            {{ item.description }}
+                        </h1>
+                        <p class="dark:text-green-500 font-Pacifico">{{ item.get_line_display }}</p>
+
+                        <div class="dark:bg-contenedores p-4 card-body flex flex-col justify-center items-center">
+                            <img class="w-[60%] rounded-3xl p-2" src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_product.png' %}{% endif %}" alt="Imagen del producto">
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Stock: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.stock }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Marca: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.brand }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Categoría: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.get_categories }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Fecha de expiración: <span class="font-light font-Quicksand dark:text-gray-400"><br>{{ item.expiration_date | date:"Y-m-d" }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico" >Precio: <span class="font-light font-Quicksand dark:text-gray-400"><br><span class="text-blue-700 dark:text-green-300 font-black text-2xl">${{ item.price }}</span></span></h3>
+                        </div> 
+                        <div class="dark:bg-contenedores card-footer flex flex-col md:flex-row justify-center items-center">
+                            <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center" href=""><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</a>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-                <div class="form-group text-center mt-4">
-                    <a class="btn btn-details" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
                 </div>
             </div>
+            {% endfor %}
+        </div>
+        <div class="flex flex-col md:flex-row justify-center form-group text-center p-4">
+           
+            <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center" href="{% url 'home' %}">
+                <i class="fa-solid fa-house"></i>
+            </a>
         </div>
     </div>
 </section>
+
 {% endblock content %}

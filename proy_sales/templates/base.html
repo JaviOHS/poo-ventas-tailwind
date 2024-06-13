@@ -7,7 +7,7 @@
 	{% load static tailwind_tags %}
 	<!-- Tailwind css -->
 	{% tailwind_css %}
-	<!-- Tailwind JS -->
+	<!-- Flowbite JS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 	<!-- Favicon -->
@@ -29,8 +29,7 @@
 	<!-- Titulo -->
 	<title>{% block title %} SGV {% endblock title %}</title>
 </head>
-
-<body class="transition-theme dark:bg-principal bg-slate-100 text-items font-Quicksand text-lg font-light">
+<body class="text-items font-Quicksand text-lg font-light">
 	<!-- Navbar -->
 	{% block navbar %}
 	<header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
@@ -40,7 +39,7 @@
 					<img src="{% static 'img/iguana_corporation.png' %}" class="w-12 h-12" alt="Iguanas Corp" />
 					<span class="self-center whitespace-nowrap dark:text-blue-300 font-extrabold">Iguanas Corp.</span>
 				</a>
-				<div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+				<div class="flex items-center md:order-2 space-x-3 md:space-x-4 rtl:space-x-reverse">
 
 					<span id="themeIconContainer"
 						class="dark:bg-gray inline-block p-2 rounded border border-gray-200 dark:border-gray-700 cursor-pointer">
@@ -588,37 +587,44 @@
 				if (body.classList.contains('dark')) {
 					themeIcon.classList.remove('fa-moon');
 					themeIcon.classList.add('fa-sun');
+					body.classList.remove('bg-slate-100');
+					body.classList.add('bg-principal');
 				} else {
 					themeIcon.classList.remove('fa-sun');
 					themeIcon.classList.add('fa-moon');
+					body.classList.remove('bg-principal');
+					body.classList.add('bg-slate-100');
 				}
 			}
 
 			// Si el modo oscuro está activado en el almacenamiento local, se lo aplica al cuerpo del documento
 			if (isDarkModeEnabled) {
+				body.classList.remove('bg-slate-100');
 				body.classList.add('dark');
+				body.classList.add('bg-principal');
 			}
 
-			// Cambiar el ícono del tema al cargar la página
-			toggleThemeIcon();
+    // Cambiar el ícono del tema al cargar la página
+    toggleThemeIcon();
 
-			// Remueve la clase que oculta el contenido una vez que todo está listo
-			body.classList.remove('invisible-until-load');
+    // Remueve la clase que oculta el contenido una vez que todo está listo
+    body.classList.remove('invisible-until-load');
 
-			// Agrega un listener para el evento 'click' en el botón
-			themeToggleBtn.addEventListener('click', function (event) {
-				event.preventDefault(); // Previene el comportamiento predeterminado del ícono
-				// Cambia el tema de claro a oscuro y viceversa
-				body.classList.toggle('dark');
+    // Agrega un listener para el evento 'click' en el botón
+    themeToggleBtn.addEventListener('click', function (event) {
+        event.preventDefault(); // Previene el comportamiento predeterminado del ícono
+        // Cambia el tema de claro a oscuro y viceversa
+        body.classList.toggle('dark');
 
-				// Cambia el ícono del tema
-				toggleThemeIcon();
+        // Cambia el ícono del tema
+        toggleThemeIcon();
 
-				// Actualiza el estado del modo oscuro en el almacenamiento local
-				const isDarkModeNowEnabled = body.classList.contains('dark');
-				localStorage.setItem('darkModeEnabled', isDarkModeNowEnabled);
-			});
-		});
+        // Actualiza el estado del modo oscuro en el almacenamiento local
+        const isDarkModeNowEnabled = body.classList.contains('dark');
+        localStorage.setItem('darkModeEnabled', isDarkModeNowEnabled);
+    });
+});
+
 	</script>
 </body>
 

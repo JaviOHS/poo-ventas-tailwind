@@ -155,8 +155,9 @@ def product_delete(request, id):
             "title2": "Eliminar Un Producto", "product": product}
     if request.method == "POST":
         product.delete()
+        messages.success(request, f"Éxito al eliminar el producto.")
         return redirect("core:product_list")
-    return render(request, "core/products/delete.html", data)
+    return render(request, "core/delete.html", data)
 
 # ----------------- Vistas de Marcas -----------------
 def brand_List(request):
@@ -208,8 +209,9 @@ def brand_delete(request, id):
     data = {"title1": "IC - Eliminar Marcas", "title2": "Eliminar Una Marca", "brand": brand}
     if request.method == "POST":
         brand.delete()
+        messages.success(request, f"Éxito al eliminar la marca.")
         return redirect("core:brand_list")
-    return render(request, "core/brands/delete.html", data)
+    return render(request, "core/delete.html", data)
 
 # ----------------- Vistas de Proveedores -----------------
 def supplier_List(request):
@@ -224,7 +226,7 @@ def supplier_List(request):
 def supplier_create(request):
     data = {"title1": "IC - Crear Proveedores", "title2": "Ingreso De Proveedores"}
     if request.method == "POST":
-        form = SupplierForm(request.POST)
+        form = SupplierForm(request.POST, request.FILES)  # Añadir request.FILES para manejar archivos
         if form.is_valid():
             supplier = form.save(commit=False)
             supplier.user = request.user  # Asignar el usuario actual al proveedor
@@ -233,6 +235,7 @@ def supplier_create(request):
             return redirect("core:supplier_list")
     else:
         form = SupplierForm()  # Mover esto aquí para que el formulario se cree en ambos casos
+
     # Pasar el formulario al contexto de la plantilla en ambos casos
     data["form"] = form
     return render(request, "core/suppliers/form.html", data)
@@ -259,8 +262,9 @@ def supplier_delete(request, id):
             "title2": "Eliminar Proveedor", "supplier": supplier}
     if request.method == "POST":
         supplier.delete()
+        messages.success(request, f"Éxito al eliminar al proveedor.")
         return redirect("core:supplier_list")
-    return render(request, "core/suppliers/delete.html", data)
+    return render(request, "core/delete.html", data)
 
 # ----------------- Vistas de Categorias -----------------
 def category_List(request):
@@ -308,8 +312,9 @@ def category_update(request, id):
 def category_delete(request, id):
     category = Category.objects.get(pk=id)
     data = {"title1": "IC - Eliminar Categorías",
-            "title2": "Eliminar Una Categoria", "category": category}
+            "title2": "Eliminar Una Categoría", "category": category}
     if request.method == "POST":
         category.delete()
+        messages.success(request, f"Éxito al eliminar la categoría.")
         return redirect("core:category_list")
-    return render(request, "core/categories/delete.html", data)
+    return render(request, "core/delete.html", data)

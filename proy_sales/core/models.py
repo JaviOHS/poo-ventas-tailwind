@@ -45,13 +45,13 @@ class Brand(models.Model):
 
 class Supplier(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    ruc = models.CharField(max_length=10,validators=[valida_cedula],unique=True) 
+    ruc = models.CharField(max_length=10, validators=[valida_cedula], unique=True)
     address = models.CharField(max_length=200)
-    phone = models.CharField(max_length=10,validators=[phone_regex],unique=True)
+    phone = models.CharField(max_length=10, validators=[phone_regex], unique=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    state = models.BooleanField('Estado', default=True)
+    state = models.BooleanField(default=True)
     image = models.ImageField(upload_to='suppliers/', blank=True, null=True)
 
     class Meta:

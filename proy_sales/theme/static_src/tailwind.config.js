@@ -10,6 +10,10 @@ module.exports = {
             animation: {
                 'spin-slow': 'spin 6s linear infinite',
                 'bounce-custom': 'bounce-custom 0.2s linear infinite alternate',
+                'dark-mode-fade-in': 'darkModeFadeIn 0.3s ease-in-out',
+                'dark-mode-fade-out': 'darkModeFadeOut 0.3s ease-in-out',
+                'light-mode-fade-in': 'lightModeFadeIn 0.3s ease-in-out',
+                'light-mode-fade-out': 'lightModeFadeOut 0.3s ease-in-out',
             },
             keyframes: {
                 'spin': {
@@ -18,80 +22,44 @@ module.exports = {
                 'bounce-custom': {
                     to: { transform: 'translateY(20px)' },
                 },
+                'darkModeFadeIn': {
+                    from: { opacity: 0 },
+                    to: { opacity: 1 },
+                },
+                'darkModeFadeOut': {
+                    from: { opacity: 1 },
+                    to: { opacity: 0 },
+                },
+                'lightModeFadeIn': {
+                    from: { opacity: 0 },
+                    to: { opacity: 1 },
+                },
+                'lightModeFadeOut': {
+                    from: { opacity: 1 },
+                    to: { opacity: 0 },
+                },
             },
             maxWidth: {
                 '3xl': '48rem',
                 '4xl': '56rem',
             },
             colors: {
-                primary: {
-                    "50": "#eff6ff",
-                    "100": "#dbeafe",
-                    "200": "#bfdbfe",
-                    "300": "#93c5fd",
-                    "400": "#60a5fa",
-                    "500": "#3b82f6",
-                    "600": "#2563eb",
-                    "700": "#1d4ed8",
-                    "800": "#1e40af",
-                    "900": "#1e3a8a",
-                    "950": "#172554"
-                },
                 principal: '#050812',
                 secundario: '#070B15',
                 contenedores: '#0A0F1A',
                 inputs: '#030306',
-
             },
             fontFamily: {
                 Quicksand: ['Quicksand', 'sans-serif'],
                 Mukta: ['Mukta', 'sans-serif'],
                 Pacifico: ['Pacifico', 'cursive'],
                 Tiny5: ['Tiny5', 'cursive'],
-                body: [
-                    'Inter',
-                    'ui-sans-serif',
-                    'system-ui',
-                    '-apple-system',
-                    'system-ui',
-                    'Segoe UI',
-                    'Roboto',
-                    'Helvetica Neue',
-                    'Arial',
-                    'Noto Sans',
-                    'sans-serif',
-                    'Apple Color Emoji',
-                    'Segoe UI Emoji',
-                    'Segoe UI Symbol',
-                    'Noto Color Emoji',
-                ],
-                sans: [
-                    'Inter',
-                    'ui-sans-serif',
-                    'system-ui',
-                    '-apple-system',
-                    'system-ui',
-                    'Segoe UI',
-                    'Roboto',
-                    'Helvetica Neue',
-                    'Arial',
-                    'Noto Sans',
-                    'sans-serif',
-                    'Apple Color Emoji',
-                    'Segoe UI Emoji',
-                    'Segoe UI Symbol',
-                    'Noto Color Emoji'
-                ]
-            },
-            fontStyle: {
-                normal: 'normal',
-                italic: 'italic',
+                body: ['Inter'],
             },
             transitionProperty: {
                 colors: 'background-color, border-color, color, fill, stroke',
                 transform: 'transform',
             },
-
         },
     },
     plugins: [
@@ -100,49 +68,6 @@ module.exports = {
         require('@tailwindcss/aspect-ratio'),
         function ({ addComponents }) {
             addComponents({
-                // BOTONES
-                '.btn-red': {
-                    backgroundColor: '#E3342F',
-                    border: '1px solid #E3342F',
-                    color: 'white',
-                    padding: '0.75rem 1.5rem',
-                    margin: '0.5rem',
-                    borderRadius: '1.5rem',
-                    cursor: 'pointer',
-                    fontWeight: '500',
-                    transition: 'background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease',
-                    textTransform: 'capitalize',
-                    fontSize: '18px',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                    '&:hover': {
-                        backgroundColor: '#CC1F1A',
-                        borderColor: '#CC1F1A',
-                        boxShadow: '0 6px 8px rgba(0, 0, 0, 0.15)',
-                    },
-                    '&:active': {
-                        transform: 'scale(0.98)',
-                    },
-                },
-                '.btn-dark-blue': {
-                    backgroundColor: 'rgb(10 61 98)',
-                    border: '1px solid rgb(10 61 98)',
-                    color: 'white',
-                    padding: '0.75rem 1.5rem',
-                    borderRadius: '1.5rem',
-                    cursor: 'pointer',
-                    textTransform: 'capitalize',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                    transition: 'background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease',
-                    '&:hover': {
-                        color: 'rgb(10 61 98)',
-                        backgroundColor: '#42C2FF',
-                        borderColor: '#42C2FF',
-                        boxShadow: '0 6px 8px rgba(0, 0, 0, 0.15)',
-                    },
-                    '&:active': {
-                        transform: 'scale(0.98)',
-                    },
-                },
                 // TARJETAS DE INFORMACION
                 '.information-card, .characteristics-card': {
                     display: 'flex',
@@ -201,13 +126,13 @@ module.exports = {
                     backgroundColor: '#FAFAFA',
                     margin: '6px',
                     padding: '6px',
-                    borderRadius: '20px'
+                    borderRadius: '20px',
                 },
                 '.card-footer': {
                     backgroundColor: '#FAFAFA',
                     margin: '10px',
                     padding: '10px',
-                    borderRadius: '10px'
+                    borderRadius: '10px',
                 },
                 '.custom-transform': {
                     transform: 'scale(1)',
@@ -217,20 +142,11 @@ module.exports = {
                         transform: 'scale(1.05)',
                     },
                 },
-                '.transition-padding': {
-                    transitionProperty: 'padding',
-                    transitionDuration: '300ms',
-                    transitionTimingFunction: 'ease-in-out',
-                    '&:hover': {
-                        padding: '12px',
-                    },
-                },
                 // Estilos para el carrusel
                 '#carousel-inner': {
                     display: 'flex',
                     transition: 'transform 0.5s ease-in-out',
                 },
-
                 '@keyframes slideRight': {
                     from: {
                         transform: 'translateX(0)',
@@ -239,17 +155,14 @@ module.exports = {
                         transform: 'translateX(-100%)',
                     },
                 },
-
                 '.animate-slide-right': {
                     animation: 'slideRight 0.5s ease-in-out',
                 },
-
                 '.pedro-pedro': {
                     display: 'block',
                     width: '100%',
-                    animation: 'bounce 0.2 linear infinite alternate',
+                    animation: 'bounce 0.2s linear infinite alternate',
                 },
-
                 '.spinner': {
                     width: '200px',
                     height: '200px',
@@ -258,7 +171,6 @@ module.exports = {
                     overflow: 'hidden',
                     animation: 'spin 6s linear infinite',
                 },
-
             });
         },
     ],
