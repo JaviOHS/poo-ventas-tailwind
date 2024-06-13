@@ -89,12 +89,11 @@
                     <span class="text-blue-700 dark:text-blue-300 text-3xl font-Tiny5 font-bold">Bienvenido, usuario anónimo.</span>
                     {% endif %}
                 </h1>
-
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                     ¡Explora nuestro increíble sistema!<br>Te invitamos a descubrir un mundo de múltiples posibilidades
                     y beneficios, con el objetivo de optimizar tu emprendimiento al siguiente nivel.</p>
                 <a href="#herramientas"
-                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                     Explorar
                     <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -103,8 +102,8 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </a>
-                <a href="#contacto"
-                    class="dark:bg-principal dark:border-gray-700 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-700 dark:text-white dark:focus:ring-black">
+                <a href="#contact"
+                    class="bg-gray-200 dark:bg-secundario dark:border-gray-700 inline-flex items-center justify-center px-5 py-3 text-center border border-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-700 dark:text-gray-400 dark:focus:ring-black">
                     Contáctanos
                 </a>
             </div>
@@ -121,7 +120,7 @@
         </div>
 
         <!-- Busqueda -->
-        <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16" data-aos="fade-up"
+        <div class="flex flex-col items-center relative isolate overflow-hidden px-6 py-20 text-center sm:px-16" data-aos="fade-up"
             data-aos-delay="200">
             <p class="mx-auto max-w-2xl text-4xl dark:text-white text-center font-Pacifico">
                 ¿No encontró el componente que estaba buscando?
@@ -445,7 +444,7 @@
                 Conozca nuestro equipo de desarrollo.
             </p>
             <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
-                <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
+                <section class="py-4" data-aos="fade-up" data-aos-delay="300" custom-transform>
                     <div
                         class="dark:bg-secundario relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 items-center">
                         <div
@@ -471,7 +470,7 @@
                     </div>
                 </section>
 
-                <section class="py-12 lg:my-10 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
+                <section class="py-4" data-aos="fade-up" data-aos-delay="300 custom-transform">
                     <div
                         class="dark:bg-secundario relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 items-center">
                         <div
@@ -501,67 +500,222 @@
     </div>
     <!-- CIERRE DE LA SECCION DE EQUIPO DE DESARROLLO -->
 
+    <!-- SECCIÓN DE TECNOLOGIAS USADAS -->
+    <section class="dark:bg-principal bg-slate-100">
+        <div id="herramientas" class="p-8" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex flex-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                    Tecnologías
+                </span>
+            </div>
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
+                Tecnologías Usadas
+            </h1>
+            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+                Se utilizaron las siguientes tecnologías para el desarrollo de nuestro sistema:
+            </p>
+            <div class="m-8 sm:mx-10 sm:my-2 lg:mx-20 lg:p-4 rounded-3xl">
+                <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-8 justify-center">
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="none" viewBox="0 0 64 64"><path fill="url(#a)" d="M31.885 16c-8.124 0-7.617 3.523-7.617 3.523l.01 3.65h7.752v1.095H21.197S16 23.678 16 31.876c0 8.196 4.537 7.906 4.537 7.906h2.708v-3.804s-.146-4.537 4.465-4.537h7.688s4.32.07 4.32-4.175v-7.019S40.374 16 31.885 16zm-4.275 2.454a1.394 1.394 0 1 1 0 2.79 1.393 1.393 0 0 1-1.395-1.395c0-.771.624-1.395 1.395-1.395z"/><path fill="url(#b)" d="M32.115 47.833c8.124 0 7.617-3.523 7.617-3.523l-.01-3.65H31.97v-1.095h10.832S48 40.155 48 31.958c0-8.197-4.537-7.906-4.537-7.906h-2.708v3.803s.146 4.537-4.465 4.537h-7.688s-4.32-.07-4.32 4.175v7.019s-.656 4.247 7.833 4.247zm4.275-2.454a1.393 1.393 0 0 1-1.395-1.395 1.394 1.394 0 1 1 1.395 1.395z"/><defs><linearGradient id="a" x1="19.075" x2="34.898" y1="18.782" y2="34.658" gradientUnits="userSpaceOnUse"><stop stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="b" x1="28.809" x2="45.803" y1="28.882" y2="45.163" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs></svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 32 32"><path d="M14.135 4H18.1v18.169a26.218 26.218 0 0 1-5.143.535c-4.842-.005-7.362-2.168-7.362-6.322 0-4 2.673-6.6 6.816-6.6a6.448 6.448 0 0 1 1.724.2V4Zm0 9.142a3.992 3.992 0 0 0-1.337-.2c-2 0-3.163 1.223-3.163 3.366 0 2.087 1.107 3.239 3.138 3.239a9.355 9.355 0 0 0 1.362-.1v-6.3Z" style="fill:#44b78b"/><path d="M24.4 10.059v9.1c0 3.133-.235 4.639-.923 5.938A6.316 6.316 0 0 1 20.237 28l-3.678-1.733a5.708 5.708 0 0 0 3.141-2.629c.566-1.121.745-2.42.745-5.837v-7.742ZM20.441 4.02h3.964v4.028h-3.964z" style="fill:#44b78b"/><svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256">
+                            <path d="M251.17 116.6 139.4 4.82a16.49 16.49 0 0 0-23.31 0l-23.21 23.2 29.44 29.45a19.57 19.57 0 0 1 24.8 24.96l28.37 28.38a19.61 19.61 0 1 1-11.75 11.06L137.28 95.4v69.64a19.62 19.62 0 1 1-16.13-.57V94.2a19.61 19.61 0 0 1-10.65-25.73L81.46 39.44 4.83 116.08a16.49 16.49 0 0 0 0 23.32L116.6 251.17a16.49 16.49 0 0 0 23.32 0l111.25-111.25a16.5 16.5 0 0 0 0-23.33" fill="#DE4C36"/>
+                        </svg>                      
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg width="100" height="100" class="dark:text-white fill-current"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>                   
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 452 520"><path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" /><path fill="#ef652a" d="M226 472l149-41 35-394H226" /><path fill="#ecedee" d="M226 208h-75l-5-58h80V94H84l15 171h127zm0 147l-64-17-4-45h-56l7 89 117 32z"/><path fill="#fff" d="M226 265h69l-7 73-62 17v59l115-32 16-174H226zm0-171v56h136l5-56z"/>
+                        </svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 1052 1052"><path fill="#f0db4f" d="M0 0h1052v1052H0z"/><path d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z" fill="#323330"/></svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg viewBox="0 0 256 154" width="100" height="100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+                            <defs><linearGradient x1="-2.778%" y1="32%" x2="100%" y2="67.556%" id="gradient"><stop stop-color="#2298BD" offset="0%"></stop> <stop stop-color="#0ED7B5" offset="100%"></stop> </linearGradient></defs>
+                            <path d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0ZM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8Z" fill="url(#gradient)"></path>
+                        </svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="none" viewBox="0 0 48 48">
+                            <path fill="url(#a)" d="M36.78 19.414c-.112.766-.617 1.806-1.196 2.71a5.048 5.048 0 0 1-3.218 2.218l-5.846 1.223a4.498 4.498 0 0 0-2.432 1.403l-3.833 4.285c-.72.806-1.224.613-1.224-.467-.009.04-1.903 4.925 3.116 7.82 1.929 1.112 4.705.712 6.633-.4l10.218-5.894a15.464 15.464 0 0 0 7.416-10.249c.035-.17.063-.342.092-.513l-9.727-2.136Z"/>
+                            <path fill="url(#b)" d="M34.13 13.527c1.928 1.112 2.716 2.768 2.716 4.993 0 .302-.024.6-.067.894l4.117 1.769 5.61.367c.719-4.158-.69-8.437-3.213-11.838a23.92 23.92 0 0 0-7.28-6.476 24.156 24.156 0 0 0-7.359-2.78l-2.8 3.625-.884 4.163 9.16 5.283Z"/>
+                            <path fill="url(#c)" d="M1.175 16.578c0 .003.002.004.003 0 .216-.647.487-1.37.825-2.143 1.767-4.034 5.171-6.724 9.36-8.096A15.511 15.511 0 0 1 23.94 7.65l1.03.595 3.684-7.79C16.936-1.885 4.96 5 1.19 16.533l-.015.045Z"/>
+                            <path fill="url(#d)" d="M28.38 38.206a6.237 6.237 0 0 1-6.975-.505l-3.392 2.332-2.923 4.724c3.245 2.7 7.458 3.568 11.668 3.085a23.943 23.943 0 0 0 9.254-3.062 24.135 24.135 0 0 0 6.09-4.976L40.36 35.57l-2.82-2.647-9.16 5.284Z"/>
+                            <path fill="url(#e)" d="M21.405 37.701a6.224 6.224 0 0 1-2.374-4.888V16.61c0-.906.266-1.06 1.051-.607-1.209-.697-4.002-3.091-7.45-1.102-1.929 1.112-3.517 3.567-3.517 5.792V32.48c0 4.409 2.284 9.007 5.577 11.94.13.117.265.226.398.338l6.315-7.056Z"/>
+                            <path fill="url(#f)" d="M41.866 7.969c-.003-.003-.005 0-.003.002.454.51.945 1.106 1.446 1.785a15.453 15.453 0 0 1 2.685 12.346 15.485 15.485 0 0 1-7.425 10.227l-1.03.593 4.563 6.882c7.888-8.968 7.908-22.77-.205-31.8l-.031-.035Z"/>
+                            <path fill="url(#g)" d="M9.515 20.692a6.226 6.226 0 0 1 3.925-5.782l-.325-4.1-2.287-4.692a15.468 15.468 0 0 0-8.855 8.353A23.887 23.887 0 0 0 0 24.008c0 2.754.454 5.353 1.268 7.758l4.543.609 3.704-1.117V20.692Z"/>
+                            <path fill="url(#h)" d="M13.44 14.91a6.237 6.237 0 0 1 5.425.39l.166.095 13.343 7.697c.936.54.85 1.07-.207 1.292l.77-.161a5.045 5.045 0 0 0 2.645-1.484 6.134 6.134 0 0 0 1.664-4.22 6.226 6.226 0 0 0-3.117-5.392L23.912 7.234a15.491 15.491 0 0 0-12.593-1.292c-.166.054-.328.116-.491.176l2.612 8.792Z"/>
+                            <path fill="url(#i)" d="M28.983 47.479c.004-.001.003-.004 0-.003-.67.137-1.432.264-2.27.357A15.477 15.477 0 0 1 9.515 32.446v-1.188l-8.248.507c3.83 11.309 15.785 18.228 27.669 15.723.005 0 .025-.005.046-.01Z"/>
+                            <defs>
+                            <linearGradient id="a" x1="30.09" x2="34.811" y1="35.655" y2="19.21" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1724C9"/>
+                                <stop offset="1" stop-color="#1C64F2"/>
+                            </linearGradient>
+                            <linearGradient id="b" x1="40.964" x2="28.545" y1="15.601" y2="3.225" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1C64F2"/>
+                                <stop offset="1" stop-color="#0092FF"/>
+                            </linearGradient>
+                            <linearGradient id="c" x1="24.247" x2="5.511" y1="7.532" y2="8.716" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0092FF"/>
+                                <stop offset="1" stop-color="#45B2FF"/>
+                            </linearGradient>
+                            <linearGradient id="d" x1="22.98" x2="39.805" y1="42.994" y2="38.454" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1C64F2"/>
+                                <stop offset="1" stop-color="#0092FF"/>
+                            </linearGradient>
+                            <linearGradient id="e" x1="10.903" x2="22.849" y1="23.524" y2="35.902" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1724C9"/>
+                                <stop offset="1" stop-color="#1C64F2"/>
+                            </linearGradient>
+                            <linearGradient id="f" x1="38.176" x2="46.51" y1="32.453" y2="15.652" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0092FF"/>
+                                <stop offset="1" stop-color="#45B2FF"/>
+                            </linearGradient>
+                            <linearGradient id="g" x1="8.046" x2="3.586" y1="13.696" y2="30.46" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1C64F2"/>
+                                <stop offset="1" stop-color="#0092FF"/>
+                            </linearGradient>
+                            <linearGradient id="h" x1="30.815" x2="14.517" y1="12.899" y2="16.957" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1724C9"/>
+                                <stop offset="1" stop-color="#1C64F2"/>
+                            </linearGradient>
+                            <linearGradient id="i" x1="9.61" x2="19.999" y1="32.035" y2="47.662" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0092FF"/>
+                                <stop offset="1" stop-color="#45B2FF"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" preserveAspectRatio="xMidYMid" viewBox="0 0 512 228">
+                            <defs>
+                                <linearGradient x1="57.7%" y1="2%" x2="57.7%" y2="94.4%" id="a">
+                                    <stop stop-color="#97D9F6" offset="0%"/>
+                                    <stop stop-color="#0F80CC" offset="92%"/>
+                                    <stop stop-color="#0F80CC" offset="100%"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M194.5 112c-6.8 0-12.3 2-16.6 6.1-4.3 4-6.4 9.3-6.4 15.8a23.3 23.3 0 0 0 6.5 17c2.2 2.4 6.6 5.6 13.2 9.7 8 5 13.4 9 16 12 2.5 3.2 3.7 6.4 3.7 9.9 0 4.5-1.5 8.2-4.6 11a18 18 0 0 1-12.4 4 20.1 20.1 0 0 1-20.3-20.8h-2.5v22.9h2.5c.8-2.2 1.8-3.3 3.2-3.3.7 0 2.3.4 4.7 1.3 6 2.1 10.9 3.2 14.7 3.2a23 23 0 0 0 17-7 23.2 23.2 0 0 0 2.4-30.8c-3-4-9-8.6-18-14a59.5 59.5 0 0 1-15-11.3c-2.3-3-3.5-6.1-3.5-9.7 0-3.8 1.5-7 4.2-9.2 2.8-2.3 6.5-3.5 11-3.5 5.2 0 9.5 1.5 12.9 4.6 3.3 3 5.3 7.4 5.9 12.8h2.5V113h-2.3a6 6 0 0 1-.8 2c-.3.3-.7.4-1.4.4a17 17 0 0 1-4.3-1 38.6 38.6 0 0 0-12.3-2.3Zm82.4 0a44.6 44.6 0 0 0-39 22.2 43.5 43.5 0 0 0 4.5 50.2c7 8.2 15.3 13.3 25 15.3 2.1 1.1 5.3 4.1 9.4 9 4.7 5.3 8.6 9.3 11.9 11.6A35.6 35.6 0 0 0 311 227c5.3 0 10-.9 14-2.7l-.9-2.3a20.1 20.1 0 0 1-18.7-2.3c-3.6-2.5-8.3-7.1-13.8-14a47.6 47.6 0 0 0-5.4-6.1c10.6-2 19.3-7.2 26-15.4a42.8 42.8 0 0 0 10.2-28 42 42 0 0 0-13.2-31.4 44.8 44.8 0 0 0-32.4-12.9Zm51.4 0 .1 2.7c5.5 0 8.6 1.7 9.3 5 .3 1.1.4 3.3.4 6.4v59.6c0 4.5-.7 7.3-2 8.6-1.1 1.2-3.2 2-6.2 2.3l-.1 2.6h55.1l1.4-13.5h-2.5c-.7 3.7-2.3 6.3-5 7.8a30.5 30.5 0 0 1-14 2.3h-5.2c-6 0-9.5-2.2-10.5-6.6-.2-.9-.2-1.8-.2-2.8l.2-60.3c0-4.4.5-7.4 1.7-8.9 1.2-1.4 3.3-2.3 6.4-2.5l-.2-2.7h-28.7Zm-50.6 3.3a28 28 0 0 1 23 11.2 48 48 0 0 1 8.8 30.5c0 12.3-3 22.1-8.9 29.5a29 29 0 0 1-23.7 11c-9.5 0-17.2-3.8-23-11.4a47.1 47.1 0 0 1-8.9-29.6c0-12.5 3-22.5 9-30 5.9-7.5 13.8-11.2 23.7-11.2Zm126.9 12.8c-1.3 0-2.4.5-3.1 1.4-.8 1-1 2-.8 3.4a6 6 0 0 0 2.2 3.4c1.1 1 2.4 1.4 3.7 1.4 1.3 0 2.3-.5 3-1.4.7-1 1-2.1.7-3.4-.3-1.4-1-2.5-2-3.4a5.6 5.6 0 0 0-3.7-1.4Zm36.4 9.2c-2.3 8.8-7.3 13.5-14.9 14.3l.1 2.5h8.9l-.2 29.8c0 5.1.2 8.5.5 10.2 1 4.2 3.6 6.3 8.1 6.3 6.6 0 13.4-4 20.6-12l-2.2-1.8c-5.2 5.2-9.7 7.8-13.7 7.8-2.5 0-4-1.4-4.6-4.2l-.2-2.4v-33.7h13.7l-.2-4h-13.4v-12.8H441Zm52.4 11.2c-7.6 0-13.7 3.7-18.5 11a31.3 31.3 0 0 0-4.4 24.4 21 21 0 0 0 6.7 12.2 19 19 0 0 0 12.7 4.3c4.7 0 11.4-1.2 14.1-3.7 2.8-2.4 5.4-6.3 7.8-11.7l-2-2a20.6 20.6 0 0 1-17.1 10.5c-8 0-12.8-4.3-14.6-13l-.5-3.5a46 46 0 0 0 21.4-8c4.8-3.8 9.6-7.9 8.7-12.1a9.9 9.9 0 0 0-3.9-6c-2-1.6-7.4-2.4-10.4-2.4Zm-83 .3-16.3 3.8v2.9l5.7-.7c2.7 0 4.3 1.2 4.8 3.7.2.8.3 2 .4 3.4l-.2 26.8c0 3.7-.5 5.8-1.3 6.5-.8.6-3 1-6.6 1v2.5h25.9v-2.5c-3.7 0-6-.3-7-.9-1-.5-1.8-1.5-2.1-3-.2-1.2-.3-3.1-.4-5.7l.1-37.8h-3Zm78.9 5c1.6 0 3 .6 4.6 1.8a7 7 0 0 1 2.8 4c1.4 7-4.9 12-19 14.7a25 25 0 0 1 2.7-14.1c2.3-4.3 5.3-6.4 8.9-6.4Z" fill="#003B57"/>
+                            <path d="M157.9 10H17C7.7 10 0 17.7 0 27v155.2c0 9.4 7.7 17.2 17.1 17.2h92.7c-1-46.2 14.7-135.7 48-189.5Z" fill="#0F80CC"/>
+                            <path d="M152.8 15H17C10.5 15 5 20.4 5 27V171c30.7-11.8 76.8-22 108.7-21.5a989.7 989.7 0 0 1 39-134.5Z" fill="url(#a)"/>
+                            <path d="M190.7 4.9c-9.6-8.6-21.3-5.2-32.8 5a81.4 81.4 0 0 0-5.1 5c-19.7 21-38 59.7-43.7 89.2a81.5 81.5 0 0 1 5.8 17.7l.8 3.5-.9-2.8a173.8 173.8 0 0 0-.8-2 172 172 0 0 0-6.4-12.1l-3.5 11c4.5 8.2 7.3 22.4 7.3 22.4l-1.4-4.1c-1-2.9-6-11.7-7.2-13.7-2 7.5-2.8 12.6-2.1 13.8 1.4 2.4 2.7 6.5 4 11a257.6 257.6 0 0 1 4.6 25c-.3 8.6-.1 17.6.5 25.7a91 91 0 0 0 4.7 24.8l1.5-.8a111 111 0 0 1-3.9-37c.9-22.5 6-49.5 15.6-77.7 16-42.5 38.4-76.6 58.8-93-18.6 17-43.8 71.4-51.4 91.6a365.7 365.7 0 0 0-18 64c6.2-19 26.4-27.2 26.4-27.2s9.8-12.2 21.4-29.6a210 210 0 0 0-22.1 6l-7.1 3s18.1-11 33.7-16C191 73.8 214.2 25.9 190.7 4.9" fill="#003B57"/>
+                        </svg>  
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="100" height="100" class="text-black dark:text-blue-300 fill-current"><title>Font Awesome</title><path d="M4.3934 4.5c.6837-.4317 1.1379-1.194 1.1379-2.0625C5.5313 1.0913 4.4398 0 3.0938 0 1.7475 0 .6563 1.0913.6563 2.4375c0 .7805.3668 1.4753.9375 1.9214V24h3v-3h17.5126c.6834 0 1.2373-.554 1.2373-1.2373a1.237 1.237 0 0 0-.1066-.5027l-2.8934-6.51 2.8934-6.51a1.237 1.237 0 0 0 .1066-.5026c0-.6834-.5539-1.2374-1.2373-1.2374Z"/></svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="100" height="100" class="text-black dark:text-blue-300 fill-current"><title>Remix</title><path d="M21.511 18.508c.216 2.773.216 4.073.216 5.492H15.31c0-.309.006-.592.011-.878.018-.892.036-1.821-.109-3.698-.19-2.747-1.374-3.358-3.55-3.358H1.574v-5h10.396c2.748 0 4.122-.835 4.122-3.049 0-1.946-1.374-3.125-4.122-3.125H1.573V0h11.541c6.221 0 9.313 2.938 9.313 7.632 0 3.511-2.176 5.8-5.114 6.182 2.48.497 3.93 1.909 4.198 4.694ZM1.573 24v-3.727h6.784c1.133 0 1.379.84 1.379 1.342V24Z"/></svg>
+                    </div>
+                    <div
+                        class="information-card mb-4 p-4 bg-white dark:bg-secundario dark:border-none rounded-lg shadow-md transition duration-300 ease-in-out">
+                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="100" height="100" class="text-black dark:text-blue-300 fill-current"><title>jQuery</title><path d="M1.525 5.87c-2.126 3.054-1.862 7.026-.237 10.269.037.079.078.154.118.229.023.052.049.1.077.15.013.027.031.056.047.082.026.052.054.102.081.152l.157.266c.03.049.057.097.09.146.056.094.12.187.178.281.026.04.05.078.079.117a6.368 6.368 0 00.31.445c.078.107.156.211.24.315.027.038.058.076.086.115l.22.269c.028.03.055.067.084.099.098.118.202.233.306.35l.005.006a3.134 3.134 0 00.425.44c.08.083.16.165.245.245l.101.097c.111.105.223.209.34.309.002 0 .003.002.005.003l.057.05c.102.089.205.178.31.26l.125.105c.085.068.174.133.26.2l.137.105c.093.07.192.139.287.207.035.025.07.05.106.073l.03.023.28.185.12.08c.148.094.294.184.44.272.041.02.084.044.123.068.108.062.22.125.329.183.06.034.122.063.184.094.075.042.153.083.234.125a.324.324 0 01.056.023c.033.015.064.031.096.047.12.06.245.118.375.175.024.01.05.02.076.034.144.063.289.123.438.182.034.01.07.027.105.04.135.051.274.103.411.152l.05.018c.154.052.305.102.46.15.036.01.073.023.111.033.16.048.314.105.474.137 10.273 1.872 13.258-6.177 13.258-6.177-2.508 3.266-6.958 4.127-11.174 3.169-.156-.036-.312-.086-.47-.132a13.539 13.539 0 01-.567-.182l-.062-.024c-.136-.046-.267-.097-.4-.148a1.615 1.615 0 00-.11-.04c-.148-.06-.29-.121-.433-.184-.031-.01-.057-.024-.088-.036a23.44 23.44 0 01-.362-.17 1.485 1.485 0 01-.106-.052c-.094-.044-.188-.095-.28-.143a3.947 3.947 0 01-.187-.096c-.114-.06-.227-.125-.34-.187-.034-.024-.073-.044-.112-.066a15.922 15.922 0 01-.439-.27 2.107 2.107 0 01-.118-.078 6.01 6.01 0 01-.312-.207c-.035-.023-.067-.048-.103-.073a9.553 9.553 0 01-.295-.212c-.042-.034-.087-.066-.132-.1-.088-.07-.177-.135-.265-.208l-.118-.095a10.593 10.593 0 01-.335-.28.258.258 0 00-.037-.031l-.347-.316-.1-.094c-.082-.084-.166-.164-.25-.246l-.098-.1a9.081 9.081 0 01-.309-.323l-.015-.016c-.106-.116-.21-.235-.313-.355-.027-.03-.053-.064-.08-.097l-.227-.277a21.275 21.275 0 01-.34-.449C2.152 11.79 1.306 7.384 3.177 3.771m4.943-.473c-1.54 2.211-1.454 5.169-.254 7.508a9.111 9.111 0 00.678 1.133c.23.33.484.721.793.988.107.122.223.24.344.36l.09.09c.114.11.232.217.35.325l.016.013a9.867 9.867 0 00.414.342c.034.023.063.05.096.073.14.108.282.212.428.316l.015.009c.062.045.128.086.198.13.028.018.06.042.09.06.106.068.21.132.318.197.017.007.032.016.048.023.09.055.188.108.282.157.033.02.065.035.1.054.066.033.132.068.197.102l.032.014c.135.067.273.129.408.19.034.014.063.025.092.039.111.048.224.094.336.137.05.017.097.037.144.052.102.038.21.073.31.108l.14.045c.147.045.295.104.449.13C22.164 17.206 24 11.098 24 11.098c-1.653 2.38-4.852 3.513-8.261 2.628a8.04 8.04 0 01-.449-.13c-.048-.014-.09-.029-.136-.043-.104-.036-.211-.07-.312-.109l-.144-.054c-.113-.045-.227-.087-.336-.135-.034-.015-.065-.025-.091-.04-.14-.063-.281-.125-.418-.192l-.206-.107-.119-.06a5.673 5.673 0 01-.265-.15.62.62 0 01-.062-.035c-.106-.066-.217-.13-.318-.198-.034-.019-.065-.042-.097-.062l-.208-.136c-.144-.1-.285-.208-.428-.313-.032-.029-.063-.053-.094-.079-1.499-1.178-2.681-2.79-3.242-4.613-.59-1.897-.46-4.023.56-5.75m4.292-.147c-.909 1.334-.996 2.99-.37 4.46.665 1.563 2.024 2.79 3.608 3.37.065.025.128.046.196.07l.088.027c.092.03.185.063.28.084 4.381.845 5.567-2.25 5.886-2.704-1.043 1.498-2.792 1.857-4.938 1.335a4.85 4.85 0 01-.516-.16 6.352 6.352 0 01-.618-.254 6.53 6.53 0 01-1.082-.66c-1.922-1.457-3.113-4.236-1.859-6.5"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CIERRE DE LA SECCIÓN DE TECNOLOGIAS USADAS -->
+
     <!-- SECCION DE CONTACTOS -->
-    <section class="dark:bg-principal ">
+    <section id="contact" class="dark:bg-principal ">
         <div class="p-8" data-aos="fade-up" data-aos-delay="300">
             <div class="gap-2">
                 <div class="flex felx-col items-center justify-center">
                     <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">CONTACTOS</span>
                 </div>
-                <h1 class="dark:text-white text-4xl text-center mt-6 font-Pacifico">
+                
+                <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
                     Contácta a nuestro equipo
                 </h1>
-                <p class="dark:text-gray-400 text-center text-lg font-light">
+                <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
                     Envíanos tus sugerencias.
                 </p>
             </div>
-            <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
+            <div class="flex lg:flex-row gap-4 items-center justify-center">
                 <section class="py-2 lg:my-6 lg:mx-full lg:py-20" data-aos="fade-up" data-aos-delay="300">
-                    <div class="grid md:grid-cols-2 mb-4">
-                        <div class="h-full pr-6 m-10 dark:bg-secundario bg-white p-8 rounded-3xl">
-                            <h1 class="text-blue-700 dark:text-blue-300 text-2xl font-black">Un mensaje de quienes conformamos Iguanas Corporation:</h1>
-                            <p class="mt-3 mb-12 dark:text-gray-400 text-justify">
-                                "En nuestro corazón late el deseo ferviente de ser parte de tu éxito. Queremos ser el
-                                impulso que eleva tus sueños, la chispa que enciende tu visión.
-                                Confía en nosotros para ser tus aliados en esta travesía hacia el triunfo.
-                                Juntos, llevaremos tu negocio más allá de lo imaginable. Tu éxito es nuestro mayor
-                                logro."
-                            </p>
-                            <div class="flex space-x-4 mt-4 text-2xl">
-                                <a href="#" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 fab fa-twitter"></a>
-                                <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600 fab fa-facebook"></a>
-                                <a href="#" class="text-pink-500 hover:text-pink-700 dark:text-pink-300 dark:hover:text-pink-500 fab fa-instagram"></a>
-                                <a href="#" class="text-blue-700 hover:text-blue-900 dark:text-blue-500 dark:hover:text-blue-700 fab fa-linkedin"></a>
-                            </div>
-                        </div>
-                        <div class="h-full pl-6 m-10 dark:bg-secundario bg-white p-8 shadow-lg rounded-lg">
+                    <div class="grid md:grid-cols-2 mx-40 gap-6 mb-4">
+                        <div class="h-full pl-6 dark:bg-secundario bg-white p-8 shadow-lg rounded-lg">
+                            <h1 class=" dark:text-white text-2xl font-Pacifico text-center my-2">Un mensaje de quienes conformamos...</h1>
                             <ul class="mb-6 md:mb-0 space-y-6">
                                 <li class="flex">
-                                    <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
-                                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
-                                        </svg>
+                                    <div>
+                                        <h3 class="text-blue-500 dark:text-blue-300 text-2xl font-Tiny5 uppercase mb-4 text-center">Iguanas Corporation</h3>
+                                        <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="https://www.google.com/maps/place/UNEMI+-+Universidad+Estatal+de+Milagro/@-2.149223,-79.60552,17z/data=!3m1!4b1!4m6!3m5!1s0x902d465523c50e37:0x70a5136e6272715f!8m2!3d-2.149223!4d-79.6029451!16s%2Fg%2F1tt1j8j4?entry=ttu" target="_blank">
+                                            "En nuestro corazón late el deseo ferviente de ser parte de tu éxito. Queremos ser el
+                                            impulso que eleva tus sueños, la chispa que enciende tu visión.
+                                            Confía en nosotros para ser tus aliados en esta travesía hacia el triunfo.
+                                            Juntos, llevaremos tu negocio más allá de lo imaginable. Tu éxito es nuestro mayor
+                                            logro."
+                                        </a>
                                     </div>
-                                    <div class="ml-4 mb-4">
-                                        <h3 class="text-blue-700 dark:text-blue-300 text-2xl font-black mb-4">Dirección</h3>
+                                </li>
+                                <li class="flex flex-col items-center">
+                                    <div class="flex space-x-4 my-2 text-2xl">
+                                        <a href="#" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 fab fa-twitter"></a>
+                                        <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600 fab fa-facebook"></a>
+                                        <a href="#" class="text-pink-500 hover:text-pink-700 dark:text-pink-300 dark:hover:text-pink-500 fab fa-instagram"></a>
+                                        <a href="#" class="text-blue-700 hover:text-blue-900 dark:text-blue-500 dark:hover:text-blue-700 fab fa-linkedin"></a>
+                                    </div>
+                                    <!-- Pedro Pedro Seccion -->
+                                    <div class="my-4">
+                                        <div>
+                                            <div>
+                                                <div class="spinner">
+                                                    <a href="https://links.codetheworld.io/" target="_blank"><img class="pedro-pedro animate-bounce-custom" src="//codetheworld.io/wp-content/uploads/2024/05/pedro.png"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="h-full pl-6 dark:bg-secundario bg-white p-8 shadow-lg rounded-lg">
+                            <h1 class=" dark:text-white text-2xl font-Pacifico text-center my-2">¡Te estaremos esperando!</h1>
+                            <ul class="mb-6 md:mb-0 space-y-6">
+                                <li class="flex">
+                                    <div class="">
+                                        <h3 class="text-blue-500 dark:text-blue-300 text-2xl font-Tiny5 uppercase mb-4"><i class="ri-map-pin-fill text-green-500"></i></i> Dirección</h3>
                                         <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="https://www.google.com/maps/place/UNEMI+-+Universidad+Estatal+de+Milagro/@-2.149223,-79.60552,17z/data=!3m1!4b1!4m6!3m5!1s0x902d465523c50e37:0x70a5136e6272715f!8m2!3d-2.149223!4d-79.6029451!16s%2Fg%2F1tt1j8j4?entry=ttu" target="_blank">
                                             Universidad Estatal de Milagro (UNEMI) <br>
                                             Ecuador, Guayas, Milagro <br>
                                             Av. 17 de Septiembre
                                         </a>
+                                        <div class="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto py-4">
+                                            <div class="overflow-hidden rounded-lg lg:col-span-2 h-full lg:h-auto">
+                                                <iframe
+                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.0116737716644!2d-79.60552002596603!3d-2.1492176371761693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d465523c50e37%3A0x70a5136e6272715f!2sUNEMI%20-%20Universidad%20Estatal%20de%20Milagro!5e0!3m2!1sen!2sus!4v1718180036827!5m2!1sen!2sus"
+                                                    class="w-full h-full border-0"
+                                                    allowfullscreen=""
+                                                    loading="lazy"
+                                                    referrerpolicy="no-referrer-when-downgrade">
+                                                </iframe>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="flex">
-                                    <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-700 text-gray-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                                            <path d="M15 7a2 2 0 0 1 2 2"></path>
-                                            <path d="M15 3a6 6 0 0 1 6 6"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="ml-4 mb-4">
-                                        <h3 class="text-blue-700 dark:text-blue-300 text-2xl font-black mb-4">Contactos</h3>
+                                    <div class="">
+                                        <h3 class="text-blue-500 dark:text-blue-300 text-2xl font-Tiny5 uppercase mb-4"><i class="ri-phone-fill text-green-500"></i></i> Contacto</h3>
                                         <div class="flex items-start space-x-4">
                                             <i class="ri-mail-send-line text-blue-500 text-2xl"></i>
                                             <div>
@@ -574,52 +728,35 @@
                                                 <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="mailto:jharos@unemi.edu.ec" target="_blank">jharos@unemi.edu.ec</a>
                                             </div>
                                         </div>
-                                        <div class="flex items-start space-x-4">
-                                            <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
-                                            <div>
-                                                <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="https://wa.me/593997932650" target="_blank">+593 997 932 650</a>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-start space-x-4">
-                                            <i class="fa-solid fa-phone-volume text-blue-500 text-2xl"></i>
-                                            <div>
-                                                <a class="dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300" href="https://wa.me/593963919421" target="_blank">+593 963 919 421</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-2 mb-4">
+                    <div class="grid mb-4 mx-20">
                         <div class="h-full pr-6 m-10 dark:bg-secundario bg-white p-8 rounded-3xl">
-                            <form id="contact-form" action="https://formspree.io/f/myyrwqgz" method="post" role="form"
-                                class="space-y-8">
-                                <h1 class="text-blue-700 dark:text-blue-300 text-2xl font-black text-center">Envianos un mensaje</h1>
+                            <form id="contact-form" action="https://formspree.io/f/myyrwqgz" method="post" role="form" class="space-y-8">
+                                <h1 class="dark:text-white text-2xl font-Pacifico text-center">Envianos un mensaje</h1>
                                 <div>
-                                    <label for="name"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Nombre</label>
+                                    <label for="name" class="dark:text-blue-300 font-black uppercase text-lg z-20">Nombre</label>
                                     <input type="text" name="name" id="name"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
                                         placeholder="Ingresa tu nombre aquí" required>
                                 </div>
                                 <div>
-                                    <label for="email"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Correo</label>
+                                    <label for="email" class="dark:text-blue-300 font-black uppercase text-lg z-20">Correo</label>
                                     <input type="email" name="email" id="email"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
                                         placeholder="Ingresa tu correo aquí" required>
                                 </div>
                                 <div>
-                                    <label for="subject"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Asunto</label>
+                                    <label for="subject" class="dark:text-blue-300 font-black uppercase text-lg z-20">Asunto</label>
                                     <input type="text" name="subject" id="subject"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
                                         placeholder="Ingresa el asunto aquí" required>
                                 </div>
                                 <div>
-                                    <label for="message"
-                                        class="dark:text-blue-300 font-black uppercase text-lg z-20">Mensaje</label>
+                                    <label for="message" class="dark:text-blue-300 font-black uppercase text-lg z-20">Mensaje</label>
                                     <textarea name="message" id="message" rows="5"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-principal dark:border-none dark:placeholder-gray-400 dark:text-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20 font-Tiny5"
                                         placeholder="Ingresa el mensaje aquí" required></textarea>
@@ -632,21 +769,14 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button type="submit"
-                                        class="py-3 px-5 text-blue-300 rounded-lg bg-blue-700 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                    <button type="submit" class="py-3 px-5 text-blue-300 rounded-lg bg-blue-700 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
                                         Enviar Mensaje
                                     </button>
                                 </div>
                             </form>
                         </div>
-                        <div class="h-full pl-6 m-10 dark:bg-secundario bg-white p-8 shadow-lg rounded-lg">
-                            <div class="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto">
-                                <div class="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.0116737716644!2d-79.60552002596603!3d-2.1492176371761693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d465523c50e37%3A0x70a5136e6272715f!2sUNEMI%20-%20Universidad%20Estatal%20de%20Milagro!5e0!3m2!1sen!2sus!4v1718180036827!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    
                 </section>
             </div>
         </div>

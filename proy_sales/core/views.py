@@ -10,10 +10,14 @@ from django.contrib import messages
 
 # ----------------- Perfil -----------------
 def profile(request):
-    return render(request, 'core/profile.html')
+    data = {"title1": "IC - Perfil",
+            "title2": "Perfil de Usuario"}
+    return render(request, 'core/profile.html', data)
 
 #  Actualizar perfil 
 def update_profile(request):
+    data = {"title1": "IC - Actualizar Perfil",
+            "title2": "Actualizar Perfil"}
     if request.method == 'POST':
         form = CustomUserUpdateForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
@@ -23,11 +27,11 @@ def update_profile(request):
     else:
         form = CustomUserUpdateForm(instance=request.user)
     
-    return render(request, 'core/update_profile.html', {'form': form})
+    return render(request, 'core/update_profile.html', {'form': form, **data})
 
 # ----------------- Registro -----------------
 def signup(request):
-    data = {"title1": "Registro | TeacherCode",
+    data = {"title1": "IC - Registro",
             "title2": "Registro de Usuarios"}
 
     if request.method == "GET":
@@ -61,7 +65,7 @@ def signout(request):
 
 # ----------------- Iniciar Sesion -----------------
 def signin(request):
-    data = {"title1": "Inicio de Sesión | TeacherCode",
+    data = {"title1": "IC - Inicio de Sesión",
             "title2": "Inicio de Sesión"}
 
     if request.method == "GET":
@@ -95,8 +99,8 @@ def signin(request):
 
 # ----------------- Vistas de Home -----------------
 def home(request):
-    data = {"title1": "Autor | TeacherCode",
-            "title2": "Super Mercado Economico"}
+    data = {"title1": "IC - Inicio",
+            "title2": "Iguanas Corporation"}
     # Obtener el estado de autenticación del usuario
     is_authenticated = request.user.is_authenticated
     # Agregar el estado de autenticación al contexto
@@ -105,14 +109,14 @@ def home(request):
 
 # ----------------- Vistas de Productos -----------------
 def product_List(request):
-    data = {"title1": "Productos", "title2": "Consulta De Productos"}
+    data = {"title1": "IC - Productos", "title2": "Consulta de Productos"}
     products = Product.objects.all()  # select * from Product
     data["products"] = products
     return render(request, "core/products/list.html", data)
 
 # Crear un producto
 def product_create(request):
-    data = {"title1": "Productos", "title2": "Ingreso De Productos"}
+    data = {"title1": "IC - Crear Productos", "title2": "Ingreso De Productos"}
 
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
@@ -131,7 +135,7 @@ def product_create(request):
 
 # Editar un producto
 def product_update(request, id):
-    data = {"title1": "Productos", "title2": "Edicion De Productos"}
+    data = {"title1": "IC - Actualizar Productos", "title2": "Edicion De Productos"}
     product = Product.objects.get(pk=id)
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -147,7 +151,7 @@ def product_update(request, id):
 # Eliminar un producto
 def product_delete(request, id):
     product = Product.objects.get(pk=id)
-    data = {"title1": "Eliminar",
+    data = {"title1": "IC - Eliminar Productos",
             "title2": "Eliminar Un Producto", "product": product}
     if request.method == "POST":
         product.delete()
@@ -156,7 +160,7 @@ def product_delete(request, id):
 
 # ----------------- Vistas de Marcas -----------------
 def brand_List(request):
-    data = {"title1": "Marcas", "title2": "Consulta De Marcas De Productos"}
+    data = {"title1": "IC - Marcas", "title2": "Consulta de Marcas"}
     brands = Brand.objects.all()
     data["brands"] = brands
     # Pasar los mensajes al contexto de la plantilla
@@ -165,7 +169,7 @@ def brand_List(request):
 
 # Crear una marca
 def brand_create(request):
-    data = {"title1": "Crear Marca", "title2": "Ingreso de Marca"}
+    data = {"title1": "IC - Crear Marcas", "title2": "Ingreso de Marca"}
     if request.method == "POST":
         form = BrandForm(request.POST)
         if form.is_valid():
@@ -183,7 +187,7 @@ def brand_create(request):
 
 # Editar una marca
 def brand_update(request, id):
-    data = {"title1": "Marcas", "title2": "Edicion De Marcas"}
+    data = {"title1": "IC - Editar Marcas", "title2": "Edicion De Marcas"}
     brand = Brand.objects.get(pk=id)
     if request.method == "POST":
         form = BrandForm(request.POST, request.FILES, instance=brand)
@@ -201,7 +205,7 @@ def brand_update(request, id):
 # Eliminar una marca
 def brand_delete(request, id):
     brand = Brand.objects.get(pk=id)
-    data = {"title1": "Eliminar", "title2": "Eliminar Una Marca", "brand": brand}
+    data = {"title1": "IC - Eliminar Marcas", "title2": "Eliminar Una Marca", "brand": brand}
     if request.method == "POST":
         brand.delete()
         return redirect("core:brand_list")
@@ -209,7 +213,7 @@ def brand_delete(request, id):
 
 # ----------------- Vistas de Proveedores -----------------
 def supplier_List(request):
-    data = {"title1": "Proveedores", "title2": "Consulta De Proovedores De Productos"}
+    data = {"title1": "IC - Proveedores", "title2": "Consulta de Proovedores"}
     suppliers = Supplier.objects.all()
     data["suppliers"] = suppliers
     # Pasar los mensajes al contexto de la plantilla
@@ -218,7 +222,7 @@ def supplier_List(request):
 
 # Crear un proveedor
 def supplier_create(request):
-    data = {"title1": "Proveedores", "title2": "Ingreso De Proveedores"}
+    data = {"title1": "IC - Crear Proveedores", "title2": "Ingreso De Proveedores"}
     if request.method == "POST":
         form = SupplierForm(request.POST)
         if form.is_valid():
@@ -235,7 +239,7 @@ def supplier_create(request):
 
 # Editar un proveedor
 def supplier_update(request, id):
-    data = {"title1": "Proveedores", "title2": "Edicion De Proveedores"}
+    data = {"title1": "IC - Editar Proveedores", "title2": "Edicion De Proveedores"}
     supplier = Supplier.objects.get(pk=id)
     if request.method == "POST":
         form = SupplierForm(request.POST, request.FILES, instance=supplier)
@@ -251,8 +255,8 @@ def supplier_update(request, id):
 # Eliminar un proveedor
 def supplier_delete(request, id):
     supplier = Supplier.objects.get(pk=id)
-    data = {"title1": "Eliminar",
-            "title2": "Eliminar al Proveedor", "supplier": supplier}
+    data = {"title1": "IC - Eliminar Proveedores",
+            "title2": "Eliminar Proveedor", "supplier": supplier}
     if request.method == "POST":
         supplier.delete()
         return redirect("core:supplier_list")
@@ -260,15 +264,15 @@ def supplier_delete(request, id):
 
 # ----------------- Vistas de Categorias -----------------
 def category_List(request):
-    data = {"title1": "Categorías",
-            "title2": "Consulta De categorías De Productos"}
+    data = {"title1": "IC - Categorías",
+            "title2": "Consulta de Categorías"}
     categories = Category.objects.all()
     data["categories"] = categories
     return render(request, "core/categories/list.html", data)
 
 # Crear una categoria
 def category_create(request):
-    data = {"title1": "Categorías", "title2": "Ingreso De Categorías"}
+    data = {"title1": "IC - Crear Categorías", "title2": "Ingreso De Categorías"}
     if request.method == "POST":
         form = CategoryForm(request.POST)
         if form.is_valid():
@@ -286,7 +290,7 @@ def category_create(request):
 
 # Editar una categoria
 def category_update(request, id):
-    data = {"title1": "Categorias", "title2": "Edicion De Categorias"}
+    data = {"title1": "IC - Actualizar Categorías", "title2": "Edicion De Categorias"}
     category = Category.objects.get(pk=id)
     if request.method == "POST":
         form = CategoryForm(request.POST, request.FILES, instance=category)
@@ -303,7 +307,7 @@ def category_update(request, id):
 # Eliminar una categoria
 def category_delete(request, id):
     category = Category.objects.get(pk=id)
-    data = {"title1": "Eliminar",
+    data = {"title1": "IC - Eliminar Categorías",
             "title2": "Eliminar Una Categoria", "category": category}
     if request.method == "POST":
         category.delete()

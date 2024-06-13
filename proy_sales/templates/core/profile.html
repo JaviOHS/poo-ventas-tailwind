@@ -1,28 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
-<title>{% block title %} SGV - Home {% endblock title %}</title>
 {% block content %}
-
-<section class="dark:bg-slate-900 mt-4">
+<title>{% block title %} {{ title1 }} {% endblock title %}</title>
+<section class="dark:bg-principal mt-4">
     <div class="text-center" data-aos="fade" data-aos-delay="200">
-        <div class="">
-            <!-- Mensaje de bienvenida -->
-            <div class="">
-                <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
-                    <br><br>Perfil de Usuario
-                </h1>
-                <p class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Consulta la información de tu perfil.</p>
+        <div class="sm:pt-28 lg:pt-24">
+            <div class="flex flex-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                    {{ title1 }}
+                </span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-4 sm:mx-0" data-aos="fade">
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
+                {{ title2 }}
+            </h1>
+            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+                Visualice su información.
+            </p>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="space-y-6 py-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-4 lg:mx-20" data-aos="fade">
                 <!-- Columna de la izquierda -->
-                <div class="bg-white dark:bg-black rounded-3xl flex flex-col justify-center items-center p-4 sm:p-8" data-aos="fade-right" data-aos-delay="200">
-                    <div class="w-[45%] text-center">
-                        <h2 class="dark:text-white text-2xl text-center mt-6 font-black uppercase">Foto de Perfil</h2><br>
-                        {% if user.get_profile_picture_url %}
-                        <img src="{{ user.get_profile_picture_url }}" class="mx-auto d-block rounded-lg" alt="Foto de perfil">
-                        {% else %}
-                        <img src="{% static 'img/default_person.png' %}" class="mx-auto d-block rounded-lg" alt="Foto de perfil por defecto">
-                        {% endif %}
+                <div class="bg-white dark:bg-secundario rounded-3xl flex flex-col justify-center items-center p-8"
+                    data-aos="fade-right" data-aos-delay="200">
+                    <div class="w-[60%] text-center">
+                        <h2 class="dark:text-blue-300 text-2xl text-center mt-6 font-Pacifico">Imagen de Perfil
+                        </h2><br>
+                        <div id="imagenPreview">
+                            {% if user.get_profile_picture_url %}
+                            <img src="{{ user.get_profile_picture_url }}" class="mx-auto d-block rounded-lg" alt="Foto de perfil">
+                            {% else %}
+                            <img src="{% static 'img/default_person.png' %}" class="mx-auto d-block rounded-lg" alt="Foto de perfil por defecto">
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="text-center w-auto m-4">
                         <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center justify-center" href="{% url 'update_profile' %}">
@@ -31,52 +40,47 @@
                     </div>
                 </div>
                 <!-- Columna de la derecha -->
-                <div class="p-4 rounded-3xl dark:bg-black bg-white flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
-                    <form id="register-form" method="POST" enctype="multipart/form-data" onsubmit="validarRegistro(event)">
-                        {% csrf_token %}
-                        {{error}}
-                        <!-- Datos de Usuario -->
-                        <div class="grid grid-cols-1 gap-4">
-                            <div>
-                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Usuario:</span><br> @{{ user.username }}
-                                    {% if user.is_superuser %}
-                                    <span class="font-bold text-2xl uppercase text-green-500"> | Administrador</span>
-                                    {% endif %}
-                                </p>
-                            </div>
-                            <div>
-                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Nombres:</span><br> {{ user.first_name }} {{user.last_name }}</p>
-                            </div>
-                            <div>
-                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Cédula:</span><br> {{ user.dni }}</p>
-                            </div>
-                            <div>
-                                {% if user.celular %}
-                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Celular:</span><br> {{ user.celular }}</p>
-                                {% else %}
-                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Celular:</span><br> No Registrado</p>
+                <div class="p-4 rounded-3xl dark:bg-secundario bg-white flex flex-col justify-center items-center"
+                    data-aos="fade-right" data-aos-delay="200">
+                    <!-- Datos de Usuario -->
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <p class="dark:text-gray-400"><span class="dark:text-blue-300 font-black uppercase text-2xl">Usuario:</span><br>{{ user.username }}
+                                {% if user.is_superuser %}
+                                <span class="dark:text-green-300 font-black font-Tiny5 uppercase text-2xl text-green-500"> | Administrador</span>
                                 {% endif %}
-                            </div>
-                            <div>
-                                {% if user.correo %}
-                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Correo:</span><br> <a href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
-                                {% else %}
-                                <p class="dark:text-gray-200"><span class="font-bold text-2xl uppercase">Correo:</span><br> No Registrado</p>
-                                {% endif %}
-                            </div>
+                            </p>
                         </div>
-                    </form>
-                    <div class="text-center mt-10 w-10">
-                        <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center" href="{% url 'home' %}">
-                            <i class="fa-solid fa-house"></i>
-                        </a>
-                    </div>
+                        <div>
+                            <p class="dark:text-gray-400"><span class="dark:text-blue-300 font-black uppercase text-2xl">Nombres:</span><br> {{ user.first_name }} {{user.last_name }}</p>
+                        </div>
+                        <div>
+                            <p class="dark:text-gray-400"><span class="dark:text-blue-300 font-black uppercase text-2xl">Cédula:</span><br> {{ user.dni }}</p>
+                        </div>
+                        <div>
+                            {% if user.celular %}
+                            <p class="dark:text-gray-400"><span class="dark:text-blue-300 font-black uppercase text-2xl">Celular:</span><br> {{ user.celular }}</p>
+                            {% else %}
+                            <p class="dark:text-gray-400"><span class="dark:text-blue-300 font-black uppercase text-2xl">Celular:</span><br> No Registrado</p>
+                            {% endif %}
+                        </div>
+                        <div>
+                            {% if user.correo %}
+                            <p class="dark:text-gray-400"><span class="dark:text-blue-300 font-black uppercase text-2xl">Correo:</span><br> <a href="mailto:{{ user.correo }}">{{ user.correo }}</a></p>
+                            {% else %}
+                            <p class="dark:text-gray-400"><span class="dark:text-blue-300 font-black uppercase text-2xl">Correo:</span><br> No Registrado</p>
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="text-center mt-10 w-10">
+                            <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center" href="{% url 'home' %}">
+                                <i class="fa-solid fa-house"></i>
+                            </a>
+                        </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
+        </form>
+    </div>
 </section>
-
 
 {% endblock content %}

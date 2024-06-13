@@ -1,41 +1,109 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<title>{% block title %} SGV - Crear Marca {% endblock title %}</title>
-
-<section class="dark:bg-slate-900 mt-10 flex justify-center items-center px-4 lg:px-0">
-    <div class="text-center w-full lg:w-8/12" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex justify-center">
-            <div class="w-full">
-                <div class="mb-4"><br>
-                    <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
-                        {{ title2 }}
-                    </h1>
-                    <p class="mt-2">Complete el formulario para registrar una nueva marca en el sistema.</p>
+<title>{% block title %} {{ title1 }} {% endblock title %}</title>
+<section class="dark:bg-principal mt-4">
+    <div class="text-center" data-aos="fade" data-aos-delay="200">
+        <div class="sm:pt-28 lg:pt-24">
+            <div class="flex flex-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                    {{ title1 }}
+                </span>
+            </div>
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
+                {{ title2 }}
+            </h1>
+            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+                Complete el formulario para guardar una nueva marca.
+            </p>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="space-y-6 py-4 mx-48">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-4 lg:mx-20 p-4" data-aos="fade">
+                <!-- Columna de la izquierda -->
+                <div class="bg-white dark:bg-secundario rounded-3xl justify-center items-center p-8"
+                    data-aos="fade-right" data-aos-delay="200">
+                    <div class="lg:flex lg:col-span-4 justify-center items-center lg:order-2"
+                        data-aos="fade-right">
+                        <div class="bg-white dark:bg-secundario rounded-3xl justify-center items-center p-8 lg:w-full lg:max-w-2xl">
+                            <div id="carousel" class="relative">
+                                <div id="carousel-inner" class="w-full flex">
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Nike</title><path d="M24 7.8L6.442 15.276c-1.456.616-2.679.925-3.668.925-1.12 0-1.933-.392-2.437-1.177-.317-.504-.41-1.143-.28-1.918.13-.775.476-1.6 1.036-2.478.467-.71 1.232-1.643 2.297-2.8a6.122 6.122 0 00-.784 1.848c-.28 1.195-.028 2.072.756 2.632.373.261.886.392 1.54.392.522 0 1.11-.084 1.764-.252L24 7.8z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Adidas</title><path d="m24 19.535-8.697-15.07-4.659 2.687 7.145 12.383Zm-8.287 0L9.969 9.59 5.31 12.277l4.192 7.258ZM4.658 14.723l2.776 4.812H1.223L0 17.41Z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Puma</title><path d="M23.845 3.008c-.417-.533-1.146-.106-1.467.08-2.284 1.346-2.621 3.716-3.417 5.077-.626 1.09-1.652 1.89-2.58 1.952-.686.049-1.43-.084-2.168-.405-1.807-.781-2.78-1.792-3.017-1.97-.487-.37-4.23-4.015-7.28-4.164 0 0-.372-.75-.465-.763-.222-.025-.45.451-.616.501-.15.053-.413-.512-.565-.487-.153.02-.302.586-.6.877-.22.213-.486.2-.637.463-.052.096-.034.265-.093.42-.127.32-.551.354-.555.697 0 .381.357.454.669.72.248.212.265.362.554.461.258.088.632-.187.964-.088.277.081.543.14.602.423.054.256 0 .658-.34.613-.112-.015-.598-.174-1.198-.11-.725.077-1.553.309-1.634 1.11-.041.447.514.97 1.055.866.371-.071.196-.506.399-.716.267-.27 1.772.944 3.172.944.593 0 1.031-.15 1.467-.605.04-.029.093-.102.155-.11a.632.632 0 01.195.088c1.131.897 1.984 2.7 6.13 2.721.582.007 1.25.279 1.796.777.48.433.764 1.125 1.037 1.825.418 1.053 1.161 2.069 2.292 3.203.06.068.99.78 1.06.833.012.01.084.167.053.255-.02.69-.123 2.67 1.365 2.753.366.02.275-.231.275-.41-.005-.341-.065-.685.113-1.04.253-.478-.526-.709-.509-1.756.019-.784-.645-.651-.984-1.25-.19-.343-.368-.532-.35-.946.073-2.38-.517-3.948-.805-4.327-.227-.294-.423-.403-.207-.54 1.24-.815 1.525-1.574 1.525-1.574.66-1.541 1.256-2.945 2.075-3.57.166-.12.589-.44.852-.56.763-.362 1.173-.578 1.388-.788.356-.337.635-1.053.294-1.48z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Reebok</title><path d="M14.991 11.48C17.744 10.38 19.458 9.748 24 8.64c-2.467.163-7.922.537-11.682 1.271l2.673 1.57m-8.56 3.651h3.6c.713-1.08 1.422-1.606 2.248-2.191a71.382 71.382 0 00-1.892-.701c-2.297 1.014-3.575 2.375-3.953 2.892m.709-3.928c-3.21 1.147-4.994 2.393-6.199 3.928h3.975c.387-.539 1.862-2.093 4.633-3.174a57.092 57.092 0 00-2.41-.754M8.79 8.788H0c8.862 1.6 13.133 3.66 20 6.572-.587-.439-10.051-6.013-11.209-6.572"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Under Armour</title><path d="M15.954 12c-.089.066-.195.142-.324.233-.826.585-2.023.985-3.58.985h-.104c-1.556 0-2.755-.4-3.58-.985A36.43 36.43 0 018.042 12c.09-.067.196-.143.324-.234.825-.584 2.024-.985 3.58-.985h.104c1.557 0 2.756.401 3.58.985.129.09.235.167.325.234M24 7.181s-.709-.541-2.95-1.365c-1.968-.721-3.452-.883-3.452-.883l.006 4.243c0 .598-.162 1.143-.618 1.765-1.672-.61-3.254-.985-4.981-.985-1.728 0-3.308.375-4.98.985-.457-.619-.62-1.168-.62-1.765l.007-4.243s-1.494.16-3.463.883C.709 6.642 0 7.181 0 7.181c.093 1.926 1.78 3.638 4.435 4.82C1.777 13.18.09 14.887 0 16.818c0 0 .709.54 2.949 1.365 1.968.721 3.453.883 3.453.883l-.007-4.244c0-.597.164-1.143.619-1.764 1.672.61 3.252.983 4.98.983 1.727 0 3.309-.374 4.98-.983.457.62.62 1.167.62 1.764l-.006 4.244s1.484-.16 3.452-.883c2.241-.826 2.95-1.365 2.95-1.365-.093-1.927-1.78-3.64-4.435-4.819 2.657-1.182 4.343-2.888 4.435-4.82"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>New Balance</title><path d="M12.169 10.306l1.111-1.937 3.774-.242.132-.236-3.488-.242.82-1.414h6.47c1.99 0 3.46.715 2.887 2.8-.17.638-.979 2.233-3.356 2.899.507.06 1.76.616 1.54 2.057-.384 2.558-3.69 3.774-5.533 3.774l-7.641.006-.38-1.48 4.005-.28.137-.237-4.346-.264-.467-1.755 6.178-.363.137-.231-11.096-.693.534-.925 11.948-.775.138-.231-3.504-.231m5 .385l1.1-.006c.738-.005 1.502-.34 1.783-1.018.259-.632-.088-1.171-.55-1.166h-1.067l-1.266 2.19zm-1.27 2.195l-1.326 2.305h1.265c.589 0 1.64-.292 1.964-1.128.302-.781-.253-1.177-.638-1.177h-1.266zM6.26 16.445l-.77 1.315L0 17.77l.534-.923 5.726-.402zm.385-10.216l4.417.006.336 1.248-5.276-.33.523-.924zm5 2.245l.484 1.832-7.542-.495.528-.92 6.53-.417zm-3.84 5.281l-.957 1.661-5.32-.302.534-.924 5.743-.435z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>KFC</title><path d="M21.893 8.23c-4.187.001-5.249 2.365-5.42 3.97-.194 1.802 1.053 3.57 4.127 3.57 1.294 0 2.14-.225 2.44-.32a.215.215 0 00.147-.166l.173-.91a.184.184 0 00-.236-.21c-.336.106-.93.252-1.685.252-1.469 0-2.53-.882-2.395-2.4.13-1.47 1.121-2.59 2.485-2.59.82 0 1.183.43 1.156 1.003v.033a.184.184 0 00.182.193h.557c.086 0 .16-.06.18-.143l.39-1.76a.215.215 0 00-.15-.255 7.21 7.21 0 00-1.95-.266zm-20.157.116a.2.2 0 00-.195.156l-.108.484a.198.198 0 00.13.23l.033.01c.208.082.45.266.348.748l-.792 3.62c-.207.987-.542 1.19-.86 1.226h-.01a.2.2 0 00-.176.157l-.102.464a.192.192 0 00.187.233h3.487c.085 0 .159-.06.177-.142l.12-.543a.184.184 0 00-.112-.21l-.022-.01c-.177-.07-.418-.224-.356-.51l.405-1.85c1.389 2.535 1.848 3.266 3.514 3.265H8.91a.181.181 0 00.177-.142l.105-.47a.195.195 0 00-.186-.238c-.376-.006-.56-.093-.935-.575l-1.932-2.614 2.51-2.088c.337-.264.748-.338.976-.368l.022-.002a.185.185 0 00.163-.144l.103-.464a.184.184 0 00-.18-.223h-3.02a.199.199 0 00-.193.155l-.102.46a.2.2 0 00.138.235c.178.069.217.24.063.366L4.046 11.7l.44-2.014a.683.683 0 01.477-.487l.025-.008a.199.199 0 00.135-.147l.106-.477a.181.181 0 00-.177-.22zm8.88 0a.2.2 0 00-.194.156l-.107.483a.19.19 0 00.122.221l.02.008c.204.077.487.274.364.758l-1.21 5.48a.182.182 0 00.178.222h2.777c.086 0 .16-.06.179-.143l.12-.547a.174.174 0 00-.098-.196 1.558 1.558 0 01-.027-.013c-.176-.086-.438-.285-.35-.67.009-.05.27-1.24.27-1.24h2.362c.086 0 .16-.06.18-.143l.221-1a.183.183 0 00-.18-.224h-2.28l.427-1.94 1.592-.003c.515 0 .672.27.642.728l-.002.024a.184.184 0 00.183.205h.587c.086 0 .16-.06.178-.144l.4-1.8a.184.184 0 00-.18-.222z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Zara</title><path d="M8.562 7l.002.006 2.794 7.621v-7.23h-1.15v-.07h3.96c1.903 0 3.231.976 3.231 2.375 0 1.02-.91 1.868-2.263 2.109l-.249.031.25.026c.821.094 1.473.346 1.935.75l.003.003L19.141 7h.07l.002.006 3.556 9.698H24v.07h-3.918v-.07h1.154l-1.17-3.189h-2.373v.002l.013.037c.094.281.142.576.139.873v1.196c0 .615.271 1.238.79 1.238.304 0 .547-.107.837-.372l.041.038c-.314.332-.695.473-1.266.473-.43 0-.8-.104-1.096-.308l-.056-.04c-.39-.296-.644-.778-.753-1.435l-.018-.106-.018-.16-.002-.028-.654 1.78h.928v.07h-1.942v-.07h.938l.718-1.954v-.005a6.35 6.35 0 01-.013-.346v-.854c0-1.049-.78-1.65-2.14-1.65h-1.337v4.81h1.158v.07H9.433v-.07h1.154l-1.17-3.189H6.172l-1.158 3.154.048-.008c1.521-.262 2.22-1.423 2.23-2.645h.07v2.758H0l5.465-9.377H3.268c-1.822 0-2.646 1.407-2.659 2.81H.54v-2.88h6.634l-.04.07-5.425 9.307h2.854c.071 0 .141-.003.212-.009l.072-.006.09-.01L8.491 7h.07zm9.883 2.095l-1.313 3.576.007.007.067.066c.193.197.347.43.452.684l.007.017h2.375l-1.595-4.35zm-10.648 0l-1.599 4.35h3.194l-1.595-4.35zm6.026-1.698h-1.02v4.427h1.336c1.353 0 1.767-.493 1.767-2.107 0-1.517-.72-2.32-2.083-2.32z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Paramount+</title><path d="M16.347 21.373c.057-.084.151-.314-.025-.74l-.53-1.428c-.073-.182.084-.293.19-.173 0 0 1.004 1.157 1.264 1.64l.495.822c.425.028 1.6.06 2.732.06a3.26 3.26 0 0 1-.316-.364c-1.93-2.392-3.154-3.724-3.166-3.737-.391-.426-.572-.508-.87-.643a4.82 4.82 0 0 1-.138-.065v.364c0 .047-.057.073-.086.022l-2.846-5.001a1.598 1.598 0 0 0-.508-.587l-.277-.194-1.354 3.123c.212 0 .354.216.27.409l-1.25 2.893h1.147c.443 0 .883.087 1.294.255l.302.125s-.913 1.878-.913 2.867c0 .181.028.362.075.534h2.104l-.096-.595s1.266.294 2.502.413M12 2.437c-6.627 0-12 5.373-12 12 0 2.669.873 5.133 2.346 7.126.503-.218.783-.542.983-.791l2.234-2.858a.467.467 0 0 1 .179-.138l.336-.146 3.674-4.659.534-.417 1.094-1.524a.482.482 0 0 1 .101-.102l.478-.347a.34.34 0 0 1 .398-.004l.578.407c.308.216.557.504.726.84l2.322 4.077c.051.09.09.129.182.174.454.227.732.268 1.33.913.277.304 1.495 1.666 3.203 3.784.236.318.538.588.963.783A11.948 11.948 0 0 0 24 14.437c0-6.627-5.373-12-12-12M3.236 15.1l-.778-.253-.48.662v-.818l-.778-.253.778-.253v-.818l.48.662.778-.253-.48.662Zm-.185 2.676-.252.778-.253-.778h-.818l.661-.481-.253-.777.663.48.66-.48-.252.777.662.481Zm.156-6.195.253.778-.661-.48-.663.48.253-.778-.66-.48h.817l.253-.778.252.777h.818Zm1.314-1.76L4.04 9.16l-.778.253.48-.661-.48-.663.778.254.48-.662v.818l.778.253-.777.252Zm2.045-2.862-.253.777-.252-.777h-.818l.662-.48-.253-.778.661.48.661-.48-.252.777.662.48Zm2.577-1.313-.48.661V5.49l-.779-.254.778-.253v-.817l.48.66.78-.253-.481.663.48.66zm3.265-.75.253.778-.661-.48-.662.48.252-.777-.66-.481h.818L12 3.637l.252.778h.818zm2.93.595v.816l-.481-.661-.777.252.48-.662-.48-.662.777.253.48-.66v.817l.779.252zm5.426 8.285.778.253.48-.662v.818l.778.253-.778.253v.818l-.48-.662-.778.253.48-.662zm-3.077-6.04-.253-.777h-.818l.662-.48-.253-.778.662.48.662-.48-.254.778.662.48h-.818zm1.792 2.086v-.818l-.777-.252.777-.253V7.68l.481.662.777-.254-.48.663.48.66-.777-.252zm1.469 1.278.253-.777.254.777h.816l-.66.481.252.778-.662-.48-.661.48.253-.778-.662-.48zm.506 6.676-.253.778-.253-.778h-.817l.662-.481-.253-.777.66.48.663-.48-.253.777.661.481zm-12.08-.615.76-1.588c.024-.048-.032-.108-.067-.067l-.664.668c-.313.329-.847 1.25-.95 1.421l-.808 1.335a.109.109 0 0 1 .1.162l-.739 1.238c-.18.309.145.523.189.452 1.157-1.868 1.832-1.719 1.832-1.719l.387-.897c.022-.047-.001-.1-.05-.12-.12-.05-.316-.27.01-.885z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>Netflix</title><path d="M5.398 0v.006c3.028 8.556 5.37 15.175 8.348 23.596 2.344.058 4.85.398 4.854.398-2.8-7.924-5.923-16.747-8.487-24zm8.489 0v9.63L18.6 22.951c-.043-7.86-.004-15.913.002-22.95zM5.398 1.05V24c1.873-.225 2.81-.312 4.715-.398v-9.22z"/></svg>
+                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class=" dark:text-blue-300 fill-current"><title>HBO</title><path d="M7.042 16.896H4.414v-3.754H2.708v3.754H.01L0 7.22h2.708v3.6h1.706v-3.6h2.628zm12.043.046C21.795 16.94 24 14.689 24 11.978a4.89 4.89 0 0 0-4.915-4.92c-2.707-.002-4.09 1.991-4.432 2.795.003-1.207-1.187-2.632-2.58-2.634H7.59v9.674l4.181.001c1.686 0 2.886-1.46 2.888-2.713.385.788 1.72 2.762 4.427 2.76zm-7.665-3.936c.387 0 .692.382.692.817 0 .435-.305.817-.692.817h-1.33v-1.634zm.005-3.633c.387 0 .692.382.692.817 0 .436-.305.818-.692.818h-1.33V9.373zm1.77 2.607c.305-.039.813-.387.992-.61-.063.276-.068 1.074.006 1.35-.204-.314-.688-.701-.998-.74zm3.43 0a2.462 2.462 0 1 1 4.924 0 2.462 2.462 0 0 1-4.925 0zm2.462 1.936a1.936 1.936 0 1 0 0-3.872 1.936 1.936 0 0 0 0 3.872Z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Columna de la derecha -->
+                <div class="p-4 rounded-3xl dark:bg-secundario bg-white flex flex-col justify-center items-center"
+                    data-aos="fade-right" data-aos-delay="200">
+                    {% csrf_token %}
+                    <div class="py-6 rounded-3xl dark:bg-secundario bg-white flex flex-col justify-center items-center"
+                        data-aos="fade-right" data-aos-delay="200">
+                        {% csrf_token %}
+                        <div class="mb-8 lg:w-2/3 w-full">
+                            <!-- Ancho completo en pantallas pequeñas y dos tercios en pantallas grandes -->
+                            <label for="{{ form.description.id_for_label }}"
+                                class="dark:text-blue-300 font-black uppercase text-lg block text-center">{{ form.description.label }}</label>
+                            {{ form.description }}
+                        </div>
+                        <div class="mb-8 lg:w-2/3 flex flex-col justify-center items-center">
+                            <label for="{{ form.state.id_for_label }}"
+                                class="dark:text-blue-300 font-black uppercase text-lg block text-center">{{ form.state.label }}</label>
+                            {{ form.state }}
+                        </div>
+                        <div class="flex flex-col md:flex-row justify-center">
+                            <button type="submit"
+                                class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center">
+                                <i class="fa-solid fa-save mr-2"></i>Guardar
+                            </button>
+                            <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center"
+                                href="{% url 'core:category_list' %}">
+                                <i class="fa-solid fa-xmark mr-2"></i>Cancelar
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="mx-4 lg:mx-24 dark:bg-black bg-white p-8 rounded-3xl">
-            <form method="post" enctype="multipart/form-data" class="space-y-6">
-                {% csrf_token %}
-                {% for field in form %}
-                <div class="flex flex-col justify-center items-center">
-                    <label class="dark:text-white mt-6 font-black uppercase text-lg" for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                </div>
-                {% endfor %}
-                <div class="flex justify-center">
-                    <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
-                        <i class="fa-solid fa-save mr-2"></i>Guardar
-                    </button>
-                    <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" href="{% url 'core:brand_list' %}">
-                        <i class="fa-solid fa-xmark mr-2"></i>Cancelar
-                    </a>
-                </div>
-            </form>
-        </div>
+        </form>
+        <script>
+            var carouselInner = document.getElementById('carousel-inner');
+            var currentSlide = 0;
+            var totalSlides = carouselInner.children.length; // Número total de SVGs
+        
+            function showSlide(index) {
+                var svgs = carouselInner.children;
+                
+                // Ocultar todos los SVGs
+                for (var i = 0; i < svgs.length; i++) {
+                    svgs[i].classList.add('hidden');
+                }
+        
+                // Mostrar el SVG actual
+                svgs[index].classList.remove('hidden');
+            }
+        
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+        
+            window.onload = function () {
+                showSlide(currentSlide);
+                setInterval(nextSlide, 3000);
+            };
+        </script>
+        
     </div>
 </section>
-
 
 {% endblock content %}

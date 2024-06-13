@@ -7,7 +7,7 @@ def home(request):
 
 # ------ Tienda ------
 def shop(request):
-    data = {"title1": "Tienda","title2": "Productos disponibles"}
+    data = {"title1": "I.C. - Tienda","title2": "Productos disponibles"}
     products = Product.objects.all() # select * from Product
     data["products"]=products
     return render(request,"purchase/shop.html", data)

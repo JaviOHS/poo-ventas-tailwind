@@ -1,79 +1,94 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<title>{% block title %} SGV - Crear Proveedores {% endblock title %}</title>
-
-<section class="dark:bg-slate-900 mt-4">
+<title>{% block title %} {{ title1 }} {% endblock title %}</title>
+<section class="dark:bg-principal mt-4">
     <div class="text-center" data-aos="fade" data-aos-delay="200">
-        <div class="">
-            <!-- Mensaje de bienvenida -->
-            <div class="">
-                <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase">
-                    <br><br>{{ title2 }}
-                </h1>
-                <p class="mb-4 text-center" data-aos="fade-up" data-aos-delay="300">Complete el formulario para registrar un nuevo proveedor en el sistema.</p>
+        <div class="sm:pt-28 lg:pt-24">
+            <div class="flex flex-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                    {{ title1 }}
+                </span>
             </div>
-            <form method="post" enctype="multipart/form-data" class="space-y-6 w-full">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-4 mx-4 sm:mx-0" data-aos="fade">
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
+                {{ title2 }}
+            </h1>
+            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+                Complete el formulario para guardar un nuevo proveedor.
+            </p>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="space-y-6 py-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-4 lg:mx-20" data-aos="fade">
                 <!-- Columna de la izquierda -->
-                <div class="bg-white dark:bg-black rounded-3xl flex flex-col justify-center items-center p-4 sm:p-8" data-aos="fade-right" data-aos-delay="200">
+                <div class="bg-white dark:bg-secundario rounded-3xl flex flex-col justify-center items-center p-8"
+                    data-aos="fade-right" data-aos-delay="200">
                     <div class="w-[60%] text-center">
-                        <h2 class="dark:text-white text-2xl text-center mt-6 font-black uppercase">Imagen del Proveedor</h2><br>
+                        <h2 class="dark:text-blue-300 text-2xl text-center mt-6 font-Pacifico">Imagen de Proveedor
+                        </h2><br>
                         <div id="imagenPreview">
                             {% if form.image.value %}
-                            <img id="imagenSeleccionada" src="{{ form.image.value.url }}" class="mx-auto d-block rounded-lg" alt="Imagen del proveedor">
+                            <img id="imagenSeleccionada" src="{{ form.image.value.url }}"
+                                class="mx-auto d-block rounded-lg" alt="Imagen de Proveedor">
                             {% else %}
-                            <img id="imagenSeleccionada" src="{% static 'img/default_product.png' %}" class="mx-auto d-block rounded-lg" alt="Imagen del proveedor por defecto">
+                            <img id="imagenSeleccionada" src="{% static 'img/default_person.png' %}"
+                                class="mx-auto d-block rounded-lg" alt="Imagen de Proveedor por defecto">
                             {% endif %}
                         </div>
                     </div>
                     <div class="text-center w-auto m-4">
-                        <label for="{{ form.image.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.image.label }}</label>
+                        <label for="{{ form.image.id_for_label }}"
+                            class="dark:text-blue-300 font-black uppercase text-lg">{{ form.image.label }}</label>
                         {{ form.image }}
                     </div>
                 </div>
-
                 <!-- Columna de la derecha -->
-                <div class="p-4 rounded-3xl dark:bg-black bg-white flex flex-col justify-center items-center" data-aos="fade-right" data-aos-delay="200">
-                        {% csrf_token %}
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-4 sm:mx-0">
-                            <div class="mb-4">
-                                <label for="{{ form.name.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.name.label }}</label>
+                <div class="p-4 rounded-3xl dark:bg-secundario bg-white flex flex-col justify-center items-center"
+                    data-aos="fade-right" data-aos-delay="200">
+                    {% csrf_token %}
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <div class="mb-8">
+                                <label for="{{ form.name.id_for_label }}"
+                                    class="dark:text-blue-300 font-black uppercase text-lg">{{ form.name.label }}</label>
                                 {{ form.name }}
                             </div>
-                            <div class="mb-4">
-                                <label for="{{ form.address.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.address.label }}</label>
+                            <div class="mb-8">
+                                <label for="{{ form.address.id_for_label }}"
+                                    class="dark:text-blue-300 font-black uppercase text-lg">{{ form.address.label }}</label>
                                 {{ form.address }}
                             </div>
-                            <div class="mb-4">
-                                <label for="{{ form.ruc.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.ruc.label }}</label>
+                        </div>
+                        <div>
+                            <div class="mb-8">
+                                <label for="{{ form.ruc.id_for_label }}"
+                                    class="dark:text-blue-300 font-black uppercase text-lg">{{ form.ruc.label }}</label>
                                 {{ form.ruc }}
                             </div>
-                            <div class="mb-4">
-                                <label for="{{ form.phone.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.phone.label }}</label>
+                            <div class="mb-8">
+                                <label for="{{ form.phone.id_for_label }}"
+                                    class="dark:text-blue-300 font-black uppercase text-lg">{{ form.phone.label }}</label>
                                 {{ form.phone }}
                             </div>
                         </div>
-                        <div class="flex justify-center my-4">
-                            <div class="text-center">
-                                <label for="{{ form.state.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.state.label }}</label>
-                                {{ form.state }}
-                            </div>
-                        </div>
-                        <div class="flex justify-center">
-                            <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-2 flex items-center">
-                                <i class="fa-solid fa-save mr-2"></i>Guardar
-                            </button>
-                            <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" href="{% url 'core:supplier_list' %}">
-                                <i class="fa-solid fa-xmark mr-2"></i>Cancelar
-                            </a>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="mb-8 flex flex-col justify-center items-center">
+                        <label for="{{ form.state.id_for_label }}"
+                            class="dark:text-blue-300 font-black uppercase text-lg">{{ form.state.label }}</label>
+                        {{ form.state }}
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-center">
+                        <button type="submit"
+                            class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center">
+                            <i class="fa-solid fa-save mr-2"></i>Guardar
+                        </button>
+                        <a class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center"
+                            href="{% url 'core:supplier_list' %}">
+                            <i class="fa-solid fa-xmark mr-2"></i>Cancelar
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
+        </form>
     </div>
 </section>
 
@@ -90,11 +105,11 @@
             }
             reader.readAsDataURL(file);
         } else {
-            {% if form.image.value %}
+            '{% if form.image.value %}'
             imagenSeleccionada.src = "{{ form.image.value.url }}";
-            {% else %}
+            '{% else %}'
             imagenSeleccionada.src = "{% static 'img/default_product.png' %}";
-            {% endif %}
+            '{% endif %}'
         }
     });
 </script>

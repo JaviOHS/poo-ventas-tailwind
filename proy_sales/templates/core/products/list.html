@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<title>{% block title %} SGV - Productos {% endblock title %}</title>
-<section class="dark:bg-slate-900 mt-4">
+<title>{% block title %} {{ title1 }} {% endblock title %}</title>
+<section class="dark:bg-principal mt-4">
     <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-        <div class="">
-            <!-- Mensaje de bienvenida -->
-            <div class="">
-                <div class="">
-                    <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase"><br><br>
-                        {{ title2 }}
-                    </h1>
-                    <p>Administra tu inventario con facilidad y precisión gracias a nuestro sistema de consulta de productos.</p>
-                </div>
+        <div class="sm:pt-28 lg:pt-24">
+            <div class="flex flex-col items-center justify-center">
+                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                    {{ title1 }}
+                </span>
             </div>
+            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
+                {{ title2 }}
+            </h1>
+            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+                Gestione con facilidad cada uno de sus productos.
+            </p>
         </div>
-        <div class="m-4 lg:m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="200"> <!-- Aplicando las mismas clases de estilo para las cards -->
+        <div class="m-4 lg:m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
             {% for item in products %}
-            <div class="mb-4 flex justify-center custom-transform"> <!-- Aplicando las mismas clases de estilo para las columnas -->
-                <div class="dark:bg-black relative w-full max-w-xs overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"> <!-- Aplicando las mismas clases de estilo para las cards -->
-                    <div class="dark:bg-black text-center card card-custom"> <!-- Aplicando las mismas clases de estilo para las cards -->
-                        <h1 class="dark:text-white text-2xl text-center mt-6 font-black uppercase">
+            <div class="mb-4 flex justify-center custom-transform">
+                <div class="dark:bg-secundario relative w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-none"> 
+                    <div class="dark:bg-secundario text-center card card-custom"> 
+                        <h1 class="dark:text-blue-400 text-2xl text-center mt-6 font-black font-Tiny5">
                             {{ item.description }}
                         </h1>
-                        <div class="dark:bg-black card-body flex flex-col justify-center items-center">
-                            <img class="w-[60%] rounded-3xl" src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_product.png' %}{% endif %}" alt="Imagen del producto">
-                            <h3 class="font-bold">Creación: <span class="font-light">{{ item.created | date:"Y-m-d" }}</span></h3>
-                            <h3 class="font-bold">Stock: <span class="font-light">{{ item.stock }}</span></h3>
-                            <h3 class="font-bold">Marca: <span class="font-light">{{ item.brand }}</span></h3>
-                            <h3 class="font-bold">Categoría: <span class="font-light">{{ item.get_categories }}</span></h3>
-                            <h3 class="font-bold">Proveedor: <span class="font-light">{{ item.supplier }}</span></h3>
-                            <h3 class="font-bold">Línea: <span class="font-light">{{ item.get_line_display }}</span></h3>
-                            <h3 class="font-bold">Fecha de expiración: <span class="font-light"><br>{{ item.expiration_date | date:"Y-m-d" }}</span></h3>
-                            <h3 class="font-bold" >PRECIO: <span class="font-light"><br><span style="color:darkblue ; font-size:30px; font-weight: bold;">${{ item.price }}</span></span></h3>
+                        <div class="dark:bg-contenedores p-4 card-body flex flex-col justify-center items-center">
+                            <img class="w-[60%] rounded-3xl p-2" src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_product.png' %}{% endif %}" alt="Imagen del producto">
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Creación: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.created | date:"Y-m-d" }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Stock: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.stock }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Marca: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.brand }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Categoría: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.get_categories }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Proveedor: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.supplier }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Línea: <span class="font-light font-Quicksand dark:text-gray-400">{{ item.get_line_display }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico">Fecha de expiración: <span class="font-light font-Quicksand dark:text-gray-400"><br>{{ item.expiration_date | date:"Y-m-d" }}</span></h3>
+                            <h3 class=" dark:text-blue-300 font-Pacifico" >Precio: <span class="font-light font-Quicksand dark:text-gray-400"><br><span class="text-blue-700 dark:text-green-300 font-black text-2xl">${{ item.price }}</span></span></h3>
 
-                            <h3 class="font-bold">
+                            <h3 class="dark:text-blue-300 font-Pacifico">
                                 Estado: 
                                 {% if item.state %}
                                 <i class="fa-solid fa-check text-green-500"></i>
@@ -43,7 +45,7 @@
                                 {% endif %}
                             </h3>
                         </div> 
-                        <div class="dark:bg-gray-500 card-footer flex flex-col md:flex-row justify-center items-center">
+                        <div class="dark:bg-contenedores card-footer flex flex-col md:flex-row justify-center items-center">
                             <a href="{% url 'core:product_update' item.id %}" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center">
                                 <i class="fa-solid fa-gear mr-2"></i> Editar
                             </a>
@@ -56,7 +58,7 @@
             </div>
             {% endfor %}
         </div>
-        <div class="flex flex-col md:flex-row justify-center form-group text-center m-4">
+        <div class="flex flex-col md:flex-row justify-center form-group text-center p-4">
             <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center justify-center" href="{% url 'core:product_create' %}">
                 <i class="fa-solid fa-plus mr-2"></i> Nuevo producto
             </a>
@@ -65,7 +67,6 @@
             </a>
         </div>
     </div>
-    <br><br>
 </section>
 
 <script>

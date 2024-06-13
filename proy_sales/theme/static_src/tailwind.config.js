@@ -7,10 +7,22 @@ module.exports = {
     ],
     theme: {
         extend: {
+            animation: {
+                'spin-slow': 'spin 6s linear infinite',
+                'bounce-custom': 'bounce-custom 0.2s linear infinite alternate',
+            },
+            keyframes: {
+                'spin': {
+                    to: { transform: 'rotate(-1turn)' },
+                },
+                'bounce-custom': {
+                    to: { transform: 'translateY(20px)' },
+                },
+            },
             maxWidth: {
                 '3xl': '48rem',
                 '4xl': '56rem',
-        },
+            },
             colors: {
                 primary: {
                     "50": "#eff6ff",
@@ -26,8 +38,10 @@ module.exports = {
                     "950": "#172554"
                 },
                 principal: '#050812',
-                secundario: '#070B15'
-                
+                secundario: '#070B15',
+                contenedores: '#0A0F1A',
+                inputs: '#030306',
+
             },
             fontFamily: {
                 Quicksand: ['Quicksand', 'sans-serif'],
@@ -35,37 +49,37 @@ module.exports = {
                 Pacifico: ['Pacifico', 'cursive'],
                 Tiny5: ['Tiny5', 'cursive'],
                 body: [
-                    'Inter', 
-                    'ui-sans-serif', 
-                    'system-ui', 
-                    '-apple-system', 
-                    'system-ui', 
-                    'Segoe UI', 
-                    'Roboto', 
-                    'Helvetica Neue', 
-                    'Arial', 
-                    'Noto Sans', 
-                    'sans-serif', 
-                    'Apple Color Emoji', 
-                    'Segoe UI Emoji', 
-                    'Segoe UI Symbol', 
+                    'Inter',
+                    'ui-sans-serif',
+                    'system-ui',
+                    '-apple-system',
+                    'system-ui',
+                    'Segoe UI',
+                    'Roboto',
+                    'Helvetica Neue',
+                    'Arial',
+                    'Noto Sans',
+                    'sans-serif',
+                    'Apple Color Emoji',
+                    'Segoe UI Emoji',
+                    'Segoe UI Symbol',
                     'Noto Color Emoji',
                 ],
                 sans: [
-                    'Inter', 
-                    'ui-sans-serif', 
-                    'system-ui', 
-                    '-apple-system', 
-                    'system-ui', 
-                    'Segoe UI', 
-                    'Roboto', 
-                    'Helvetica Neue', 
-                    'Arial', 
-                    'Noto Sans', 
-                    'sans-serif', 
-                    'Apple Color Emoji', 
-                    'Segoe UI Emoji', 
-                    'Segoe UI Symbol', 
+                    'Inter',
+                    'ui-sans-serif',
+                    'system-ui',
+                    '-apple-system',
+                    'system-ui',
+                    'Segoe UI',
+                    'Roboto',
+                    'Helvetica Neue',
+                    'Arial',
+                    'Noto Sans',
+                    'sans-serif',
+                    'Apple Color Emoji',
+                    'Segoe UI Emoji',
+                    'Segoe UI Symbol',
                     'Noto Color Emoji'
                 ]
             },
@@ -229,6 +243,22 @@ module.exports = {
                 '.animate-slide-right': {
                     animation: 'slideRight 0.5s ease-in-out',
                 },
+
+                '.pedro-pedro': {
+                    display: 'block',
+                    width: '100%',
+                    animation: 'bounce 0.2 linear infinite alternate',
+                },
+
+                '.spinner': {
+                    width: '200px',
+                    height: '200px',
+                    background: 'rgb(59 130 246)',
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    animation: 'spin 6s linear infinite',
+                },
+
             });
         },
     ],
