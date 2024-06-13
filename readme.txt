@@ -1,2 +1,2 @@
 Para instalar las dependencias del proyecto:
-pip install -r requirements.txt
+pip install -r requeriments.txt
