@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<title>{% block title %} SGV - Iniciar sesión {% endblock title %}</title>
+<title>{% block title %} {{ title1 }} {% endblock title %}</title>
 <div class="dark:bg-black p-4 relative overflow-hidden">
     <div class="absolute inset-0 bg-center blur-[106px]" style="background-image: url('{% static 'img/.png' %}');"></div>
     <div class="relative">
+        <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse text-center justify-center " data-aos="fade-up">
+            <img src="{% static 'img/iguana_corporation.png' %}" class="w-12 h-12" alt="Flowbite Logo" />
+            <span class="self-center whitespace-nowrap dark:text-blue-300 font-extrabold">Iguanas Corporation</span>
+        </a>
         <section class="dark:bg-black p-4 my-4 mx-auto max-w-4xl rounded-3xl" data-aos="fade-up" data-aos-delay="200">
-            <h1 class="dark:text-white text-4xl text-center mt-6 font-black uppercase my-2">
+            <h1 class="text-4xl text-center mt-6 font-Pacifico dark:text-blue-300 my-2">
                 {{ title2 }}
             </h1>
+            <p class="text-center my-6 font-Tiny5 text-2xl dark:text-gray-400 uppercase">¡Completa el formulario para ingresar a nuestro sistema!</p>
             <div class="text-center" data-aos="fade-right" data-aos-delay="200">
                 <img src="{% static 'img/register/signin.jpg' %}" class="block w-20 md:w-32 lg:w-48 xl:w-64 mx-auto rounded-full" alt="Signin">
             </div>

@@ -7,6 +7,7 @@ from django .contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from .forms import CustomUserCreationForm, CustomUserUpdateForm
 from django.contrib import messages
+from django.db.models import Q
 
 # ----------------- Perfil -----------------
 def profile(request):
@@ -110,7 +111,13 @@ def home(request):
 # ----------------- Vistas de Productos -----------------
 def product_List(request):
     data = {"title1": "IC - Productos", "title2": "Consulta de Productos"}
-    products = Product.objects.all()  # select * from Product
+    
+    query = request.GET.get('q')
+    if query:
+        products = Product.objects.filter(Q(description__icontains=query) | Q(id__icontains=query))
+    else:
+        products = Product.objects.all()  # select * from Product
+
     data["products"] = products
     return render(request, "core/products/list.html", data)
 
@@ -215,11 +222,17 @@ def brand_delete(request, id):
 
 # ----------------- Vistas de Proveedores -----------------
 def supplier_List(request):
-    data = {"title1": "IC - Proveedores", "title2": "Consulta de Proovedores"}
-    suppliers = Supplier.objects.all()
+    data = {"title1": "IC - Proveedores", "title2": "Consulta de Proveedores"}
+    
+    query = request.GET.get('q')
+    if query:
+        suppliers = Supplier.objects.filter(
+            Q(name__icontains=query) | Q(id__icontains=query) | Q(ruc__icontains=query)  | Q(address__icontains=query) | Q(phone__icontains=query)
+        )
+    else:
+        suppliers = Supplier.objects.all() 
+
     data["suppliers"] = suppliers
-    # Pasar los mensajes al contexto de la plantilla
-    data["messages"] = messages.get_messages(request)
     return render(request, "core/suppliers/list.html", data)
 
 # Crear un proveedor

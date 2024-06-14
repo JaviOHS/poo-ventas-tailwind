@@ -293,21 +293,21 @@
 		<div class="py-4 overflow-y-auto">
 			<ul class="space-y-2">
 				<li>
-					<a href="#"
+					<a
 						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-						<div class="bg-pink-500 p-4 rounded-3xl"></div>
+						<div class="bg-pink-500 p-4 rounded-3xl" onclick="no_disponible()"></div>
 					</a>
 				</li>
 				<li>
-					<a href="#"
+					<a
 						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-						<div class="bg-green-500 p-4 rounded-3xl"></div>
+						<div class="bg-green-500 p-4 rounded-3xl" onclick="no_disponible()"></div>
 					</a>
 				</li>
 				<li>
-					<a href="#"
+					<a
 						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-						<div class="bg-orange-500 p-4 rounded-3xl"></div>
+						<div class="bg-orange-500 p-4 rounded-3xl" onclick="no_disponible()"></div>
 					</a>
 				</li>
 			</ul>
@@ -544,6 +544,17 @@
 		});
 	</script>
 
+	<script>
+		function no_disponible() {
+			Swal.fire({
+				icon: 'info',
+				title: '¡Lo sentimos!',
+				text: 'Este tema aún no está disponible',
+				confirmButtonText: 'Aceptar',
+				confirmButtonColor: '#2563EB',
+			});
+		}
+	</script>
 	<!-- Para mostrar y ocultar el modal de navbar en pantallas pequenas -->
 	<script>
 		const menuButton = document.getElementById('menu-button');
