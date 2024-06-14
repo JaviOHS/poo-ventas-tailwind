@@ -28,8 +28,110 @@
 	<link rel="stylesheet" href="{% static 'plugin/components/Font Awesome/css/font-awesome.min.css' %}">
 	<!-- Titulo -->
 	<title>{% block title %} SGV {% endblock title %}</title>
+
+	<script>
+		// Aplicar el tema tan pronto como sea posible
+		(function() {
+			const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
+			if (isDarkModeEnabled) {
+				document.documentElement.classList.add('dark');
+			}
+			document.documentElement.classList.add('loaded');
+		})();
+	</script>
+	
+	<style>
+		html {
+			visibility: hidden;
+			opacity: 0;
+			transition: opacity 0.5s ease-in-out;
+		}
+		
+		html.loaded {
+			visibility: visible;
+			opacity: 1;
+		}
+		
+		html.dark {
+			background-color: #000; /* Ejemplo de color de fondo oscuro */
+			color: #fff; /* Ejemplo de color de texto claro */
+		}
+		
+		
+	</style>
+	<style>
+        /* Loader styles */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* Slight white background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Ensure it is on top */
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .h-24 {
+            height: 6rem; /* 24 * 0.25rem */
+        }
+
+        .w-24 {
+            width: 6rem; /* 24 * 0.25rem */
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .border-t-8 {
+            border-top-width: 8px;
+        }
+
+        .border-b-8 {
+            border-bottom-width: 8px;
+        }
+
+        .border-gray-200 {
+            border-color: #edf2f7; /* Tailwind's gray-200 */
+        }
+
+        .border-blue-500 {
+            border-color: #4299e1; /* Tailwind's blue-500 */
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
 </head>
-<body class="text-items font-Quicksand text-lg font-light">
+<body class="loading text-items font-Quicksand text-lg font-light">
+
+	<div id="loader" class="overlay dark:bg-black">
+		<div class="relative">
+			<div class="h-24 w-24 rounded-full border-t-8 border-b-8 border-gray-200"></div>
+			<div class="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-blue-500 animate-spin"></div>
+		</div>
+	</div>
+
+
 	<!-- Navbar -->
 	{% block navbar %}
 	<header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
@@ -574,58 +676,58 @@
 
 	<!---DARK MODE-->
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const themeToggleBtn = document.getElementById('themeIconContainer');
-			const body = document.body;
-			const themeIcon = document.getElementById('themeIcon');
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggleBtn = document.getElementById('themeIconContainer');
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
 
-			// Verifica si el modo oscuro está activado en el almacenamiento local
-			const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
+            // Verifica si el modo oscuro está activado en el almacenamiento local
+            const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
 
-			// Función para cambiar el ícono del tema
-			function toggleThemeIcon() {
-				if (body.classList.contains('dark')) {
-					themeIcon.classList.remove('fa-moon');
-					themeIcon.classList.add('fa-sun');
-					body.classList.remove('bg-slate-100');
-					body.classList.add('bg-principal');
-				} else {
-					themeIcon.classList.remove('fa-sun');
-					themeIcon.classList.add('fa-moon');
-					body.classList.remove('bg-principal');
-					body.classList.add('bg-slate-100');
-				}
-			}
+            // Función para cambiar el ícono del tema
+            function toggleThemeIcon() {
+                if (document.documentElement.classList.contains('dark')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
 
-			// Si el modo oscuro está activado en el almacenamiento local, se lo aplica al cuerpo del documento
-			if (isDarkModeEnabled) {
-				body.classList.remove('bg-slate-100');
-				body.classList.add('dark');
-				body.classList.add('bg-principal');
-			}
+            // Cambiar el ícono del tema al cargar la página
+            toggleThemeIcon();
 
-    // Cambiar el ícono del tema al cargar la página
-    toggleThemeIcon();
+            // Agrega un listener para el evento 'click' en el botón
+            themeToggleBtn.addEventListener('click', function (event) {
+                event.preventDefault(); // Previene el comportamiento predeterminado del ícono
+                // Cambia el tema de claro a oscuro y viceversa
+                document.documentElement.classList.toggle('dark');
 
-    // Remueve la clase que oculta el contenido una vez que todo está listo
-    body.classList.remove('invisible-until-load');
+                // Cambia el ícono del tema
+                toggleThemeIcon();
 
-    // Agrega un listener para el evento 'click' en el botón
-    themeToggleBtn.addEventListener('click', function (event) {
-        event.preventDefault(); // Previene el comportamiento predeterminado del ícono
-        // Cambia el tema de claro a oscuro y viceversa
-        body.classList.toggle('dark');
+                // Actualiza el estado del modo oscuro en el almacenamiento local
+                const isDarkModeNowEnabled = document.documentElement.classList.contains('dark');
+                localStorage.setItem('darkModeEnabled', isDarkModeNowEnabled);
+            });
+        });
+    </script>
+	
+	
+	<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Espera hasta que la página esté completamente cargada
+            window.addEventListener('load', function() {
+                // Ocultar el loader
+                document.getElementById('loader').style.display = 'none';
 
-        // Cambia el ícono del tema
-        toggleThemeIcon();
+                // Mostrar el contenido del sitio web
+                document.getElementById('content').classList.remove('hidden');
+            });
+        });
+    </script>
 
-        // Actualiza el estado del modo oscuro en el almacenamiento local
-        const isDarkModeNowEnabled = body.classList.contains('dark');
-        localStorage.setItem('darkModeEnabled', isDarkModeNowEnabled);
-    });
-});
-
-	</script>
 </body>
 
 </html>

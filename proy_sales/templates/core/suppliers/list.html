@@ -1,97 +1,110 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-<title>{% block title %} {{ title1 }} {% endblock title %}</title>
-<section class="dark:bg-principal mt-4">
-    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-        <div class="sm:pt-28 lg:pt-24">
-            <div class="flex flex-col items-center justify-center">
-                <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-                    {{ title1 }}
-                </span>
+    {% load static %}
+    <title>{% block title %}{{ title1 }}{% endblock title %}</title>
+    <section class="dark:bg-principal mt-20">
+        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="sm:pt-28 lg:pt-24">
+                <div class="flex flex-col items-center justify-center">
+                    <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
+                        {{ title1 }}
+                    </span>
+                </div>
+                <h1 class="dark:text-white text-4xl text-center mt-6 font-Pacifico">
+                    {{ title2 }}
+                </h1>
+                <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
+                    Gestione con facilidad cada uno de sus proveedores.
+                </p>
             </div>
-            <h1 class="dark:text-white text-4xl  text-center mt-6 font-Pacifico">
-                {{ title2 }}
-            </h1>
-            <p class="dark:text-gray-400 text-center mt-6 text-lg font-light">
-                Gestione con facilidad cada uno de sus proveedores.
-            </p>
-        </div>
-        <div class="m-4 lg:m-8 sm:mx-40 sm:my-2 lg:grid lg:grid-cols-3 gap-8 lg:mx-20 lg:p-4 rounded-3xl"
-            data-aos="fade-up" data-aos-delay="200">
-            {% for item in suppliers %}
-            <div class="mb-4 flex justify-center custom-transform">
-                <div
-                    class="dark:bg-secundario relative w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-none">
-                    <div class="dark:bg-secundario text-center card card-custom">
-                        <h1 class="dark:text-blue-400 text-2xl text-center mt-6 font-black font-Tiny5">
-                            {{ item.name }}
-                        </h1>
-                        <div class="dark:bg-contenedores p-4 card-body flex flex-col justify-center items-center">
-                            <img class="w-[60%] rounded-3xl p-2"
-                                src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_person.png' %}{% endif %}"
-                                alt="Imagen del producto">
-                            <h3 class=" dark:text-blue-300 font-Pacifico">Ruc o Dni: <span
-                                    class="font-light font-Quicksand dark:text-gray-400">{{ item.ruc }}</span></h3>
-                            <h3 class=" dark:text-blue-300 font-Pacifico">Dirección: <span
-                                    class="font-light font-Quicksand dark:text-gray-400">{{ item.address }}</span></h3>
-                            <h3 class=" dark:text-blue-300 font-Pacifico">Celular: <span
-                                    class="font-light font-Quicksand dark:text-gray-400">{{ item.phone }}</span></h3>
-                            <h3 class=" dark:text-blue-300 font-Pacifico">Creación: <span
-                                    class="font-light font-Quicksand dark:text-gray-400">{{ item.created | date:"Y-m-d" }}</span></h3>
-                            <h3 class="dark:text-blue-300 font-Pacifico">
-                                Estado:
-                                {% if item.state %}
-                                <i class="fa-solid fa-check text-green-500"></i>
-                                {% else %}
-                                <i class="fa-solid fa-square-minus text-red-500"></i>
-                                {% endif %}
-                            </h3>
+            <div class="lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                <!-- Barra de búsqueda -->
+                <div class="p-4 flex justify-center">
+                    <label for="table-search" class="sr-only">Search</label>
+                    <div class="relative mt-1">
+                        <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
                         </div>
-                        <div
-                            class="dark:bg-contenedores card-footer flex flex-col md:flex-row justify-center items-center">
-                            <a href="{% url 'core:supplier_update' item.id %}"
-                                class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center">
-                                <i class="fa-solid fa-gear mr-2"></i> Editar
-                            </a>
-                            <button class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center" onclick="openDeleteModal('{{ item.id }}', '{{ item.name }}')">
-                                <i class="fa-solid fa-trash mr-2"></i> Eliminar
-                            </button>
-                            <noscript>
-                                <a href="{% url 'core:supplier_delete' item.id %}" class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded-full flex items-center">
-                                    <i class="fa-solid fa-trash mr-2"></i> Eliminar
-                                </a>
-                            </noscript>
-                        </div>
+                        <input type="text" id="table-search"
+                            class="text-center pl-10 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                            placeholder="Buscar proveedores">
                     </div>
                 </div>
+                <!-- Tabla de proveedores -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center text-lg">
+                        <thead class="uppercase font-Tiny5 bg-gray-50 dark:bg-secundario dark:text-blue-300">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">ID</th>
+                                <th scope="col" class="px-6 py-3">Imagen</th>
+                                <th scope="col" class="px-6 py-3">Nombre</th>
+                                <th scope="col" class="px-6 py-3">RUC o DNI</th>
+                                <th scope="col" class="px-6 py-3">Dirección</th>
+                                <th scope="col" class="px-6 py-3">Celular</th>
+                                <th scope="col" class="px-6 py-3">Creación</th>
+                                <th scope="col" class="px-6 py-3">Estado</th>
+                                <th scope="col" class="px-6 py-3">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in suppliers %}
+                            <tr class="dark:text-gray-400 bg-white border-b dark:bg-[#0b1121] dark:border-secundario hover:bg-gray-50 dark:hover:bg-[#121c33]">
+                                <td class="px-6 py-4">{{ item.id }}</td>
+                                <td class="px-6 py-4">
+                                    <img class="mx-auto w-16 h-16 object-contain rounded-2xl" src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_person.png' %}{% endif %}" alt="Imagen del proveedor">
+                                </td>
+                                <td class="px-6 py-4">{{ item.name }}</td>
+                                <td class="px-6 py-4">{{ item.ruc }}</td>
+                                <td class="px-6 py-4">{{ item.address }}</td>
+                                <td class="px-6 py-4">{{ item.phone }}</td>
+                                <td class="px-6 py-4">{{ item.created | date:"Y-m-d" }}</td>
+                                <td class="px-6 py-4">
+                                    {% if item.state %}
+                                    <i class="fa-solid fa-check text-green-500"></i>
+                                    {% else %}
+                                    <i class="fa-solid fa-square-minus text-red-500"></i>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{% url 'core:supplier_update' item.id %}" class="text-blue-600 dark:text-blue-500">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </a>
+                                    <a href="#" class="text-red-600 dark:text-red-500" onclick="openDeleteModal('{{ item.id }}', '{{ item.name }}')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center form-group text-center p-4">
+                    <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center justify-center"
+                        href="{% url 'core:supplier_create' %}">
+                        <i class="fa-solid fa-plus mr-2"></i> Nuevo Proveedor
+                    </a>
+                    <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center"
+                        href="{% url 'home' %}">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
             </div>
-            {% endfor %}
         </div>
-        <div class="flex flex-col md:flex-row justify-center form-group text-center p-4">
-            <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center justify-center"
-                href="{% url 'core:supplier_create' %}">
-                <i class="fa-solid fa-plus mr-2"></i> Nuevo Proveedor
-            </a>
-            <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full flex items-center justify-center"
-                href="{% url 'home' %}">
-                <i class="fa-solid fa-house"></i>
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
-{% include 'core/delete.html' %}
-<script>
-    function openDeleteModal(id, name) {
-        const deleteForm = document.getElementById('deleteForm');
-        deleteForm.action = `{% url 'core:supplier_delete' 0 %}`.replace('0', id);
-        document.getElementById('Description').textContent = `ID: ${id} - ${name}`;
-        document.getElementById('deleteModal').classList.remove('hidden');
-    }
+    {% include 'core/delete.html' %}
+    <script>
+        function openDeleteModal(id, name) {
+            const deleteForm = document.getElementById('deleteForm');
+            deleteForm.action = `{% url 'core:supplier_delete' 0 %}`.replace('0', id);
+            document.getElementById('Description').textContent = `ID: ${id} - ${name}`;
+            document.getElementById('deleteModal').classList.remove('hidden');
+        }
 
-    function closeModal() {
-        document.getElementById('deleteModal').classList.add('hidden');
-    }
-</script>
+        function closeModal() {
+            document.getElementById('deleteModal').classList.add('hidden');
+        }
+    </script>
 {% endblock %}
