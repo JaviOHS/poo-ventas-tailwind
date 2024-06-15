@@ -130,8 +130,6 @@
 			<div class="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-blue-500 animate-spin"></div>
 		</div>
 	</div>
-
-
 	<!-- Navbar -->
 	{% block navbar %}
 	<header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
@@ -167,16 +165,13 @@
 						data-dropdown-placement="bottom">
 						<span class="sr-only">Open user menu</span>
 						{% if user.is_authenticated %}
-						{% if user.get_profile_picture_url %}
-						<img class="w-12 h-12 rounded-full" src="{{ user.get_profile_picture_url }}"
-							alt="Profile Picture">
+							{% if user.get_profile_picture_url %}
+							<img class="w-12 h-12 rounded-full" src="{{ user.get_profile_picture_url }}"
+								alt="Profile Picture">
+							{% endif %}
 						{% else %}
-						<img class="w-12 h-12 rounded-full" src="{% static 'img/default_person.png' %}"
-							alt="Default Profile Picture">
-						{% endif %}
-						{% else %}
-						<img class="w-12 h-12 rounded-full" src="{% static 'img/usuario_anonimo.png' %}"
-							alt="Anonymous Profile Picture">
+							<img class="w-12 h-12 rounded-full" src="{% static 'img/usuario_anonimo.png' %}"
+								alt="Anonymous Profile Picture">
 						{% endif %}
 					</button>
 

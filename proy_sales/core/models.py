@@ -6,24 +6,35 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from proy_sales.utils import phone_regex, valida_cedula, valida_numero_flotante_positivo, valida_numero_entero_positivo
+import os
+from django.core.files.storage import default_storage
 
 class CustomUser(AbstractUser):
-    dni = models.CharField(max_length=10,unique=True,validators=[valida_cedula])
+    dni = models.CharField(max_length=10, unique=True, validators=[valida_cedula])
     full_name = models.CharField(max_length=100)
-    celular = models.CharField(max_length=10,blank=True, null=True,validators=[phone_regex])
+    celular = models.CharField(max_length=10, blank=True, null=True, validators=[phone_regex])
     correo = models.EmailField(blank=True, null=True)
-    imagen = models.ImageField(upload_to='imagenes_perfil/', null=True, blank=True)
+    imagen = models.ImageField(upload_to='imagenes_perfil/', null=True, blank=True, default='imagenes_perfil/default.jpg')
 
+    def save(self, *args, **kwargs):
+        if self.pk:
+            try:
+                old_user = CustomUser.objects.get(pk=self.pk)
+                if self.imagen.name != old_user.imagen.name and old_user.imagen.name != 'imagenes_perfil/default.jpg':
+                    default_storage.delete(old_user.imagen.name)
+            except CustomUser.DoesNotExist:
+                pass
+        super().save(*args, **kwargs)
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
-    
+
     def get_profile_picture_url(self):
         if self.imagen:
             return self.imagen.url
         else:
             return None
-        
+
     def __str__(self):
         return self.username
     

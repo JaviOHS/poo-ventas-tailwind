@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 <title>{% block title %} {{ title1 }} {% endblock title %}</title>
-<div class="dark:bg-black p-4 relative overflow-hidden">
-    <div class="absolute inset-0 bg-center blur-[106px]" style="background-image: url('{% static 'img/.png' %}');"></div>
+<div class="bg-slate-100 dark:bg-principal p-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-center blur-[106px]"></div>
     <div class="relative">
         <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse text-center justify-center " data-aos="fade-up">
             <img src="{% static 'img/iguana_corporation.png' %}" class="w-12 h-12" alt="Flowbite Logo" />
             <span class="self-center whitespace-nowrap dark:text-blue-300 font-extrabold">Iguanas Corporation</span>
         </a>
-        <section class="dark:bg-black p-4 my-4 mx-auto max-w-4xl rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+        <section class="p-4 my-4 mx-auto max-w-4xl rounded-3xl bg-white dark:bg-secundario" data-aos="fade-up" data-aos-delay="200">
             <h1 class="text-4xl text-center mt-6 font-Pacifico dark:text-blue-300 my-2">
                 {{ title2 }}
             </h1>
@@ -24,22 +24,22 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <div class="mb-5">
-                                <label for="{{ form.username.id_for_label }}" class="dark:text-white font-black uppercase text-lg z-20">{{ form.username.label }}</label>
-                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20" id="id_username" name="username" />
+                                <label for="{{ form.username.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg z-20">{{ form.username.label }}</label>
+                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_username" name="username" />
                             </div>
                             <div class="mb-5">
-                                <label for="{{ form.first_name.id_for_label }}" class="dark:text-white font-black uppercase text-lg z-20">{{ form.first_name.label }}</label>
-                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20" id="id_first_name" name="first_name" />
+                                <label for="{{ form.first_name.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg z-20">{{ form.first_name.label }}</label>
+                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_first_name" name="first_name" />
                             </div>
                         </div>
                         <div>
                             <div class="mb-5">
-                                <label for="{{ form.dni.id_for_label }}" class="dark:text-white font-black uppercase text-lg z-20">{{ form.dni.label }}</label>
-                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20" id="id_dni" name="dni" />
+                                <label for="{{ form.dni.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg z-20">{{ form.dni.label }}</label>
+                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_dni" name="dni" />
                             </div>
                             <div class="mb-5">
-                                <label for="{{ form.last_name.id_for_label }}" class="dark:text-white font-black uppercase text-lg z-20">{{ form.last_name.label }}</label>
-                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20" id="id_last_name" name="last_name" />
+                                <label for="{{ form.last_name.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg z-20">{{ form.last_name.label }}</label>
+                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_last_name" name="last_name" />
                             </div>
                         </div>
                     </div>
@@ -47,14 +47,14 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <div class="mb-5">
-                                <label for="{{ form.celular.id_for_label }}" class="dark:text-white font-black uppercase text-lg z-20">{{ form.celular.label }}</label>
-                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20" id="id_celular" name="celular" />
+                                <label for="{{ form.celular.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg z-20">{{ form.celular.label }}</label>
+                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_celular" name="celular" />
                             </div>
                         </div>
                         <div>
                             <div class="mb-5">
-                                <label for="{{ form.correo.id_for_label }}" class="dark:text-white font-black uppercase text-lg z-20">{{ form.correo.label }}</label>
-                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light z-20" id="id_correo" name="correo" />
+                                <label for="{{ form.correo.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg z-20">{{ form.correo.label }}</label>
+                                <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_correo" name="correo" />
                             </div>
                         </div>
                     </div>
@@ -63,12 +63,12 @@
                         <div class="flex justify-center">
                             <div>
                                 <div class="mb-5">
-                                    <label for="{{ form.password1.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.password1.label }}</label>
-                                    <input type="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_password1" name="password1" />
+                                    <label for="{{ form.password1.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg">{{ form.password1.label }}</label>
+                                    <input type="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_password1" name="password1" />
                                 </div>
                                 <div class="mb-5">
-                                    <label for="{{ form.password2.id_for_label }}" class="dark:text-white font-black uppercase text-lg">{{ form.password2.label }}</label>
-                                    <input type="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_password2" name="password2" />
+                                    <label for="{{ form.password2.id_for_label }}" class="dark:text-blue-300 font-black uppercase text-lg">{{ form.password2.label }}</label>
+                                    <input type="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id="id_password2" name="password2" />
                                 </div>
                             </div>
                         </div>
@@ -80,10 +80,10 @@
                     </div>
                 </form>
             </div>
-            <p class="dark:text-white text-center mt-3 z-10">
-                ¿Ya tienes una cuenta? <a href="{% url 'signin' %}" class="text-blue-600 hover:underline dark:text-blue-500">Inicia Sesión</a>
+            <p class="dark:text-gray-400 text-center mt-3 z-10">
+                ¿Ya tienes una cuenta? <a href="{% url 'signin' %}" class="text-blue-600 hover:underline dark:text-blue-300 font-Tiny5 uppercase">Inicia Sesión</a>
             </p>
-            <svg viewBox="0 0 1024 1024"
+            <!-- <svg viewBox="0 0 1024 1024"
                 class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
                 aria-hidden="true"
                 style="pointer-events: none; z-index: -1;">
@@ -94,7 +94,7 @@
                         <stop offset="1" stop-color="#1d4ed8"></stop>
                     </radialGradient>
                 </defs>
-            </svg>
+            </svg> -->
         </section>
     </div>
 </div>

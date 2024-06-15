@@ -5,8 +5,7 @@ import datetime
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from .models import CustomUser
 from django.db import models
-from django.forms import ClearableFileInput
-
+from django.forms import ImageField, FileInput
 
 class CustomUserCreationForm(UserCreationForm):
     dni = forms.CharField(max_length=10, label="DNI")
@@ -30,9 +29,12 @@ class CustomUserCreationForm(UserCreationForm):
             "password2",
         ]
 
-
-class CustomUserUpdateForm(UserChangeForm):
+class CustomUserUpdateForm(forms.ModelForm):
     password = None
+
+    imagen = ImageField(widget=FileInput(attrs={
+        "class": "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light",
+    }))
 
     class Meta:
         model = CustomUser
@@ -42,7 +44,7 @@ class CustomUserUpdateForm(UserChangeForm):
                 "unique": "Ya existe un usuario con este DNI.",
             },
             "celular": {
-                "unique": "Ya existeZ un usuario con este número de celular.",
+                "unique": "Ya existe un usuario con este número de celular.",
             },
             "correo": {
                 "unique": "Ya existe un usuario con este correo electrónico.",
@@ -79,9 +81,6 @@ class CustomUserUpdateForm(UserChangeForm):
                     "class": "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light",
                 }
             ),
-            "imagen": ClearableFileInput(attrs={
-                "class": "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-12 dark:bg-principal dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light",
-            }),
         }
         labels = {
             "first_name": "Nombres",
@@ -91,7 +90,6 @@ class CustomUserUpdateForm(UserChangeForm):
             "correo": "Correo electrónico",
             "imagen": "Imagen",
         }
-
 
 class ProductForm(forms.ModelForm):
     class Meta:
