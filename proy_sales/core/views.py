@@ -9,6 +9,11 @@ from .forms import CustomUserCreationForm, CustomUserUpdateForm
 from django.contrib import messages
 from django.db.models import Q
 
+# PAGUINACION
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
+
 # ----------------- Perfil -----------------
 def profile(request):
     data = {"title1": "IC - Perfil",
@@ -114,14 +119,22 @@ def product_List(request):
     
     query = request.GET.get('q')
     if query:
-        products = Product.objects.filter(Q(description__icontains=query) | Q(id__icontains=query))
+        products_list = Product.objects.filter(Q(description__icontains=query) | Q(id__icontains=query))
     else:
-        products = Product.objects.all()  # select * from Product
+        products_list = Product.objects.all()
+
+    paginator = Paginator(products_list, 5)  # Muestra 10 productos por página
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
 
     data["products"] = products
     return render(request, "core/products/list.html", data)
 
-# Crear un producto
 def product_create(request):
     data = {"title1": "IC - Crear Productos", "title2": "Ingreso De Productos"}
 
@@ -129,8 +142,12 @@ def product_create(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save(commit=False)
-            product.user = request.user
-            product.save()
+            product.user = request.user  # Asignar el usuario actual
+            product.save()  # Guardar el producto principal
+
+            # Guardar las relaciones ManyToMany (categorías)
+            form.save_m2m()
+
             messages.success(request, f"Éxito al crear el producto {product.description}.")
             return redirect("core:product_list")
     else:
@@ -139,6 +156,7 @@ def product_create(request):
     # Si el formulario no es válido o es una solicitud GET, mostrar el formulario con los datos actuales
     data["form"] = form
     return render(request, "core/products/form.html", data)
+
 
 # Editar un producto
 def product_update(request, id):
@@ -223,14 +241,27 @@ def brand_delete(request, id):
 # ----------------- Vistas de Proveedores -----------------
 def supplier_List(request):
     data = {"title1": "IC - Proveedores", "title2": "Consulta de Proveedores"}
-    
+
     query = request.GET.get('q')
     if query:
-        suppliers = Supplier.objects.filter(
-            Q(name__icontains=query) | Q(id__icontains=query) | Q(ruc__icontains=query)  | Q(address__icontains=query) | Q(phone__icontains=query)
+        suppliers_list = Supplier.objects.filter(
+            Q(name__icontains=query) | Q(id__icontains=query) | Q(ruc__icontains=query) | Q(address__icontains=query) | Q(phone__icontains=query)
         )
     else:
-        suppliers = Supplier.objects.all() 
+        suppliers_list = Supplier.objects.all()
+
+    # Implementar la paginación
+    paginator = Paginator(suppliers_list, 5)  # 5 registros por página
+    page = request.GET.get('page')
+
+    try:
+        suppliers = paginator.page(page)
+    except PageNotAnInteger:
+        # Si la página no es un número entero, mostrar la primera página
+        suppliers = paginator.page(1)
+    except EmptyPage:
+        # Si la página está fuera del rango (por ejemplo, página 9999), mostrar la última página
+        suppliers = paginator.page(paginator.num_pages)
 
     data["suppliers"] = suppliers
     return render(request, "core/suppliers/list.html", data)

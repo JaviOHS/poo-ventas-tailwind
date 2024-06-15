@@ -18,7 +18,7 @@
                 </p>
             </div>
             <div class="lg:p-4 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
-                <!-- Barra de busqueda -->
+                <!-- Barra de búsqueda -->
                 <div class="p-4 flex justify-center">
                     <label for="table-search" class="sr-only">Search</label>
                     <div class="relative mt-1">
@@ -27,7 +27,8 @@
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    stroke-width="2"
+                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
                         <form method="GET" action="{% url 'core:supplier_list' %}">
@@ -58,7 +59,9 @@
                             <tr class="dark:text-gray-400 bg-white border-b dark:bg-[#0b1121] dark:border-secundario hover:bg-gray-50 dark:hover:bg-[#121c33]">
                                 <td class="px-6 py-4">{{ item.id }}</td>
                                 <td class="px-6 py-4">
-                                    <img class="mx-auto w-16 h-16 object-contain rounded-2xl" src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_person.png' %}{% endif %}" alt="Imagen del proveedor">
+                                    <img class="mx-auto w-16 h-16 object-contain rounded-2xl"
+                                        src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'img/default_person.png' %}{% endif %}"
+                                        alt="Imagen del proveedor">
                                 </td>
                                 <td class="px-6 py-4">{{ item.name }}</td>
                                 <td class="px-6 py-4">{{ item.ruc }}</td>
@@ -73,10 +76,13 @@
                                     {% endif %}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{% url 'core:supplier_update' item.id %}" class="text-blue-600 dark:text-blue-500">
+                                    <a href="{% url 'core:supplier_update' item.id %}"
+                                        class="text-blue-600 dark:text-blue-500">
                                         <i class="fa-solid fa-gear"></i>
                                     </a>
-                                    <a href="#" class="text-red-600 dark:text-red-500" onclick="openDeleteModal('{{ item.id }}', '{{ item.name }}')">
+                                    <a href="#"
+                                        class="text-red-600 dark:text-red-500"
+                                        onclick="openDeleteModal('{{ item.id }}', '{{ item.name }}')">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>
@@ -85,6 +91,33 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <!-- Paginación -->
+                <div class="flex justify-center mt-4">
+                    <nav aria-label="Page navigation example">
+                        <ul class="inline-flex -space-x-px text-sm">
+                          {% if suppliers.has_previous %}
+                          <li>
+                            <a href="?page=1" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                          </li>
+                          {% endif %}
+                          {% for num in suppliers.paginator.page_range %}
+                          <li>
+                            <a href="?page={{ num }}" class="flex items-center justify-center px-3 h-8 leading-tight {% if num == suppliers.number %}text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white{% else %}text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white{% endif %}">
+                              {{ num }}
+                            </a>
+                          </li>
+                          {% endfor %}
+                          {% if suppliers.has_next %}
+                          <li>
+                            <a href="?page={{ suppliers.next_page_number }}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                          </li>
+                          {% endif %}
+                        </ul>
+                      </nav>                      
+                </div>
+
+                <!-- Enlaces adicionales -->
                 <div class="flex flex-col md:flex-row justify-center form-group text-center p-4">
                     <a class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-full mr-0 md:mr-2 mb-2 md:mb-0 flex items-center justify-center"
                         href="{% url 'core:supplier_create' %}">

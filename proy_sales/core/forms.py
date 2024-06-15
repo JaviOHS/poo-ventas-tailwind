@@ -7,6 +7,7 @@ from .models import CustomUser
 from django.db import models
 from django.forms import ClearableFileInput
 
+
 class CustomUserCreationForm(UserCreationForm):
     dni = forms.CharField(max_length=10, label="DNI")
     first_name = forms.CharField(max_length=30, label="Nombres")
