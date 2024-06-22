@@ -25,7 +25,7 @@
 	<!-- Whatsapp -->
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'plugin/whatsapp-chat-support.css' %}">
-	<link rel="stylesheet" href="{% static 'plugin/components/Font Awesome/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'plugin/components/Font Awesome/css/font-awesome.min.css' %}">	
 	<!-- Titulo -->
 	<title>{% block title %} SGV {% endblock title %}</title>
 
@@ -38,40 +38,27 @@
 			}
 			document.documentElement.classList.add('loaded');
 		})();
+		(function() {
+			const savedTheme = localStorage.getItem('theme') || 'light';
+			document.documentElement.className = savedTheme;
+			document.documentElement.classList.add('loaded');
+		  })();
 	</script>
 	
+
 	<style>
-		html {
-			visibility: hidden;
-			opacity: 0;
-			transition: opacity 0.5s ease-in-out;
-		}
-		
-		html.loaded {
-			visibility: visible;
-			opacity: 1;
-		}
-		
-		html.dark {
-			background-color: #000; /* Ejemplo de color de fondo oscuro */
-			color: #fff; /* Ejemplo de color de texto claro */
-		}
-		
-		
-	</style>
-	<style>
-        /* Loader styles */
+        /* ANIMACIÓN DE CARGA */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.9); /* Slight white background */
+            background-color: rgba(255, 255, 255, 0.9); /* Bacground de fondo */
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999; /* Ensure it is on top */
+            z-index: 9999; /* Posicionarce sobre todos los elementos */
         }
 
         .relative {
@@ -119,36 +106,124 @@
                 transform: rotate(360deg);
             }
         }
+
     </style>
 
-</head>
-<body class="loading text-items font-Quicksand text-lg font-light">
+	<style>
 
+		/* Cuadro de la paleta de temas */
+		.rect {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			width: 60px;
+			height: 60px;
+			border-radius: 0.5rem;
+			overflow: hidden;
+			margin-right: 1rem;
+		}
+		
+		.rect div {
+			width: 100%;
+			height: 100%;
+		}
+
+		/* SECCIÓN DE TEMAS */
+		/* TEMA NARANJA */
+		.theme1 .text-primary {
+			color: #ffccbc;
+		}
+		
+		.theme1 .bg-primary {
+			background-color: #fff7ed;
+			color: white;
+		}
+		
+		.theme1 .text-secondary {
+			color: orange;
+		}
+
+		.theme1 .bg-navbar {
+			background-color: #ff9800;
+			color: white;
+		}
+		
+		.theme1 .border {
+			border-color: orange;
+		}
+
+		.theme1 .text {
+			text: white
+		}
+
+		.theme1 .hero-background {
+			background-image: url('{% static 'img/background.png' %}')!important;
+		}
+
+		/* TEMA AZUL */
+		.theme2 .text-primary {
+			color: #cfe8ff;
+		}
+		
+		.theme2 .bg-primary {
+			background-color: #e3f2fd;
+			color: white;
+		}
+		
+		.theme2 .text-secondary {
+			color: #007bff;
+		}
+
+		.theme2 .bg-navbar {
+			background-color: #007bff;
+			color: white;
+		}
+		
+		.theme2 .border {
+			border-color: blue;
+		}
+
+		.theme2 .text {
+			text: white
+		}
+
+		.theme2 .hero-background {
+			background-image: url('{% static 'img/fondo_azul.png' %}')!important;
+		}
+
+	</style>
+	  
+</head>
+<body class="text-secondary loading text-items font-Quicksand text-lg font-light">
+	
+	<!-- Div de la anuimación de carga -->
 	<div id="loader" class="overlay dark:bg-black">
-		<div class="relative">
+			<div class="relative">
 			<div class="h-24 w-24 rounded-full border-t-8 border-b-8 border-gray-200"></div>
-			<div class="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-blue-500 animate-spin"></div>
+			<div class="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border border-blue-500 animate-spin"></div>
 		</div>
 	</div>
+
+		
 	<!-- Navbar -->
 	{% block navbar %}
-	<header class="top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
+	<header class="bg-navbar top-0 left-0 right-0 z-50 bg-transparent fixed w-full transition duration-300 ease-in-out">
 		<nav class="border-gray-200 dark:bg-principal">
 			<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 				<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 					<img src="{% static 'img/iguana_corporation.png' %}" class="w-12 h-12" alt="Iguanas Corp" />
-					<span class="self-center whitespace-nowrap dark:text-blue-300 font-extrabold">Iguanas Corp.</span>
+					<span class="self-center whitespace-nowrap text dark:text-blue-300 font-extrabold">Iguanas Corp.</span>
 				</a>
 				<div class="flex items-center md:order-2 space-x-3 md:space-x-4 rtl:space-x-reverse">
 
 					<span id="themeIconContainer"
-						class="dark:bg-gray inline-block p-2 rounded border border-gray-200 dark:border-gray-700 cursor-pointer">
+						class="dark:bg-gray inline-block p-2 rounded  cursor-pointer">
 						<i id="themeIcon" class="fas fa-moon text-gray-300 dark:text-gray-500"></i>
 					</span>
 
 					<div class="dark:border-gray-800 relative hidden md:block">
 						<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer text-gray-500">
-							<svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+							<svg class="w-4 h-4 text bg-navbar text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 								fill="none" viewBox="0 0 20 20">
 								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
 									stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -156,7 +231,7 @@
 							<span class="sr-only">Search icon</span>
 						</div>
 						<input type="text" id="search-navbar"
-							class="border-gray-200 dark:border-gray-700 block w-full p-2 pl-10 text-sm text-gray-400 border rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-700 placeholder-gray-400 dark:placeholder-gray-500">
+							class="border-gray-300 dark:border-gray-700 block w-full p-2 pl-10 text-sm text-gray-400 border rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-700 placeholder-gray-400 dark:placeholder-gray-500">
 					</div>
 
 					<button type="button"
@@ -175,46 +250,59 @@
 						{% endif %}
 					</button>
 
-					<!-- Dropdown menu -->
-					<div class="dark:dark:bg-secundario rounded-2xl dark:rounded-2xl bg-white z-50 hidden my-4 list-none divide-y divide-gray-200 shadow"
-						id="user-dropdown">
+					<div class="dark:bg-secundario rounded-2xl bg-white z-50 hidden my-4 list-none divide-y divide-gray-200 shadow" id="user-dropdown">
 						{% if user.is_authenticated %}
 						<div class="px-4 py-3">
-							<span class="block font-extrabold text-gray-500 truncate dark:text-gray-400">{{ user.username }}</span>
-							<span class="block font-extrabold  text-gray-500 truncate dark:text-gray-400">{{ user.correo }}</span>
+						  <span class="block font-extrabold text-gray-500 truncate dark:text-gray-400">{{ user.username }}</span>
+						  <span class="block font-extrabold text-gray-500 truncate dark:text-gray-400">{{ user.correo }}</span>
 						</div>
-						<ul class="dark:dark:bg-secundario py-2" aria-labelledby="user-menu-button">
-							<li>
-								<a href="{% url 'profile' %}"
-									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all">Perfil</a>
-							</li>
-							<li>
-								<a class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all"
-									data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
-									aria-controls="drawer-navigation">
-									Temas
-								</a>
-							</li>
-							<li>
-								<a href="{% url 'core:logout' %}"
-									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all">Cerrar
-									Sesión</a>
-							</li>
+						<ul class="dark:bg-secundario py-2" aria-labelledby="user-menu-button">
+						  <li>
+							<a href="{% url 'profile' %}" onclick="closeDropdown()"
+							   class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all">Perfil</a>
+						  </li>
+					  
+						  <li>
+							<a class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all cursor-pointer"
+							   data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+							   aria-controls="drawer-navigation" onclick="closeDropdown()">
+							  Temas
+							</a>
+						  </li>
+					  
+						  <li>
+							<a class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all cursor-pointer"
+							   data-drawer-target="drawer-left-example" data-drawer-show="drawer-left-example" data-drawer-placement="left"
+							   aria-controls="drawer-left-example" onclick="closeDropdown()">
+							  Autenticación Biométrica
+							</a>
+						  </li>
+					  
+						  <li>
+							<a href="{% url 'core:logout' %}" onclick="closeDropdown()"
+							   class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all">Cerrar Sesión</a>
+						  </li>
 						</ul>
 						{% else %}
 						<ul class="py-2" aria-labelledby="user-menu-button">
-							<li>
-								<a href="{% url 'signup' %}"
-									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Registrarse</a>
-							</li>
-							<li>
-								<a href="{% url 'signin' %}"
-									class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Iniciar
-									Sesión</a>
-							</li>
+						  <li>
+							<a href="{% url 'signup' %}" onclick="closeDropdown()"
+							   class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Registrarse</a>
+						  </li>
+						  <li>
+							<a href="{% url 'signin' %}" onclick="closeDropdown()"
+							   class="block px-4 py-2 font-bold text-gray-500 truncate dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-500 transition-all">Iniciar Sesión</a>
+						  </li>
 						</ul>
 						{% endif %}
 					</div>
+
+					<!-- Script para ocultar el menu despues de seleccionar una opción -->
+					<script>
+						function closeDropdown() {
+						  document.getElementById('user-dropdown').classList.add('hidden');
+						}
+					</script>
 
 					<!-- Boton para pantallas pequenas -->
 					<button data-collapse-toggle="navbar-user" type="button"
@@ -266,49 +354,109 @@
 				</div>
 			</div>
 		</nav>
-		<hr class="border-gray-200 dark:border-gray-700">
 	</header>
 	{% endblock navbar %}
 	<!-- Cierre de la navbar -->
 
+
 	<!-- Columna a la izquierda con temas -->
-	<div id="drawer-navigation"
-		class="fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-secundario"
-		tabindex="-1" aria-labelledby="drawer-navigation-label">
-		<h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">MENU
-			DE TEMAS</h5>
-		<button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
-			class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
-			<svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-					d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-			</svg>
-			<span class="sr-only">Close menu</span>
-		</button>
-		<div class="py-4 overflow-y-auto">
-			<ul class="space-y-2">
-				<li>
-					<a
-						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-						<div class="bg-pink-500 p-4 rounded-3xl" onclick="no_disponible()"></div>
-					</a>
-				</li>
-				<li>
-					<a
-						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-						<div class="bg-green-500 p-4 rounded-3xl" onclick="no_disponible()"></div>
-					</a>
-				</li>
-				<li>
-					<a
-						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-						<div class="bg-orange-500 p-4 rounded-3xl" onclick="no_disponible()"></div>
-					</a>
-				</li>
-			</ul>
+	<div id="drawer-navigation" class="fixed top-0 left-0 z-50 h-screen p-6 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
+		<h5 id="drawer-navigation-label" class="items-center text-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">Sección de Temas</h5>
+		<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+		<p class="mb-6 text-sm text-gray-500 dark:text-gray-400">Seleccione el tema que desea aplicar en la aplicación para trabajar cómodamente.</p>
+		<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+		<div class="py-6 overflow-y-auto">
+		  <ul class="space-y-4">
+			<li>
+				<a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer" onclick="setTheme('light')">
+					<div class="rect">
+					  <div class="bg-white"></div>
+					  <div class="bg-blue-700"></div>
+					  <div class="bg-white"></div>
+					  <div class="bg-blue-200"></div>
+					</div>
+					<span class="text-sm font-medium">Light</span>
+				  </a>
+			</li>
+			<li>
+				<a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer" onclick="setTheme('dark')">
+					<div class="rect">
+					  <div class="bg-black"></div>
+					  <div class="bg-blue-700"></div>
+					  <div class="bg-black"></div>
+					  <div class="bg-blue-200"></div>
+					</div>
+					<span class="text-sm font-medium">Dark</span>
+				  </a>
+			</li>
+			<li>
+				<a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer" onclick="setTheme('theme1')">
+					<div class="rect">
+					  <div class="bg-orange-500"></div>
+					  <div class="bg-orange-700"></div>
+					  <div class="bg-orange-300"></div>
+					  <div class="bg-orange-600"></div>
+					</div>
+					<span class="text-sm font-medium">Orange</span>
+				</a>
+			</li>
+			<li>
+				<a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer" onclick="setTheme('theme2')">
+					<div class="rect">
+					  <div class="bg-blue-500"></div>
+					  <div class="bg-blue-700"></div>
+					  <div class="bg-blue-300"></div>
+					  <div class="bg-blue-600"></div>
+					</div>
+					<span class="text-sm font-medium">Blue</span>
+				</a>
+			</li>
+		  </ul>
 		</div>
-	</div>
+	  </div>
 	<!-- Cierre de la columna a la izquierda con temas -->
+
+
+	 <!-- Columna a la izquierda con Datos Biométricos -->
+	 <div id="drawer-left-example" class="fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-left-label">
+		<h5 id="drawer-left-label" class="items-center text-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">Autenticación Biométrica</h5>
+		<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+	   <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">Activa el desbloqueo Biometrico en tu aplicación, para iniciar seción con mayor facilidad.</p>
+	   <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+	   <div class="grid grid-cols-2 gap-4">
+		  <a href="#" onclick="DesbloqueoFacial()" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Desbloqueo Facial</a>
+		  <a href="#" onclick="DesbloqueoDactilar()" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Desbloqueo Dactilar</a>
+	   </div>
+	</div>
+	
+	<script>
+		function DesbloqueoFacial() {
+			Swal.fire({
+				title: 'Una forma práctica para desbloquear la aplicación y verificarse.',
+				html: '° El reconocimiento facial se considera menos seguro que otros tipos de bloqueo porque existe la posibilidad de que alguien que se parece a usted o que usa una imagen de su rostro pudiera desbloquear la aplicación. <br> ° Asegúrese de que su rostro esté claramente visible durante el registro. No use una máscara, anteojos de sol o un sombrero que le cubra el rostro. <br> ° Tenga en cuenta que el reconocimiento facial podría no reconocerlo si se producen cambios notables en su apariencia, como un maquillaje abundante, cambios en el vello facial o anteojos.',
+				icon: 'info',
+				showCancelButton: true,
+				confirmButtonText: 'Registrar',
+				cancelButtonText: 'Cancelar'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					DesbloqueoDactilar();
+				}
+			});
+		}
+	
+		function DesbloqueoDactilar() {
+			Swal.fire({
+				title: 'Una forma práctica para desbloquear la aplicación y verificarse.',
+				html: 'ESTAMOS TRABAJANDO PARA IMPLEMENTAR ESTA FUNCIONALIDAD, ¡GRACIAS...!',
+				icon: 'info',
+			});
+		}
+	</script>
+	
+	<!-- Cierre de columna a la izquierda con Datos Biométricos -->
+
+
 
 	<!-- Alertas de éxito -->
 	{% block success %}
@@ -386,8 +534,9 @@
 	<div class="fixed bottom-36 right-4 flex flex-col space-y-6 items-center">
 		<!-- Botón para volver al principio de la página -->
 		<div>
+			
 			<button id="goTopBtn" title="Ir arriba"
-				class="bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transform translate-y-20 opacity-0 transition-all duration-500 ease-in-out">
+				class="bg-navbar bg-blue-700 text-white px-4 py-2 rounded-full shadow-md transform translate-y-20 opacity-0 transition-all duration-500 ease-in-out">
 				<i class="fas fa-caret-up"></i>
 			</button>
 		</div>
@@ -680,45 +829,62 @@
 		});
 	</script>
 
-	<!---DARK MODE-->
+	<!---THEMES MODE-->
 	<script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const themeToggleBtn = document.getElementById('themeIconContainer');
-            const body = document.body;
-            const themeIcon = document.getElementById('themeIcon');
-
-            // Verifica si el modo oscuro está activado en el almacenamiento local
-            const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
-
-            // Función para cambiar el ícono del tema
-            function toggleThemeIcon() {
-                if (document.documentElement.classList.contains('dark')) {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            }
-
-            // Cambiar el ícono del tema al cargar la página
-            toggleThemeIcon();
-
-            // Agrega un listener para el evento 'click' en el botón
-            themeToggleBtn.addEventListener('click', function (event) {
-                event.preventDefault(); // Previene el comportamiento predeterminado del ícono
-                // Cambia el tema de claro a oscuro y viceversa
-                document.documentElement.classList.toggle('dark');
-
-                // Cambia el ícono del tema
-                toggleThemeIcon();
-
-                // Actualiza el estado del modo oscuro en el almacenamiento local
-                const isDarkModeNowEnabled = document.documentElement.classList.contains('dark');
-                localStorage.setItem('darkModeEnabled', isDarkModeNowEnabled);
-            });
-        });
-    </script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const themeToggleBtn = document.getElementById('themeIconContainer');
+			const themeIcon = document.getElementById('themeIcon');
+	
+			// Verifica si el modo oscuro está activado en el almacenamiento local
+			const savedTheme = localStorage.getItem('theme') || 'light';
+			setTheme(savedTheme);
+	
+			// Función para cambiar el ícono del tema
+			function toggleThemeIcon() {
+				if (document.documentElement.classList.contains('dark')) {
+					themeIcon.classList.remove('fa-moon');
+					themeIcon.classList.add('fa-sun');
+				} else {
+					themeIcon.classList.remove('fa-sun');
+					themeIcon.classList.add('fa-moon');
+				}
+			}
+	
+			// Cambiar el ícono del tema al cargar la página
+			toggleThemeIcon();
+	
+			// Agrega un listener para el evento 'click' en el botón
+			themeToggleBtn.addEventListener('click', function (event) {
+				event.preventDefault(); // Previene el comportamiento predeterminado del ícono
+				// Cambia entre temas light y dark
+				if (document.documentElement.classList.contains('dark')) {
+					setTheme('light');
+				} else {
+					setTheme('dark');
+				}
+			});
+	
+			// Función para aplicar un tema y actualizar el ícono
+			function setTheme(theme) {
+				document.documentElement.className = theme;
+				localStorage.setItem('theme', theme); // Guarda el tema seleccionado en localStorage para persistencia
+	
+				// Mostrar u ocultar la imagen de fondo según el tema seleccionado
+				const heroSection = document.getElementById('hero-section');
+				if (theme === 'theme1') {
+					heroSection.classList.remove('no-background');
+				} else {
+					heroSection.classList.add('no-background');
+				}
+	
+				// Cambia el ícono del tema
+				toggleThemeIcon();
+			}
+	
+			// Exponer setTheme globalmente para usarlo en el menú de temas
+			window.setTheme = setTheme;
+		});
+	</script>
 	
 	
 	<script>
